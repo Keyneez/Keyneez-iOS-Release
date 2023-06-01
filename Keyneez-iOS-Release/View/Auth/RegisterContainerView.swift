@@ -10,10 +10,16 @@ import SwiftUI
 struct RegisterContainerView: View {
     var body: some View {
       NavigationView {
-        RegisterIDView()
+        VStack {
+          Spacer().frame(height:32)
+          RegisterIDView()
+        }
         .toolbar {
           ToolbarItem(placement: .navigationBarLeading) {
-            Button("back") { }
+            Button(action: {}) {
+              Image(systemName: "chevron.left").renderingMode(.template)
+                .foregroundColor(.black)
+            }
           }
         }
       }
