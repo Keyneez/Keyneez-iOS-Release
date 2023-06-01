@@ -16,6 +16,7 @@
 		B125FBE32A2837FA0015E04B /* RegisterIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE22A2837FA0015E04B /* RegisterIDView.swift */; };
 		B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE42A283C7A0015E04B /* NicknameState.swift */; };
 		B125FBE72A283E8D0015E04B /* RegisterConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */; };
+		B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE82A28EEE70015E04B /* KeyneezButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		B125FBE22A2837FA0015E04B /* RegisterIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterIDView.swift; sourceTree = "<group>"; };
 		B125FBE42A283C7A0015E04B /* NicknameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameState.swift; sourceTree = "<group>"; };
 		B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterConsentView.swift; sourceTree = "<group>"; };
+		B125FBE82A28EEE70015E04B /* KeyneezButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		029A34CE2A1F523F00088963 /* Landing */ = {
 			isa = PBXGroup;
 			children = (
+				B125FBDE2A2832890015E04B /* WelcomeView.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -177,11 +180,11 @@
 		B125FBDB2A28323E0015E04B /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				B125FBDE2A2832890015E04B /* WelcomeView.swift */,
 				B125FBE02A2836170015E04B /* RegisterContainerView.swift */,
 				B125FBE22A2837FA0015E04B /* RegisterIDView.swift */,
 				B125FBE42A283C7A0015E04B /* NicknameState.swift */,
 				B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */,
+				B125FBE82A28EEE70015E04B /* KeyneezButton.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
+				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
 				B125FBE32A2837FA0015E04B /* RegisterIDView.swift in Sources */,
 				B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
