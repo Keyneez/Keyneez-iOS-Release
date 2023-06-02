@@ -10,6 +10,7 @@ import SwiftUI
 struct RegisterIDView: View {
   @State var nickName: String = ""
   @State var nickNameState: NicknameState = .default
+  @StateObject var viewModel = RegisterIDViewModel()
   @State var presentSheet = false
   
     var body: some View {
@@ -23,9 +24,9 @@ struct RegisterIDView: View {
           .frame(height: 48)
         VStack {
           HStack {
-            TextField("닉네임 입력하기", text: $nickName)
+            TextField("닉네임 입력하기", text: $viewModel.nickName)
               .font(.system(size: 20, weight: .bold))
-            Image(nickNameState == NicknameState.default ? "unchecked": "checked")
+            Image(checkImage())
           }
           .padding(.top, 8)
           .padding(.bottom, 8)
@@ -33,13 +34,13 @@ struct RegisterIDView: View {
           
           Rectangle()
             .frame(height: 1)
-            .foregroundColor(Color(.systemGray4))
+            .foregroundColor(viewModel.nickNameState.color)
             .padding(.horizontal, 24)
         }
         
         
-        Text("2-6자로 한글,영문,숫자를 조합해 사용할 수 있어요.")
-          .foregroundColor(Color(uiColor: .systemGray4))
+        Text(viewModel.nickNameState.description)
+          .foregroundColor(viewModel.nickNameState.color)
           .font(.system(size: 14, weight: .medium))
           .padding(.horizontal, 29)
         
@@ -51,7 +52,8 @@ struct RegisterIDView: View {
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
         }
-        .buttonStyle(.bordered)
+        .buttonStyle(.borderedProminent)
+        .tint(isNicknameAvailable())
         .padding(.horizontal, 22)
       }
       .sheet(isPresented: $presentSheet) {
@@ -59,6 +61,21 @@ struct RegisterIDView: View {
           .presentationDetents([.height(382)])
       }
     }
+  
+  private func checkImage() -> String {
+    if (viewModel.nickNameState == .default) || (viewModel.nickNameState == .specialSymbol) {
+      return "unchecked"
+    }
+    return "checked"
+  }
+  
+  private func isNicknameAvailable() -> Color {
+    if viewModel.nickNameState == .available {
+      return Color(uiColor: .black)
+    }
+    return Color(uiColor: .gray)
+  }
+  
 }
 
 struct RegisterIDView_Previews: PreviewProvider {

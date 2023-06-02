@@ -17,6 +17,8 @@
 		B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE42A283C7A0015E04B /* NicknameState.swift */; };
 		B125FBE72A283E8D0015E04B /* RegisterConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */; };
 		B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE82A28EEE70015E04B /* KeyneezButton.swift */; };
+		B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBEB2A29D3A10015E04B /* RegisterIDViewModel.swift */; };
+		B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBED2A29D5570015E04B /* IDRegexMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		B125FBE42A283C7A0015E04B /* NicknameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameState.swift; sourceTree = "<group>"; };
 		B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterConsentView.swift; sourceTree = "<group>"; };
 		B125FBE82A28EEE70015E04B /* KeyneezButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezButton.swift; sourceTree = "<group>"; };
+		B125FBEB2A29D3A10015E04B /* RegisterIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterIDViewModel.swift; sourceTree = "<group>"; };
+		B125FBED2A29D5570015E04B /* IDRegexMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDRegexMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 		029A34D92A1F553E00088963 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B125FBEA2A29D3920015E04B /* Auth */,
 				029A34DC2A1F555100088963 /* Home */,
 				029A34DB2A1F554B00088963 /* Landing */,
 				029A34DA2A1F554700088963 /* Setting */,
@@ -185,6 +190,15 @@
 				B125FBE42A283C7A0015E04B /* NicknameState.swift */,
 				B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */,
 				B125FBE82A28EEE70015E04B /* KeyneezButton.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B125FBEA2A29D3920015E04B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B125FBEB2A29D3A10015E04B /* RegisterIDViewModel.swift */,
+				B125FBED2A29D5570015E04B /* IDRegexMaker.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -260,7 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
+				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
+				B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */,
 				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
 				B125FBE32A2837FA0015E04B /* RegisterIDView.swift in Sources */,
 				B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */,

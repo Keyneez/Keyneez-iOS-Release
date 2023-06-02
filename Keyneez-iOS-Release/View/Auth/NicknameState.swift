@@ -28,9 +28,7 @@ enum NicknameState: CustomStringConvertible {
   
   var color: Color {
     switch self {
-    case .`default`: return Color(.systemGray4)
-    case .available:
-      return Color(.systemGray5)
+    case .`default`, .available: return Color(.systemGray4)
     case .specialSymbol:
       return .red
     case .duplicated:
