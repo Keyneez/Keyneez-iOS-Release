@@ -13,24 +13,9 @@ struct ConsentContent: Identifiable {
   var detailURL: URL?
 }
 
-struct ConsentRow: View {
-  var content: ConsentContent
-  var body: some View {
-    HStack {
-      Button(action: {}) {
-        Image(systemName: "person.fill")
-      }
-      Text(content.consentText)
-      Spacer()
-      Button(action: {}) {
-        Image(systemName: "chevron.right")
-      }
-      .opacity(content.detailURL == nil ? 0: 1)
-    }
-  }
-}
-
 struct RegisterConsentView: View {
+  
+  @StateObject var viewModel = RegisterConsentViewModel()
   
   let consentInfo: [ConsentContent] = [
     ConsentContent(consentText: "[필수] 만 14세 이상입니다."),
@@ -42,8 +27,8 @@ struct RegisterConsentView: View {
     var body: some View {
       VStack(alignment: .center) {
         HStack {
-          Image(systemName: "person.fill")
-          Spacer()
+          Image("unchecked_eclipse")
+          Spacer().frame(width: 14)
           Text("키니즈 이용약관 전체 동의")
           Spacer()
           Button {
@@ -52,18 +37,40 @@ struct RegisterConsentView: View {
             Image(systemName: "xmark").renderingMode(.template).foregroundColor(.black)
           }
         }
-        .padding(20)
+        .padding(.horizontal, 24)
+        .padding(.top, 26)
+        
+        
         List(consentInfo) { info in
           ConsentRow(content: info)
             .listRowSeparator(.hidden)
         }
-        .listStyle(.grouped)
+        .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        Button("동의 후 진행하기", action: {})
+        
+        Button(action: {}) {
+          Text("동의 후 진행하기")
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding(17 * 3/4)
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(updateConfirmButtonColor())
+        .padding(.horizontal, 22)
+      
         Spacer()
       }
       
     }
+  
+  private func updateConfirmButtonColor() -> Color {
+    switch viewModel.state {
+    case let .confirm(ok):
+      if ok == true {
+        return .black
+      }
+      return .gray
+    }
+  }
 }
 
 struct RegisterConsentView_Previews: PreviewProvider {

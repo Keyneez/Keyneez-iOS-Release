@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct RegisterIDView: View {
-  @State var nickName: String = ""
-  @State var nickNameState: NicknameState = .default
+  
   @StateObject var viewModel = RegisterIDViewModel()
   @State var presentSheet = false
   
@@ -50,7 +49,7 @@ struct RegisterIDView: View {
         }) {
           Text("다음")
             .frame(minWidth: 0, maxWidth: .infinity)
-            .padding()
+            .padding(17 * 3/4)
         }
         .buttonStyle(.borderedProminent)
         .tint(isNicknameAvailable())
@@ -58,7 +57,8 @@ struct RegisterIDView: View {
       }
       .sheet(isPresented: $presentSheet) {
         RegisterConsentView()
-          .presentationDetents([.height(382)])
+          .presentationDetents([.height(350)])
+          .presentationCornerRadius(21)
       }
     }
   

@@ -30,6 +30,8 @@ struct WelcomeView: View {
           Button(action: {}) {
             Image("appleLogin")
           }
+          Spacer()
+            .frame(height: 20)
         }
       }
       .padding(.horizontal)

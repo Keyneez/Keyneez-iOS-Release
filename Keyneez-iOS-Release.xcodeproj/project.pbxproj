@@ -19,6 +19,14 @@
 		B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE82A28EEE70015E04B /* KeyneezButton.swift */; };
 		B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBEB2A29D3A10015E04B /* RegisterIDViewModel.swift */; };
 		B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBED2A29D5570015E04B /* IDRegexMaker.swift */; };
+		B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBEF2A29EE8E0015E04B /* ConsentRow.swift */; };
+		B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBF12A29F3B50015E04B /* RegisterConsentViewModel.swift */; };
+		B125FBF42A29F4A40015E04B /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBF32A29F4A40015E04B /* ViewModelable.swift */; };
+		B125FBF72A2DB6620015E04B /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBF62A2DB6620015E04B /* RecommendView.swift */; };
+		B125FBF92A2DBE310015E04B /* RecommendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBF82A2DBE310015E04B /* RecommendItem.swift */; };
+		B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFA2A2DC11B0015E04B /* RecommendCell.swift */; };
+		B125FBFD2A2DC3400015E04B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFC2A2DC3400015E04B /* View+Extension.swift */; };
+		B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFE2A2DC5770015E04B /* TagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +43,14 @@
 		B125FBE82A28EEE70015E04B /* KeyneezButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezButton.swift; sourceTree = "<group>"; };
 		B125FBEB2A29D3A10015E04B /* RegisterIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterIDViewModel.swift; sourceTree = "<group>"; };
 		B125FBED2A29D5570015E04B /* IDRegexMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDRegexMaker.swift; sourceTree = "<group>"; };
+		B125FBEF2A29EE8E0015E04B /* ConsentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentRow.swift; sourceTree = "<group>"; };
+		B125FBF12A29F3B50015E04B /* RegisterConsentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterConsentViewModel.swift; sourceTree = "<group>"; };
+		B125FBF32A29F4A40015E04B /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
+		B125FBF62A2DB6620015E04B /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		B125FBF82A2DBE310015E04B /* RecommendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendItem.swift; sourceTree = "<group>"; };
+		B125FBFA2A2DC11B0015E04B /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		B125FBFC2A2DC3400015E04B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		B125FBFE2A2DC5770015E04B /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,7 @@
 		029A34CD2A1F51F300088963 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B125FBF52A2DB6480015E04B /* Recommend */,
 				B125FBDB2A28323E0015E04B /* Auth */,
 				029A34D02A1F524E00088963 /* Setting */,
 				029A34CF2A1F524700088963 /* Home */,
@@ -131,6 +148,7 @@
 		029A34D92A1F553E00088963 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B125FBF32A29F4A40015E04B /* ViewModelable.swift */,
 				B125FBEA2A29D3920015E04B /* Auth */,
 				029A34DC2A1F555100088963 /* Home */,
 				029A34DB2A1F554B00088963 /* Landing */,
@@ -170,6 +188,7 @@
 		029A34DE2A1F563A00088963 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B125FBFC2A2DC3400015E04B /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +209,7 @@
 				B125FBE42A283C7A0015E04B /* NicknameState.swift */,
 				B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */,
 				B125FBE82A28EEE70015E04B /* KeyneezButton.swift */,
+				B125FBEF2A29EE8E0015E04B /* ConsentRow.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -199,8 +219,20 @@
 			children = (
 				B125FBEB2A29D3A10015E04B /* RegisterIDViewModel.swift */,
 				B125FBED2A29D5570015E04B /* IDRegexMaker.swift */,
+				B125FBF12A29F3B50015E04B /* RegisterConsentViewModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		B125FBF52A2DB6480015E04B /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				B125FBF62A2DB6620015E04B /* RecommendView.swift */,
+				B125FBF82A2DBE310015E04B /* RecommendItem.swift */,
+				B125FBFA2A2DC11B0015E04B /* RecommendCell.swift */,
+				B125FBFE2A2DC5770015E04B /* TagView.swift */,
+			);
+			path = Recommend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,13 +308,21 @@
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
 				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
+				B125FBFD2A2DC3400015E04B /* View+Extension.swift in Sources */,
 				B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */,
+				B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */,
+				B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */,
 				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
 				B125FBE32A2837FA0015E04B /* RegisterIDView.swift in Sources */,
+				B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */,
 				B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
 				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
 				B125FBE72A283E8D0015E04B /* RegisterConsentView.swift in Sources */,
+				B125FBF42A29F4A40015E04B /* ViewModelable.swift in Sources */,
+				B125FBF72A2DB6620015E04B /* RecommendView.swift in Sources */,
+				B125FBF92A2DBE310015E04B /* RecommendItem.swift in Sources */,
+				B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
