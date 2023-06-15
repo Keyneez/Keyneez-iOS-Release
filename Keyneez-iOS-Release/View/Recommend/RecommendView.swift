@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct RecommendView: View {
   private var items: [RecommendItem] = makeRecommendItems()
   
@@ -33,8 +31,15 @@ struct RecommendView: View {
                 ZStack(alignment: .topLeading) {
                   Rectangle()
                     .foregroundColor(.red)
-                    
                   RecommendCell(item: item)
+                  if item.checked == true {
+                    ZStack(alignment: .topTrailing) {
+                      Rectangle().foregroundColor(.black
+                        .opacity(0.3))
+                      Image("on")
+                        .offset(x: -11, y: 12)
+                    }
+                  }
                 }
                   .frame(maxWidth: .infinity, minHeight: 144)
                   .cornerRadius(30)
