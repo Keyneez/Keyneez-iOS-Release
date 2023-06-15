@@ -11,6 +11,7 @@ struct RegisterIDView: View {
   
   @StateObject var viewModel = RegisterIDViewModel()
   @State var presentSheet = false
+  @State var gotoNext = false
   
     var body: some View {
       VStack(alignment: .leading) {
@@ -37,7 +38,6 @@ struct RegisterIDView: View {
             .padding(.horizontal, 24)
         }
         
-        
         Text(viewModel.nickNameState.description)
           .foregroundColor(viewModel.nickNameState.color)
           .font(.system(size: 14, weight: .medium))
@@ -55,12 +55,21 @@ struct RegisterIDView: View {
         .tint(isNicknameAvailable())
         .padding(.horizontal, 22)
       }
-      .sheet(isPresented: $presentSheet) {
-        RegisterConsentView()
+      .sheet(isPresented: $presentSheet, onDismiss: {
+        gotoNext = true
+      }) {
+        RegisterConsentView(isPresent: $presentSheet)
           .presentationDetents([.height(350)])
           .presentationCornerRadius(21)
       }
+      NavigationLink(destination: RecommendView(), isActive: $gotoNext) {
+        EmptyView()
+      }
     }
+  
+}
+
+extension RegisterIDView {
   
   private func checkImage() -> String {
     if (viewModel.nickNameState == .default) || (viewModel.nickNameState == .specialSymbol) {

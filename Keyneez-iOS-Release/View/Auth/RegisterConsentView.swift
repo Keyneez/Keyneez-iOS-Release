@@ -7,22 +7,17 @@
 
 import SwiftUI
 
-struct ConsentContent: Identifiable {
+struct ConsentContent: Identifiable, Hashable {
   var id = UUID()
-  var consentText: String
-  var detailURL: URL?
+  var content: Constent
 }
 
 struct RegisterConsentView: View {
   
   @StateObject var viewModel = RegisterConsentViewModel()
+  @Binding var isPresent: Bool
   
-  let consentInfo: [ConsentContent] = [
-    ConsentContent(consentText: "[필수] 만 14세 이상입니다."),
-    ConsentContent(consentText: "[필수] 서비스 이용 약관 동의", detailURL: URL(string: "https://www.naver.com")!),
-    ConsentContent(consentText: "[필수] 개인정보 수집 및 이용 동의", detailURL: URL(string: "https://www.naver.com")!),
-    ConsentContent(consentText: "[선택] 이벤트, 프로모션 알림 메일 수신 동의", detailURL: URL(string: "https://www.naver.com")!)
-  ]
+  let consentInfo: [ConsentContent] = Constent.allCases.map { return ConsentContent(content: $0) }
   
     var body: some View {
       VStack(alignment: .center) {
@@ -39,16 +34,24 @@ struct RegisterConsentView: View {
         }
         .padding(.horizontal, 24)
         .padding(.top, 26)
+         
         
-        
-        List(consentInfo) { info in
-          ConsentRow(content: info)
-            .listRowSeparator(.hidden)
+        List(consentInfo, id: \.self) { info in
+          ZStack {
+            Button("") {
+              viewModel.action(.onTapConsent(id: info.content.rawValue))
+            }
+            ConsentRow(content: info, viewModel: viewModel)
+              .listRowSeparator(.hidden)
+          }
+          
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
         
-        Button(action: {}) {
+        Button(action: {
+         isPresent = false
+        }) {
           Text("동의 후 진행하기")
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding(17 * 3/4)
@@ -75,6 +78,6 @@ struct RegisterConsentView: View {
 
 struct RegisterConsentView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterConsentView()
+      RegisterConsentView(isPresent: .constant(false))
     }
 }

@@ -12,8 +12,7 @@ struct RegisterContainerView: View {
       NavigationView {
         VStack {
           Spacer().frame(height:32 * 3/4)
-//          RegisterIDView()
-          RecommendView()
+          RegisterIDView()
         }
         .toolbar {
           ToolbarItem(placement: .navigationBarLeading) {
