@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecommendView: View {
   private var items: [RecommendItem] = makeRecommendItems()
+  @StateObject var viewModel = RecommendViewModel()
   
   private let gridLayout = [
     GridItem(.flexible(), spacing: 15),
@@ -26,18 +27,29 @@ struct RecommendView: View {
             .foregroundColor(.gray)
           Spacer().frame(height: 30 * 3/4)
           LazyVGrid(columns: gridLayout, spacing: 15) {
-            ForEach(items, id: \.self) {
-              item in
+            ForEach(viewModel.items.indices, id: \.self) {
+              index in
                 ZStack(alignment: .topLeading) {
-                  Rectangle()
-                    .foregroundColor(.red)
-                  RecommendCell(item: item)
-                  if item.checked == true {
+                  Button {
+                    viewModel.action(.onTapFilter(id: index))
+                  } label: {
+                    Rectangle()
+                      .foregroundColor(.red)
+                  }
+                  .buttonStyle(.plain)
+                  
+                  RecommendCell(item: viewModel.items[index])
+                  if viewModel.items[index].checked == true {
                     ZStack(alignment: .topTrailing) {
-                      Rectangle().foregroundColor(.black
-                        .opacity(0.3))
+                      Button {
+                        viewModel.action(.onTapFilter(id: index))
+                      } label: {
+                        Rectangle().foregroundColor(.black
+                          .opacity(0.3))
+                      }
                       Image("on")
                         .offset(x: -11, y: 12)
+
                     }
                   }
                 }
@@ -48,16 +60,33 @@ struct RecommendView: View {
         }
         .padding(.horizontal, 24)
         Spacer()
-        Button(action: { }) {
+        Button(action: {
+          viewModel.action(.onTapConfirmButton)
+        }) {
           Text("키니즈 시작하기")
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding(17 * 3/4)
         }
         .buttonStyle(.borderedProminent)
-//        .tint(isNicknameAvailable())
+        .tint(updateConfirmButton())
         .padding(.horizontal, 22)
+        .disabled(!isConfirmed())
       }
     }
+}
+
+extension RecommendView {
+  
+  private func updateConfirmButton() -> Color {
+    return isConfirmed() ? .black : .gray
+  }
+  
+  private func isConfirmed() -> Bool {
+    switch viewModel.state {
+    case let .isCompleted(ok):
+      return ok
+    }
+  }
 }
 
 struct RecommendView_Previews: PreviewProvider {

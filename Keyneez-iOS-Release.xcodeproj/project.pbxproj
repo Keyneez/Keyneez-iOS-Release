@@ -27,6 +27,7 @@
 		B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFA2A2DC11B0015E04B /* RecommendCell.swift */; };
 		B125FBFD2A2DC3400015E04B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFC2A2DC3400015E04B /* View+Extension.swift */; };
 		B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFE2A2DC5770015E04B /* TagView.swift */; };
+		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		B125FBFA2A2DC11B0015E04B /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		B125FBFC2A2DC3400015E04B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		B125FBFE2A2DC5770015E04B /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		029A34D92A1F553E00088963 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B16332E92A3E9D9F00026A46 /* Recommend */,
 				B125FBF32A29F4A40015E04B /* ViewModelable.swift */,
 				B125FBEA2A29D3920015E04B /* Auth */,
 				029A34DC2A1F555100088963 /* Home */,
@@ -235,6 +238,14 @@
 			path = Recommend;
 			sourceTree = "<group>";
 		};
+		B16332E92A3E9D9F00026A46 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,6 +321,7 @@
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				B125FBFD2A2DC3400015E04B /* View+Extension.swift in Sources */,
 				B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */,
+				B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */,
 				B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */,
 				B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */,
 				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
