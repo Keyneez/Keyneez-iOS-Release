@@ -12,6 +12,7 @@ final class RecommendViewModel: ViewModelable {
   let queueLimit = 3
   @Published var state: State
   @Published var items = makeRecommendItems()
+  @Published var nickname: String = "민지너는최고"
   
   enum Action {
     case onTapFilter(id: Int)

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct RecommendView: View {
-  private var items: [RecommendItem] = makeRecommendItems()
+  var items: [RecommendItem] = makeRecommendItems()
   @StateObject var viewModel = RecommendViewModel()
+  @Binding var isShowing: Bool
   
   private let gridLayout = [
     GridItem(.flexible(), spacing: 15),
@@ -19,7 +20,8 @@ struct RecommendView: View {
     var body: some View {
       VStack {
         VStack(alignment: .leading) {
-          Text("민지너는최고님께\n딱 맞는 정보를 추천해 드릴게요!")
+          Spacer().frame(height:32 * 3/4)
+          Text("\(viewModel.nickname)님께\n딱 맞는 정보를 추천해 드릴게요!")
             .font(.system(size: 24, weight: .bold))
           Spacer().frame(height: 24 * 3/4)
           Text("선호하는 카테고리를 최대 3개까지 골라주세요")
@@ -72,6 +74,17 @@ struct RecommendView: View {
         .padding(.horizontal, 22)
         .disabled(!isConfirmed())
       }
+      .navigationBarBackButtonHidden(true)
+      .toolbar {
+        ToolbarItem(placement: .navigationBarLeading) {
+          Button(action: {
+            isShowing = false
+          }) {
+            Image(systemName: "chevron.left").renderingMode(.template)
+              .foregroundColor(.black)
+          }
+        }
+      }
     }
 }
 
@@ -91,6 +104,6 @@ extension RecommendView {
 
 struct RecommendView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendView()
+      RecommendView(isShowing: .constant(false))
     }
 }

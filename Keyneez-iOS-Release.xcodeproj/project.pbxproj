@@ -150,8 +150,8 @@
 		029A34D92A1F553E00088963 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B16332E92A3E9D9F00026A46 /* Recommend */,
 				B125FBF32A29F4A40015E04B /* ViewModelable.swift */,
+				B16332E92A3E9D9F00026A46 /* Recommend */,
 				B125FBEA2A29D3920015E04B /* Auth */,
 				029A34DC2A1F555100088963 /* Home */,
 				029A34DB2A1F554B00088963 /* Landing */,

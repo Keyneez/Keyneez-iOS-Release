@@ -11,7 +11,7 @@ struct RegisterIDView: View {
   
   @StateObject var viewModel = RegisterIDViewModel()
   @State var presentSheet = false
-  @State var gotoNext = false
+  @State var isShowingDetail = false
   
     var body: some View {
       VStack(alignment: .leading) {
@@ -56,13 +56,13 @@ struct RegisterIDView: View {
         .padding(.horizontal, 22)
       }
       .sheet(isPresented: $presentSheet, onDismiss: {
-        gotoNext = true
+        isShowingDetail = true
       }) {
         RegisterConsentView(isPresent: $presentSheet)
           .presentationDetents([.height(350)])
           .presentationCornerRadius(21)
       }
-      NavigationLink(destination: RecommendView(), isActive: $gotoNext) {
+      NavigationLink(destination: RecommendView(isShowing: $isShowingDetail), isActive: $isShowingDetail) {
         EmptyView()
       }
     }
