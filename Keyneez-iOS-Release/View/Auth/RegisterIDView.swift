@@ -13,69 +13,162 @@ struct RegisterIDView: View {
   @State var presentSheet = false
   @State var isShowingDetail = false
   
-    var body: some View {
+  var body: some View {
+    VStack(alignment: .leading) {
+      
+      Text("간단한 정보를 알려주세요.")
+        .font(.system(size: 24, weight: .bold))
+        .padding(.leading, 28)
+        .padding(.bottom, 12 * 3/4)
+      
+      Text("맞춤정보 제공을 위해 필요해요")
+        .padding(.leading, 28)
+        .font(.system(size: 14))
+      
+      Spacer()
+        .frame(height: 48)
+      
+      Text("닉네임")
+        .font(.system(size:14))
+        .padding(.horizontal, 24)
+        .padding(.bottom, 16 * 3/4)
       VStack(alignment: .leading) {
-        
-        Text("사용하실 닉네임을\n입력해주세요!")
-          .font(.system(size: 24, weight: .bold))
-          .padding(.leading, 28)
-        
-        Spacer()
-          .frame(height: 48)
-        VStack {
-          HStack {
-            TextField("닉네임 입력하기", text: $viewModel.nickName)
-              .font(.system(size: 20, weight: .bold))
-            Image(checkImage())
+        HStack {
+          TextField("2~6자 한글, 영문, 숫자 사용가능", text: $viewModel.nickName)
+            .font(.system(size: 20, weight: .medium))
+          if viewModel.nickNameState != .available {
+            checkImage().foregroundColor(viewModel.nickNameState.color)
+          } else {
+            checkImage()
           }
-          .padding(.top, 8)
-          .padding(.bottom, 8)
-          .padding(.horizontal, 29)
-          
-          Rectangle()
-            .frame(height: 1)
-            .foregroundColor(viewModel.nickNameState.color)
-            .padding(.horizontal, 24)
         }
+        .padding(.bottom, 8)
+        .padding(.horizontal, 29)
         
-        Text(viewModel.nickNameState.description)
+        Rectangle()
+          .frame(height: 1)
           .foregroundColor(viewModel.nickNameState.color)
-          .font(.system(size: 14, weight: .medium))
-          .padding(.horizontal, 29)
-        
-        Spacer()
-        Button(action: {
-          presentSheet = true
-        }) {
-          Text("다음")
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding(17 * 3/4)
+          .padding(.horizontal, 24)
+      }
+      Spacer().frame(height: 31)
+      
+      HStack {
+        VStack(alignment: .leading) {
+          Text("생년월일")
+            .font(.system(size: 14))
+          VStack(alignment: .leading) {
+            HStack {
+              TextField("YY/MM/DD", text: $viewModel.birthDate)
+                .font(.system(size: 20, weight: .regular))
+              
+              if viewModel.birthDateState != .available {
+                checkBirthDateTextFieldImage().foregroundColor(viewModel.birthDateState.color)
+              } else {
+                checkBirthDateTextFieldImage()
+              }
+            }
+            .padding(.top, 8)
+            .padding(.bottom, 8)
+            
+            Rectangle()
+              .frame(height: 1)
+              .foregroundColor(viewModel.birthDateState.color)
+          }
         }
-        .buttonStyle(.borderedProminent)
-        .tint(isNicknameAvailable())
-        .padding(.horizontal, 22)
+        
+        Spacer().frame(width: 29)
+        
+        VStack(alignment: .leading) {
+          Text("성별")
+            .font(.system(size: 14))
+          VStack(alignment: .leading) {
+            HStack {
+              Button(action: {
+                viewModel.action(.onTapGenderButton(gender: .man))
+              }) {
+                Text("남성")
+                  .font(.system(size: 16, weight: .medium))
+                  .padding(.horizontal, 21)
+                  .padding(.vertical, 9)
+              }
+              .background(checkGenderButtonBackgroundColor(in: .man))
+              .foregroundColor(updateGenderButtonTintColor(in: .man))
+              .buttonStyle(.plain)
+              .cornerRadius(12)
+              
+              Spacer().frame(width: 15)
+              Button(action: {
+                viewModel.action(.onTapGenderButton(gender: .woman))
+              }) {
+                Text("여성")
+                  .font(.system(size: 16, weight: .medium))
+                  .padding(.horizontal, 21)
+                  .padding(.vertical, 9)
+              }
+              .background(checkGenderButtonBackgroundColor(in: .woman))
+              .foregroundColor(updateGenderButtonTintColor(in:.woman))
+              .buttonStyle(.plain)
+              .cornerRadius(12)
+            }
+          }
+        }
+        
       }
-      .sheet(isPresented: $presentSheet, onDismiss: {
-        isShowingDetail = true
-      }) {
-        RegisterConsentView(isPresent: $presentSheet)
-          .presentationDetents([.height(350)])
-          .presentationCornerRadius(21)
+      .padding(.horizontal, 24)
+      
+      
+      Spacer()
+      
+      makeNextButtonView()
+        .sheet(isPresented: $presentSheet) {
+          RegisterConsentView(isPresent: $presentSheet, confirmed: $isShowingDetail)
+            .presentationDetents([.height(350)])
+            .presentationCornerRadius(21)
+        }
+      if presentSheet == false && isShowingDetail == true {
+        NavigationLink(destination: RecommendView(isShowing: $isShowingDetail), isActive: $isShowingDetail) {
+          EmptyView()
+        }
       }
-      NavigationLink(destination: RecommendView(isShowing: $isShowingDetail), isActive: $isShowingDetail) {
-        EmptyView()
-      }
+      
     }
-  
+  }
 }
 
 extension RegisterIDView {
   
-  private func checkImage() -> String {
-    if (viewModel.nickNameState == .default) || (viewModel.nickNameState == .specialSymbol) {
-      return "unchecked"
+  private func checkBirthDateTextFieldImage() -> Image {
+    if viewModel.birthDateState == .available {
+      return Image("checked")
     }
-    return "checked"
+    return Image("unchecked").renderingMode(.template)
+  }
+  
+  private func checkGenderButtonBackgroundColor(in gender: Gender) -> Color {
+    if viewModel.gender == .man {
+      return gender == .man ? Color(uiColor: .black) : Color(uiColor: .systemGray5)
+    } else if viewModel.gender == .woman {
+      return gender == .woman ? Color(uiColor: .black) : Color(uiColor: .systemGray5)
+    } else {
+      return Color(uiColor: .systemGray5)
+    }
+  }
+  
+  private func updateGenderButtonTintColor(in gender: Gender) -> Color {
+    if viewModel.gender == .man {
+      return gender == .man ? Color(uiColor: .white) : Color(uiColor: .systemGray2)
+    } else if viewModel.gender == .woman {
+      return gender == .woman ? Color(uiColor: .white) : Color(uiColor: .systemGray2)
+    }
+    return Color(uiColor: .systemGray2)
+  }
+  
+  private func checkImage() -> Image {
+    if (viewModel.nickNameState == .default) || (viewModel.nickNameState == .specialSymbol) || viewModel.nickNameState == .overSix {
+      return Image("unchecked")
+        .renderingMode(.template)
+    }
+    return Image("checked")
   }
   
   private func isNicknameAvailable() -> Color {
@@ -83,6 +176,36 @@ extension RegisterIDView {
       return Color(uiColor: .black)
     }
     return Color(uiColor: .gray)
+  }
+  
+  private func updateConfirmationState() -> Color {
+    switch viewModel.state {
+    case .confirm(let ok):
+      if ok {
+        return Color(uiColor: .black)
+      }
+      return Color(uiColor: .gray)
+    }
+  }
+  
+  @ViewBuilder
+  private func makeNextButtonView() -> some View {
+    switch viewModel.state {
+    case .confirm(let ok):
+      Button(action: {
+        if ok == true {
+          presentSheet = true
+        }
+      }) {
+        Text("다음")
+          .frame(minWidth: 0, maxWidth: .infinity)
+          .padding(17 * 3/4)
+      }
+      .buttonStyle(.borderedProminent)
+      .tint(updateConfirmationState())
+      .padding(.horizontal, 22)
+    }
+    
   }
   
 }

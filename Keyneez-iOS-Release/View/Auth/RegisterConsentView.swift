@@ -16,18 +16,19 @@ struct RegisterConsentView: View {
   
   @StateObject var viewModel = RegisterConsentViewModel()
   @Binding var isPresent: Bool
+  @Binding var confirmed: Bool
   
   let consentInfo: [ConsentContent] = Constent.allCases.map { return ConsentContent(content: $0) }
   
     var body: some View {
       VStack(alignment: .center) {
         HStack {
-          Image("unchecked_eclipse")
+          confirmationImage()
           Spacer().frame(width: 14)
           Text("키니즈 이용약관 전체 동의")
           Spacer()
           Button {
-            print("back")
+            isPresent = false
           } label: {
             Image(systemName: "xmark").renderingMode(.template).foregroundColor(.black)
           }
@@ -48,22 +49,41 @@ struct RegisterConsentView: View {
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        
-        Button(action: {
-         isPresent = false
-        }) {
-          Text("동의 후 진행하기")
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding(17 * 3/4)
-        }
-        .buttonStyle(.borderedProminent)
-        .tint(updateConfirmButtonColor())
-        .padding(.horizontal, 22)
-      
+      confirmButton()
         Spacer()
       }
       
     }
+  
+  @ViewBuilder
+  private func confirmButton() -> some View {
+    Button(action: {
+     isPresent = false
+      switch viewModel.state {
+        case .confirm(let ok):
+          confirmed = ok
+      }
+    }) {
+      Text("동의 후 진행하기")
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .padding(17 * 3/4)
+    }
+    .buttonStyle(.borderedProminent)
+    .tint(updateConfirmButtonColor())
+    .padding(.horizontal, 22)
+  }
+  
+  @ViewBuilder
+  private func confirmationImage() -> some View {
+    switch viewModel.state {
+    case let .confirm(ok):
+      if ok {
+        Image("on")
+      } else {
+        Image("unchecked_eclipse")
+      }
+    }
+  }
   
   private func updateConfirmButtonColor() -> Color {
     switch viewModel.state {
@@ -78,6 +98,6 @@ struct RegisterConsentView: View {
 
 struct RegisterConsentView_Previews: PreviewProvider {
     static var previews: some View {
-      RegisterConsentView(isPresent: .constant(false))
+      RegisterConsentView(isPresent: .constant(false), confirmed: .constant(false))
     }
 }

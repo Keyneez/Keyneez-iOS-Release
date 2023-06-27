@@ -27,6 +27,9 @@
 		B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFA2A2DC11B0015E04B /* RecommendCell.swift */; };
 		B125FBFD2A2DC3400015E04B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFC2A2DC3400015E04B /* View+Extension.swift */; };
 		B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBFE2A2DC5770015E04B /* TagView.swift */; };
+		B145A0392A4A9A9E003505B6 /* BirthRegexMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0382A4A9A9E003505B6 /* BirthRegexMaker.swift */; };
+		B145A03B2A4AB2EF003505B6 /* BirthDateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A03A2A4AB2EF003505B6 /* BirthDateState.swift */; };
+		B145A03D2A4ABB14003505B6 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A03C2A4ABB14003505B6 /* Gender.swift */; };
 		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,9 @@
 		B125FBFA2A2DC11B0015E04B /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		B125FBFC2A2DC3400015E04B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		B125FBFE2A2DC5770015E04B /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		B145A0382A4A9A9E003505B6 /* BirthRegexMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthRegexMaker.swift; sourceTree = "<group>"; };
+		B145A03A2A4AB2EF003505B6 /* BirthDateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateState.swift; sourceTree = "<group>"; };
+		B145A03C2A4ABB14003505B6 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,8 +227,11 @@
 			isa = PBXGroup;
 			children = (
 				B125FBEB2A29D3A10015E04B /* RegisterIDViewModel.swift */,
+				B145A03A2A4AB2EF003505B6 /* BirthDateState.swift */,
 				B125FBED2A29D5570015E04B /* IDRegexMaker.swift */,
 				B125FBF12A29F3B50015E04B /* RegisterConsentViewModel.swift */,
+				B145A0382A4A9A9E003505B6 /* BirthRegexMaker.swift */,
+				B145A03C2A4ABB14003505B6 /* Gender.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -316,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B145A03B2A4AB2EF003505B6 /* BirthDateState.swift in Sources */,
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
 				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
@@ -327,11 +337,13 @@
 				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
 				B125FBE32A2837FA0015E04B /* RegisterIDView.swift in Sources */,
 				B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */,
+				B145A03D2A4ABB14003505B6 /* Gender.swift in Sources */,
 				B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
 				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
 				B125FBE72A283E8D0015E04B /* RegisterConsentView.swift in Sources */,
 				B125FBF42A29F4A40015E04B /* ViewModelable.swift in Sources */,
+				B145A0392A4A9A9E003505B6 /* BirthRegexMaker.swift in Sources */,
 				B125FBF72A2DB6620015E04B /* RecommendView.swift in Sources */,
 				B125FBF92A2DBE310015E04B /* RecommendItem.swift in Sources */,
 				B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */,
