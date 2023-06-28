@@ -30,6 +30,18 @@
 		B145A0392A4A9A9E003505B6 /* BirthRegexMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0382A4A9A9E003505B6 /* BirthRegexMaker.swift */; };
 		B145A03B2A4AB2EF003505B6 /* BirthDateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A03A2A4AB2EF003505B6 /* BirthDateState.swift */; };
 		B145A03D2A4ABB14003505B6 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A03C2A4ABB14003505B6 /* Gender.swift */; };
+		B145A03F2A4ACD76003505B6 /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A03E2A4ACD76003505B6 /* PageIndicator.swift */; };
+		B145A0432A4B127D003505B6 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B145A0422A4B127D003505B6 /* KakaoSDKAuth */; };
+		B145A0452A4B127D003505B6 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B145A0442A4B127D003505B6 /* KakaoSDKUser */; };
+		B145A0482A4BBCCD003505B6 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0472A4BBCCD003505B6 /* WelcomeViewModel.swift */; };
+		B145A04A2A4BBF64003505B6 /* OSLog+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0492A4BBF64003505B6 /* OSLog+Extension.swift */; };
+		B145A04D2A4BC162003505B6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B145A04C2A4BC162003505B6 /* Moya */; };
+		B145A0512A4BC1F3003505B6 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0502A4BC1F3003505B6 /* AuthAPI.swift */; };
+		B145A0532A4BC2C5003505B6 /* OAuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0522A4BC2C5003505B6 /* OAuthAPI.swift */; };
+		B145A0552A4BC375003505B6 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0542A4BC375003505B6 /* APIEnvironment.swift */; };
+		B145A0572A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0562A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift */; };
+		B145A05B2A4BCF6A003505B6 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A05A2A4BCF6A003505B6 /* Encodable+Extension.swift */; };
+		B145A05D2A4BD043003505B6 /* MoyaProvider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A05C2A4BD043003505B6 /* MoyaProvider+Extension.swift */; };
 		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +70,16 @@
 		B145A0382A4A9A9E003505B6 /* BirthRegexMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthRegexMaker.swift; sourceTree = "<group>"; };
 		B145A03A2A4AB2EF003505B6 /* BirthDateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateState.swift; sourceTree = "<group>"; };
 		B145A03C2A4ABB14003505B6 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		B145A03E2A4ACD76003505B6 /* PageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicator.swift; sourceTree = "<group>"; };
+		B145A0462A4B1321003505B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B145A0472A4BBCCD003505B6 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		B145A0492A4BBF64003505B6 /* OSLog+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+Extension.swift"; sourceTree = "<group>"; };
+		B145A0502A4BC1F3003505B6 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		B145A0522A4BC2C5003505B6 /* OAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAPI.swift; sourceTree = "<group>"; };
+		B145A0542A4BC375003505B6 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		B145A0562A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignUpRequestDTO.swift; sourceTree = "<group>"; };
+		B145A05A2A4BCF6A003505B6 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		B145A05C2A4BD043003505B6 /* MoyaProvider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Extension.swift"; sourceTree = "<group>"; };
 		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +88,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B145A0452A4B127D003505B6 /* KakaoSDKUser in Frameworks */,
+				B145A0432A4B127D003505B6 /* KakaoSDKAuth in Frameworks */,
+				B145A04D2A4BC162003505B6 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +116,8 @@
 		029A34BC2A1F49E600088963 /* Keyneez-iOS-Release */ = {
 			isa = PBXGroup;
 			children = (
+				B145A04E2A4BC1C9003505B6 /* Data */,
+				B145A0462A4B1321003505B6 /* Info.plist */,
 				029A34DF2A1F569400088963 /* Resource */,
 				029A34DE2A1F563A00088963 /* Extensions */,
 				029A34DD2A1F557500088963 /* Models */,
@@ -134,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				B125FBDE2A2832890015E04B /* WelcomeView.swift */,
+				B145A03E2A4ACD76003505B6 /* PageIndicator.swift */,
+				B145A0472A4BBCCD003505B6 /* WelcomeViewModel.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -190,6 +219,8 @@
 		029A34DD2A1F557500088963 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B145A0592A4BC95A003505B6 /* OAuth */,
+				B145A0402A4B11D0003505B6 /* Auth */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				B125FBFC2A2DC3400015E04B /* View+Extension.swift */,
+				B145A0492A4BBF64003505B6 /* OSLog+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,11 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				B125FBEB2A29D3A10015E04B /* RegisterIDViewModel.swift */,
-				B145A03A2A4AB2EF003505B6 /* BirthDateState.swift */,
-				B125FBED2A29D5570015E04B /* IDRegexMaker.swift */,
 				B125FBF12A29F3B50015E04B /* RegisterConsentViewModel.swift */,
-				B145A0382A4A9A9E003505B6 /* BirthRegexMaker.swift */,
-				B145A03C2A4ABB14003505B6 /* Gender.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -245,6 +273,61 @@
 				B125FBFE2A2DC5770015E04B /* TagView.swift */,
 			);
 			path = Recommend;
+			sourceTree = "<group>";
+		};
+		B145A0402A4B11D0003505B6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B145A05E2A4BD1C8003505B6 /* RequestDTO */,
+				B145A03A2A4AB2EF003505B6 /* BirthDateState.swift */,
+				B125FBED2A29D5570015E04B /* IDRegexMaker.swift */,
+				B145A0382A4A9A9E003505B6 /* BirthRegexMaker.swift */,
+				B145A03C2A4ABB14003505B6 /* Gender.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B145A04E2A4BC1C9003505B6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B145A04F2A4BC1DE003505B6 /* Auth */,
+				B145A0542A4BC375003505B6 /* APIEnvironment.swift */,
+				B145A05A2A4BCF6A003505B6 /* Encodable+Extension.swift */,
+				B145A05C2A4BD043003505B6 /* MoyaProvider+Extension.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B145A04F2A4BC1DE003505B6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B145A0502A4BC1F3003505B6 /* AuthAPI.swift */,
+				B145A0522A4BC2C5003505B6 /* OAuthAPI.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B145A0582A4BC94A003505B6 /* RequestDTO */ = {
+			isa = PBXGroup;
+			children = (
+				B145A0562A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift */,
+			);
+			path = RequestDTO;
+			sourceTree = "<group>";
+		};
+		B145A0592A4BC95A003505B6 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				B145A0582A4BC94A003505B6 /* RequestDTO */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		B145A05E2A4BD1C8003505B6 /* RequestDTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RequestDTO;
 			sourceTree = "<group>";
 		};
 		B16332E92A3E9D9F00026A46 /* Recommend */ = {
@@ -271,6 +354,11 @@
 			dependencies = (
 			);
 			name = "Keyneez-iOS-Release";
+			packageProductDependencies = (
+				B145A0422A4B127D003505B6 /* KakaoSDKAuth */,
+				B145A0442A4B127D003505B6 /* KakaoSDKUser */,
+				B145A04C2A4BC162003505B6 /* Moya */,
+			);
 			productName = "Keyneez-iOS-Release";
 			productReference = 029A34BA2A1F49E600088963 /* Keyneez-iOS-Release.app */;
 			productType = "com.apple.product-type.application";
@@ -299,6 +387,10 @@
 				Base,
 			);
 			mainGroup = 029A34B12A1F49E600088963;
+			packageReferences = (
+				B145A0412A4B127D003505B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				B145A04B2A4BC162003505B6 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 029A34BB2A1F49E600088963 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -330,17 +422,26 @@
 				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				B125FBFD2A2DC3400015E04B /* View+Extension.swift in Sources */,
+				B145A0532A4BC2C5003505B6 /* OAuthAPI.swift in Sources */,
 				B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */,
+				B145A03F2A4ACD76003505B6 /* PageIndicator.swift in Sources */,
 				B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */,
 				B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */,
 				B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */,
+				B145A05D2A4BD043003505B6 /* MoyaProvider+Extension.swift in Sources */,
 				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
+				B145A0482A4BBCCD003505B6 /* WelcomeViewModel.swift in Sources */,
 				B125FBE32A2837FA0015E04B /* RegisterIDView.swift in Sources */,
 				B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */,
+				B145A04A2A4BBF64003505B6 /* OSLog+Extension.swift in Sources */,
 				B145A03D2A4ABB14003505B6 /* Gender.swift in Sources */,
+				B145A0552A4BC375003505B6 /* APIEnvironment.swift in Sources */,
+				B145A0512A4BC1F3003505B6 /* AuthAPI.swift in Sources */,
+				B145A0572A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift in Sources */,
 				B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
 				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
+				B145A05B2A4BCF6A003505B6 /* Encodable+Extension.swift in Sources */,
 				B125FBE72A283E8D0015E04B /* RegisterConsentView.swift in Sources */,
 				B125FBF42A29F4A40015E04B /* ViewModelable.swift in Sources */,
 				B145A0392A4A9A9E003505B6 /* BirthRegexMaker.swift in Sources */,
@@ -478,6 +579,7 @@
 				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -507,6 +609,7 @@
 				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -547,6 +650,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B145A0412A4B127D003505B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B145A04B2A4BC162003505B6 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B145A0422A4B127D003505B6 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B145A0412A4B127D003505B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		B145A0442A4B127D003505B6 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B145A0412A4B127D003505B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+		B145A04C2A4BC162003505B6 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B145A04B2A4BC162003505B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 029A34B22A1F49E600088963 /* Project object */;
 }
