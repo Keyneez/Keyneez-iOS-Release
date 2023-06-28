@@ -7,7 +7,12 @@
 
 import SwiftUI
 
+
 struct WelcomeView: View {
+    
+  var welcomeTexts = ["청소년들에게 필요한\n활동과 혜택 정보를 한눈에!", "다양한 세상을 키니즈와 함께 둘러볼까요?"]
+ @State var page = 0
+  
     var body: some View {
       ZStack {
         Image("background")
@@ -23,8 +28,14 @@ struct WelcomeView: View {
           Text("GIF 위치")
             .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 2)
             .border(.black)
+          Text(welcomeTexts[0])
+            .multilineTextAlignment(.center)
+            .font(.system(size: 20 * 3/4, weight: .bold))
+          pageControl
           Spacer()
-          Button(action: {}) {
+          Button(action: {
+            
+          }) {
             Image("kakaoLogin")
           }
           Button(action: {}) {
@@ -36,6 +47,13 @@ struct WelcomeView: View {
       }
       .padding(.horizontal)
     }
+  
+  @ViewBuilder
+  private var pageControl: some View {
+    HStack {
+      PageIndicator(currentPage: $page, numberOfpages: 3)
+    }
+  }
     
 }
 
