@@ -55,7 +55,7 @@ struct SettingView: View {
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack() {
                                     Text("민지너는최고")
-                                        .foregroundColor(Color.black) // TODO: gray900으로 변경
+                                        .foregroundColor(.gray900)
                                         .font(.system(size: 20))
                                         .fontWeight(.semibold)
                                     Spacer().frame(width: 3)
@@ -76,7 +76,7 @@ struct SettingView: View {
                             VStack(spacing: 0) {
                                 HStack {
                                     Text("로그인 정보")
-                                        .foregroundColor(Color.gray) // TODO: - gray500으로 변경
+                                        .foregroundColor(.gray500)
                                         .font(.system(size: 16))
                                     Spacer()
                                     // TODO: - 로그인 정보에 따라 카카오 / 애플 변경
@@ -86,7 +86,7 @@ struct SettingView: View {
                                 .padding([.leading, .trailing], 28)
                                 HStack {
                                     Text("자동 로그인 사용")
-                                        .foregroundColor(Color.gray) // TODO: - gray500으로 변경
+                                        .foregroundColor(.gray500)
                                         .font(.system(size: 16))
                                     Spacer()
                                     Toggle(isOn: self.$isOnAutoLogIn) {
@@ -107,7 +107,7 @@ struct SettingView: View {
                             VStack(spacing: 0) {
                                 HStack {
                                     Text("푸쉬 알림 설정")
-                                        .foregroundColor(Color.gray) // TODO: - gray500으로 변경
+                                        .foregroundColor(.gray500)
                                         .font(.system(size: 16))
                                     Spacer()
                                     Toggle(isOn: self.$isOnPushAlert) {
@@ -127,7 +127,7 @@ struct SettingView: View {
                         Section {
                                 HStack {
                                     Text("버전 정보")
-                                        .foregroundColor(Color.gray) // TODO: - gray500으로 변경
+                                        .foregroundColor(.gray500)
                                         .font(.system(size: 16))
                                     Spacer()
                                     Text("1.0.1") // TODO: - 버전 정보 변수로 변경
@@ -142,7 +142,7 @@ struct SettingView: View {
                                 ) {
                                     HStack {
                                         Text("서비스 이용 약관")
-                                            .foregroundColor(Color.gray) // TODO: - gray500으로 변경
+                                            .foregroundColor(.gray500)
                                             .font(.system(size: 16))
                                     }
                                     .onTapGesture {
@@ -158,7 +158,7 @@ struct SettingView: View {
                                 ) {
                                     HStack {
                                         Text("개인정보 처리방침")
-                                            .foregroundColor(Color.gray) // TODO: - gray500으로 변경
+                                            .foregroundColor(.gray500)
                                             .font(.system(size: 16))
                                         Spacer()
                                     }
@@ -175,7 +175,7 @@ struct SettingView: View {
                                 ) {
                                     HStack {
                                         Text("오픈소스 라이센스")
-                                            .foregroundColor(Color.gray) // TODO: - gray500으로 변경
+                                            .foregroundColor(.gray500)
                                             .font(.system(size: 16))
                                         Spacer()
                                     }
@@ -200,7 +200,7 @@ struct SettingView: View {
                                         popUpState = .logOut
                                     }, label: {
                                         Text("로그아웃")
-                                            .foregroundColor(Color.red) // TODO: - red500으로 변경
+                                            .foregroundColor(.red500)
                                             .font(.system(size: 16))
                                     })
                                     Spacer()
@@ -215,7 +215,7 @@ struct SettingView: View {
                                         popUpState = .withDraw
                                     }, label: {
                                         Text("탈퇴하기")
-                                            .foregroundColor(Color.gray) // TODO: - gray400으로 변경
+                                            .foregroundColor(.gray400)
                                             .font(.system(size: 16))
                                     })
                                     Spacer()

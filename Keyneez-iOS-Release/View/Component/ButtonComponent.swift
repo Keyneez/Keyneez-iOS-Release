@@ -14,11 +14,11 @@ struct CancelButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: fontSize))
-            .foregroundColor(.white) // TODO: gray500
+            .foregroundColor(.gray500)
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .foregroundColor(.white)
-            .background(RoundedRectangle(cornerRadius: 12.0).fill(Color.gray) // TODO: gray100
+            .background(RoundedRectangle(cornerRadius: 12.0).fill(Color.gray100)
                         
             )
     }
@@ -35,7 +35,7 @@ struct BlackButtonStyle: ButtonStyle {
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .foregroundColor(.white)
-            .background(RoundedRectangle(cornerRadius: 12.0).fill(Color.black) // TODO: gray100
+            .background(RoundedRectangle(cornerRadius: 12.0).fill(Color.gray900)
                         
             )
     }
