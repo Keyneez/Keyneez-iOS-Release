@@ -20,6 +20,7 @@
 		02B70E472A35E02B009E220B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02B70E462A35E02B009E220B /* Pretendard-Regular.otf */; };
 		02B70E4B2A35EA6B009E220B /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B70E4A2A35EA6B009E220B /* Font+Extension.swift */; };
 		02B70E4D2A35F169009E220B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B70E4C2A35F169009E220B /* Color+Extension.swift */; };
+		02C1FA0F2A570EE6009E9D41 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1FA0E2A570EE6009E9D41 /* TagView.swift */; };
 		02FA293A2A489BF5008359EF /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA29392A489BF5008359EF /* TabBarView.swift */; };
 		02FA293E2A489ED3008359EF /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA293D2A489ED3008359EF /* LikeView.swift */; };
 		02FA29412A489F15008359EF /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA29402A489F15008359EF /* ExploreView.swift */; };
@@ -42,6 +43,7 @@
 		02B70E492A35E6D8009E220B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		02B70E4A2A35EA6B009E220B /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		02B70E4C2A35F169009E220B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		02C1FA0E2A570EE6009E9D41 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		02FA29392A489BF5008359EF /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		02FA293D2A489ED3008359EF /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		02FA29402A489F15008359EF /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		027918AF2A49E4FF002763B7 /* Card */ = {
 			isa = PBXGroup;
 			children = (
+				02C1FA0E2A570EE6009E9D41 /* TagView.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				02FA293E2A489ED3008359EF /* LikeView.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
+				02C1FA0F2A570EE6009E9D41 /* TagView.swift in Sources */,
 				027918AE2A49B235002763B7 /* JellyGifImageView.swift in Sources */,
 				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
 				02FA29432A48A1CD008359EF /* SettingView.swift in Sources */,
