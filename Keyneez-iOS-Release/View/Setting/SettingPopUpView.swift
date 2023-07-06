@@ -49,15 +49,15 @@ struct SettingPopUpView: View {
             VStack(alignment: .leading) {
                 Spacer()
                     .frame(height: 21)
-                Text(popUpTitle) // TODO: Font 적용
-                    .font(.system(size: 20))
-                    .fontWeight(.semibold)
+                Text(popUpTitle)
+                    .font(.pretendard(.semiBold, size: 20))
+                    .foregroundColor(.gray900)
                     .lineSpacing(1)
                 Spacer()
                     .frame(height: 8)
                 Text(popUpDescription)
-                    .font(.system(size: 14))
-                    .foregroundColor(Color.gray) // TODO: Font 적용
+                    .font(.pretendard(.medium, size: 14))
+                    .foregroundColor(.gray500)
                 Spacer()
                     .frame(height: 23)
                 HStack {
@@ -65,12 +65,15 @@ struct SettingPopUpView: View {
                         isVisible.toggle()
                     } label: {
                         Text("취소")
+                            .font(.pretendard(.medium, size: 18))
+                            .foregroundColor(.gray500)
                     }.buttonStyle(CancelButtonStyle())
                     Button {
                         isVisible.toggle()
                         userLogout.toggle()
                     } label: {
                         Text(rightButtonText)
+                            .font(.pretendard(.medium, size: 18))
                     }.buttonStyle(BlackButtonStyle())
                 }
                 Spacer()

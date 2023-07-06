@@ -11,7 +11,6 @@ import SwiftUI
 // TODO: 리스트 섹션 간격 변경
 
 // TODO: - 레이아웃 패딩값 변경, 폰트 변경
-// TODO: - pt -> px로 변경
 
 // TODO: - PopUp 뷰 부드럽게 애니메이션
 
@@ -43,8 +42,7 @@ struct SettingView: View {
     @State private var isLogOut = false // 임시변수 -> User로 대체
     
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 26)!]
-        // TODO: Font - Semibold로 변경
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Pretendard-SemiBold", size: 26)!]
         // TODO: padding leading 값 28로 변경
     }
     
@@ -58,7 +56,7 @@ struct SettingView: View {
                                 HStack() {
                                     Text("민지너는최고")
                                         .foregroundColor(.gray900)
-                                        .font(.system(size: 20))
+                                        .font(.pretendard(.semiBold, size: 20))
                                         .fontWeight(.semibold)
                                     Spacer().frame(width: 3)
                                     Image("Setting_edit")
@@ -79,7 +77,7 @@ struct SettingView: View {
                                 HStack {
                                     Text("로그인 정보")
                                         .foregroundColor(.gray500)
-                                        .font(.system(size: 16))
+                                        .font(.pretendard(.medium, size: 16))
                                     Spacer()
                                     // TODO: - 로그인 정보에 따라 카카오 / 애플 변경
                                     Image("LogInInfo_Kakao")
@@ -89,7 +87,7 @@ struct SettingView: View {
                                 HStack {
                                     Text("자동 로그인 사용")
                                         .foregroundColor(.gray500)
-                                        .font(.system(size: 16))
+                                        .font(.pretendard(.medium, size: 16))
                                     Spacer()
                                     Toggle(isOn: self.$isOnAutoLogIn) {
                                     }
@@ -110,7 +108,7 @@ struct SettingView: View {
                                 HStack {
                                     Text("푸쉬 알림 설정")
                                         .foregroundColor(.gray500)
-                                        .font(.system(size: 16))
+                                        .font(.pretendard(.medium, size: 16))
                                     Spacer()
                                     Toggle(isOn: self.$isOnPushAlert) {
                                     }.tint(Color.black)
@@ -130,7 +128,7 @@ struct SettingView: View {
                                 HStack {
                                     Text("버전 정보")
                                         .foregroundColor(.gray500)
-                                        .font(.system(size: 16))
+                                        .font(.pretendard(.medium, size: 16))
                                     Spacer()
                                     Text("1.0.1") // TODO: - 버전 정보 변수로 변경
                                 }
@@ -145,7 +143,7 @@ struct SettingView: View {
                                     HStack {
                                         Text("서비스 이용 약관")
                                             .foregroundColor(.gray500)
-                                            .font(.system(size: 16))
+                                            .font(.pretendard(.medium, size: 16))
                                     }
                                     .onTapGesture {
                                         termsViewState = .serviceUse
@@ -161,7 +159,7 @@ struct SettingView: View {
                                     HStack {
                                         Text("개인정보 처리방침")
                                             .foregroundColor(.gray500)
-                                            .font(.system(size: 16))
+                                            .font(.pretendard(.medium, size: 16))
                                         Spacer()
                                     }
                                     .onTapGesture {
@@ -178,7 +176,7 @@ struct SettingView: View {
                                     HStack {
                                         Text("오픈소스 라이센스")
                                             .foregroundColor(.gray500)
-                                            .font(.system(size: 16))
+                                            .font(.pretendard(.medium, size: 16))
                                         Spacer()
                                     }
                                     .onTapGesture {
@@ -203,7 +201,7 @@ struct SettingView: View {
                                     }, label: {
                                         Text("로그아웃")
                                             .foregroundColor(.red500)
-                                            .font(.system(size: 16))
+                                            .font(.pretendard(.medium, size: 16))
                                     })
                                     Spacer()
                                     Image("Setting_arrow")
@@ -218,7 +216,7 @@ struct SettingView: View {
                                     }, label: {
                                         Text("탈퇴하기")
                                             .foregroundColor(.gray400)
-                                            .font(.system(size: 16))
+                                            .font(.pretendard(.medium, size: 16))
                                     })
                                     Spacer()
                                     Image("Setting_arrow")
@@ -251,7 +249,7 @@ struct SettingView: View {
                 if isLogOut {
                     Text("탈퇴 완료")
                         .foregroundColor(Color.white)
-                        .font(.system(size: 22))
+                        .font(.pretendard(.medium, size: 22))
                         .padding()
                         .background(Color.black)
                         .cornerRadius(15)
