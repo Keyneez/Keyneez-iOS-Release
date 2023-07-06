@@ -20,6 +20,8 @@ import SwiftUI
 
 // TODO: - 버튼 touch 영역 수정
 
+// TODO: - Font 변경
+
 enum SettingPopUpState {
     case logOut
     case withDraw
