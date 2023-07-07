@@ -9,7 +9,12 @@ import SwiftUI
 
 struct JellyGifImageView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Color.gray100
+        .ignoresSafeArea(.all)
+        .overlay(
+          GifImage("jelly_gif")
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2)
+        )
     }
 }
 
