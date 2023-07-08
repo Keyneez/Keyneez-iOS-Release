@@ -19,13 +19,13 @@ struct TabBarView: View {
   
   var body: some View {
     TabView(selection: $selectedTab) {
-      HomeView()
-        .tabItem {
-          Image(selectedTab == .home ? "ic_home_fill" : "ic_home")
-          Text("홈")
-        }
-        .tag(Tab.home)
-      
+        HomeView()
+          .tabItem {
+            Image(selectedTab == .home ? "ic_home_fill" : "ic_home")
+            Text("홈")
+          }
+          .tag(Tab.home)
+
       ExploreView()
         .tabItem {
           Image(selectedTab == .explore ? "ic_explore_fill" : "ic_explore")
