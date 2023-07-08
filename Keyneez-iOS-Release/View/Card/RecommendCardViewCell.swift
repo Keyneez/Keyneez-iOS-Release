@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeCardViewCell: View {
+struct RecommendCardViewCell: View {
   @StateObject private var viewModel = CardViewModel()
 
   var body: some View {
@@ -16,8 +16,8 @@ struct HomeCardViewCell: View {
       VStack(alignment: .leading) {
         Spacer().frame(height: 16)
         HStack {
-          Text("취미")
-            .tagViewStyle(widthSize: 7, heightSize: 3.5, textCGFloat: 10)
+         Text("취미")
+            .tagViewStyle(widthSize: 11, heightSize: 5, textCGFloat: 16)
           Spacer()
           Button {
             viewModel.toggleLike()
@@ -47,10 +47,11 @@ struct HomeCardViewCell: View {
   }
 }
 
-struct CardViewCell_Previews: PreviewProvider {
+struct RecommendCardViewCell_Previews: PreviewProvider {
   static var previews: some View {
-    HomeCardViewCell()
+    RecommendCardViewCell()
   }
 }
+
 
 
