@@ -1,21 +1,25 @@
 //
-//  RecommendView.swift
+//  MainRecommendView.swift
 //  Keyneez-iOS-Release
 //
-//  Created by 최효원 on 2023/07/08.
+//  Created by 최효원 on 2023/07/09.
 //
 
 import SwiftUI
 
 struct MainRecommendView: View {
+  @State private var selected = 0
   var body: some View {
     ZStack {
       HomeBackgroundView()
-      VStack {
-        Text("이번 주의 추천 활동들이에요!")
-          .font(.pretendard(.semiBold, size: 24))
+      TeasingTabView(selectedTab: $selected, spacing: 15) { [
+        AnyView(RecommendCardViewCell()),
+        AnyView(RecommendCardViewCell()),
+        AnyView(RecommendCardViewCell()),
+        AnyView(RecommendCardViewCell()),
+        AnyView(RecommendCardViewCell())
+      ]
       }
-      .navigationBarBackButtonHidden(true)
     }
   }
 }

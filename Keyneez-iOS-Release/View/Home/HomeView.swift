@@ -44,7 +44,6 @@ struct HomeView: View {
                 Image("ic_detail")
                   .resizable()
                   .frame(width: 5, height: 10)
-                  .foregroundColor(.gray900)
               }
             
             Spacer().frame(height: 19)
