@@ -14,3 +14,4 @@ class CardViewModel : ObservableObject {
     isClickedLike.toggle()
   }
 }
+

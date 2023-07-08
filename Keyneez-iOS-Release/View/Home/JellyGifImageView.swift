@@ -28,7 +28,7 @@ struct JellyGifImageView: View {
           }
         }
         .background(
-          NavigationLink(destination: RecommendView(), isActive: $isShowRecommendView) {
+          NavigationLink(destination: MainRecommendView(), isActive: $isShowRecommendView) {
             EmptyView()
           }
             .navigationBarBackButtonHidden(true)

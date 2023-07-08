@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TagView: View {
+struct CardTagView: View {
     @State private var textSize: CGSize = .zero
     
     var body: some View {
@@ -50,7 +50,7 @@ struct SizePreferenceKey: PreferenceKey {
 
 struct TagView_Previews: PreviewProvider {
     static var previews: some View {
-        TagView()
+        CardTagView()
     }
 }
 

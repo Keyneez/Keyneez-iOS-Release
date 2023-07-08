@@ -16,7 +16,7 @@ struct HomeCardViewCell: View {
       VStack(alignment: .leading) {
         Spacer().frame(height: 16)
         HStack {
-          TagView()
+          CardTagView()
           Spacer()
           Button {
             viewModel.toggleLike()

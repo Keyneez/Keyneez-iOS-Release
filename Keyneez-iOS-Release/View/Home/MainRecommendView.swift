@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct RecommendView: View {
+struct MainRecommendView: View {
     var body: some View {
         Text("Recommend View")
     }
 }
 
-struct RecommendView_Previews: PreviewProvider {
+struct MainRecommendView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendView()
+        MainRecommendView()
     }
 }
