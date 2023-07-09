@@ -12,17 +12,6 @@ struct TermsView: View {
     
     var body: some View {
         VStack {
-//            HStack {
-//                Spacer()
-//                    .frame(width: 25)
-//                Button {
-//                    // action
-//                } label: {
-//                    Image("Terms_backButton")
-//                }
-//            }
-//            .frame(alignment: .leading)
-
             switch termsState {
             case .serviceUse:
                 Text("이용약관")
@@ -43,11 +32,11 @@ struct TermsView: View {
                             .foregroundColor(Color.black)
                         Text("동의하기")
                             .foregroundColor(.white)
-                            .padding()
                     }
                 }
                 .frame(height: 56)
                 .cornerRadius(14)
+                .padding(13) // TODO: - 패딩 값 확인
                 Spacer()
                     .frame(width: 22)
             }

@@ -7,19 +7,12 @@
 
 import SwiftUI
 
-// TODO: 설정 - 닉네임까지 레이아웃 변경
-// TODO: 리스트 섹션 간격 변경
-
-// TODO: - 레이아웃 패딩값 변경, 폰트 변경
-
 // TODO: - PopUp 뷰 부드럽게 애니메이션
 
 // TODO: - 이용약관 동의하기 버튼 누르면 닫히도록
 // TODO: - 이용약관 네비게이션 화살표 색상 변경
 
 // TODO: - 버튼 touch 영역 수정
-
-// TODO: - Font 변경
 
 enum SettingPopUpState {
     case logOut

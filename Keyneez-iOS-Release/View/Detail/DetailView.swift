@@ -14,28 +14,26 @@ struct DetailView: View {
             ScrollView {
                 ZStack {
                     VStack {
-                        Image("Detail_Activity_01") // TODO: - 태그에 따라 이미지 변경
+                        Image("Detail_Activity_01")
+                        // TODO: - 태그에 따라 이미지 변경
+                            .resizable()
                             .scaledToFit()
+
                         Spacer()
                     }
                     .ignoresSafeArea()
                     ZStack {
-                        // TODO: 얘 위치 조정??
-                        RoundedRectangle(cornerRadius: 60) // TODO: round 수정 (도형 합치기)
+                        RoundedRectangle(cornerRadius: 60)
                             .foregroundColor(.white)
                             .ignoresSafeArea()
-                            .scaledToFit()
-                        // TODO: 이미지 양옆 안 채워짐
+                            .padding(.top, 286)
                         VStack() {
                             VStack(alignment: .leading) {
                                 HStack {
-                                    Rectangle()
-                                        .foregroundColor(.red500)
-                                        .frame(width: 10)
+                                    DetailTagView(tag: .activity)
                                     Spacer()
                                         .frame(width: 10)
-                                    Rectangle()
-                                        .frame(width: 10)
+                                    DetailTagView(tag: .supporters)
                                     Spacer()
                                     Image("emptyHeart")
                                 }
@@ -77,15 +75,18 @@ struct DetailView: View {
                             Rectangle()
                                 .frame(height: 19)
                                 .foregroundColor(.gray100)
-                            VStack(alignment: .leading) {
-                                Text("활동 설명")
-                                    .font(.pretendard(.semiBold, size: 20))
-                                    .foregroundColor(.gray700)
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("활동 설명")
+                                        .font(.pretendard(.semiBold, size: 20))
+                                        .foregroundColor(.gray700)
+                                    Spacer()
+                                        .frame(height: 17)
+                                    Text("・"+"설명설명설 명설명설명설명설명 설명설명설명 설명설명 설명설 명설명 설명")
+                                        .font(.pretendard(.medium, size: 14))
+                                        .foregroundColor(.gray500)
+                                }
                                 Spacer()
-                                    .frame(height: 17)
-                                Text("・"+"설명설명설 명설명설명설명설명 설명설명설명 설명설명설명설 명설명 설명")
-                                    .font(.pretendard(.medium, size: 14))
-                                    .foregroundColor(.gray500)
                             }
                             .padding([.top, .leading, .trailing], 28)
                             Rectangle()
@@ -93,16 +94,18 @@ struct DetailView: View {
                                 .foregroundColor(.gray400)
                                 .padding([.leading, .trailing], 16)
                                 .padding([.top], 30)
-                            VStack(alignment: .leading) {
-                                Text("참가비(입장료)")
-                                    .font(.pretendard(.semiBold, size: 20))
-                                    .foregroundColor(.gray700)
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("참가비(입장료)")
+                                        .font(.pretendard(.semiBold, size: 20))
+                                        .foregroundColor(.gray700)
+                                    Spacer()
+                                        .frame(height: 17)
+                                    Text("・ 성인 1인 15,000원\n・ 청소년 1인 10,000원\n・ 3살 이하 영유아 무료")
+                                        .font(.pretendard(.medium, size: 14))
+                                        .foregroundColor(.gray500)
+                                }
                                 Spacer()
-                                    .frame(height: 17)
-                                Text("・ 성인 1인 15,000원\n・ 청소년 1인 10,000원\n・ 3살 이하 영유아 무료")
-                                    .font(.pretendard(.medium, size: 14))
-                                    .foregroundColor(.gray500)
-                                // TODO: - 정렬 leading 맞추기
                             }
                             .padding([.top, .leading, .trailing], 28)
                             Rectangle()
@@ -110,16 +113,18 @@ struct DetailView: View {
                                 .foregroundColor(.gray400)
                                 .padding([.leading, .trailing], 16)
                                 .padding([.top], 30)
-                            VStack(alignment: .leading) {
-                                Text("청소년 혜택")
-                                    .font(.pretendard(.semiBold, size: 20))
-                                    .foregroundColor(.gray700)
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("청소년 혜택")
+                                        .font(.pretendard(.semiBold, size: 20))
+                                        .foregroundColor(.gray700)
+                                    Spacer()
+                                        .frame(height: 17)
+                                    Text("・ 5% 티켓 가격 할인\n・ 5% 음식 가격 할인")
+                                        .font(.pretendard(.medium, size: 14))
+                                        .foregroundColor(.gray500)
+                                }
                                 Spacer()
-                                    .frame(height: 17)
-                                Text("・ 5% 티켓 가격 할인\n・ 5% 음식 가격 할인")
-                                    .font(.pretendard(.medium, size: 14))
-                                    .foregroundColor(.gray500)
-                                // TODO: - 정렬 leading 맞추기
                             }
                             .padding([.top, .leading, .trailing], 28)
                             Rectangle()
@@ -127,23 +132,24 @@ struct DetailView: View {
                                 .foregroundColor(.gray400)
                                 .padding([.leading, .trailing], 16)
                                 .padding([.top], 30)
-                            VStack(alignment: .leading) {
-                                Text("문의 정보")
-                                    .font(.pretendard(.semiBold, size: 20))
-                                    .foregroundColor(.gray700)
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("문의 정보")
+                                        .font(.pretendard(.semiBold, size: 20))
+                                        .foregroundColor(.gray700)
+                                    Spacer()
+                                        .frame(height: 17)
+                                    Text("・ "+"현대카드 고객센터 0101-0101")
+                                        .font(.pretendard(.medium, size: 14))
+                                        .foregroundColor(.gray500)
+                                }
                                 Spacer()
-                                    .frame(height: 17)
-                                Text("・ "+"현대카드 고객센터 0101-0101")
-                                    .font(.pretendard(.medium, size: 14))
-                                    .foregroundColor(.gray500)
-                                // TODO: - 정렬 leading 맞추기 (패딩 왜이래??)
                             }
                             .padding([.top, .leading], 28)
                             .padding(.bottom, 124)
                         } // VStack End
+                        .padding(.top, 286)
                     } // ZStack End
-                    .padding(.top, 286)
-                    // TODO: - Rectangle 어디까지??
                 }
             }
             .ignoresSafeArea()
@@ -156,7 +162,6 @@ struct DetailView: View {
                         .frame(height: 123)
                         .foregroundColor(.white)
                         .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .bottom, endPoint: .top))
-                    // TODO: - 그라데이션 지우면 heigt을 107로 수정
                 }
                 
                 VStack {
@@ -176,8 +181,16 @@ struct DetailView: View {
                         }
                     }
                 }
+            } // ScrollView End
+        } // 제일 밖 ZStack End
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    // share button action
+                } label: {
+                    Image("Detail_Share")
+                }
             }
-            .ignoresSafeArea()
         }
     }
 }
