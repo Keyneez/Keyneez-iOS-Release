@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct JellyOpenBeforeHomeView: View {
   var rows : [GridItem] = Array(repeating: .init(.fixed(220)), count: 1)
   var body: some View {
     NavigationStack {
@@ -66,6 +66,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeView()
+    JellyOpenBeforeHomeView()
   }
 }
