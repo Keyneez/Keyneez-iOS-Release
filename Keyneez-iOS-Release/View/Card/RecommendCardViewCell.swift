@@ -9,13 +9,20 @@ import SwiftUI
 
 struct RecommendCardViewCell: View {
   @StateObject private var viewModel = CardViewModel()
+  let screenSize: CGSize
+  let width: CGFloat
   
   var body: some View {
     GeometryReader { geo in
-      Color.white
+      //Middle Card Zoom
+      let midX = geo.frame(in: .global).midX
+      let distance = abs(screenSize.width / 2 - midX)
+      let damping: CGFloat = 15
+      let percentage = abs(distance / (screenSize.width / 2) / damping - 1)
+      
       VStack(alignment: .trailing) {
         VStack(alignment: .leading) {
-          Spacer().frame(height: 32)
+          Spacer().frame(height: 20)
           HStack {
             Text("취미")
               .tagViewStyle(widthSize: 20, heightSize: 9, textCGFloat: 16)
@@ -38,11 +45,11 @@ struct RecommendCardViewCell: View {
           Text("Text\nTextText")
             .font(.pretendard(.bold, size: 26))
             .foregroundColor(.gray900)
-          Spacer().frame(height: 15)
+          Spacer().frame(height: 10)
           Text("2000.00.00 - 00.00")
             .font(.pretendard(.medium, size: 18))
             .foregroundColor(.gray400)
-          Spacer().frame(height: 24)
+          Spacer().frame(height: 15)
           Image("hobby")
             .resizable()
             .frame(width: 209, height: 209)
@@ -60,19 +67,17 @@ struct RecommendCardViewCell: View {
         .foregroundColor(.gray400)
         .padding(.trailing, 17)
       }
-      
+      .frame(maxHeight: .infinity)
+      .background(Color.white)
+      .cornerRadius(28)
+      .scaleEffect(percentage)
+
     }
-    .frame(width: 282, height: 450)
+    .frame(width: width, height: 440)
     .cornerRadius(28)
-    
   }
 }
 
-struct RecommendCardViewCell_Previews: PreviewProvider {
-  static var previews: some View {
-    RecommendCardViewCell()
-  }
-}
 
 
 
