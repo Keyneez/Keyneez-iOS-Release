@@ -16,7 +16,8 @@ struct HomeCardViewCell: View {
       VStack(alignment: .leading) {
         Spacer().frame(height: 16)
         HStack {
-          CardTagView()
+          Text("취미")
+            .tagViewStyle(widthSize: 7, heightSize: 3.5, textCGFloat: 10)
           Spacer()
           Button {
             viewModel.toggleLike()
@@ -29,7 +30,7 @@ struct HomeCardViewCell: View {
           .font(.pretendard(.bold, size: 14))
           .foregroundColor(.gray900)
         Spacer().frame(height: 6)
-        Text("2000.00 - 00.00")
+        Text("2000.00.00 - 00.00")
           .font(.pretendard(.medium, size: 8))
           .foregroundColor(.gray400)
         Spacer().frame(height: 9)

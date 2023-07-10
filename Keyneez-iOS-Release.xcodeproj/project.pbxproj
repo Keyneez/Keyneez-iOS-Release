@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024F7AB22A59A8F600E4943B /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB12A59A8F600E4943B /* CardViewModel.swift */; };
+		024F7AB42A59A97500E4943B /* TeasingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB32A59A97500E4943B /* TeasingTabView.swift */; };
+		024F7AB62A59A9B400E4943B /* HomeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */; };
+		024F7AB82A59C1B500E4943B /* RecommendCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB72A59C1B500E4943B /* RecommendCardViewCell.swift */; };
+		024F7ABA2A59CE6B00E4943B /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB92A59CE6B00E4943B /* View+Extensions.swift */; };
+		024F7ABC2A59E4F000E4943B /* MainRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7ABB2A59E4F000E4943B /* MainRecommendView.swift */; };
 		027918AA2A49A169002763B7 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027918A92A49A169002763B7 /* GifImage.swift */; };
 		027918AC2A49A48E002763B7 /* jelly_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 027918AB2A49A48E002763B7 /* jelly_gif.gif */; };
 		027918AE2A49B235002763B7 /* JellyGifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027918AD2A49B235002763B7 /* JellyGifImageView.swift */; };
@@ -20,9 +26,8 @@
 		02B70E472A35E02B009E220B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02B70E462A35E02B009E220B /* Pretendard-Regular.otf */; };
 		02B70E4B2A35EA6B009E220B /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B70E4A2A35EA6B009E220B /* Font+Extension.swift */; };
 		02B70E4D2A35F169009E220B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B70E4C2A35F169009E220B /* Color+Extension.swift */; };
-		02C1FA0F2A570EE6009E9D41 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1FA0E2A570EE6009E9D41 /* TagView.swift */; };
+		02C1FA0F2A570EE6009E9D41 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1FA0E2A570EE6009E9D41 /* TagViewModifier.swift */; };
 		02C1FA112A570F25009E9D41 /* HomeCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1FA102A570F25009E9D41 /* HomeCardViewCell.swift */; };
-		02C1FA132A5715EC009E9D41 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1FA122A5715EC009E9D41 /* CardViewModel.swift */; };
 		02FA293A2A489BF5008359EF /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA29392A489BF5008359EF /* TabBarView.swift */; };
 		02FA293E2A489ED3008359EF /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA293D2A489ED3008359EF /* LikeView.swift */; };
 		02FA29412A489F15008359EF /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA29402A489F15008359EF /* ExploreView.swift */; };
@@ -30,6 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		024F7AB12A59A8F600E4943B /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		024F7AB32A59A97500E4943B /* TeasingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeasingTabView.swift; sourceTree = "<group>"; };
+		024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackgroundView.swift; sourceTree = "<group>"; };
+		024F7AB72A59C1B500E4943B /* RecommendCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCardViewCell.swift; sourceTree = "<group>"; };
+		024F7AB92A59CE6B00E4943B /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		024F7ABB2A59E4F000E4943B /* MainRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecommendView.swift; sourceTree = "<group>"; };
 		027918A92A49A169002763B7 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		027918AB2A49A48E002763B7 /* jelly_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = jelly_gif.gif; path = "Keyneez-iOS-Release/Resource/jelly_gif.gif"; sourceTree = SOURCE_ROOT; };
 		027918AD2A49B235002763B7 /* JellyGifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyGifImageView.swift; sourceTree = "<group>"; };
@@ -45,9 +56,8 @@
 		02B70E492A35E6D8009E220B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		02B70E4A2A35EA6B009E220B /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		02B70E4C2A35F169009E220B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		02C1FA0E2A570EE6009E9D41 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		02C1FA0E2A570EE6009E9D41 /* TagViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		02C1FA102A570F25009E9D41 /* HomeCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardViewCell.swift; sourceTree = "<group>"; };
-		02C1FA122A5715EC009E9D41 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		02FA29392A489BF5008359EF /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		02FA293D2A489ED3008359EF /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		02FA29402A489F15008359EF /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -65,11 +75,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		024F7AB02A59A8D000E4943B /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				024F7AB12A59A8F600E4943B /* CardViewModel.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
 		027918AF2A49E4FF002763B7 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				02C1FA0E2A570EE6009E9D41 /* TagView.swift */,
+				02C1FA0E2A570EE6009E9D41 /* TagViewModifier.swift */,
 				02C1FA102A570F25009E9D41 /* HomeCardViewCell.swift */,
+				024F7AB72A59C1B500E4943B /* RecommendCardViewCell.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -129,16 +148,8 @@
 				02FA293B2A489EAD008359EF /* Like */,
 				029A34D02A1F524E00088963 /* Setting */,
 				029A34CF2A1F524700088963 /* Home */,
-				029A34CE2A1F523F00088963 /* Landing */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		029A34CE2A1F523F00088963 /* Landing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Landing;
 			sourceTree = "<group>";
 		};
 		029A34CF2A1F524700088963 /* Home */ = {
@@ -148,6 +159,9 @@
 				02FA29392A489BF5008359EF /* TabBarView.swift */,
 				027918A92A49A169002763B7 /* GifImage.swift */,
 				027918AD2A49B235002763B7 /* JellyGifImageView.swift */,
+				024F7AB32A59A97500E4943B /* TeasingTabView.swift */,
+				024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */,
+				024F7ABB2A59E4F000E4943B /* MainRecommendView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -163,10 +177,10 @@
 		029A34D92A1F553E00088963 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				024F7AB02A59A8D000E4943B /* Card */,
 				029A34DC2A1F555100088963 /* Home */,
 				029A34DB2A1F554B00088963 /* Landing */,
 				029A34DA2A1F554700088963 /* Setting */,
-				02C1FA122A5715EC009E9D41 /* CardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -202,6 +216,7 @@
 		029A34DE2A1F563A00088963 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				024F7AB92A59CE6B00E4943B /* View+Extensions.swift */,
 				02B70E4A2A35EA6B009E220B /* Font+Extension.swift */,
 				02B70E4C2A35F169009E220B /* Color+Extension.swift */,
 			);
@@ -330,14 +345,19 @@
 			files = (
 				02FA293E2A489ED3008359EF /* LikeView.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
-				02C1FA0F2A570EE6009E9D41 /* TagView.swift in Sources */,
+				02C1FA0F2A570EE6009E9D41 /* TagViewModifier.swift in Sources */,
+				024F7ABA2A59CE6B00E4943B /* View+Extensions.swift in Sources */,
 				027918AE2A49B235002763B7 /* JellyGifImageView.swift in Sources */,
 				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
+				024F7AB82A59C1B500E4943B /* RecommendCardViewCell.swift in Sources */,
 				02FA29432A48A1CD008359EF /* SettingView.swift in Sources */,
 				02C1FA112A570F25009E9D41 /* HomeCardViewCell.swift in Sources */,
 				027918AA2A49A169002763B7 /* GifImage.swift in Sources */,
-				02C1FA132A5715EC009E9D41 /* CardViewModel.swift in Sources */,
+				024F7AB62A59A9B400E4943B /* HomeBackgroundView.swift in Sources */,
+				024F7AB22A59A8F600E4943B /* CardViewModel.swift in Sources */,
 				02B70E4B2A35EA6B009E220B /* Font+Extension.swift in Sources */,
+				024F7AB42A59A97500E4943B /* TeasingTabView.swift in Sources */,
+				024F7ABC2A59E4F000E4943B /* MainRecommendView.swift in Sources */,
 				02FA293A2A489BF5008359EF /* TabBarView.swift in Sources */,
 				02FA29412A489F15008359EF /* ExploreView.swift in Sources */,
 				02B70E4D2A35F169009E220B /* Color+Extension.swift in Sources */,
