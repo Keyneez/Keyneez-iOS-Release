@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021F35972A5E3DD50066090C /* JellyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F35962A5E3DD50066090C /* JellyView.swift */; };
+		021F35992A5E3F000066090C /* WeekRecommendCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F35982A5E3F000066090C /* WeekRecommendCollectionView.swift */; };
+		021F359B2A5E475D0066090C /* TipKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F359A2A5E475D0066090C /* TipKitView.swift */; };
 		024F7AB22A59A8F600E4943B /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB12A59A8F600E4943B /* CardViewModel.swift */; };
 		024F7AB42A59A97500E4943B /* TeasingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB32A59A97500E4943B /* TeasingTabView.swift */; };
 		024F7AB62A59A9B400E4943B /* HomeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */; };
@@ -19,7 +22,7 @@
 		029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A34BD2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift */; };
 		029A34C22A1F49E700088963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C12A1F49E700088963 /* Assets.xcassets */; };
 		029A34C52A1F49E700088963 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C42A1F49E700088963 /* Preview Assets.xcassets */; };
-		029A34E12A1F56DD00088963 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A34E02A1F56DD00088963 /* HomeView.swift */; };
+		029A34E12A1F56DD00088963 /* JellyOpenBeforeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A34E02A1F56DD00088963 /* JellyOpenBeforeHomeView.swift */; };
 		02B70E432A35E020009E220B /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02B70E402A35E020009E220B /* Pretendard-SemiBold.otf */; };
 		02B70E442A35E020009E220B /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02B70E412A35E020009E220B /* Pretendard-Bold.otf */; };
 		02B70E452A35E020009E220B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02B70E422A35E020009E220B /* Pretendard-Medium.otf */; };
@@ -50,6 +53,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		021F35962A5E3DD50066090C /* JellyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyView.swift; sourceTree = "<group>"; };
+		021F35982A5E3F000066090C /* WeekRecommendCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRecommendCollectionView.swift; sourceTree = "<group>"; };
+		021F359A2A5E475D0066090C /* TipKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipKitView.swift; sourceTree = "<group>"; };
 		024F7AB12A59A8F600E4943B /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		024F7AB32A59A97500E4943B /* TeasingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeasingTabView.swift; sourceTree = "<group>"; };
 		024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackgroundView.swift; sourceTree = "<group>"; };
@@ -63,7 +69,7 @@
 		029A34BD2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyneez_iOS_ReleaseApp.swift; sourceTree = "<group>"; };
 		029A34C12A1F49E700088963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029A34C42A1F49E700088963 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		029A34E02A1F56DD00088963 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		029A34E02A1F56DD00088963 /* JellyOpenBeforeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyOpenBeforeHomeView.swift; sourceTree = "<group>"; };
 		02B70E402A35E020009E220B /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		02B70E412A35E020009E220B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		02B70E422A35E020009E220B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -187,13 +193,16 @@
 		029A34CF2A1F524700088963 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				029A34E02A1F56DD00088963 /* HomeView.swift */,
+				029A34E02A1F56DD00088963 /* JellyOpenBeforeHomeView.swift */,
 				02FA29392A489BF5008359EF /* TabBarView.swift */,
 				027918A92A49A169002763B7 /* GifImage.swift */,
 				027918AD2A49B235002763B7 /* JellyGifImageView.swift */,
 				024F7AB32A59A97500E4943B /* TeasingTabView.swift */,
 				024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */,
 				024F7ABB2A59E4F000E4943B /* MainRecommendView.swift */,
+				021F35962A5E3DD50066090C /* JellyView.swift */,
+				021F35982A5E3F000066090C /* WeekRecommendCollectionView.swift */,
+				021F359A2A5E475D0066090C /* TipKitView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -454,8 +463,10 @@
 				02C1FA0F2A570EE6009E9D41 /* TagViewModifier.swift in Sources */,
 				B8F5747C2A5EF3600028A46A /* DetailView.swift in Sources */,
 				024F7ABA2A59CE6B00E4943B /* View+Extensions.swift in Sources */,
+				021F359B2A5E475D0066090C /* TipKitView.swift in Sources */,
 				027918AE2A49B235002763B7 /* JellyGifImageView.swift in Sources */,
-				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
+				021F35972A5E3DD50066090C /* JellyView.swift in Sources */,
+				029A34E12A1F56DD00088963 /* JellyOpenBeforeHomeView.swift in Sources */,
 				024F7AB82A59C1B500E4943B /* RecommendCardViewCell.swift in Sources */,
 				02C1FA112A570F25009E9D41 /* HomeCardViewCell.swift in Sources */,
 				027918AA2A49A169002763B7 /* GifImage.swift in Sources */,
@@ -463,6 +474,7 @@
 				024F7AB22A59A8F600E4943B /* CardViewModel.swift in Sources */,
 				02B70E4B2A35EA6B009E220B /* Font+Extension.swift in Sources */,
 				024F7AB42A59A97500E4943B /* TeasingTabView.swift in Sources */,
+				021F35992A5E3F000066090C /* WeekRecommendCollectionView.swift in Sources */,
 				024F7ABC2A59E4F000E4943B /* MainRecommendView.swift in Sources */,
 				02FA293A2A489BF5008359EF /* TabBarView.swift in Sources */,
 				02FA29412A489F15008359EF /* ExploreView.swift in Sources */,
