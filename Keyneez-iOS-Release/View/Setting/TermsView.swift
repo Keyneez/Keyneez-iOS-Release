@@ -11,36 +11,44 @@ struct TermsView: View {
     @Binding var termsState: TermsViewState
     
     var body: some View {
-        VStack {
-            switch termsState {
-            case .serviceUse:
-                Text("이용약관")
-            case .privacy:
-                Text("개인정보")
-            case .openSourceLisence:
-                Text("오픈소스")
-            }
-            Spacer()
-            HStack {
+        ZStack {
+            VStack {
+                switch termsState {
+                case .serviceUse:
+                    Text("이용약관 내용")
+                case .privacy:
+                    Text("개인정보 내용")
+                case .openSourceLisence:
+                    Text("오픈소스 내용")
+                }
                 Spacer()
-                    .frame(width: 22)
-                Button {
-                    // action
-                } label: {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color.black)
+            }
+            ZStack {
+                VStack {
+                    Spacer()
+                    Rectangle()
+                        .frame(height: 170)
+                        .foregroundColor(.white)
+                        .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .bottom, endPoint: .top))
+                }
+                VStack {
+                    Spacer()
+                    Button {
+                        // 동의하기 action
+                    } label: {
                         Text("동의하기")
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 56)
                             .foregroundColor(.white)
+                            .font(.pretendard(.medium, size: 18))
+                            .background(Color.gray900)
+                            .cornerRadius(14)
+                            .padding([.leading,.trailing], 21)
+                            .padding([.bottom], 34)
+                        // TODO: URL 연결
                     }
                 }
-                .frame(height: 56)
-                .cornerRadius(14)
-                .padding(13) // TODO: - 패딩 값 확인
-                Spacer()
-                    .frame(width: 22)
-            }
-
+            }.ignoresSafeArea()
         }
     }
 }
