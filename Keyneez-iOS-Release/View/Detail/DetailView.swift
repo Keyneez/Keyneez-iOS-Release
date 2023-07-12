@@ -6,19 +6,20 @@
 //
 
 import SwiftUI
-// TODO: - 네비게이션 바 커스텀 (아이콘 넣기)
+// TODO: - 이 뷰 불러오는 NavigationView에서 네비게이션 바 .accentColor(.black)
 
 struct DetailView: View {
+    @StateObject private var detailViewModel = DetailViewModel()
+    
     var body: some View {
         ZStack {
             ScrollView {
                 ZStack {
                     VStack {
-                        Image("Detail_Activity_01")
-                        // TODO: - 태그에 따라 이미지 변경
+                        Image(detailViewModel.setDetailImage())
                             .resizable()
                             .scaledToFit()
-
+                        
                         Spacer()
                     }
                     .ignoresSafeArea()
@@ -30,10 +31,7 @@ struct DetailView: View {
                         VStack() {
                             VStack(alignment: .leading) {
                                 HStack {
-                                    DetailTagView(tag: .activity)
-                                    Spacer()
-                                        .frame(width: 10)
-                                    DetailTagView(tag: .supporters)
+                                    makeTagView(detailViewModel.tagList)
                                     Spacer()
                                     Image("emptyHeart")
                                 }
@@ -191,6 +189,23 @@ struct DetailView: View {
                     Image("Detail_Share")
                 }
             }
+        }
+        .background(.white)
+        .onAppear {
+            // TODO: - 구현...
+            Task {
+                await detailViewModel.getDetailContent()
+            }
+        }
+    } // 제일 밖 ZStack End
+}
+
+extension DetailView {
+    func makeTagView(_ tagList: [DetailTagState]) -> some View {
+        ForEach(0..<tagList.count) { index in
+            DetailTagView(tag: tagList[index])
+            Spacer()
+                .frame(width: 10)
         }
     }
 }
