@@ -38,7 +38,7 @@ extension Color {
   static let gray100 = Color("gray100")
   static let gray050 = Color("gray050")
 
-
-
-
+  static let mainBackground1 = Color("mainBackground1")
+  static let mainBackground2 = Color("mainBackground2")
+  
 }
