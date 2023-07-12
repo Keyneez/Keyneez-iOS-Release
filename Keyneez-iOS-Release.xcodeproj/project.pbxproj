@@ -34,7 +34,22 @@
 		02FA293A2A489BF5008359EF /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA29392A489BF5008359EF /* TabBarView.swift */; };
 		02FA293E2A489ED3008359EF /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA293D2A489ED3008359EF /* LikeView.swift */; };
 		02FA29412A489F15008359EF /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA29402A489F15008359EF /* ExploreView.swift */; };
-		02FA29432A48A1CD008359EF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA29422A48A1CD008359EF /* SettingView.swift */; };
+		B83002242A2B3B5C009D48B6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83002232A2B3B5C009D48B6 /* SettingView.swift */; };
+		B87998382A5A9A5200167597 /* DetailTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87998372A5A9A5200167597 /* DetailTagView.swift */; };
+		B879983B2A5AB27400167597 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B879983A2A5AB27400167597 /* DetailViewModel.swift */; };
+		B879983E2A5AB62600167597 /* DetailTagState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B879983D2A5AB62600167597 /* DetailTagState.swift */; };
+		B87998422A5AB67900167597 /* SettingPopUpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87998412A5AB67900167597 /* SettingPopUpState.swift */; };
+		B87998442A5AB69B00167597 /* TermsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87998432A5AB69B00167597 /* TermsViewState.swift */; };
+		B8B5069F2A5EC4F600B3EAED /* DetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B5069E2A5EC4F600B3EAED /* DetailAPI.swift */; };
+		B8B506A22A5EC55F00B3EAED /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B8B506A12A5EC55F00B3EAED /* Moya */; };
+		B8B506A42A5ECD9600B3EAED /* MoyaProvider+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B506A32A5ECD9600B3EAED /* MoyaProvider+Test.swift */; };
+		B8B506A62A5ED19100B3EAED /* DetailContentResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B506A52A5ED19100B3EAED /* DetailContentResponseDTO.swift */; };
+		B8BE61B12A52E05B00B4A989 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE61B02A52E05B00B4A989 /* ButtonComponent.swift */; };
+		B8D2A07C2A42A23D00653B4C /* SettingPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A07B2A42A23D00653B4C /* SettingPopUpView.swift */; };
+		B8D2A0812A42C5F400653B4C /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A0802A42C5F400653B4C /* SettingViewModel.swift */; };
+		B8D2A0832A44746800653B4C /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A0822A44746800653B4C /* TermsView.swift */; };
+		B8D2A0852A4478E300653B4C /* Navigation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2A0842A4478E300653B4C /* Navigation+Extensions.swift */; };
+		B8F5747C2A5EF3600028A46A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5747B2A5EF3600028A46A /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +82,21 @@
 		02FA29392A489BF5008359EF /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		02FA293D2A489ED3008359EF /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		02FA29402A489F15008359EF /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
-		02FA29422A48A1CD008359EF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		B83002232A2B3B5C009D48B6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		B87998372A5A9A5200167597 /* DetailTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTagView.swift; sourceTree = "<group>"; };
+		B879983A2A5AB27400167597 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		B879983D2A5AB62600167597 /* DetailTagState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTagState.swift; sourceTree = "<group>"; };
+		B87998412A5AB67900167597 /* SettingPopUpState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPopUpState.swift; sourceTree = "<group>"; };
+		B87998432A5AB69B00167597 /* TermsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewState.swift; sourceTree = "<group>"; };
+		B8B5069E2A5EC4F600B3EAED /* DetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAPI.swift; sourceTree = "<group>"; };
+		B8B506A32A5ECD9600B3EAED /* MoyaProvider+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Test.swift"; sourceTree = "<group>"; };
+		B8B506A52A5ED19100B3EAED /* DetailContentResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentResponseDTO.swift; sourceTree = "<group>"; };
+		B8BE61B02A52E05B00B4A989 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		B8D2A07B2A42A23D00653B4C /* SettingPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPopUpView.swift; sourceTree = "<group>"; };
+		B8D2A0802A42C5F400653B4C /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		B8D2A0822A44746800653B4C /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		B8D2A0842A4478E300653B4C /* Navigation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Extensions.swift"; sourceTree = "<group>"; };
+		B8F5747B2A5EF3600028A46A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B506A22A5EC55F00B3EAED /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +179,8 @@
 		029A34CD2A1F51F300088963 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B8F574782A5EF3330028A46A /* Detail */,
+				B8BE61AF2A52E03F00B4A989 /* Component */,
 				027918AF2A49E4FF002763B7 /* Card */,
 				02FA293F2A489F07008359EF /* Explore */,
 				02FA293B2A489EAD008359EF /* Like */,
@@ -178,7 +210,9 @@
 		029A34D02A1F524E00088963 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				02FA29422A48A1CD008359EF /* SettingView.swift */,
+				B83002232A2B3B5C009D48B6 /* SettingView.swift */,
+				B8D2A07B2A42A23D00653B4C /* SettingPopUpView.swift */,
+				B8D2A0822A44746800653B4C /* TermsView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -186,6 +220,7 @@
 		029A34D92A1F553E00088963 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B87998392A5AB1CC00167597 /* Detail */,
 				024F7AB02A59A8D000E4943B /* Card */,
 				029A34DC2A1F555100088963 /* Home */,
 				029A34DB2A1F554B00088963 /* Landing */,
@@ -197,6 +232,7 @@
 		029A34DA2A1F554700088963 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B8D2A0802A42C5F400653B4C /* SettingViewModel.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -218,6 +254,8 @@
 		029A34DD2A1F557500088963 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B87998402A5AB66B00167597 /* Setting */,
+				B879983C2A5AB61800167597 /* Detail */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,6 +263,7 @@
 		029A34DE2A1F563A00088963 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B8D2A0842A4478E300653B4C /* Navigation+Extensions.swift */,
 				024F7AB92A59CE6B00E4943B /* View+Extensions.swift */,
 				02B70E4A2A35EA6B009E220B /* Font+Extension.swift */,
 				02B70E4C2A35F169009E220B /* Color+Extension.swift */,
@@ -277,6 +316,51 @@
 			path = Explore;
 			sourceTree = "<group>";
 		};
+		B87998392A5AB1CC00167597 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B879983A2A5AB27400167597 /* DetailViewModel.swift */,
+				B8B5069E2A5EC4F600B3EAED /* DetailAPI.swift */,
+				B8B506A32A5ECD9600B3EAED /* MoyaProvider+Test.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B879983C2A5AB61800167597 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B879983D2A5AB62600167597 /* DetailTagState.swift */,
+				B8B506A52A5ED19100B3EAED /* DetailContentResponseDTO.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B87998402A5AB66B00167597 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B87998412A5AB67900167597 /* SettingPopUpState.swift */,
+				B87998432A5AB69B00167597 /* TermsViewState.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B8BE61AF2A52E03F00B4A989 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B8BE61B02A52E05B00B4A989 /* ButtonComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B8F574782A5EF3330028A46A /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B8F5747B2A5EF3600028A46A /* DetailView.swift */,
+				B87998372A5A9A5200167597 /* DetailTagView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,6 +377,9 @@
 			dependencies = (
 			);
 			name = "Keyneez-iOS-Release";
+			packageProductDependencies = (
+				B8B506A12A5EC55F00B3EAED /* Moya */,
+			);
 			productName = "Keyneez-iOS-Release";
 			productReference = 029A34BA2A1F49E600088963 /* Keyneez-iOS-Release.app */;
 			productType = "com.apple.product-type.application";
@@ -321,6 +408,9 @@
 				Base,
 			);
 			mainGroup = 029A34B12A1F49E600088963;
+			packageReferences = (
+				B8B506A02A5EC55F00B3EAED /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 029A34BB2A1F49E600088963 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -352,16 +442,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B83002242A2B3B5C009D48B6 /* SettingView.swift in Sources */,
+				B879983E2A5AB62600167597 /* DetailTagState.swift in Sources */,
+				B8B506A42A5ECD9600B3EAED /* MoyaProvider+Test.swift in Sources */,
+				B87998422A5AB67900167597 /* SettingPopUpState.swift in Sources */,
+				B8D2A0812A42C5F400653B4C /* SettingViewModel.swift in Sources */,
+				B8D2A0852A4478E300653B4C /* Navigation+Extensions.swift in Sources */,
+				B87998442A5AB69B00167597 /* TermsViewState.swift in Sources */,
+				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
+				B8B5069F2A5EC4F600B3EAED /* DetailAPI.swift in Sources */,
+				B87998382A5A9A5200167597 /* DetailTagView.swift in Sources */,
+				B8D2A07C2A42A23D00653B4C /* SettingPopUpView.swift in Sources */,
+				B8BE61B12A52E05B00B4A989 /* ButtonComponent.swift in Sources */,
+				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
+				B8B506A62A5ED19100B3EAED /* DetailContentResponseDTO.swift in Sources */,
+				B879983B2A5AB27400167597 /* DetailViewModel.swift in Sources */,
+				B8D2A0832A44746800653B4C /* TermsView.swift in Sources */,
 				02FA293E2A489ED3008359EF /* LikeView.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				02C1FA0F2A570EE6009E9D41 /* TagViewModifier.swift in Sources */,
+				B8F5747C2A5EF3600028A46A /* DetailView.swift in Sources */,
 				024F7ABA2A59CE6B00E4943B /* View+Extensions.swift in Sources */,
 				021F359B2A5E475D0066090C /* TipKitView.swift in Sources */,
 				027918AE2A49B235002763B7 /* JellyGifImageView.swift in Sources */,
 				021F35972A5E3DD50066090C /* JellyView.swift in Sources */,
 				029A34E12A1F56DD00088963 /* JellyOpenBeforeHomeView.swift in Sources */,
 				024F7AB82A59C1B500E4943B /* RecommendCardViewCell.swift in Sources */,
-				02FA29432A48A1CD008359EF /* SettingView.swift in Sources */,
 				02C1FA112A570F25009E9D41 /* HomeCardViewCell.swift in Sources */,
 				027918AA2A49A169002763B7 /* GifImage.swift in Sources */,
 				024F7AB62A59A9B400E4943B /* HomeBackgroundView.swift in Sources */,
@@ -429,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -483,7 +589,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
@@ -510,6 +616,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -531,7 +638,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
@@ -540,6 +647,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,6 +683,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B8B506A02A5EC55F00B3EAED /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8B506A12A5EC55F00B3EAED /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8B506A02A5EC55F00B3EAED /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 029A34B22A1F49E600088963 /* Project object */;
 }
