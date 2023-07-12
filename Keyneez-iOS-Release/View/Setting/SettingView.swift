@@ -244,6 +244,7 @@ struct SettingView: View {
             }
             // Zstack End
         } // NavigationView End
+        .accentColor(.black)
     } // body end
 }
 
