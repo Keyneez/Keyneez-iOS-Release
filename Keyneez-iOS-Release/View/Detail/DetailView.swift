@@ -140,6 +140,8 @@ struct DetailView: View {
                                     Text("・ "+"현대카드 고객센터 0101-0101")
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
+                                    Spacer()
+                                        .frame(height: 30)
                                 }
                                 Spacer()
                             }
@@ -157,10 +159,11 @@ struct DetailView: View {
                 VStack {
                     Spacer()
                     Rectangle()
-                        .frame(height: 123)
+                        .frame(height: 170)
                         .foregroundColor(.white)
                         .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .bottom, endPoint: .top))
                 }
+                .ignoresSafeArea()
                 
                 VStack {
                     Spacer()
@@ -179,8 +182,8 @@ struct DetailView: View {
                         }
                     }
                 }
-            } // ScrollView End
-        } // 제일 밖 ZStack End
+            }
+        } // ScrollView End
         .toolbar {
             ToolbarItem {
                 Button {
