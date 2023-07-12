@@ -8,7 +8,7 @@
 import SwiftUI
 import Moya
 
-// TODO: - contentAPI에 합치면 될듯??
+// TODO: - contentAPI에 합치면 될듯?? 폴더링 다시~
 enum DetailAPI {
     case getDetailContents(accessToken: String, contentId: Int)
 }

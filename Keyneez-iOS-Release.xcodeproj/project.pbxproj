@@ -339,7 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				B8BE61B02A52E05B00B4A989 /* ButtonComponent.swift */,
-				B87998372A5A9A5200167597 /* DetailTagView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -348,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				B8F5747B2A5EF3600028A46A /* DetailView.swift */,
+				B87998372A5A9A5200167597 /* DetailTagView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
