@@ -25,13 +25,17 @@ struct WeekRecommendCollectionView: View {
       }
       Spacer().frame(height: 30)
       ScrollView(.horizontal) {
-        ZStack {
+        ZStack(alignment: .topLeading) {
           LazyHGrid(rows: rows, spacing: 15) {
             ForEach((0...5), id: \.self ) {_ in
               HomeCardViewCell()
             }
           }
           TipKitView()
+            .frame(width: 181, height: 34)
+            .padding(.leading, 88)
+            .padding(.top, 36)
+            
         }
       }
       .scrollIndicators(.hidden)

@@ -33,7 +33,7 @@ struct JellyOpenBeforeHomeView: View {
 //            JellyView()
             WeekRecommendCollectionView()
 
-            Spacer().frame(height: 46)
+            Spacer().frame(height: 30)
               HStack {
                 Text("최근 업데이트")
                   .font(.pretendard(.semiBold, size: 24))
