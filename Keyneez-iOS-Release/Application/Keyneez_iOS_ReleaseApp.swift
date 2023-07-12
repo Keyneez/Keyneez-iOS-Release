@@ -11,7 +11,7 @@ import SwiftUI
 struct Keyneez_iOS_ReleaseApp: App {
     var body: some Scene {
         WindowGroup {
-            SwiftUIView()
+            SettingView()
         }
     }
 }
