@@ -34,6 +34,7 @@ struct JellyOpenBeforeHomeView: View {
             WeekRecommendCollectionView()
 
             Spacer().frame(height: 30)
+            NavigationLink(destination: RecentUpdateDetailView()) {
               HStack {
                 Text("최근 업데이트")
                   .font(.pretendard(.semiBold, size: 24))
@@ -42,7 +43,8 @@ struct JellyOpenBeforeHomeView: View {
                   .resizable()
                   .frame(width: 5, height: 10)
               }
-            
+            }
+
             Spacer().frame(height: 19)
             ScrollView(.horizontal) {
               LazyHGrid(rows: rows, spacing: 15) {

@@ -16,6 +16,8 @@
 		024F7AB82A59C1B500E4943B /* RecommendCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB72A59C1B500E4943B /* RecommendCardViewCell.swift */; };
 		024F7ABA2A59CE6B00E4943B /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB92A59CE6B00E4943B /* View+Extensions.swift */; };
 		024F7ABC2A59E4F000E4943B /* MainRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7ABB2A59E4F000E4943B /* MainRecommendView.swift */; };
+		026AF2682A5F082A005E265F /* ExploreCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AF2672A5F082A005E265F /* ExploreCardViewCell.swift */; };
+		026AF26A2A5F0C5E005E265F /* RecentUpdateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AF2692A5F0C5E005E265F /* RecentUpdateDetailView.swift */; };
 		027918AA2A49A169002763B7 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027918A92A49A169002763B7 /* GifImage.swift */; };
 		027918AC2A49A48E002763B7 /* jelly_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 027918AB2A49A48E002763B7 /* jelly_gif.gif */; };
 		027918AE2A49B235002763B7 /* JellyGifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027918AD2A49B235002763B7 /* JellyGifImageView.swift */; };
@@ -62,6 +64,8 @@
 		024F7AB72A59C1B500E4943B /* RecommendCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCardViewCell.swift; sourceTree = "<group>"; };
 		024F7AB92A59CE6B00E4943B /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		024F7ABB2A59E4F000E4943B /* MainRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecommendView.swift; sourceTree = "<group>"; };
+		026AF2672A5F082A005E265F /* ExploreCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCardViewCell.swift; sourceTree = "<group>"; };
+		026AF2692A5F0C5E005E265F /* RecentUpdateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUpdateDetailView.swift; sourceTree = "<group>"; };
 		027918A92A49A169002763B7 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		027918AB2A49A48E002763B7 /* jelly_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = jelly_gif.gif; path = "Keyneez-iOS-Release/Resource/jelly_gif.gif"; sourceTree = SOURCE_ROOT; };
 		027918AD2A49B235002763B7 /* JellyGifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyGifImageView.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				02C1FA0E2A570EE6009E9D41 /* TagViewModifier.swift */,
 				02C1FA102A570F25009E9D41 /* HomeCardViewCell.swift */,
 				024F7AB72A59C1B500E4943B /* RecommendCardViewCell.swift */,
+				026AF2672A5F082A005E265F /* ExploreCardViewCell.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				021F35962A5E3DD50066090C /* JellyView.swift */,
 				021F35982A5E3F000066090C /* WeekRecommendCollectionView.swift */,
 				021F359A2A5E475D0066090C /* TipKitView.swift */,
+				026AF2692A5F0C5E005E265F /* RecentUpdateDetailView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -448,14 +454,16 @@
 				B87998422A5AB67900167597 /* SettingPopUpState.swift in Sources */,
 				B8D2A0812A42C5F400653B4C /* SettingViewModel.swift in Sources */,
 				B8D2A0852A4478E300653B4C /* Navigation+Extensions.swift in Sources */,
+				026AF2682A5F082A005E265F /* ExploreCardViewCell.swift in Sources */,
 				B87998442A5AB69B00167597 /* TermsViewState.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				B8B5069F2A5EC4F600B3EAED /* DetailAPI.swift in Sources */,
 				B87998382A5A9A5200167597 /* DetailTagView.swift in Sources */,
 				B8D2A07C2A42A23D00653B4C /* SettingPopUpView.swift in Sources */,
 				B8BE61B12A52E05B00B4A989 /* ButtonComponent.swift in Sources */,
-				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
+				029A34E12A1F56DD00088963 /* JellyOpenBeforeHomeView.swift in Sources */,
 				B8B506A62A5ED19100B3EAED /* DetailContentResponseDTO.swift in Sources */,
+				026AF26A2A5F0C5E005E265F /* RecentUpdateDetailView.swift in Sources */,
 				B879983B2A5AB27400167597 /* DetailViewModel.swift in Sources */,
 				B8D2A0832A44746800653B4C /* TermsView.swift in Sources */,
 				02FA293E2A489ED3008359EF /* LikeView.swift in Sources */,
