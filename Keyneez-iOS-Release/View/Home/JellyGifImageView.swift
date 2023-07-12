@@ -34,7 +34,6 @@ struct JellyGifImageView: View {
             .navigationBarBackButtonHidden(true)
         )
     }
-    .animation(nil)
   }
 }
 

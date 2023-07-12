@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		021F358D2A5C924A0066090C /* JellyOpenAfterHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F358C2A5C924A0066090C /* JellyOpenAfterHomeView.swift */; };
+		021F35972A5E3DD50066090C /* JellyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F35962A5E3DD50066090C /* JellyView.swift */; };
+		021F35992A5E3F000066090C /* WeekRecommendCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F35982A5E3F000066090C /* WeekRecommendCollectionView.swift */; };
+		021F359B2A5E475D0066090C /* TipKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F359A2A5E475D0066090C /* TipKitView.swift */; };
 		024F7AB22A59A8F600E4943B /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB12A59A8F600E4943B /* CardViewModel.swift */; };
 		024F7AB42A59A97500E4943B /* TeasingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB32A59A97500E4943B /* TeasingTabView.swift */; };
 		024F7AB62A59A9B400E4943B /* HomeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */; };
@@ -36,7 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		021F358C2A5C924A0066090C /* JellyOpenAfterHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyOpenAfterHomeView.swift; sourceTree = "<group>"; };
+		021F35962A5E3DD50066090C /* JellyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyView.swift; sourceTree = "<group>"; };
+		021F35982A5E3F000066090C /* WeekRecommendCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRecommendCollectionView.swift; sourceTree = "<group>"; };
+		021F359A2A5E475D0066090C /* TipKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipKitView.swift; sourceTree = "<group>"; };
 		024F7AB12A59A8F600E4943B /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		024F7AB32A59A97500E4943B /* TeasingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeasingTabView.swift; sourceTree = "<group>"; };
 		024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackgroundView.swift; sourceTree = "<group>"; };
@@ -164,7 +168,9 @@
 				024F7AB32A59A97500E4943B /* TeasingTabView.swift */,
 				024F7AB52A59A9B400E4943B /* HomeBackgroundView.swift */,
 				024F7ABB2A59E4F000E4943B /* MainRecommendView.swift */,
-				021F358C2A5C924A0066090C /* JellyOpenAfterHomeView.swift */,
+				021F35962A5E3DD50066090C /* JellyView.swift */,
+				021F35982A5E3F000066090C /* WeekRecommendCollectionView.swift */,
+				021F359A2A5E475D0066090C /* TipKitView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -350,7 +356,9 @@
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				02C1FA0F2A570EE6009E9D41 /* TagViewModifier.swift in Sources */,
 				024F7ABA2A59CE6B00E4943B /* View+Extensions.swift in Sources */,
+				021F359B2A5E475D0066090C /* TipKitView.swift in Sources */,
 				027918AE2A49B235002763B7 /* JellyGifImageView.swift in Sources */,
+				021F35972A5E3DD50066090C /* JellyView.swift in Sources */,
 				029A34E12A1F56DD00088963 /* JellyOpenBeforeHomeView.swift in Sources */,
 				024F7AB82A59C1B500E4943B /* RecommendCardViewCell.swift in Sources */,
 				02FA29432A48A1CD008359EF /* SettingView.swift in Sources */,
@@ -359,8 +367,8 @@
 				024F7AB62A59A9B400E4943B /* HomeBackgroundView.swift in Sources */,
 				024F7AB22A59A8F600E4943B /* CardViewModel.swift in Sources */,
 				02B70E4B2A35EA6B009E220B /* Font+Extension.swift in Sources */,
-				021F358D2A5C924A0066090C /* JellyOpenAfterHomeView.swift in Sources */,
 				024F7AB42A59A97500E4943B /* TeasingTabView.swift in Sources */,
+				021F35992A5E3F000066090C /* WeekRecommendCollectionView.swift in Sources */,
 				024F7ABC2A59E4F000E4943B /* MainRecommendView.swift in Sources */,
 				02FA293A2A489BF5008359EF /* TabBarView.swift in Sources */,
 				02FA29412A489F15008359EF /* ExploreView.swift in Sources */,

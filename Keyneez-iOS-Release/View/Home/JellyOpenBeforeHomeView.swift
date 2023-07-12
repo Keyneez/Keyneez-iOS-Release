@@ -14,7 +14,7 @@ struct JellyOpenBeforeHomeView: View {
       ZStack(alignment: .top) {
         HomeBackgroundView()
         ScrollView(.vertical) {
-          VStack(alignment: .leading) {
+          VStack(alignment: .leading, spacing: 0) {
             Spacer().frame(height: 17)
             HStack {
               Image("logo")
@@ -22,20 +22,17 @@ struct JellyOpenBeforeHomeView: View {
             }
             Spacer().frame(height:33)
             //viewModel 빼기
+            
             let userName = "민지너는최고"
             Text("\(userName)")
               .font(.pretendard(.bold, size: 24))
               .foregroundColor(.gray900)
             +
-            Text("님을 위한\n이번 주의 젤리봉투를 열어보세요!")
+            Text("님을 위한")
               .font(.pretendard(.semiBold, size: 24))
-              .foregroundColor(.gray900)
-            Spacer().frame(height: 20)
-            NavigationLink(destination: JellyGifImageView()) {
-              Image("jelly")
-                .resizable()
-                .frame(width: 310, height: 310)
-            }
+//            JellyView()
+            WeekRecommendCollectionView()
+
             Spacer().frame(height: 46)
               HStack {
                 Text("최근 업데이트")
