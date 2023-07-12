@@ -13,18 +13,6 @@ import SwiftUI
 // TODO: - 이용약관 네비게이션 화살표 색상 변경
 
 // TODO: - 버튼 touch 영역 수정
-
-enum SettingPopUpState {
-    case logOut
-    case withDraw
-}
-
-enum TermsViewState {
-    case serviceUse
-    case privacy
-    case openSourceLisence
-}
-
 struct SettingView: View {
     
     @State private var isOnAutoLogIn = false
@@ -51,20 +39,18 @@ struct SettingView: View {
                                         .foregroundColor(.gray900)
                                         .font(.pretendard(.semiBold, size: 20))
                                         .fontWeight(.semibold)
-                                    Spacer().frame(width: 3)
-                                    Image("Setting_edit")
                                 }
                                 .padding(.bottom, 20)
                                 .padding(.top, 48)
                                 .padding([.leading], 28)
                                 Rectangle()
-                                    .foregroundColor(Color.gray.opacity(0.1))
+                                    .foregroundColor(.gray100)
                                     .frame(height: 15)
                             }
                         }
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .listRowSeparator(.hidden)
-
+                        
                         Section() {
                             VStack(spacing: 0) {
                                 HStack {
@@ -89,7 +75,7 @@ struct SettingView: View {
                                 .padding([.top, .bottom], 20)
                                 .padding([.leading, .trailing], 28)
                                 Rectangle()
-                                    .foregroundColor(Color.gray.opacity(0.1))
+                                    .foregroundColor(.gray100)
                                     .frame(height: 15)
                             }
                         }
@@ -110,7 +96,7 @@ struct SettingView: View {
                                 .padding([.leading, .trailing], 28)
                                 
                                 Rectangle()
-                                    .foregroundColor(Color.gray.opacity(0.1))
+                                    .foregroundColor(.gray100)
                                     .frame(height: 15)
                             }
                         }
@@ -118,49 +104,50 @@ struct SettingView: View {
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         
                         Section {
+                            HStack {
+                                Text("버전 정보")
+                                    .foregroundColor(.gray500)
+                                    .font(.pretendard(.medium, size: 16))
+                                Spacer()
+                                Text("1.0.1") // TODO: - 버전 정보 변수로 변경
+                            }
+                            .padding([.top, .bottom], 20)
+                            .padding([.leading, .trailing], 28)
+                            
+                            NavigationLink(destination:
+                                            TermsView(termsState: $termsViewState)
+                                .navigationTitle("서비스 이용 약관")
+                                .navigationBarTitleDisplayMode(.inline)
+                                           
+                            ) {
                                 HStack {
-                                    Text("버전 정보")
+                                    Text("서비스 이용 약관")
+                                        .foregroundColor(.gray500)
+                                        .font(.pretendard(.medium, size: 16))
+                                }
+                                .onTapGesture {
+                                    termsViewState = .serviceUse
+                                }
+                            }
+                            .padding([.top, .bottom], 20)
+                            .padding([.leading, .trailing], 28)
+                            
+                            NavigationLink(destination: TermsView(termsState: $termsViewState)
+                                .navigationTitle("개인정보 처리방침")
+                                .navigationBarTitleDisplayMode(.inline)
+                            ) {
+                                HStack {
+                                    Text("개인정보 처리방침")
                                         .foregroundColor(.gray500)
                                         .font(.pretendard(.medium, size: 16))
                                     Spacer()
-                                    Text("1.0.1") // TODO: - 버전 정보 변수로 변경
                                 }
-                                .padding([.top, .bottom], 20)
-                                .padding([.leading, .trailing], 28)
-                                
-                                NavigationLink(destination: TermsView(termsState: $termsViewState)
-                                    .navigationTitle("서비스 이용 약관")
-                                    .navigationBarTitleDisplayMode(.inline)
-                                               
-                                ) {
-                                    HStack {
-                                        Text("서비스 이용 약관")
-                                            .foregroundColor(.gray500)
-                                            .font(.pretendard(.medium, size: 16))
-                                    }
-                                    .onTapGesture {
-                                        termsViewState = .serviceUse
-                                    }
+                                .onTapGesture {
+                                    termsViewState = .privacy
                                 }
-                                .padding([.top, .bottom], 20)
-                                .padding([.leading, .trailing], 28)
-                                
-                                NavigationLink(destination: TermsView(termsState: $termsViewState)
-                                    .navigationTitle("개인정보 처리방침")
-                                    .navigationBarTitleDisplayMode(.inline)
-                                ) {
-                                    HStack {
-                                        Text("개인정보 처리방침")
-                                            .foregroundColor(.gray500)
-                                            .font(.pretendard(.medium, size: 16))
-                                        Spacer()
-                                    }
-                                    .onTapGesture {
-                                        termsViewState = .privacy
-                                    }
-                                }
-                                .padding([.top, .bottom], 20)
-                                .padding([.leading, .trailing], 28)
+                            }
+                            .padding([.top, .bottom], 20)
+                            .padding([.leading, .trailing], 28)
                             VStack(spacing: 0) {
                                 NavigationLink(destination: TermsView(termsState: $termsViewState)
                                     .navigationTitle("오픈소스 라이센스")
@@ -180,27 +167,28 @@ struct SettingView: View {
                                 .padding([.leading, .trailing], 28)
                                 
                                 Rectangle()
-                                    .foregroundColor(Color.gray.opacity(0.1))
+                                    .foregroundColor(.gray100)
                                     .frame(height: 15)
                             }
                         }
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         Section {
-                                HStack {
-                                    Button(action: {
-                                        isOnPopUp.toggle()
-                                        popUpState = .logOut
-                                    }, label: {
-                                        Text("로그아웃")
-                                            .foregroundColor(.red500)
-                                            .font(.pretendard(.medium, size: 16))
-                                    })
-                                    Spacer()
-                                    Image("Setting_arrow")
-                                }
-                                .padding([.top, .bottom], 20)
-                                .padding([.leading, .trailing], 28)
+                            HStack {
+                                Button(action: {
+                                    isOnPopUp.toggle()
+                                    // logout action
+                                    popUpState = .logOut
+                                }, label: {
+                                    Text("로그아웃")
+                                        .foregroundColor(.red500)
+                                        .font(.pretendard(.medium, size: 16))
+                                })
+                                Spacer()
+                                Image("Setting_arrow")
+                            }
+                            .padding([.top, .bottom], 20)
+                            .padding([.leading, .trailing], 28)
                             VStack(spacing: 0) {
                                 HStack {
                                     Button(action: {
@@ -216,16 +204,17 @@ struct SettingView: View {
                                 }
                                 .padding([.top, .bottom], 20)
                                 .padding([.leading, .trailing], 28)
-                                
                                 Rectangle()
-                                    .foregroundColor(Color.gray.opacity(0.1))
+                                    .foregroundColor(.gray100)
                                     .frame(height: 134)
+                                    .ignoresSafeArea()
                             }
                         }
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     } // list End
                     .environment(\.defaultMinListRowHeight, 60)
+                    .background(Color.gray100.edgesIgnoringSafeArea(.bottom))
                 } // VStack End
                 .navigationTitle("설정")
                 .listStyle(.plain)
