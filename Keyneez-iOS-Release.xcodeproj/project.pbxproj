@@ -42,6 +42,29 @@
 		B145A0572A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0562A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift */; };
 		B145A05B2A4BCF6A003505B6 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A05A2A4BCF6A003505B6 /* Encodable+Extension.swift */; };
 		B145A05D2A4BD043003505B6 /* MoyaProvider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A05C2A4BD043003505B6 /* MoyaProvider+Extension.swift */; };
+		B145A0602A4C5EF4003505B6 /* Number+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A05F2A4C5EF4003505B6 /* Number+Extension.swift */; };
+		B145A0632A4D6975003505B6 /* AuthRemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0622A4D6975003505B6 /* AuthRemoteManager.swift */; };
+		B145A0662A4D71E3003505B6 /* LogoutResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0652A4D71E3003505B6 /* LogoutResponseDTO.swift */; };
+		B145A0682A4D7214003505B6 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0672A4D7214003505B6 /* Decoder.swift */; };
+		B145A06A2A4D72C6003505B6 /* KeyneezNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0692A4D72C6003505B6 /* KeyneezNetworkError.swift */; };
+		B145A06D2A4D7434003505B6 /* RequestSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A06C2A4D7434003505B6 /* RequestSendable.swift */; };
+		B145A06F2A4D747F003505B6 /* OAuthRemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A06E2A4D747F003505B6 /* OAuthRemoteManager.swift */; };
+		B145A0712A4D75AB003505B6 /* KakaoLoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0702A4D75AB003505B6 /* KakaoLoginResponseDTO.swift */; };
+		B145A0732A4D77E1003505B6 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0722A4D77E1003505B6 /* UserDTO.swift */; };
+		B145A0752A4D77FC003505B6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0742A4D77FC003505B6 /* Token.swift */; };
+		B145A0772A4D7823003505B6 /* SignUpRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0762A4D7823003505B6 /* SignUpRequestDTO.swift */; };
+		B145A0792A4D7C79003505B6 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0782A4D7C79003505B6 /* KeychainManager.swift */; };
+		B145A07B2A4D7FD6003505B6 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A07A2A4D7FD6003505B6 /* AuthInterceptor.swift */; };
+		B145A07D2A4D80F0003505B6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A07C2A4D80F0003505B6 /* UserManager.swift */; };
+		B145A0802A4D8384003505B6 /* RefreshResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A07F2A4D8384003505B6 /* RefreshResponseDTO.swift */; };
+		B145A0822A4D999F003505B6 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0812A4D999F003505B6 /* GenericResponse.swift */; };
+		B145A0842A4D9C39003505B6 /* OAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0832A4D9C39003505B6 /* OAuthRepository.swift */; };
+		B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0852A4D9CD0003505B6 /* KakaoUserApi.swift */; };
+		B145A0882A4E006E003505B6 /* NetworkPluggin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0872A4E006E003505B6 /* NetworkPluggin.swift */; };
+		B145A08A2A4EAAAD003505B6 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0892A4EAAAD003505B6 /* Color+Extension.swift */; };
+		B145A08C2A4F45F1003505B6 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */; };
+		B145A08E2A4F50BD003505B6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08D2A4F50BD003505B6 /* AlertView.swift */; };
+		B145A0902A4FBE3A003505B6 /* AuthFlowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08F2A4FBE3A003505B6 /* AuthFlowState.swift */; };
 		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +103,29 @@
 		B145A0562A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignUpRequestDTO.swift; sourceTree = "<group>"; };
 		B145A05A2A4BCF6A003505B6 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		B145A05C2A4BD043003505B6 /* MoyaProvider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Extension.swift"; sourceTree = "<group>"; };
+		B145A05F2A4C5EF4003505B6 /* Number+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extension.swift"; sourceTree = "<group>"; };
+		B145A0622A4D6975003505B6 /* AuthRemoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteManager.swift; sourceTree = "<group>"; };
+		B145A0652A4D71E3003505B6 /* LogoutResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponseDTO.swift; sourceTree = "<group>"; };
+		B145A0672A4D7214003505B6 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		B145A0692A4D72C6003505B6 /* KeyneezNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezNetworkError.swift; sourceTree = "<group>"; };
+		B145A06C2A4D7434003505B6 /* RequestSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSendable.swift; sourceTree = "<group>"; };
+		B145A06E2A4D747F003505B6 /* OAuthRemoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthRemoteManager.swift; sourceTree = "<group>"; };
+		B145A0702A4D75AB003505B6 /* KakaoLoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginResponseDTO.swift; sourceTree = "<group>"; };
+		B145A0722A4D77E1003505B6 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		B145A0742A4D77FC003505B6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		B145A0762A4D7823003505B6 /* SignUpRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestDTO.swift; sourceTree = "<group>"; };
+		B145A0782A4D7C79003505B6 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		B145A07A2A4D7FD6003505B6 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
+		B145A07C2A4D80F0003505B6 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		B145A07F2A4D8384003505B6 /* RefreshResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshResponseDTO.swift; sourceTree = "<group>"; };
+		B145A0812A4D999F003505B6 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
+		B145A0832A4D9C39003505B6 /* OAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthRepository.swift; sourceTree = "<group>"; };
+		B145A0852A4D9CD0003505B6 /* KakaoUserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoUserApi.swift; sourceTree = "<group>"; };
+		B145A0872A4E006E003505B6 /* NetworkPluggin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPluggin.swift; sourceTree = "<group>"; };
+		B145A0892A4EAAAD003505B6 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
+		B145A08D2A4F50BD003505B6 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		B145A08F2A4FBE3A003505B6 /* AuthFlowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowState.swift; sourceTree = "<group>"; };
 		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +267,7 @@
 			children = (
 				B145A0592A4BC95A003505B6 /* OAuth */,
 				B145A0402A4B11D0003505B6 /* Auth */,
+				B145A0812A4D999F003505B6 /* GenericResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,6 +277,9 @@
 			children = (
 				B125FBFC2A2DC3400015E04B /* View+Extension.swift */,
 				B145A0492A4BBF64003505B6 /* OSLog+Extension.swift */,
+				B145A05F2A4C5EF4003505B6 /* Number+Extension.swift */,
+				B145A0892A4EAAAD003505B6 /* Color+Extension.swift */,
+				B145A08D2A4F50BD003505B6 /* AlertView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -251,6 +301,7 @@
 				B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */,
 				B125FBE82A28EEE70015E04B /* KeyneezButton.swift */,
 				B125FBEF2A29EE8E0015E04B /* ConsentRow.swift */,
+				B145A08F2A4FBE3A003505B6 /* AuthFlowState.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -278,6 +329,7 @@
 		B145A0402A4B11D0003505B6 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				B145A07E2A4D8376003505B6 /* ResponseDTO */,
 				B145A05E2A4BD1C8003505B6 /* RequestDTO */,
 				B145A03A2A4AB2EF003505B6 /* BirthDateState.swift */,
 				B125FBED2A29D5570015E04B /* IDRegexMaker.swift */,
@@ -290,10 +342,14 @@
 		B145A04E2A4BC1C9003505B6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B145A06B2A4D741E003505B6 /* Protocol */,
 				B145A04F2A4BC1DE003505B6 /* Auth */,
 				B145A0542A4BC375003505B6 /* APIEnvironment.swift */,
 				B145A05A2A4BCF6A003505B6 /* Encodable+Extension.swift */,
 				B145A05C2A4BD043003505B6 /* MoyaProvider+Extension.swift */,
+				B145A0672A4D7214003505B6 /* Decoder.swift */,
+				B145A0692A4D72C6003505B6 /* KeyneezNetworkError.swift */,
+				B145A0872A4E006E003505B6 /* NetworkPluggin.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -303,6 +359,13 @@
 			children = (
 				B145A0502A4BC1F3003505B6 /* AuthAPI.swift */,
 				B145A0522A4BC2C5003505B6 /* OAuthAPI.swift */,
+				B145A0622A4D6975003505B6 /* AuthRemoteManager.swift */,
+				B145A06E2A4D747F003505B6 /* OAuthRemoteManager.swift */,
+				B145A0832A4D9C39003505B6 /* OAuthRepository.swift */,
+				B145A0852A4D9CD0003505B6 /* KakaoUserApi.swift */,
+				B145A0782A4D7C79003505B6 /* KeychainManager.swift */,
+				B145A07A2A4D7FD6003505B6 /* AuthInterceptor.swift */,
+				B145A07C2A4D80F0003505B6 /* UserManager.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -311,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				B145A0562A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift */,
+				B145A0762A4D7823003505B6 /* SignUpRequestDTO.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -318,7 +382,9 @@
 		B145A0592A4BC95A003505B6 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				B145A0642A4D71D4003505B6 /* ResponseDTO */,
 				B145A0582A4BC94A003505B6 /* RequestDTO */,
+				B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -328,6 +394,33 @@
 			children = (
 			);
 			path = RequestDTO;
+			sourceTree = "<group>";
+		};
+		B145A0642A4D71D4003505B6 /* ResponseDTO */ = {
+			isa = PBXGroup;
+			children = (
+				B145A0652A4D71E3003505B6 /* LogoutResponseDTO.swift */,
+				B145A0702A4D75AB003505B6 /* KakaoLoginResponseDTO.swift */,
+				B145A0722A4D77E1003505B6 /* UserDTO.swift */,
+				B145A0742A4D77FC003505B6 /* Token.swift */,
+			);
+			path = ResponseDTO;
+			sourceTree = "<group>";
+		};
+		B145A06B2A4D741E003505B6 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B145A06C2A4D7434003505B6 /* RequestSendable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B145A07E2A4D8376003505B6 /* ResponseDTO */ = {
+			isa = PBXGroup;
+			children = (
+				B145A07F2A4D8384003505B6 /* RefreshResponseDTO.swift */,
+			);
+			path = ResponseDTO;
 			sourceTree = "<group>";
 		};
 		B16332E92A3E9D9F00026A46 /* Recommend */ = {
@@ -418,36 +511,59 @@
 			buildActionMask = 2147483647;
 			files = (
 				B145A03B2A4AB2EF003505B6 /* BirthDateState.swift in Sources */,
+				B145A0842A4D9C39003505B6 /* OAuthRepository.swift in Sources */,
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
+				B145A0602A4C5EF4003505B6 /* Number+Extension.swift in Sources */,
+				B145A06F2A4D747F003505B6 /* OAuthRemoteManager.swift in Sources */,
+				B145A06D2A4D7434003505B6 /* RequestSendable.swift in Sources */,
 				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				B125FBFD2A2DC3400015E04B /* View+Extension.swift in Sources */,
+				B145A0712A4D75AB003505B6 /* KakaoLoginResponseDTO.swift in Sources */,
+				B145A07B2A4D7FD6003505B6 /* AuthInterceptor.swift in Sources */,
 				B145A0532A4BC2C5003505B6 /* OAuthAPI.swift in Sources */,
 				B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */,
 				B145A03F2A4ACD76003505B6 /* PageIndicator.swift in Sources */,
 				B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */,
 				B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */,
 				B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */,
+				B145A0632A4D6975003505B6 /* AuthRemoteManager.swift in Sources */,
 				B145A05D2A4BD043003505B6 /* MoyaProvider+Extension.swift in Sources */,
+				B145A07D2A4D80F0003505B6 /* UserManager.swift in Sources */,
 				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
 				B145A0482A4BBCCD003505B6 /* WelcomeViewModel.swift in Sources */,
+				B145A0822A4D999F003505B6 /* GenericResponse.swift in Sources */,
 				B125FBE32A2837FA0015E04B /* RegisterIDView.swift in Sources */,
 				B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */,
+				B145A08E2A4F50BD003505B6 /* AlertView.swift in Sources */,
+				B145A0752A4D77FC003505B6 /* Token.swift in Sources */,
 				B145A04A2A4BBF64003505B6 /* OSLog+Extension.swift in Sources */,
+				B145A0882A4E006E003505B6 /* NetworkPluggin.swift in Sources */,
 				B145A03D2A4ABB14003505B6 /* Gender.swift in Sources */,
 				B145A0552A4BC375003505B6 /* APIEnvironment.swift in Sources */,
 				B145A0512A4BC1F3003505B6 /* AuthAPI.swift in Sources */,
+				B145A08A2A4EAAAD003505B6 /* Color+Extension.swift in Sources */,
 				B145A0572A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift in Sources */,
+				B145A0802A4D8384003505B6 /* RefreshResponseDTO.swift in Sources */,
 				B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
+				B145A0902A4FBE3A003505B6 /* AuthFlowState.swift in Sources */,
+				B145A0792A4D7C79003505B6 /* KeychainManager.swift in Sources */,
 				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
+				B145A06A2A4D72C6003505B6 /* KeyneezNetworkError.swift in Sources */,
+				B145A0662A4D71E3003505B6 /* LogoutResponseDTO.swift in Sources */,
 				B145A05B2A4BCF6A003505B6 /* Encodable+Extension.swift in Sources */,
 				B125FBE72A283E8D0015E04B /* RegisterConsentView.swift in Sources */,
 				B125FBF42A29F4A40015E04B /* ViewModelable.swift in Sources */,
+				B145A0772A4D7823003505B6 /* SignUpRequestDTO.swift in Sources */,
+				B145A0682A4D7214003505B6 /* Decoder.swift in Sources */,
 				B145A0392A4A9A9E003505B6 /* BirthRegexMaker.swift in Sources */,
 				B125FBF72A2DB6620015E04B /* RecommendView.swift in Sources */,
 				B125FBF92A2DBE310015E04B /* RecommendItem.swift in Sources */,
+				B145A0732A4D77E1003505B6 /* UserDTO.swift in Sources */,
 				B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */,
+				B145A08C2A4F45F1003505B6 /* ResponseProtocol.swift in Sources */,
+				B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
