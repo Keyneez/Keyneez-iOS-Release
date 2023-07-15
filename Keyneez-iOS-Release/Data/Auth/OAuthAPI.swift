@@ -16,7 +16,7 @@ enum OAuthAPI {
 extension OAuthAPI: TargetType {
   
   var baseURL: URL {
-    return URL(string: APIEnvironment.apiURL + "oauth")!
+    return URL(string: APIEnvironment.apiURL + "/oauth")!
   }
   
   var path: String {
@@ -43,6 +43,10 @@ extension OAuthAPI: TargetType {
   
   var headers: [String : String]? {
     return ["Content-Type": "application/json"]
+  }
+  
+  var validationType: ValidationType {
+    return .successCodes
   }
   
   

@@ -12,6 +12,26 @@ enum Gender: Int, CustomStringConvertible {
   case woman
   case none
   
+  static func makeGender(keyword: String) -> Self {
+    if keyword == "M" {
+      return .man
+    } else if keyword == "W" {
+      return .woman
+    }
+    return .none
+  }
+  
+  var keyword: String {
+    switch self {
+    case .man:
+      return "M"
+    case .woman:
+      return "W"
+    case .none:
+      return "N"
+    }
+  }
+  
   var description: String {
     switch self {
     case .man:
