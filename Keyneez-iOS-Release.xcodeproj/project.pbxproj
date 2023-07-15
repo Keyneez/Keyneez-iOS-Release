@@ -64,7 +64,6 @@
 		B145A08A2A4EAAAD003505B6 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0892A4EAAAD003505B6 /* Color+Extension.swift */; };
 		B145A08C2A4F45F1003505B6 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */; };
 		B145A08E2A4F50BD003505B6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08D2A4F50BD003505B6 /* AlertView.swift */; };
-		B145A0902A4FBE3A003505B6 /* AuthFlowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08F2A4FBE3A003505B6 /* AuthFlowState.swift */; };
 		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,7 +124,6 @@
 		B145A0892A4EAAAD003505B6 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
 		B145A08D2A4F50BD003505B6 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		B145A08F2A4FBE3A003505B6 /* AuthFlowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowState.swift; sourceTree = "<group>"; };
 		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -301,7 +299,6 @@
 				B125FBE62A283E8D0015E04B /* RegisterConsentView.swift */,
 				B125FBE82A28EEE70015E04B /* KeyneezButton.swift */,
 				B125FBEF2A29EE8E0015E04B /* ConsentRow.swift */,
-				B145A08F2A4FBE3A003505B6 /* AuthFlowState.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -547,7 +544,6 @@
 				B145A0802A4D8384003505B6 /* RefreshResponseDTO.swift in Sources */,
 				B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
-				B145A0902A4FBE3A003505B6 /* AuthFlowState.swift in Sources */,
 				B145A0792A4D7C79003505B6 /* KeychainManager.swift in Sources */,
 				029A34E12A1F56DD00088963 /* HomeView.swift in Sources */,
 				B145A06A2A4D72C6003505B6 /* KeyneezNetworkError.swift in Sources */,

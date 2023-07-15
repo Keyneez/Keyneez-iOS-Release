@@ -19,12 +19,14 @@ struct Keyneez_iOS_ReleaseApp: App {
     var body: some Scene {
         WindowGroup {
           // kakaoLogin
-          WelcomeView()
+//          RegisterContainerView()
+          WelcomeView(viewModel: WelcomeViewModel())
             .onOpenURL { url in
               if AuthApi.isKakaoTalkLoginUrl(url) {
                 _ = AuthController.handleOpenUrl(url: url)
               }
             }
+//          RegisterContainerView()
         }
     }
 }
