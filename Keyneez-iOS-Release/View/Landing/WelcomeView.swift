@@ -52,13 +52,14 @@ struct WelcomeView: View {
   @ViewBuilder
   private func appleButton() -> some View {
     
-    Button {
-      viewModel.didTapAppleLogin()
-    } label: {
-      Image("appleLogin")
-    }
-    .navigationDestination(isPresented: $viewModel.readyToNavigation) {
+    NavigationLink(isActive: $viewModel.readyToNavigation, destination: {
       coordinate()
+    }) {
+          Button {
+            viewModel.didTapAppleLogin()
+          } label: {
+            Image("appleLogin")
+          }
     }
     
   }
@@ -67,15 +68,16 @@ struct WelcomeView: View {
   @ViewBuilder
   private func kakaoButton() -> some View {
     
-    Button {
-      viewModel.didTapLoginWithKakao()
-    } label: {
-      Image("kakaoLogin")
-    }
-    .navigationDestination(isPresented: $viewModel.readyToNavigation) {
-      coordinate()
-    }
     
+    NavigationLink(isActive: $viewModel.readyToNavigation, destination: {
+      coordinate()
+    }) {
+          Button {
+            viewModel.didTapLoginWithKakao()
+          } label: {
+            Image("kakaoLogin")
+          }
+    }
 
   }
   
@@ -92,7 +94,7 @@ struct WelcomeView: View {
     if let nextPage = viewModel.nextPage {
       switch nextPage {
       case .signup(let viewModel):
-        RegisterIDView(viewModel: viewModel)
+        RegisterIDView(viewModel: viewModel, overPreviousView: $viewModel.readyToNavigation)
       case .home:
         HomeView()
       }

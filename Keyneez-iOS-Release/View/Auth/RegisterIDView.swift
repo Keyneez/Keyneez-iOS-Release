@@ -9,17 +9,18 @@ import SwiftUI
 
 struct RegisterIDView: View {
   
-  @StateObject var viewModel = RegisterIDViewModel()
+  @StateObject var viewModel: RegisterIDViewModel
   @State var presentSheet = false
-  @State var isShowingDetail = false
-  
+  @State var consentFinished = false
+  @Binding var overPreviousView: Bool
+
   var body: some View {
     VStack(alignment: .leading) {
       
       Text("간단한 정보를 알려주세요.")
         .font(.system(size: 24, weight: .bold))
         .padding(.leading, 28)
-        .padding(.bottom, 12 * 3/4)
+        .padding(.bottom, 12)
       
       Text("맞춤정보 제공을 위해 필요해요")
         .padding(.leading, 28)
@@ -31,7 +32,7 @@ struct RegisterIDView: View {
       Text("닉네임")
         .font(.system(size:14))
         .padding(.horizontal, 24)
-        .padding(.bottom, 16 * 3/4)
+        .padding(.bottom, 16)
       VStack(alignment: .leading) {
         HStack {
           TextField("2~6자 한글, 영문, 숫자 사용가능", text: $viewModel.nickName)
@@ -59,6 +60,7 @@ struct RegisterIDView: View {
           VStack(alignment: .leading) {
             HStack {
               TextField("YY/MM/DD", text: $viewModel.birthDate)
+                .keyboardType(.numberPad)
                 .font(.system(size: 20, weight: .regular))
               
               if viewModel.birthDateState != .available {
@@ -83,13 +85,8 @@ struct RegisterIDView: View {
             .font(.system(size: 14))
           VStack(alignment: .leading) {
             HStack {
-              Button(action: {
+              makeGenderButton(text: "남성") {
                 viewModel.action(.onTapGenderButton(gender: .man))
-              }) {
-                Text("남성")
-                  .font(.system(size: 16, weight: .medium))
-                  .padding(.horizontal, 21)
-                  .padding(.vertical, 9)
               }
               .background(checkGenderButtonBackgroundColor(in: .man))
               .foregroundColor(updateGenderButtonTintColor(in: .man))
@@ -97,13 +94,8 @@ struct RegisterIDView: View {
               .cornerRadius(12)
               
               Spacer().frame(width: 15)
-              Button(action: {
+              makeGenderButton(text: "여성") {
                 viewModel.action(.onTapGenderButton(gender: .woman))
-              }) {
-                Text("여성")
-                  .font(.system(size: 16, weight: .medium))
-                  .padding(.horizontal, 21)
-                  .padding(.vertical, 9)
               }
               .background(checkGenderButtonBackgroundColor(in: .woman))
               .foregroundColor(updateGenderButtonTintColor(in:.woman))
@@ -115,27 +107,55 @@ struct RegisterIDView: View {
         
       }
       .padding(.horizontal, 24)
-      
-      
       Spacer()
       
       makeNextButtonView()
-        .sheet(isPresented: $presentSheet) {
-          RegisterConsentView(isPresent: $presentSheet, confirmed: $isShowingDetail)
+        .sheet(isPresented: $presentSheet, onDismiss: {
+          viewModel.action(.onDismissConsentView(ok: consentFinished))
+        }) {
+          RegisterConsentView(isPresent: $presentSheet, confirmed: $consentFinished)
             .presentationDetents([.height(350)])
             .presentationCornerRadius(21)
         }
-      if presentSheet == false && isShowingDetail == true {
-        NavigationLink(destination: RecommendView(isShowing: $isShowingDetail), isActive: $isShowingDetail) {
-          EmptyView()
+        
+    }
+    .navigationBarBackButtonHidden(true)
+    .toolbar {
+      ToolbarItem(placement: .navigationBarLeading) {
+        Button(action: {
+          overPreviousView = false
+        }) {
+          Image(systemName: "chevron.left").renderingMode(.template)
+            .foregroundColor(.black)
         }
       }
-      
     }
   }
 }
 
 extension RegisterIDView {
+  
+  @ViewBuilder
+  private func cooridinate() -> some View {
+    if let recommendViewModel = viewModel.recommendViewModel {
+      RecommendView(viewModel: recommendViewModel)
+    } else {
+      HomeView()
+    }
+  }
+  
+  @ViewBuilder
+  private func makeGenderButton(text: String, action: @escaping () -> Void ) -> some View {
+    Button(action: {
+      action()
+    }) {
+      Text(text)
+        .font(.system(size: 16, weight: .medium))
+        .padding(.horizontal, 21)
+        .padding(.vertical, 9)
+    }
+    
+  }
   
   private func checkBirthDateTextFieldImage() -> Image {
     if viewModel.birthDateState == .available {
@@ -199,11 +219,14 @@ extension RegisterIDView {
       }) {
         Text("다음")
           .frame(minWidth: 0, maxWidth: .infinity)
-          .padding(17 * 3/4)
+          .padding(17.topx())
       }
       .buttonStyle(.borderedProminent)
       .tint(updateConfirmationState())
       .padding(.horizontal, 22)
+      .navigationDestination(isPresented: $viewModel.readyToNavigation) {
+        cooridinate()
+      }
     }
     
   }
@@ -212,6 +235,6 @@ extension RegisterIDView {
 
 struct RegisterIDView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterIDView()
+      RegisterIDView(viewModel: .init(idToken: "", kakaoAccessToken: nil), overPreviousView: .constant(false))
     }
 }

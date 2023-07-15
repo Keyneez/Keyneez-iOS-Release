@@ -7,20 +7,16 @@
 
 import SwiftUI
 
+enum LoginFlowView {
+  case welcome
+  case id
+}
+
 struct RegisterContainerView: View {
     var body: some View {
       NavigationView {
         VStack {
-          Spacer().frame(height:32 * 3/4)
-          RegisterIDView()
-        }
-        .toolbar {
-          ToolbarItem(placement: .navigationBarLeading) {
-            Button(action: {}) {
-              Image(systemName: "chevron.left").renderingMode(.template)
-                .foregroundColor(.black)
-            }
-          }
+          WelcomeView(viewModel: WelcomeViewModel())
         }
       }
       .navigationViewStyle(.stack)
