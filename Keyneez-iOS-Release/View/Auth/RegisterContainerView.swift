@@ -13,13 +13,15 @@ enum LoginFlowView {
 }
 
 struct RegisterContainerView: View {
+  
+  
     var body: some View {
       NavigationView {
         VStack {
           WelcomeView(viewModel: WelcomeViewModel())
         }
       }
-      .navigationViewStyle(.stack)
+      
     }
 }
 

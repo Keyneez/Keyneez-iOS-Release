@@ -13,6 +13,23 @@ final class RecommendViewModel: ViewModelable {
   @Published var state: State
   @Published var items = makeRecommendItems()
   @Published var nickname: String = "민지너는최고"
+  @Published var confirmed: Bool = false
+  @Published var error: Error?
+  
+  private var idToken: String?
+  private var kakaoAccessToken: String?
+  private var gender: Gender = .none
+  private var birth: String
+  private var repository: OAuthRepositoryProtocol = OAuthRepository()
+  
+  init(idToken: String?, kakaoAccessToken: String?, nickname: String, gender: Gender, birth: String) {
+    self.idToken = idToken
+    self.kakaoAccessToken = kakaoAccessToken
+    self.gender = gender
+    self.birth = birth
+    self.nickname = nickname
+    state = .isCompleted(false)
+  }
   
   enum Action {
     case onTapFilter(id: Int)
@@ -28,13 +45,43 @@ final class RecommendViewModel: ViewModelable {
     case .onTapFilter(let id):
       didTapFliterButton(id: id)
     case .onTapConfirmButton:
-      confirmed()
+      Task {
+        let isSignUpSuccessed = await signUp()
+        await MainActor.run {
+          confirmed = isSignUpSuccessed
+        }
+      }
     }
   }
+
   
-  init() {
-    self.state = .isCompleted(false)
+  
+  
+  private func signUp() async -> Bool {
+    
+    guard let kakaoAccessToken = kakaoAccessToken, let idToken = idToken else { return false }
+    do {
+      let signUpResponse = try await repository.signUpWithKakao(with: KakaoSignUpRequestDTO(idToken:idToken , accessToken: kakaoAccessToken, nickname: nickname, gender: gender.keyword, birth: birth, age: 0, tagPks: items.filter { $0.checked == true }.map { $0.id }))
+      
+      //Token 저장
+      saveTokensInKeychain(tokens: signUpResponse.token)
+      
+      //User 저장
+      saveUserInfo(user: signUpResponse.user)
+      return true
+    } catch(let e) {
+      await MainActor.run {
+        error = e
+      }
+    }
+    return false
   }
+  
+ 
+  
+}
+
+extension RecommendViewModel {
   
   private func isExceedLimit() -> Bool {
     return items.filter { $0.checked == true }.count >= queueLimit
@@ -59,7 +106,27 @@ final class RecommendViewModel: ViewModelable {
     }
   }
   
-  private func confirmed() {
+  private func saveUserInfo(user: UserDTO?) {
+    
+    guard let user = user else {
+      return
+    }
+    
+    do {
+      var userEntity = try user.toDomain()
+      UserManager.shared.user = userEntity
+    } catch(let e) {
+      print(e)
+    }
+    
+  }
+  
+  private func saveTokensInKeychain(tokens: Token?) {
+    
+    guard let accessToken = tokens?.accessToken, let refreshToken = tokens?.refreshToken else { return }
+    
+    KeyChainManager.shared.saveInKeychain(account: "accessToken", value: accessToken)
+    KeyChainManager.shared.saveInKeychain(account:  "refreshToken", value: refreshToken)
     
   }
   

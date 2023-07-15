@@ -13,6 +13,7 @@ struct RegisterIDView: View {
   @State var presentSheet = false
   @State var consentFinished = false
   @Binding var overPreviousView: Bool
+  @Binding var popToRootTrigger: Bool
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -138,7 +139,7 @@ extension RegisterIDView {
   @ViewBuilder
   private func cooridinate() -> some View {
     if let recommendViewModel = viewModel.recommendViewModel {
-      RecommendView(viewModel: recommendViewModel)
+      RecommendView(viewModel: recommendViewModel, overPreviousView: $viewModel.readyToNavigation, popToRoot: $popToRootTrigger)
     } else {
       HomeView()
     }
@@ -212,21 +213,24 @@ extension RegisterIDView {
   private func makeNextButtonView() -> some View {
     switch viewModel.state {
     case .confirm(let ok):
-      Button(action: {
-        if ok == true {
-          presentSheet = true
-        }
-      }) {
-        Text("다음")
-          .frame(minWidth: 0, maxWidth: .infinity)
-          .padding(17.topx())
-      }
-      .buttonStyle(.borderedProminent)
-      .tint(updateConfirmationState())
-      .padding(.horizontal, 22)
-      .navigationDestination(isPresented: $viewModel.readyToNavigation) {
+      
+      NavigationLink(isActive: $viewModel.readyToNavigation) {
         cooridinate()
+      } label: {
+        Button(action: {
+          if ok == true {
+            presentSheet = true
+          }
+        }) {
+          Text("다음")
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding(17.topx())
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(updateConfirmationState())
+        .padding(.horizontal, 22)
       }
+      .isDetailLink(false)
     }
     
   }
@@ -235,6 +239,6 @@ extension RegisterIDView {
 
 struct RegisterIDView_Previews: PreviewProvider {
     static var previews: some View {
-      RegisterIDView(viewModel: .init(idToken: "", kakaoAccessToken: nil), overPreviousView: .constant(false))
+      RegisterIDView(viewModel: .init(idToken: "", kakaoAccessToken: nil), overPreviousView: .constant(false), popToRootTrigger: .constant(false))
     }
 }

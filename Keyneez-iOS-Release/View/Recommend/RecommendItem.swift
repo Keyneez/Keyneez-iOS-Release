@@ -37,23 +37,24 @@ enum Tag: CustomStringConvertible {
 }
 
 struct RecommendItem: Hashable {
+  let id: Int
   let tag: Tag
   let text: String
   let image: UIImage
   var checked: Bool
 }
 
-func makeRecommendItem(tag: Tag, text: String) -> RecommendItem {
-  return RecommendItem(tag: tag, text: text, image: UIImage(), checked: false)
+func makeRecommendItem(id: Int, tag: Tag, text: String) -> RecommendItem {
+  return RecommendItem(id: id, tag: tag, text: text, image: UIImage(), checked: false)
 }
 
 func makeRecommendItems() -> [RecommendItem] {
   return [
-    makeRecommendItem(tag: .activity, text: "동아리/\n서포터즈"),
-    makeRecommendItem(tag: .hobby, text: "청소년\n혜택"),
-    makeRecommendItem(tag: .career, text: "강연/\n멘토링"),
-    makeRecommendItem(tag: .activity, text: "캠페인/\n공모전"),
-    makeRecommendItem(tag: .hobby, text: "문화생활/\n취미"),
-    makeRecommendItem(tag: .career, text: "장학금\n정보")
+    makeRecommendItem(id: 1, tag: .activity, text: "동아리/\n서포터즈"),
+    makeRecommendItem(id: 2, tag: .hobby, text: "청소년\n혜택"),
+    makeRecommendItem(id: 3, tag: .career, text: "강연/\n멘토링"),
+    makeRecommendItem(id: 4, tag: .activity, text: "캠페인/\n공모전"),
+    makeRecommendItem(id: 5, tag: .hobby, text: "문화생활/\n취미"),
+    makeRecommendItem(id: 6, tag: .career, text: "장학금\n정보")
   ]
 }

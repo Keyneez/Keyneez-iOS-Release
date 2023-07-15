@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 
 final class RegisterIDViewModel: ViewModelable {
@@ -16,19 +17,27 @@ final class RegisterIDViewModel: ViewModelable {
   @Published var birthDateState: BirthDateState = .default
   @Published var gender: Gender = .none
   @Published var state: State
+  var recommendViewModel: RecommendViewModel?
+  @Published var readyToNavigation = false
+  
+  private var idToken: String?
+  private var kakaoAccessToken: String?
+  
   var cancelBag = [AnyCancellable]()
   
   enum Action {
     case onTapGenderButton(gender: Gender)
     case onTapNextButton
+    case onDismissConsentView(ok: Bool)
   }
-  
   
   enum State {
     case confirm(Bool)
   }
   
-  init() {
+  init(idToken: String?, kakaoAccessToken: String?) {
+    self.idToken = idToken
+    self.kakaoAccessToken = kakaoAccessToken
     state = .confirm(false)
     updateNickNameState()
     updateBirthDateState()
@@ -41,6 +50,11 @@ final class RegisterIDViewModel: ViewModelable {
       self.gender = gender
     case .onTapNextButton:
       return
+    case .onDismissConsentView(let ok):
+      if ok == true {
+        recommendViewModel = RecommendViewModel(idToken: idToken, kakaoAccessToken: kakaoAccessToken, nickname: nickName, gender: gender, birth: birthDate)
+        readyToNavigation = true
+      }
     }
   }
   

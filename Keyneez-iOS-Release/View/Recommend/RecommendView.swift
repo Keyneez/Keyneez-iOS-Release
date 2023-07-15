@@ -9,8 +9,10 @@ import SwiftUI
 
 struct RecommendView: View {
   var items: [RecommendItem] = makeRecommendItems()
-  @StateObject var viewModel = RecommendViewModel()
-  @Binding var isShowing: Bool
+  var itemImageIndices = [2, 1, 8, 4, 1, 6]
+  @StateObject var viewModel: RecommendViewModel
+  @Binding var overPreviousView: Bool
+  @Binding var popToRoot: Bool
   
   private let gridLayout = [
     GridItem(.flexible(), spacing: 15),
@@ -35,8 +37,9 @@ struct RecommendView: View {
                   Button {
                     viewModel.action(.onTapFilter(id: index))
                   } label: {
-                    Rectangle()
-                      .foregroundColor(.red)
+                    ZStack {
+                      Image("recommend_\(itemImageIndices[index])")
+                    }
                   }
                   .buttonStyle(.plain)
                   
@@ -51,7 +54,6 @@ struct RecommendView: View {
                       }
                       Image("on")
                         .offset(x: -11, y: 12)
-
                     }
                   }
                 }
@@ -73,22 +75,35 @@ struct RecommendView: View {
         .tint(updateConfirmButton())
         .padding(.horizontal, 22)
         .disabled(!isConfirmed())
+        navigation()
       }
       .navigationBarBackButtonHidden(true)
       .toolbar {
         ToolbarItem(placement: .navigationBarLeading) {
           Button(action: {
-            isShowing = false
+            overPreviousView = false
           }) {
             Image(systemName: "chevron.left").renderingMode(.template)
               .foregroundColor(.black)
           }
         }
       }
+      .errorAlert(error: $viewModel.error, completion: {
+        self.popToRoot = false
+        
+      })
+      .background(Color(hex: 0xF7F7F7, opacity: 1))
     }
 }
 
 extension RecommendView {
+  
+  @ViewBuilder
+  private func navigation() -> some View {
+    NavigationLink(destination: HomeView(), isActive: $viewModel.confirmed) {
+      EmptyView()
+    }
+  }
   
   private func updateConfirmButton() -> Color {
     return isConfirmed() ? .black : .gray
@@ -104,6 +119,6 @@ extension RecommendView {
 
 struct RecommendView_Previews: PreviewProvider {
     static var previews: some View {
-      RecommendView(isShowing: .constant(false))
+      RecommendView(viewModel: RecommendViewModel(idToken: nil, kakaoAccessToken: nil, nickname: "", gender: .man, birth: ""), overPreviousView: .constant(false), popToRoot: .constant(false))
     }
 }
