@@ -289,6 +289,7 @@
 		029A34DF2A1F569400088963 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				02B70E3F2A35DF77009E220B /* Font */,
 				029A34C12A1F49E700088963 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -500,6 +501,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B70E432A35E020009E220B /* Pretendard-SemiBold.otf in Resources */,
+				02B70E472A35E02B009E220B /* Pretendard-Regular.otf in Resources */,
+				02B70E452A35E020009E220B /* Pretendard-Medium.otf in Resources */,
+				02B70E442A35E020009E220B /* Pretendard-Bold.otf in Resources */,
 				029A34C52A1F49E700088963 /* Preview Assets.xcassets in Resources */,
 				029A34C22A1F49E700088963 /* Assets.xcassets in Resources */,
 			);
