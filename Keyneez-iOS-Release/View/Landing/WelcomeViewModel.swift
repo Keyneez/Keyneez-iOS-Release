@@ -45,26 +45,23 @@ final class WelcomeViewModel: ObservableObject {
   }
 
   func didTapLoginWithKakao() {
-    do {
-      Task {
-        await MainActor.run {
-          isLoading = true
-        }
-        let responseAndToken = try await repository.loginWithKakao()
-        _ = responseAndToken.dto
-        
-        let idToken = responseAndToken.idToken
-        let kakaoAccessToken = responseAndToken.accessToken
-        
-        await MainActor.run {
-          nextPage = .signup(viewModel: RegisterIDViewModel(idToken: idToken, kakaoAccessToken: kakaoAccessToken))
-          readyToNavigation = true
-          isLoading = false
-        }
+    
+    Task {
+      await MainActor.run {
+        isLoading = true
       }
-    }
-    catch(let error){
-      self.error = error
+      
+      let responseAndToken = try await repository.loginWithKakao()
+      _ = responseAndToken.dto
+      
+      let idToken = responseAndToken.idToken
+      let kakaoAccessToken = responseAndToken.accessToken
+      
+      await MainActor.run {
+        nextPage = .signup(viewModel: RegisterIDViewModel(idToken: idToken, kakaoAccessToken: kakaoAccessToken))
+        readyToNavigation = true
+        isLoading = false
+      }
     }
     
   }
