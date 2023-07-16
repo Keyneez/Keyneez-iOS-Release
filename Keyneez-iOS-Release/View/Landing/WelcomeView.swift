@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct WelcomeView: View {
   
@@ -15,7 +16,6 @@ struct WelcomeView: View {
  @State var page = 0
   
   var body: some View {
-    NavigationView {
       ZStack {
         Image("background")
           .resizable()
@@ -41,13 +41,24 @@ struct WelcomeView: View {
           Spacer()
           kakaoButton()
           appleButton()
+          
+//          SignInWithAppleButton { request in
+//            request.requestedScopes = [.email, .fullName]
+//          } onCompletion: {
+//            result in
+//              switch result {
+//              case .success(let authResult):
+//                print(authResult)
+//              case .failure(let error):
+//                viewModel.error = error
+//              }
+//          }
           Spacer()
             .frame(height: 20)
         }
         .padding(.horizontal)
+        .errorAlert(error: $viewModel.error)
       }
-    }
-    .navigationViewStyle(.stack)
   }
   
   

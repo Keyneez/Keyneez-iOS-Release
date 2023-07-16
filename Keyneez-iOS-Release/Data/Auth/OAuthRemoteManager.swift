@@ -18,15 +18,20 @@ final class OAuthRemoteManager: RequestSendable {
   
   var provider: MoyaProvider<OAuthAPI> = .init(plugins: [NetworkLoggerPlugin(verbose: true)])
   
-  func kakaoLogin(idToken: String) async throws -> KakaoLoginResponseDTO {
+  func kakaoLogin(idToken: String) async throws -> LoginResponseDTO {
     
     let target = OAuthAPI.kakao(idToken: idToken)
-    return try await requestFrom(target, modelType: KakaoLoginResponseDTO.self)
+    return try await requestFrom(target, modelType: LoginResponseDTO.self)
   }
   
-  func kakaoSignUp(with dto: KakaoSignUpRequestDTO) async throws -> KakaoLoginResponseDTO {
+  func kakaoSignUp(with dto: KakaoSignUpRequestDTO) async throws -> LoginResponseDTO {
     let target = OAuthAPI.kakaoSignup(param: dto)
-    return try await requestFrom(target, modelType: KakaoLoginResponseDTO.self)
+    return try await requestFrom(target, modelType: LoginResponseDTO.self)
+  }
+  
+  func appleSignUP(with idToken: String) async throws -> LoginResponseDTO {
+    let target = OAuthAPI.kakao(idToken: idToken)
+    return try await requestFrom(target, modelType: LoginResponseDTO.self)
   }
   
 }

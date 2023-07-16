@@ -49,7 +49,7 @@
 		B145A06A2A4D72C6003505B6 /* KeyneezNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0692A4D72C6003505B6 /* KeyneezNetworkError.swift */; };
 		B145A06D2A4D7434003505B6 /* RequestSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A06C2A4D7434003505B6 /* RequestSendable.swift */; };
 		B145A06F2A4D747F003505B6 /* OAuthRemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A06E2A4D747F003505B6 /* OAuthRemoteManager.swift */; };
-		B145A0712A4D75AB003505B6 /* KakaoLoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0702A4D75AB003505B6 /* KakaoLoginResponseDTO.swift */; };
+		B145A0712A4D75AB003505B6 /* LoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0702A4D75AB003505B6 /* LoginResponseDTO.swift */; };
 		B145A0732A4D77E1003505B6 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0722A4D77E1003505B6 /* UserDTO.swift */; };
 		B145A0752A4D77FC003505B6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0742A4D77FC003505B6 /* Token.swift */; };
 		B145A0772A4D7823003505B6 /* SignUpRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0762A4D7823003505B6 /* SignUpRequestDTO.swift */; };
@@ -64,6 +64,7 @@
 		B145A08A2A4EAAAD003505B6 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0892A4EAAAD003505B6 /* Color+Extension.swift */; };
 		B145A08C2A4F45F1003505B6 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */; };
 		B145A08E2A4F50BD003505B6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08D2A4F50BD003505B6 /* AlertView.swift */; };
+		B154804D2A6397EC00293289 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B154804C2A6397EC00293289 /* AppleLoginManager.swift */; };
 		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,7 +110,7 @@
 		B145A0692A4D72C6003505B6 /* KeyneezNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezNetworkError.swift; sourceTree = "<group>"; };
 		B145A06C2A4D7434003505B6 /* RequestSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSendable.swift; sourceTree = "<group>"; };
 		B145A06E2A4D747F003505B6 /* OAuthRemoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthRemoteManager.swift; sourceTree = "<group>"; };
-		B145A0702A4D75AB003505B6 /* KakaoLoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginResponseDTO.swift; sourceTree = "<group>"; };
+		B145A0702A4D75AB003505B6 /* LoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDTO.swift; sourceTree = "<group>"; };
 		B145A0722A4D77E1003505B6 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		B145A0742A4D77FC003505B6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		B145A0762A4D7823003505B6 /* SignUpRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestDTO.swift; sourceTree = "<group>"; };
@@ -124,6 +125,8 @@
 		B145A0892A4EAAAD003505B6 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
 		B145A08D2A4F50BD003505B6 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		B154804B2A63851800293289 /* Keyneez-iOS-Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Keyneez-iOS-Release.entitlements"; sourceTree = "<group>"; };
+		B154804C2A6397EC00293289 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
 		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +163,7 @@
 		029A34BC2A1F49E600088963 /* Keyneez-iOS-Release */ = {
 			isa = PBXGroup;
 			children = (
+				B154804B2A63851800293289 /* Keyneez-iOS-Release.entitlements */,
 				B145A04E2A4BC1C9003505B6 /* Data */,
 				B145A0462A4B1321003505B6 /* Info.plist */,
 				029A34DF2A1F569400088963 /* Resource */,
@@ -363,6 +367,7 @@
 				B145A0782A4D7C79003505B6 /* KeychainManager.swift */,
 				B145A07A2A4D7FD6003505B6 /* AuthInterceptor.swift */,
 				B145A07C2A4D80F0003505B6 /* UserManager.swift */,
+				B154804C2A6397EC00293289 /* AppleLoginManager.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -397,7 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				B145A0652A4D71E3003505B6 /* LogoutResponseDTO.swift */,
-				B145A0702A4D75AB003505B6 /* KakaoLoginResponseDTO.swift */,
+				B145A0702A4D75AB003505B6 /* LoginResponseDTO.swift */,
 				B145A0722A4D77E1003505B6 /* UserDTO.swift */,
 				B145A0742A4D77FC003505B6 /* Token.swift */,
 			);
@@ -515,8 +520,9 @@
 				B145A06D2A4D7434003505B6 /* RequestSendable.swift in Sources */,
 				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				029A34BE2A1F49E600088963 /* Keyneez_iOS_ReleaseApp.swift in Sources */,
+				B154804D2A6397EC00293289 /* AppleLoginManager.swift in Sources */,
 				B125FBFD2A2DC3400015E04B /* View+Extension.swift in Sources */,
-				B145A0712A4D75AB003505B6 /* KakaoLoginResponseDTO.swift in Sources */,
+				B145A0712A4D75AB003505B6 /* LoginResponseDTO.swift in Sources */,
 				B145A07B2A4D7FD6003505B6 /* AuthInterceptor.swift in Sources */,
 				B145A0532A4BC2C5003505B6 /* OAuthAPI.swift in Sources */,
 				B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */,
@@ -685,10 +691,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "Keyneez-iOS-Release/Keyneez-iOS-Release.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2QWMDJG53V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
@@ -702,8 +711,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wonni.Keyneez-iOS-Release";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wonni.Keyneez-iOS-Release";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_Keyneez;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -715,10 +726,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "Keyneez-iOS-Release/Keyneez-iOS-Release.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2QWMDJG53V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
@@ -732,8 +746,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wonni.Keyneez-iOS-Release";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wonni.Keyneez-iOS-Release";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_Keyneez;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KakaoLoginResponseDTO: ResponseProtocol {
+struct LoginResponseDTO: ResponseProtocol {
   var status: Int?
   var message: String?
   var isNewUser: Bool?

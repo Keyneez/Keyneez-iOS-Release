@@ -26,6 +26,7 @@ final class WelcomeViewModel: ObservableObject {
   @Published var nextPage: Page? = nil
   @Published var readyToNavigation = false
   @Published var isLoading = false
+  @Published var error: Error?
   
   private var repository: OAuthRepositoryProtocol
   
@@ -34,7 +35,13 @@ final class WelcomeViewModel: ObservableObject {
   }
   
   func didTapAppleLogin() {
-    
+    AppleLoginManager.shared.performAppleSignIn { [weak self] token, userIdentifier, name, email in
+      guard let self else { return }
+      Task {
+        let response = try await self.repository.signUpWithApple(with: token)
+        //TODO: apple Login 처리
+      }
+    }
   }
 
   func didTapLoginWithKakao() {
@@ -44,7 +51,7 @@ final class WelcomeViewModel: ObservableObject {
           isLoading = true
         }
         let responseAndToken = try await repository.loginWithKakao()
-        let response = responseAndToken.dto
+        _ = responseAndToken.dto
         
         let idToken = responseAndToken.idToken
         let kakaoAccessToken = responseAndToken.accessToken
@@ -57,13 +64,9 @@ final class WelcomeViewModel: ObservableObject {
       }
     }
     catch(let error){
-      
+      self.error = error
     }
     
   }
 
 }
-
-
-
-

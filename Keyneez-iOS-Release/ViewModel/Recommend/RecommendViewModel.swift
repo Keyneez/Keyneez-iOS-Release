@@ -77,8 +77,6 @@ final class RecommendViewModel: ViewModelable {
     return false
   }
   
- 
-  
 }
 
 extension RecommendViewModel {
