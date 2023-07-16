@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "하트- 젤리 봉투 오픈 후(main).png",
+      "filename" : "recommend_5.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "하트- 젤리 봉투 오픈 후(main)@2x.png",
+      "filename" : "recommend_5@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "하트- 젤리 봉투 오픈 후(main)@3x.png",
+      "filename" : "recommend_5@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
