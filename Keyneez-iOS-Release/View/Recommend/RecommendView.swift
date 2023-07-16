@@ -100,7 +100,7 @@ extension RecommendView {
   
   @ViewBuilder
   private func navigation() -> some View {
-    NavigationLink(destination: HomeView(), isActive: $viewModel.confirmed) {
+    NavigationLink(destination: TabBarView(), isActive: $viewModel.confirmed) {
       EmptyView()
     }
   }

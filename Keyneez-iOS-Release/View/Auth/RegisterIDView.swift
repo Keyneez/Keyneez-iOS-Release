@@ -141,7 +141,7 @@ extension RegisterIDView {
     if let recommendViewModel = viewModel.recommendViewModel {
       RecommendView(viewModel: recommendViewModel, overPreviousView: $viewModel.readyToNavigation, popToRoot: $popToRootTrigger)
     } else {
-      HomeView()
+      TabBarView()
     }
   }
   

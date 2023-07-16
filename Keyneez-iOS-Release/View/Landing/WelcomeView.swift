@@ -110,7 +110,7 @@ struct WelcomeView: View {
       case .signup(let viewModel):
         RegisterIDView(viewModel: viewModel, overPreviousView: $viewModel.readyToNavigation, popToRootTrigger: $viewModel.readyToNavigation)
       case .home:
-        HomeView()
+        TabBarView()
       }
     }
   }
