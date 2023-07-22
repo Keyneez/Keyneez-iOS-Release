@@ -106,6 +106,7 @@
 		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
 		B17227BA2A6BCF95009A1FF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227B92A6BCF95009A1FF9 /* ContentView.swift */; };
 		B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */; };
+		B17227BE2A6BE161009A1FF9 /* roof1.gif in Resources */ = {isa = PBXBuildFile; fileRef = B17227BD2A6BE161009A1FF9 /* roof1.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +210,7 @@
 		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 		B17227B92A6BCF95009A1FF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B17227BD2A6BE161009A1FF9 /* roof1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = roof1.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 			children = (
 				B15480932A639E2200293289 /* Font */,
 				B15480922A639E2200293289 /* jelly_gif.gif */,
+				B17227BD2A6BE161009A1FF9 /* roof1.gif */,
 				029A34C12A1F49E700088963 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -730,6 +733,7 @@
 				B154809C2A639E2200293289 /* Pretendard-Bold.otf in Resources */,
 				B154809D2A639E2200293289 /* Pretendard-SemiBold.otf in Resources */,
 				B154809A2A639E2200293289 /* Pretendard-Regular.otf in Resources */,
+				B17227BE2A6BE161009A1FF9 /* roof1.gif in Resources */,
 				B15480992A639E2200293289 /* jelly_gif.gif in Resources */,
 				029A34C22A1F49E700088963 /* Assets.xcassets in Resources */,
 				B154809B2A639E2200293289 /* Pretendard-Medium.otf in Resources */,

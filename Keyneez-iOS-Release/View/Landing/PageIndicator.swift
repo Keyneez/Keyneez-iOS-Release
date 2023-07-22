@@ -12,11 +12,17 @@ struct PageIndicator: UIViewRepresentable {
   
   @Binding var currentPage: Int
   var numberOfpages: Int
-  var indicatorImage: String = ""
   
   func makeUIView(context: Context) -> some UIView {
     let control = UIPageControl()
     control.numberOfPages = 1
+    
+    control.currentPageIndicatorTintColor = .black
+    control.pageIndicatorTintColor = .gray
+    
+    control.translatesAutoresizingMaskIntoConstraints = false
+    control.setContentHuggingPriority(.required, for: .horizontal)
+    
     return control
   }
   
