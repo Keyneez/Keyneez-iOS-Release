@@ -18,7 +18,7 @@ enum AuthError: LocalizedError {
     case .needToken:
       return "token이 필요합니다."
     case .wrontRefreshToken:
-      return "RefresheToken이 잘못되었습니다."
+      return "RefreshToken이 잘못되었습니다."
     }
   }
 }

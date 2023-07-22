@@ -27,32 +27,15 @@ struct WelcomeView: View {
             .scaleEffect(2)
         }
         VStack {
-          Spacer()
-            .frame(height: 51)
           Image("logoA")
-          Spacer()
-          Text("GIF 위치")
-            .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 2)
-            .border(.black)
-          Text(welcomeTexts[0])
-            .multilineTextAlignment(.center)
-            .font(.system(size: 20 * 3/4, weight: .bold))
+          Spacer().frame(height: 40)
+          GifImage("roof1")
+            .frame(width: UIScreen.main.bounds.width, height: 323)
+          Carousel.frame(height: 50)
           pageControl
-          Spacer()
+          Spacer().frame(height: 70)
           kakaoButton()
           appleButton()
-          
-//          SignInWithAppleButton { request in
-//            request.requestedScopes = [.email, .fullName]
-//          } onCompletion: {
-//            result in
-//              switch result {
-//              case .success(let authResult):
-//                print(authResult)
-//              case .failure(let error):
-//                viewModel.error = error
-//              }
-//          }
           Spacer()
             .frame(height: 20)
         }
@@ -95,11 +78,25 @@ struct WelcomeView: View {
 
   }
   
+  @ViewBuilder
+  private var Carousel: some View {
+    TabView(selection: $page) {
+      Text(welcomeTexts[0])
+        .multilineTextAlignment(.center)
+        .font(.pretendard(.semiBold, size: 20))
+        .tag(0)
+      Text(welcomeTexts[1])
+        .multilineTextAlignment(.center)
+        .font(.pretendard(.semiBold, size: 20))
+        .tag(1)
+    }
+    .tabViewStyle(.page(indexDisplayMode: .never))
+  }
   
   @ViewBuilder
   private var pageControl: some View {
     HStack {
-      PageIndicator(currentPage: $page, numberOfpages: 3)
+      PageIndicator(currentPage: $page, numberOfpages: 2)
     }
   }
   
