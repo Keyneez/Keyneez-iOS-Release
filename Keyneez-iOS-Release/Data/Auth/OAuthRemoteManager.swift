@@ -20,17 +20,17 @@ final class OAuthRemoteManager: RequestSendable {
   
   func kakaoLogin(idToken: String) async throws -> LoginResponseDTO {
     
-    let target = OAuthAPI.kakao(idToken: idToken)
+    let target = OAuthAPI.signIn(idToken: idToken, type: .KAKAO)
     return try await requestFrom(target, modelType: LoginResponseDTO.self)
   }
   
   func kakaoSignUp(with dto: KakaoSignUpRequestDTO) async throws -> LoginResponseDTO {
-    let target = OAuthAPI.kakaoSignup(param: dto)
+    let target = OAuthAPI.signUp(param: dto)
     return try await requestFrom(target, modelType: LoginResponseDTO.self)
   }
   
-  func appleSignUP(with idToken: String) async throws -> LoginResponseDTO {
-    let target = OAuthAPI.kakao(idToken: idToken)
+  func appleLogin(with idToken: String) async throws -> LoginResponseDTO {
+    let target = OAuthAPI.signIn(idToken: idToken, type: .APPLE)
     return try await requestFrom(target, modelType: LoginResponseDTO.self)
   }
   

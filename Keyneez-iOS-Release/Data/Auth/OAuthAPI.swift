@@ -8,9 +8,14 @@
 import Foundation
 import Moya
 
+enum LoginType: String {
+  case KAKAO
+  case APPLE
+}
+
 enum OAuthAPI {
-  case kakao(idToken: String)
-  case kakaoSignup(param: KakaoSignUpRequestDTO)
+  case signIn(idToken: String, type: LoginType)
+  case signUp(param: KakaoSignUpRequestDTO)
 }
 
 extension OAuthAPI: TargetType {
@@ -21,10 +26,10 @@ extension OAuthAPI: TargetType {
   
   var path: String {
     switch self {
-    case .kakao:
-      return "/kakao"
-    case .kakaoSignup:
-      return "/kakao/sign-up"
+    case .signIn:
+      return "/sign-in"
+    case .signUp:
+      return "/sign-up"
     }
   }
   
@@ -34,9 +39,9 @@ extension OAuthAPI: TargetType {
   
   var task: Moya.Task {
     switch self {
-    case .kakao(let id_token):
-      return .requestParameters(parameters: ["id_token": id_token], encoding: JSONEncoding.default)
-    case .kakaoSignup(let dto):
+    case .signIn(let id_token, let type):
+      return .requestParameters(parameters: ["id_token": id_token, "oauth_type": type.rawValue], encoding: JSONEncoding.default)
+    case .signUp(let dto):
       return .requestParameters(parameters: try! dto.asParameter(), encoding: JSONEncoding.default)
     }
   }
