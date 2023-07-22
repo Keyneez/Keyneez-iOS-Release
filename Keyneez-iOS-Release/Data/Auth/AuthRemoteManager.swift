@@ -15,8 +15,9 @@ final class AuthRemoteManager: RequestSendable {
   var decoder: ResponseDecodable = Decoder()
   var provider: Moya.MoyaProvider<AuthAPI> = .init()
   
-  func refresh() async throws -> String {
-    return await ""
+  func refresh(accessToken: String, refreshToken: String) async throws -> RefreshResponseDTO {
+    let target = AuthAPI.refresh(accessToken: accessToken, refreshToken: refreshToken)
+    return try await requestFrom(target, modelType: RefreshResponseDTO.self)
   }
   
   func refresh(completion: @escaping (RefreshResponseDTO) -> Void) {

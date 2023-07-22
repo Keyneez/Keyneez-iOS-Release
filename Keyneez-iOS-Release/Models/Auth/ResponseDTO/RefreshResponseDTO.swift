@@ -7,8 +7,6 @@
 
 import Foundation
 
-struct RefreshResponseDTO: ResponseProtocol {
-  var status: Int?
-  var message: String?
+struct RefreshResponseDTO: Codable {
   var accessToken: String?
 }

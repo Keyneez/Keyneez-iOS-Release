@@ -24,7 +24,10 @@ struct User {
 final class UserManager {
   
   static let shared = UserManager()
-  private init() { }
+  private init() {
+    self.accessToken = KeyChainManager.shared.loadFromKeychain(account: TokenType.accessToken.rawValue)
+    self.refreshToken = KeyChainManager.shared.loadFromKeychain(account: TokenType.refreshToken.rawValue)
+  }
   
   private(set) var accessToken: String?
   private(set) var refreshToken: String?

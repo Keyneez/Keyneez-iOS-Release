@@ -57,7 +57,6 @@
 		B145A0842A4D9C39003505B6 /* OAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0832A4D9C39003505B6 /* OAuthRepository.swift */; };
 		B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0852A4D9CD0003505B6 /* KakaoUserApi.swift */; };
 		B145A0882A4E006E003505B6 /* NetworkPluggin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0872A4E006E003505B6 /* NetworkPluggin.swift */; };
-		B145A08C2A4F45F1003505B6 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */; };
 		B154804D2A6397EC00293289 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B154804C2A6397EC00293289 /* AppleLoginManager.swift */; };
 		B15480532A639D6600293289 /* RecommendCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B154804F2A639D6600293289 /* RecommendCardViewCell.swift */; };
 		B15480542A639D6600293289 /* HomeCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480502A639D6600293289 /* HomeCardViewCell.swift */; };
@@ -105,6 +104,8 @@
 		B15480CC2A639E7D00293289 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480C62A639E7D00293289 /* CardViewModel.swift */; };
 		B15480D12A639E8B00293289 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480CF2A639E8B00293289 /* SettingViewModel.swift */; };
 		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
+		B17227BA2A6BCF95009A1FF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227B92A6BCF95009A1FF9 /* ContentView.swift */; };
+		B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,7 +158,6 @@
 		B145A0832A4D9C39003505B6 /* OAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthRepository.swift; sourceTree = "<group>"; };
 		B145A0852A4D9CD0003505B6 /* KakaoUserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoUserApi.swift; sourceTree = "<group>"; };
 		B145A0872A4E006E003505B6 /* NetworkPluggin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPluggin.swift; sourceTree = "<group>"; };
-		B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
 		B154804B2A63851800293289 /* Keyneez-iOS-Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Keyneez-iOS-Release.entitlements"; sourceTree = "<group>"; };
 		B154804C2A6397EC00293289 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
 		B154804F2A639D6600293289 /* RecommendCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCardViewCell.swift; sourceTree = "<group>"; };
@@ -207,6 +207,8 @@
 		B15480C62A639E7D00293289 /* CardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		B15480CF2A639E8B00293289 /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
+		B17227B92A6BCF95009A1FF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,8 @@
 				B125FBF52A2DB6480015E04B /* Recommend */,
 				B125FBDB2A28323E0015E04B /* Auth */,
 				029A34CE2A1F523F00088963 /* Landing */,
+				B17227B92A6BCF95009A1FF9 /* ContentView.swift */,
+				B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -459,7 +463,6 @@
 			children = (
 				B145A0642A4D71D4003505B6 /* ResponseDTO */,
 				B145A0582A4BC94A003505B6 /* RequestDTO */,
-				B145A08B2A4F45F1003505B6 /* ResponseProtocol.swift */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -775,8 +778,10 @@
 				B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */,
 				B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */,
 				B145A0632A4D6975003505B6 /* AuthRemoteManager.swift in Sources */,
+				B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */,
 				B145A05D2A4BD043003505B6 /* MoyaProvider+Extension.swift in Sources */,
 				B145A07D2A4D80F0003505B6 /* UserManager.swift in Sources */,
+				B17227BA2A6BCF95009A1FF9 /* ContentView.swift in Sources */,
 				B15480862A639DB300293289 /* RecentUpdateDetailView.swift in Sources */,
 				B15480592A639D6E00293289 /* ButtonComponent.swift in Sources */,
 				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
@@ -826,7 +831,6 @@
 				B125FBF92A2DBE310015E04B /* RecommendItem.swift in Sources */,
 				B145A0732A4D77E1003505B6 /* UserDTO.swift in Sources */,
 				B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */,
-				B145A08C2A4F45F1003505B6 /* ResponseProtocol.swift in Sources */,
 				B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -954,12 +958,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Keyneez-iOS-Release/Keyneez-iOS-Release.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2QWMDJG53V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
@@ -973,10 +976,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wonni.Keyneez-iOS-Release";
+				PRODUCT_BUNDLE_IDENTIFIER = "wonni.Keyneez-iOS-Release";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_Keyneez;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -989,12 +991,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Keyneez-iOS-Release/Keyneez-iOS-Release.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2QWMDJG53V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
@@ -1008,10 +1009,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wonni.Keyneez-iOS-Release";
+				PRODUCT_BUNDLE_IDENTIFIER = "wonni.Keyneez-iOS-Release";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_Keyneez;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
