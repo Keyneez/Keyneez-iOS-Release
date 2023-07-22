@@ -50,7 +50,7 @@ final class RegisterIDViewModel: ViewModelable {
       return
     case .onDismissConsentView(let ok):
       if ok == true {
-        recommendViewModel = RecommendViewModel(idToken: idToken nickname: nickName, gender: gender, birth: birthDate)
+        recommendViewModel = RecommendViewModel(idToken: idToken ,nickname: nickName, gender: gender, birth: birthDate)
         readyToNavigation = true
       }
     }
