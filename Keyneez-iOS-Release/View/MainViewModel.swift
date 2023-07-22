@@ -19,6 +19,7 @@ final class MainViewModel: ObservableObject {
   
   init() { }
   
+  @MainActor
   func refreshToken() async {
     
     guard let accessToken = UserManager.shared.accessToken, let refreshToken = UserManager.shared.refreshToken else {
@@ -30,13 +31,9 @@ final class MainViewModel: ObservableObject {
       let result = try await AuthRemoteManager.shared.refresh(accessToken: accessToken, refreshToken: refreshToken)
       guard let newAccessToken = result.accessToken else { return }
       UserManager.shared.updateAccessToken(newAccessToken)
-      await MainActor.run {
-        self.appFlow = .Home
-      }
+      self.appFlow = .Home
     } catch(let e) {
-      await MainActor.run {
-        self.appFlow = .Auth
-      }
+      self.appFlow = .Auth
     }
   }
   
