@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum TokenType: String {
+  case accessToken
+  case refreshToken
+}
+
 final class KeyChainManager {
   
   static let shared = KeyChainManager()
