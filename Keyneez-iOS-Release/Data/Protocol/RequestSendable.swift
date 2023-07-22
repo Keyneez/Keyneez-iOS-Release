@@ -12,13 +12,13 @@ protocol RequestSendable {
   associatedtype APITargetType: TargetType
   var decoder: ResponseDecodable { get }
   var provider: MoyaProvider<APITargetType> { get }
-  func requestFrom<T: ResponseProtocol>(_ target: APITargetType, modelType: T.Type) async throws -> T
-  func process<T: ResponseProtocol>(type: T.Type, result: Result<Response, MoyaError>) throws -> T?
+  func requestFrom<T: Codable>(_ target: APITargetType, modelType: T.Type) async throws -> T
+  func process<T: Codable>(type: T.Type, result: Result<Response, MoyaError>) throws -> T?
 }
 
 extension RequestSendable {
   
-  func requestFrom<T: ResponseProtocol>(_ target: APITargetType, modelType: T.Type) async throws -> T {
+  func requestFrom<T: Codable>(_ target: APITargetType, modelType: T.Type) async throws -> T {
     let result = await provider.request(target)
     guard let dto = try process(type: modelType, result: result) else {
       throw KeyneezNetworkError.DecodeError
@@ -26,18 +26,15 @@ extension RequestSendable {
     return dto
   }
   
-  func process<T: ResponseProtocol>(type: T.Type, result: Result<Response, MoyaError>) throws -> T? {
+  func process<T: Codable>(type: T.Type, result: Result<Response, MoyaError>) throws -> T? {
     switch result {
     case .success(let response):
-      return try decoder.decode(model: type, response: response)
+      return try? decoder.decode(model: GenericResponse<T>.self, response: response).data
     case .failure(let e):
-      
       guard let failedResponse = e.response else {
         throw KeyneezNetworkError.failure(statusCode: 400, message: "unknown Error")
       }
-      
-      let failed = try decoder.decode(model: type, response: failedResponse)
-      
+      let failed = try decoder.decode(model: GenericResponse<T>.self, response: failedResponse)
       throw KeyneezNetworkError.failure(statusCode: failed.status ?? 404, message: failed.message ?? "unknown Error")
     }
   }
