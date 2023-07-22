@@ -44,9 +44,12 @@ final class WelcomeViewModel: ObservableObject {
         try login(with: loginInfo)
         await gotoHome()
       } catch(let e) {
-        await gotoSignup(with: "idToken")
+        guard let idToken = await AppleLoginManager.shared.performAppleSignIn() else {
+          self.error = e
+          return
+        }
+        await gotoSignup(with: idToken)
       }
-  
     }
   }
 
@@ -62,7 +65,11 @@ final class WelcomeViewModel: ObservableObject {
         try login(with: loginInfo)
         await gotoHome()
       } catch(let e) {
-        await gotoSignup(with: "idToken")
+        guard let idToken = await KakaoUserApi.shared.kakaoIdToken() else {
+          self.error = e
+          return
+        }
+        await gotoSignup(with: idToken)
       }
     }
     
@@ -90,7 +97,6 @@ extension WelcomeViewModel {
   
   private func login(with loginInfo: LoginResponseDTO) throws {
     guard let accessToken = loginInfo.token?.accessToken, let refreshToken = loginInfo.token?.refreshToken else {
-      //TODO: Error
       return
     }
     

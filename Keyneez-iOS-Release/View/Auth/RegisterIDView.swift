@@ -239,6 +239,6 @@ extension RegisterIDView {
 
 struct RegisterIDView_Previews: PreviewProvider {
     static var previews: some View {
-      RegisterIDView(viewModel: .init(idToken: "", kakaoAccessToken: nil), overPreviousView: .constant(false), popToRootTrigger: .constant(false))
+      RegisterIDView(viewModel: .init(idToken: ""), overPreviousView: .constant(false), popToRootTrigger: .constant(false))
     }
 }

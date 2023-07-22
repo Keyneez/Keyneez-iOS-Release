@@ -25,6 +25,13 @@ final class KakaoUserApi: KakaoUserApiProtocol {
     return UserApi.isKakaoTalkLoginAvailable()
   }
   
+  func kakaoIdToken() async -> String? {
+    if Self.isKakaoTalkLoginAvailable() {
+      return await loginWithKakaoTalk().0?.idToken
+    }
+    return await loginWithKakaoAccount().0?.idToken
+  }
+  
   func loginWithKakaoTalk() async -> (OAuthToken?, Error?) {
     await withCheckedContinuation({ continuation in
       UserApi.shared.loginWithKakaoTalk { oauthToken, error in
