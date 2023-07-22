@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct LoginResponseDTO: ResponseProtocol {
-  var status: Int?
-  var message: String?
+struct LoginResponseDTO: Codable {
   var isNewUser: Bool?
   var token: Token?
   var user: UserDTO?
 }
+
+
