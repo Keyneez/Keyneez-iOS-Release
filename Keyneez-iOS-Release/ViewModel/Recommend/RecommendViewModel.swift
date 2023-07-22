@@ -61,11 +61,21 @@ final class RecommendViewModel: ViewModelable {
     do {
       let signUpResponse = try await repository.signUpWithKakao(with: KakaoSignUpRequestDTO(idToken:idToken, nickname: nickname, gender: gender.keyword, birth: birth, age: 0, tagPks: items.filter { $0.checked == true }.map { $0.id }))
       
-      //Token 저장
-      saveTokensInKeychain(tokens: signUpResponse.token)
+      guard let accessToken = signUpResponse.token?.accessToken, let refreshToken = signUpResponse.token?.refreshToken else {
+        return false
+      }
+      UserManager.shared.updateAccessToken(accessToken)
+      UserManager.shared.updateRefreshToken(refreshToken)
       
-      //User 저장
-      saveUserInfo(user: signUpResponse.user)
+      do {
+        guard let userInfo = signUpResponse.user else { return false }
+        let user = try userInfo.toDomain()
+        UserManager.shared.updateUser(with: user)
+      } catch(let e){
+        self.error = e
+        return false
+      }
+      
       return true
     } catch(let e) {
       await MainActor.run {
