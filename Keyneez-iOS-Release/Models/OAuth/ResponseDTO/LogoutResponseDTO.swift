@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct LogoutResponseDTO: ResponseProtocol {
-  var status: Int?
-  var message: String?
+struct LogoutResponseDTO: Codable {
+  
 }

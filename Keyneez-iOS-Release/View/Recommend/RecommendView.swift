@@ -119,6 +119,6 @@ extension RecommendView {
 
 struct RecommendView_Previews: PreviewProvider {
     static var previews: some View {
-      RecommendView(viewModel: RecommendViewModel(idToken: nil, kakaoAccessToken: nil, nickname: "", gender: .man, birth: ""), overPreviousView: .constant(false), popToRoot: .constant(false))
+      RecommendView(viewModel: RecommendViewModel(idToken: nil, nickname: "", gender: .man, birth: ""), overPreviousView: .constant(false), popToRoot: .constant(false))
     }
 }
