@@ -26,8 +26,24 @@ final class UserManager {
   static let shared = UserManager()
   private init() { }
   
-  var accessToken: String?
-  var refreshToken: String?
+  private(set) var accessToken: String?
+  private(set) var refreshToken: String?
   var user: User?
+  
+  
+  func updateAccessToken(_ accessToken: String) {
+    self.accessToken = accessToken
+    KeyChainManager.shared.saveInKeychain(account: TokenType.accessToken.rawValue, value: accessToken)
+  }
+  
+  func updateRefreshToken(_ refreshToken: String) {
+    self.accessToken = refreshToken
+    KeyChainManager.shared.saveInKeychain(account: TokenType.refreshToken.rawValue, value: refreshToken)
+  }
+  
+  func updateUser(with user: User) {
+    self.user = user
+  }
+  
   
 }
