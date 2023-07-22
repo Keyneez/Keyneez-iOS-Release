@@ -16,19 +16,30 @@ final class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate {
     super.init()
   }
   
-  private var completion: ((_ token: String, _ userIdentifier: String, _ fullName: String?, _ email: String?) -> ())?
+  private var completion: ((_ token: String?) -> ())?
   
   func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
     if let appleIdCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-      guard let token = appleIdCredential.identityToken?.base64EncodedString() else { return }
-      let userIdentifier = appleIdCredential.user
-      let fullName = appleIdCredential.fullName?.description
-      let email = appleIdCredential.email
-      completion?(token, userIdentifier, fullName, email)
+      guard let token = appleIdCredential.identityToken?.base64EncodedString(), let authCode = appleIdCredential.authorizationCode?.base64EncodedString() else {
+        completion?(nil)
+        return }
+      completion?(token)
     }
   }
   
-  func performAppleSignIn(with completion: @escaping (_ token: String, _ userIdentifier: String, _ fullName: String?, _ email: String?) -> ()) {
+  func performAppleSignIn() async -> String? {
+    await withCheckedContinuation({ continuation in
+      self.performAppleSignIn { token in
+        continuation.resume(returning: token)
+      }
+    })
+  }
+  
+}
+
+extension AppleLoginManager {
+  
+  private func performAppleSignIn(with completion: @escaping (_ token: String?) -> ()) {
     self.completion = completion
     let provider = ASAuthorizationAppleIDProvider()
     let request = provider.createRequest()

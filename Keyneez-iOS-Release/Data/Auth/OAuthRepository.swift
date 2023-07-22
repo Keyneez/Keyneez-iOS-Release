@@ -34,18 +34,23 @@ enum OAuthRepositoryError: LocalizedError {
 }
 
 protocol OAuthRepositoryProtocol {
-  func loginWithKakao() async throws -> (dto: LoginResponseDTO, idToken: String, accessToken: String)
+  func signInWithKakao() async throws -> (dto: LoginResponseDTO, idToken: String, accessToken: String)
   func signUpWithKakao(with dto: KakaoSignUpRequestDTO) async throws -> LoginResponseDTO
-  func signUpWithApple(with idToken: String) async throws -> LoginResponseDTO
+  func signInWithApple() async throws -> LoginResponseDTO
 }
 
 final class OAuthRepository: OAuthRepositoryProtocol {
   
   private var OauthRemoteManager = OAuthRemoteManager.shared
+  private var appleLoginManager = AppleLoginManager.shared
   
-  func signUpWithApple(with idToken: String) async throws -> LoginResponseDTO {
+  func signInWithApple() async throws -> LoginResponseDTO {
+    
     do {
-      return try await OauthRemoteManager.appleSignUP(with: idToken)
+      guard let idToken = await appleLoginManager.performAppleSignIn() else {
+        throw OAuthRepositoryError.tokenError
+      }
+      return try await OauthRemoteManager.appleLogin(with: idToken)
     } catch(let e) {
       if let error = e as? KeyneezNetworkError {
         switch error {
@@ -76,7 +81,7 @@ final class OAuthRepository: OAuthRepositoryProtocol {
     }
   }
   
-  func loginWithKakao() async throws -> (dto: LoginResponseDTO, idToken: String, accessToken: String) {
+  func signInWithKakao() async throws -> (dto: LoginResponseDTO, idToken: String, accessToken: String) {
     if KakaoUserApi.isKakaoTalkLoginAvailable() {
       guard let info = await KakaoUserApi.shared.loginWithKakaoTalk().0 else {
         throw WelcomeViewModelError.kakaoLoginNotAvailable
