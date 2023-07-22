@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct GenericResponse<T: Codable>: Codable {
+struct GenericResponse<T: Codable>: ResponseProtocol {
   
-  var status: Int
-  var message: String
+  var status: Int?
+  var message: String?
   var data: T?
   
 }
