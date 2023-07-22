@@ -9,7 +9,6 @@ import Foundation
 
 struct KakaoSignUpRequestDTO: Codable {
   var idToken: String
-  var accessToken: String
   var nickname: String
   var gender: String
   var birth: String

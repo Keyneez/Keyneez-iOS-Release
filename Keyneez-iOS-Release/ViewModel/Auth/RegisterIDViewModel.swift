@@ -21,7 +21,6 @@ final class RegisterIDViewModel: ViewModelable {
   @Published var readyToNavigation = false
   
   private var idToken: String?
-  private var kakaoAccessToken: String?
   
   var cancelBag = [AnyCancellable]()
   
@@ -35,9 +34,8 @@ final class RegisterIDViewModel: ViewModelable {
     case confirm(Bool)
   }
   
-  init(idToken: String?, kakaoAccessToken: String?) {
+  init(idToken: String?) {
     self.idToken = idToken
-    self.kakaoAccessToken = kakaoAccessToken
     state = .confirm(false)
     updateNickNameState()
     updateBirthDateState()
@@ -52,7 +50,7 @@ final class RegisterIDViewModel: ViewModelable {
       return
     case .onDismissConsentView(let ok):
       if ok == true {
-        recommendViewModel = RecommendViewModel(idToken: idToken, kakaoAccessToken: kakaoAccessToken, nickname: nickName, gender: gender, birth: birthDate)
+        recommendViewModel = RecommendViewModel(idToken: idToken nickname: nickName, gender: gender, birth: birthDate)
         readyToNavigation = true
       }
     }

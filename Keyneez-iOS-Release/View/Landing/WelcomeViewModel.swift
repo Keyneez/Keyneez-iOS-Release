@@ -35,12 +35,18 @@ final class WelcomeViewModel: ObservableObject {
   }
   
   func didTapAppleLogin() {
-    AppleLoginManager.shared.performAppleSignIn { [weak self] token, userIdentifier, name, email in
-      guard let self else { return }
-      Task {
-        let response = try await self.repository.signUpWithApple(with: token)
-        //TODO: apple Login 처리
+    Task {
+      await MainActor.run {
+        isLoading = true
       }
+      do {
+        let loginInfo = try await repository.signInWithApple()
+        try login(with: loginInfo)
+        await gotoHome()
+      } catch(let e) {
+        await gotoSignup(with: "idToken")
+      }
+  
     }
   }
 
@@ -51,19 +57,56 @@ final class WelcomeViewModel: ObservableObject {
         isLoading = true
       }
       
-      let responseAndToken = try await repository.loginWithKakao()
-      _ = responseAndToken.dto
-      
-      let idToken = responseAndToken.idToken
-      let kakaoAccessToken = responseAndToken.accessToken
-      
-      await MainActor.run {
-        nextPage = .signup(viewModel: RegisterIDViewModel(idToken: idToken, kakaoAccessToken: kakaoAccessToken))
-        readyToNavigation = true
-        isLoading = false
+      do {
+        let loginInfo = try await repository.signInWithKakao()
+        try login(with: loginInfo)
+        await gotoHome()
+      } catch(let e) {
+        await gotoSignup(with: "idToken")
       }
     }
     
   }
 
+}
+
+extension WelcomeViewModel {
+  
+  private func gotoSignup(with idToken: String) async {
+    await MainActor.run {
+          nextPage = .signup(viewModel: RegisterIDViewModel(idToken: idToken))
+          readyToNavigation = true
+      isLoading = false
+    }
+  }
+  
+  private func gotoHome() async {
+    await MainActor.run {
+      nextPage = .home
+      readyToNavigation = true
+      isLoading = false
+    }
+  }
+  
+  private func login(with loginInfo: LoginResponseDTO) throws {
+    guard let accessToken = loginInfo.token?.accessToken, let refreshToken = loginInfo.token?.refreshToken else {
+      //TODO: Error
+      return
+    }
+    
+    UserManager.shared.updateAccessToken(accessToken)
+    
+    UserManager.shared.updateRefreshToken(refreshToken)
+
+    do {
+      guard let userInfo = loginInfo.user else { return }
+      let user = try userInfo.toDomain()
+      UserManager.shared.updateUser(with: user)
+    } catch(let e){
+      self.error = e
+      return
+    }
+  }
+  
+  
 }
