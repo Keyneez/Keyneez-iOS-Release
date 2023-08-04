@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		029A34C22A1F49E700088963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C12A1F49E700088963 /* Assets.xcassets */; };
 		029A34C52A1F49E700088963 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C42A1F49E700088963 /* Preview Assets.xcassets */; };
-		02F20A272A7D1A5A001B884E /* ExploreRecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A262A7D1A5A001B884E /* ExploreRecentView.swift */; };
-		02F20A292A7D1A81001B884E /* ExplorePopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A282A7D1A81001B884E /* ExplorePopularView.swift */; };
+		02F20A272A7D1A5A001B884E /* ExploreCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A262A7D1A5A001B884E /* ExploreCellView.swift */; };
+		02F20A2B2A7D1AC3001B884E /* ExploreFilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2A2A7D1AC3001B884E /* ExploreFilterTagView.swift */; };
+		02F20A2D2A7D1AE0001B884E /* ExploreTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2C2A7D1AE0001B884E /* ExploreTabBarView.swift */; };
+		02F20A2F2A7D1B03001B884E /* ExploreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2E2A7D1B03001B884E /* ExploreSearchView.swift */; };
 		B1200CF52A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1200CF42A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift */; };
 		B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBDE2A2832890015E04B /* WelcomeView.swift */; };
 		B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE02A2836170015E04B /* RegisterContainerView.swift */; };
@@ -115,8 +117,10 @@
 		029A34BA2A1F49E600088963 /* Keyneez-iOS-Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Keyneez-iOS-Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A34C12A1F49E700088963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029A34C42A1F49E700088963 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		02F20A262A7D1A5A001B884E /* ExploreRecentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRecentView.swift; sourceTree = "<group>"; };
-		02F20A282A7D1A81001B884E /* ExplorePopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePopularView.swift; sourceTree = "<group>"; };
+		02F20A262A7D1A5A001B884E /* ExploreCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCellView.swift; sourceTree = "<group>"; };
+		02F20A2A2A7D1AC3001B884E /* ExploreFilterTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreFilterTagView.swift; sourceTree = "<group>"; };
+		02F20A2C2A7D1AE0001B884E /* ExploreTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabBarView.swift; sourceTree = "<group>"; };
+		02F20A2E2A7D1B03001B884E /* ExploreSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchView.swift; sourceTree = "<group>"; };
 		B1200CF42A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyneez_iOS_ReleaseApp.swift; sourceTree = "<group>"; };
 		B125FBDE2A2832890015E04B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B125FBE02A2836170015E04B /* RegisterContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterContainerView.swift; sourceTree = "<group>"; };
@@ -548,8 +552,10 @@
 			isa = PBXGroup;
 			children = (
 				B15480632A639D8B00293289 /* ExploreView.swift */,
-				02F20A262A7D1A5A001B884E /* ExploreRecentView.swift */,
-				02F20A282A7D1A81001B884E /* ExplorePopularView.swift */,
+				02F20A262A7D1A5A001B884E /* ExploreCellView.swift */,
+				02F20A2A2A7D1AC3001B884E /* ExploreFilterTagView.swift */,
+				02F20A2C2A7D1AE0001B884E /* ExploreTabBarView.swift */,
+				02F20A2E2A7D1B03001B884E /* ExploreSearchView.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -754,7 +760,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B145A03B2A4AB2EF003505B6 /* BirthDateState.swift in Sources */,
-				02F20A292A7D1A81001B884E /* ExplorePopularView.swift in Sources */,
 				B145A0842A4D9C39003505B6 /* OAuthRepository.swift in Sources */,
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
 				B154807D2A639DB300293289 /* HomeBackgroundView.swift in Sources */,
@@ -770,6 +775,7 @@
 				B15480672A639D9200293289 /* LikeView.swift in Sources */,
 				B154807E2A639DB300293289 /* MainRecommendView.swift in Sources */,
 				B154806F2A639DA300293289 /* TermsView.swift in Sources */,
+				02F20A2B2A7D1AC3001B884E /* ExploreFilterTagView.swift in Sources */,
 				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				B1200CF52A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				B15480BB2A639E6B00293289 /* View+Extension.swift in Sources */,
@@ -810,6 +816,7 @@
 				B15480872A639DB300293289 /* JellyGifImageView.swift in Sources */,
 				B145A03D2A4ABB14003505B6 /* Gender.swift in Sources */,
 				B145A0552A4BC375003505B6 /* APIEnvironment.swift in Sources */,
+				02F20A2F2A7D1B03001B884E /* ExploreSearchView.swift in Sources */,
 				B145A0512A4BC1F3003505B6 /* AuthAPI.swift in Sources */,
 				B154808C2A639E0700293289 /* DetailContentResponseDTO.swift in Sources */,
 				B145A0572A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift in Sources */,
@@ -818,6 +825,7 @@
 				B125FBE52A283C7A0015E04B /* NicknameState.swift in Sources */,
 				B15480BA2A639E6B00293289 /* AlertView.swift in Sources */,
 				B15480812A639DB300293289 /* JellyOpenBeforeHomeView.swift in Sources */,
+				02F20A2D2A7D1AE0001B884E /* ExploreTabBarView.swift in Sources */,
 				B15480BD2A639E6B00293289 /* OSLog+Extension.swift in Sources */,
 				B154807F2A639DB300293289 /* GifImage.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
@@ -843,7 +851,7 @@
 				B145A0732A4D77E1003505B6 /* UserDTO.swift in Sources */,
 				B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */,
 				B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */,
-				02F20A272A7D1A5A001B884E /* ExploreRecentView.swift in Sources */,
+				02F20A272A7D1A5A001B884E /* ExploreCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

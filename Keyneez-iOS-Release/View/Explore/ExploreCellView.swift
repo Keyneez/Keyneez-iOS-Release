@@ -27,11 +27,25 @@ struct ExploreRecentView: View {
   }
 }
 
+struct ExplorePopularView: View {
+  var columns: [GridItem] = [
+    GridItem(.flexible(), spacing: 14), // 가로 간격 설정
+    GridItem(.flexible())
+  ]
+  
+  var body: some View {
+    LazyVGrid(columns: columns, spacing: 17) {
+      ForEach((0...5), id: \.self ) {_ in
+        ExploreCardViewCell()
+      }
+    }
+    .padding([.leading, .trailing], 22)
+  }
+}
 
-struct ExploreRecentView_Previews: PreviewProvider {
+struct ExplorePopularView_Previews: PreviewProvider {
   static var previews: some View {
-    ExploreRecentView()
-    
+    ExplorePopularView()
   }
 }
 
