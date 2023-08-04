@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		029A34C22A1F49E700088963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C12A1F49E700088963 /* Assets.xcassets */; };
 		029A34C52A1F49E700088963 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C42A1F49E700088963 /* Preview Assets.xcassets */; };
+		02F20A272A7D1A5A001B884E /* ExploreRecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A262A7D1A5A001B884E /* ExploreRecentView.swift */; };
+		02F20A292A7D1A81001B884E /* ExplorePopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A282A7D1A81001B884E /* ExplorePopularView.swift */; };
 		B1200CF52A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1200CF42A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift */; };
 		B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBDE2A2832890015E04B /* WelcomeView.swift */; };
 		B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE02A2836170015E04B /* RegisterContainerView.swift */; };
@@ -113,6 +115,8 @@
 		029A34BA2A1F49E600088963 /* Keyneez-iOS-Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Keyneez-iOS-Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A34C12A1F49E700088963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029A34C42A1F49E700088963 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02F20A262A7D1A5A001B884E /* ExploreRecentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRecentView.swift; sourceTree = "<group>"; };
+		02F20A282A7D1A81001B884E /* ExplorePopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePopularView.swift; sourceTree = "<group>"; };
 		B1200CF42A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyneez_iOS_ReleaseApp.swift; sourceTree = "<group>"; };
 		B125FBDE2A2832890015E04B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B125FBE02A2836170015E04B /* RegisterContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterContainerView.swift; sourceTree = "<group>"; };
@@ -544,6 +548,8 @@
 			isa = PBXGroup;
 			children = (
 				B15480632A639D8B00293289 /* ExploreView.swift */,
+				02F20A262A7D1A5A001B884E /* ExploreRecentView.swift */,
+				02F20A282A7D1A81001B884E /* ExplorePopularView.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -748,6 +754,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B145A03B2A4AB2EF003505B6 /* BirthDateState.swift in Sources */,
+				02F20A292A7D1A81001B884E /* ExplorePopularView.swift in Sources */,
 				B145A0842A4D9C39003505B6 /* OAuthRepository.swift in Sources */,
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
 				B154807D2A639DB300293289 /* HomeBackgroundView.swift in Sources */,
@@ -836,6 +843,7 @@
 				B145A0732A4D77E1003505B6 /* UserDTO.swift in Sources */,
 				B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */,
 				B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */,
+				02F20A272A7D1A5A001B884E /* ExploreRecentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
