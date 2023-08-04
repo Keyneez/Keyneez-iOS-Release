@@ -13,6 +13,7 @@
 		02F20A2B2A7D1AC3001B884E /* ExploreFilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2A2A7D1AC3001B884E /* ExploreFilterTagView.swift */; };
 		02F20A2D2A7D1AE0001B884E /* ExploreTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2C2A7D1AE0001B884E /* ExploreTabBarView.swift */; };
 		02F20A2F2A7D1B03001B884E /* ExploreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2E2A7D1B03001B884E /* ExploreSearchView.swift */; };
+		02F20A322A7D1CC6001B884E /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A312A7D1CC6001B884E /* ExploreViewModel.swift */; };
 		B1200CF52A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1200CF42A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift */; };
 		B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBDE2A2832890015E04B /* WelcomeView.swift */; };
 		B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125FBE02A2836170015E04B /* RegisterContainerView.swift */; };
@@ -121,6 +122,7 @@
 		02F20A2A2A7D1AC3001B884E /* ExploreFilterTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreFilterTagView.swift; sourceTree = "<group>"; };
 		02F20A2C2A7D1AE0001B884E /* ExploreTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabBarView.swift; sourceTree = "<group>"; };
 		02F20A2E2A7D1B03001B884E /* ExploreSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchView.swift; sourceTree = "<group>"; };
+		02F20A312A7D1CC6001B884E /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		B1200CF42A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyneez_iOS_ReleaseApp.swift; sourceTree = "<group>"; };
 		B125FBDE2A2832890015E04B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B125FBE02A2836170015E04B /* RegisterContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterContainerView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 		029A34D92A1F553E00088963 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				02F20A302A7D1CBC001B884E /* Explore */,
 				B15480CD2A639E8B00293289 /* Setting */,
 				B15480C52A639E7D00293289 /* Card */,
 				B15480C12A639E7D00293289 /* Detail */,
@@ -372,6 +375,14 @@
 				029A34C12A1F49E700088963 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		02F20A302A7D1CBC001B884E /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				02F20A312A7D1CC6001B884E /* ExploreViewModel.swift */,
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 		B1200CF32A63A12B00A1310F /* Application */ = {
@@ -791,6 +802,7 @@
 				B145A0532A4BC2C5003505B6 /* OAuthAPI.swift in Sources */,
 				B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */,
 				B145A03F2A4ACD76003505B6 /* PageIndicator.swift in Sources */,
+				02F20A322A7D1CC6001B884E /* ExploreViewModel.swift in Sources */,
 				B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */,
 				B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */,
 				B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */,
