@@ -41,7 +41,7 @@ struct ExploreView: View {
                         }
                         Spacer().frame(height: 25)
                         
-                        ExploreFilterTagView()
+                        FilterTagView()
                             .padding(.leading, 22)
                         Spacer().frame(height: 21)
                         
@@ -101,6 +101,7 @@ extension ExploreView {
                         Text("탐색하기")
                             .font(.pretendard(.semiBold, size: 18))
                             .foregroundColor(.gray900)
+                            .padding(.leading, 24.adjusted)
                         Spacer()
                         NavigationLink(destination: ExploreSearchView(viewModel: ExploreViewModel())) {
                             Image("ic_search")
