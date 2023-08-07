@@ -48,5 +48,8 @@ extension Color {
 
   static let mainBackground1 = Color("mainBackground1")
   static let mainBackground2 = Color("mainBackground2")
+    
+  static let navigationColor = Color("navigationColor")
+
   
 }

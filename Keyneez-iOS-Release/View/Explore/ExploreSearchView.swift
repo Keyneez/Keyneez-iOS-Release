@@ -32,6 +32,7 @@ struct ExploreSearchView: View {
     
     struct ExploreSearchTopView: View {
         @ObservedObject var viewModel: ExploreViewModel
+        @Environment(\.dismiss) private var dismiss
 
         var body: some View {
             VStack(spacing:0) {
@@ -46,7 +47,9 @@ struct ExploreSearchView: View {
                         Spacer().frame(width: 20)
                         TextField("제목,키워드", text: $viewModel.serachKey)
                         Spacer()
-                        Button(action: {}, label: {
+                        Button(action: {
+                            dismiss()
+                        }, label: {
                             Text("취소")
                                 .font(.pretendard(.medium, size: 18))
                         })
