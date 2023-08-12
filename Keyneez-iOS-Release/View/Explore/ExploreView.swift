@@ -46,8 +46,8 @@ struct ExploreView: View {
                         Spacer().frame(height: 21)
                         
                         TabView(selection: self.$currentTab) {
-                            ExplorePopularView().tag(0)
-                            ExploreRecentView().tag(1)
+                            ExplorePopularView(viewModel: CardViewModel()).tag(0)
+                          ExploreRecentView(viewModel: CardViewModel()).tag(1)
                         }
                         //MARK: - 셀 개수 받아서 높이 계산해주는 함수 필요
                         .frame(height: 800)

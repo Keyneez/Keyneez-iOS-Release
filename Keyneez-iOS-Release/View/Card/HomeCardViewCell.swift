@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeCardViewCell: View {
-  @StateObject private var viewModel = CardViewModel()
-
+  @StateObject var viewModel: CardViewModel
+  var item: CardItem
+  
   var body: some View {
     GeometryReader { geo in
       Color.white
@@ -20,9 +21,9 @@ struct HomeCardViewCell: View {
             .tagViewStyle(widthSize: 7, heightSize: 3.5, textCGFloat: 10)
           Spacer()
           Button {
-            viewModel.toggleLike()
+            viewModel.toggleHeart(for: item)
           } label: {
-            viewModel.isClickedLike ? Image("ic_heart_on") : Image("ic_heart_off")
+            item.heart ? Image("ic_heart_on") : Image("ic_heart_off")
           }
         }
         Spacer().frame(height: 9)
@@ -44,12 +45,6 @@ struct HomeCardViewCell: View {
     .frame(width: 141, height: 220)
     .cornerRadius(14)
     
-  }
-}
-
-struct CardViewCell_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeCardViewCell()
   }
 }
 

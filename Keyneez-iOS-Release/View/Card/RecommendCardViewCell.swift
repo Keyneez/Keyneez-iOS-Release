@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecommendCardViewCell: View {
   @StateObject private var viewModel = CardViewModel()
+  var item: CardItem
   let screenSize: CGSize
   let width: CGFloat
   
@@ -28,9 +29,9 @@ struct RecommendCardViewCell: View {
               .tagViewStyle(widthSize: 20, heightSize: 9, textCGFloat: 16)
             Spacer()
             Button {
-              viewModel.toggleLike()
+              viewModel.toggleHeart(for: item)
             } label: {
-              if viewModel.isClickedLike {
+              if item.heart {
                 Image("ic_heart_on")
                   .resizable()
                   .frame(width: 38, height: 32)

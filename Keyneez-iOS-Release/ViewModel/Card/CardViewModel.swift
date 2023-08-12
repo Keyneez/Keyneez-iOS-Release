@@ -8,10 +8,14 @@
 import SwiftUI
 
 class CardViewModel : ObservableObject {
-  @Published var isClickedLike = false
+  @Published var items = makeCardItems()
   
-  func toggleLike() {
-    isClickedLike.toggle()
+  func toggleHeart(for item: CardItem) {
+    if let index = items.firstIndex(of: item) {
+      items[index].heart.toggle()
+    }
   }
+  
+  
 }
 

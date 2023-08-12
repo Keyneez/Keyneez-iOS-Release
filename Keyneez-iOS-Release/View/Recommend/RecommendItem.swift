@@ -27,11 +27,11 @@ enum Tag: CustomStringConvertible {
   var color: Color {
     switch self {
     case .activity:
-      return Color.indigo
+      return Color.purple500
     case .hobby:
-      return Color.mint
+      return Color.mint500
     case .career:
-      return Color.orange
+      return Color.red500
     }
   }
 }

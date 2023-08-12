@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ExploreCardViewCell: View {
   @StateObject private var viewModel = CardViewModel()
+  var item: CardItem
 
   var body: some View {
     GeometryReader { geo in
@@ -20,21 +21,21 @@ struct ExploreCardViewCell: View {
             .tagViewStyle(widthSize: 12, heightSize: 5, textCGFloat: 11)
           Spacer()
           Button {
-            viewModel.toggleLike()
+            viewModel.toggleHeart(for: item)
           } label: {
-            viewModel.isClickedLike ? Image("ic_heart_on") : Image("ic_heart_off")
+            item.heart ? Image("ic_heart_on") : Image("ic_heart_off")
           }
         }
         Spacer().frame(height: 11)
-        Text("Text\nTextText")
+          Text(item.title)
           .font(.pretendard(.bold, size: 16))
           .foregroundColor(.gray900)
         Spacer().frame(height: 8)
-        Text("2000.00.00 - 00.00")
+        Text("\(item.startAt) - \(item.endAt)")
           .font(.pretendard(.medium, size: 10))
           .foregroundColor(.gray400)
         Spacer().frame(height: 8)
-        Image("hobby")
+        Image(item.img)
           .resizable()
           .frame(width: 133, height: 133)
       }
@@ -45,10 +46,4 @@ struct ExploreCardViewCell: View {
     .cornerRadius(16)
     
   }
-}
-
-struct ExploreCardViewCell_Previews: PreviewProvider {
-    static var previews: some View {
-        ExploreCardViewCell()
-    }
 }

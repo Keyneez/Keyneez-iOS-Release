@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LikeCellView: View {
+  @StateObject var viewModel: LikeViewModel
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -15,8 +16,8 @@ struct LikeCellView: View {
   
   var body: some View {
     LazyVGrid(columns: columns, spacing: 17) {
-      ForEach((0...5), id: \.self ) {_ in
-        ExploreCardViewCell()
+      ForEach(viewModel.items.indices, id: \.self ) { index in
+        ExploreCardViewCell(item: viewModel.items[index])
       }
     }
     .padding([.leading, .trailing], 22)

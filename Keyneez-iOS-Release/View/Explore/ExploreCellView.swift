@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-
 struct ExploreRecentView: View {
+  @StateObject var viewModel: CardViewModel
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -17,8 +17,8 @@ struct ExploreRecentView: View {
   var body: some View {
     ScrollView(.vertical) {
       LazyVGrid(columns: columns, spacing: 17) {
-        ForEach((0...5), id: \.self ) {_ in
-          ExploreCardViewCell()
+        ForEach(viewModel.items.indices, id: \.self ) { index in
+          ExploreCardViewCell(item: viewModel.items[index])
         }
       }
       .padding([.leading, .trailing], 22)
@@ -28,6 +28,8 @@ struct ExploreRecentView: View {
 }
 
 struct ExplorePopularView: View {
+  @StateObject var viewModel: CardViewModel
+
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -35,17 +37,11 @@ struct ExplorePopularView: View {
   
   var body: some View {
     LazyVGrid(columns: columns, spacing: 17) {
-      ForEach((0...5), id: \.self ) {_ in
-        ExploreCardViewCell()
+      ForEach(viewModel.items.indices, id: \.self ) {index in
+        ExploreCardViewCell(item: viewModel.items[index])
       }
     }
     .padding([.leading, .trailing], 22)
-  }
-}
-
-struct ExplorePopularView_Previews: PreviewProvider {
-  static var previews: some View {
-    ExplorePopularView()
   }
 }
 

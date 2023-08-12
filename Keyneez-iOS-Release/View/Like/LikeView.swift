@@ -22,7 +22,7 @@ struct LikeView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Spacer()
-                            NavigationLink(destination: LikeEditView()) {
+                            NavigationLink(destination: LikeEditView(viewModel: LikeViewModel())) {
                                Text("편집")
                                     .font(.pretendard(.medium, size: 18))
                                     .foregroundColor(.gray500)
@@ -37,11 +37,11 @@ struct LikeView: View {
                         FilterTagView()
                             .padding(.leading, 24.adjusted)
                         Spacer().frame(height: 19.adjusted)
-                        Text("총 \(viewModel.likeCellNumber)개")
+                        Text("총 \(viewModel.likeSelectedCellNumber)개")
                             .font(.pretendard(.semiBold, size: 15))
                             .padding(.leading, 24.adjusted)
                         Spacer().frame(height: 14.adjusted)
-                        LikeCellView()
+                      LikeCellView(viewModel: LikeViewModel())
                         //MARK: - 셀 개수 받아서 높이 계산해주는 함수 필요
                         .frame(height: 800)
                     }
@@ -95,7 +95,7 @@ extension LikeView {
                             .foregroundColor(.gray900)
                             .padding(.leading, 24.adjusted)
                         Spacer()
-                        NavigationLink(destination: ExploreSearchView(viewModel: ExploreViewModel())) {
+                        NavigationLink(destination: LikeEditView(viewModel: LikeViewModel())) {
                             Text("편집")
                                  .font(.pretendard(.medium, size: 18))
                                  .foregroundColor(.gray500)
