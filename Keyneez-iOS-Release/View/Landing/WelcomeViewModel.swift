@@ -27,6 +27,7 @@ final class WelcomeViewModel: ObservableObject {
   @Published var readyToNavigation = false
   @Published var isLoading = false
   @Published var error: Error?
+    @Published var snsType: SNSType = .NONE
   
   private var repository: OAuthRepositoryProtocol
   
@@ -43,6 +44,7 @@ final class WelcomeViewModel: ObservableObject {
         let loginInfo = try await repository.signInWithApple()
         try login(with: loginInfo)
         await gotoHome()
+          snsType = .APPLE
       } catch(let e) {
         guard let idToken = await AppleLoginManager.shared.performAppleSignIn() else {
           self.error = e
@@ -64,6 +66,7 @@ final class WelcomeViewModel: ObservableObject {
         let loginInfo = try await repository.signInWithKakao()
         try login(with: loginInfo)
         await gotoHome()
+          snsType = .KAKAO
       } catch(let e) {
         guard let idToken = await KakaoUserApi.shared.kakaoIdToken() else {
           self.error = e
@@ -108,6 +111,7 @@ extension WelcomeViewModel {
       guard let userInfo = loginInfo.user else { return }
       let user = try userInfo.toDomain()
       UserManager.shared.updateUser(with: user)
+        UserManager.shared.user!.snsType = snsType
     } catch(let e){
       self.error = e
       return
