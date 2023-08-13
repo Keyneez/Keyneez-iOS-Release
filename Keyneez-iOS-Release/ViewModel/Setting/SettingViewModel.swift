@@ -7,14 +7,8 @@
 
 import SwiftUI
 
-struct SettingViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct SettingViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingViewModel()
+final class SettingViewModel: ObservableObject {
+    func checkSnsType() -> SNSType {
+        return UserManager.shared.user?.snsType ?? .NONE
     }
 }
