@@ -12,11 +12,10 @@ struct TagViewModifier : ViewModifier {
   var heightSize : CGFloat
   var textCGFloat : CGFloat
   @State var textCGSize: CGSize = .zero
-  
+
   func body(content: Content) -> some View {
     ZStack(alignment: .center) {
       Rectangle()
-        .foregroundColor(.mint500)
         .cornerRadius(53)
         .frame(width: textCGSize.width + widthSize, height: textCGSize.height + heightSize)
       
