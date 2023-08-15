@@ -15,21 +15,17 @@ struct ExploreRecentView: View {
   ]
   
   var body: some View {
-    ScrollView(.vertical) {
       LazyVGrid(columns: columns, spacing: 17) {
         ForEach(viewModel.items.indices, id: \.self ) { index in
           ExploreCardViewCell(item: viewModel.items[index])
         }
       }
-      .padding([.leading, .trailing], 22)
-    }
-    .scrollIndicators(.hidden)
+      .padding(.horizontal, 22)
   }
 }
 
 struct ExplorePopularView: View {
   @StateObject var viewModel: CardViewModel
-
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -41,7 +37,7 @@ struct ExplorePopularView: View {
         ExploreCardViewCell(item: viewModel.items[index])
       }
     }
-    .padding([.leading, .trailing], 22)
+    .padding(.horizontal, 22)
   }
 }
 

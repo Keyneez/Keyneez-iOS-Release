@@ -16,6 +16,13 @@ class CardViewModel : ObservableObject {
     }
   }
   
-  
+  func calculateTotalHeight(itemHeight: CGFloat, spacing: CGFloat) -> CGFloat {
+    let itemCount = items.count
+    let dividedItemCount = CGFloat(itemCount) / 2
+    let roundedDividedItemCount = ceil(dividedItemCount)
+    let totalHeight = roundedDividedItemCount * itemHeight + CGFloat(itemCount - 1) * spacing
+    return totalHeight
+    
+  }
 }
-
+  

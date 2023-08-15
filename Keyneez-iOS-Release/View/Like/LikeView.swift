@@ -42,8 +42,7 @@ struct LikeView: View {
                             .padding(.leading, 24.adjusted)
                         Spacer().frame(height: 14.adjusted)
                       LikeCellView(viewModel: LikeViewModel())
-                        //MARK: - 셀 개수 받아서 높이 계산해주는 함수 필요
-                        .frame(height: 800)
+//                        .frame(height: viewModel.calculateTotalHeight(itemHeight: 165, spacing: 18))
                     }
                     .overlay(
                         GeometryReader { proxy -> Color in
@@ -62,7 +61,6 @@ struct LikeView: View {
                     )
                 }
               
-                
                 .overlay(
                 CustomNavigationBarView()
                     .ignoresSafeArea(.all)

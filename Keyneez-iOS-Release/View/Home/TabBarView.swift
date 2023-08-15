@@ -26,7 +26,7 @@ struct TabBarView: View {
           }
           .tag(Tab.home)
 
-      ExploreView()
+      ExploreView(viewModel: CardViewModel())
         .tabItem {
           Image(selectedTab == .explore ? "ic_explore_fill" : "ic_explore")
           Text("탐색")

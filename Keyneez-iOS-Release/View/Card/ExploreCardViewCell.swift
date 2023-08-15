@@ -17,8 +17,7 @@ struct ExploreCardViewCell: View {
       VStack(alignment: .leading) {
         Spacer().frame(height: 19)
         HStack {
-          Text("취미")
-            .tagViewStyle(widthSize: 12, heightSize: 5, textCGFloat: 11)
+          TagView(tag: item.tag)
           Spacer()
           Button {
             viewModel.toggleHeart(for: item)

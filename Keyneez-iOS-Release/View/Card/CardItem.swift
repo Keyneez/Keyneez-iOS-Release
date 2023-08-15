@@ -30,8 +30,10 @@ func makeCardItems() -> [CardItem] {
     makeCardItem(id: 3, tag: .career, title: "동아리/\n서포터즈", startAt:"2000.00.03", endAt: "2000.00.03", img: "hobby"),
     makeCardItem(id: 4, tag: .activity, title: "동아리/\n서포터즈", startAt:"2000.00.04", endAt: "2000.00.04", img: "hobby"),
     makeCardItem(id: 5, tag: .activity, title: "동아리/\n서포터즈", startAt:"2000.00.05", endAt: "2000.00.05", img: "hobby"),
-    makeCardItem(id: 6, tag: .activity, title: "동아리/\n서포터즈", startAt:"2000.00.06", endAt: "2000.00.06", img: "hobby"),
+    makeCardItem(id: 6, tag: .activity, title: "동아리/\n서포터즈", startAt:"2000.00.06", endAt: "2000.00.06", img: "act_award"),
     makeCardItem(id: 7, tag: .activity, title: "동아리/\n서포터즈", startAt:"2000.00.07", endAt: "2000.00.07", img: "hobby"),
-    makeCardItem(id: 8, tag: .activity, title: "동아리/\n서포터즈", startAt:"2000.00.08", endAt: "2000.00.08", img: "hobby"),
+    makeCardItem(id: 8, tag: .career, title: "동아리/\n서포터즈", startAt:"2000.00.08", endAt: "2000.00.08", img: "hobby"),
+    makeCardItem(id: 9, tag: .activity, title: "동아리/\n서포터즈", startAt:"2000.00.09", endAt: "2000.00.09", img: "hobby"),
+
   ]
 }
