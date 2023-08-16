@@ -8,14 +8,24 @@
 import Foundation
 
 struct DetailContentResponseDTO: Codable {
-    let contentPk: Int
-    let title, category, tag, link: String
-    let img, place, introduction, startAt: String
-    let endAt, inquiry, price, benefit: String
-    let createdAt, updatedAt: String
-    let likes: [Like]
+  var contentPk: Int
+  var title: String
+  var category: String
+  var tag: String?
+  var link: String
+  var img: String?
+  var place: String
+  var introduction: String
+  var startAt: String?
+  var endAt: String?
+  var inquiry: String
+  var price: String
+  var benefit: String
+  var createdAt: String
+  var updatedAt: String
+  var likes: [Like]?
 }
 
 struct Like: Codable {
-    let likedPk, user, content: Int
+  var likedPk, user, content: Int
 }
