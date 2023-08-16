@@ -9,7 +9,13 @@ import SwiftUI
 
 struct ExploreCardViewCell: View {
   @StateObject private var viewModel = CardViewModel()
+  @State private var heart: Bool
   var item: CardItem
+
+  init(item: CardItem) {
+      self._heart = State(initialValue: item.heart)
+      self.item = item
+  }
 
   var body: some View {
     GeometryReader { geo in
@@ -22,9 +28,13 @@ struct ExploreCardViewCell: View {
             .foregroundColor(item.tag.color)
           Spacer()
           Button {
-            viewModel.toggleHeart(for: item)
+            heart.toggle()
           } label: {
-            item.heart ? Image("ic_heart_on") : Image("ic_heart_off")
+              if heart {
+                  Image("ic_heart_on")
+              } else {
+                  Image("ic_heart_off")
+              }
           }
         }
         Spacer().frame(height: 11)
@@ -40,7 +50,7 @@ struct ExploreCardViewCell: View {
           .resizable()
           .frame(width: 133, height: 133)
       }
-      .padding([.leading,.trailing],14)
+      .padding(.horizontal, 14)
       
     }
     .frame(width: 165, height: 258)

@@ -29,7 +29,7 @@ struct WeekRecommendCollectionView: View {
         ZStack(alignment: .topLeading) {
           LazyHGrid(rows: rows, spacing: 15) {
             ForEach(viewModel.items.indices, id: \.self ) {index in
-              HomeCardViewCell(viewModel: CardViewModel(), item: viewModel.items[index])
+              HomeCardViewCell( item: viewModel.items[index])
             }
           }
           TipKitView()

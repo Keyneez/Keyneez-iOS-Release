@@ -9,12 +9,11 @@ import SwiftUI
 
 class CardViewModel : ObservableObject {
   @Published var items = makeCardItems()
+  @Published var selectedCardItem: CardItem?
   
-  func toggleHeart(for item: CardItem) {
-    if let index = items.firstIndex(of: item) {
-      items[index].heart.toggle()
-    }
-  }
+  func toggleHeart(for cardItem: inout CardItem) {
+         cardItem.heart.toggle()
+     }
   
   func calculateTotalHeight(itemHeight: CGFloat, spacing: CGFloat) -> CGFloat {
     let itemCount = items.count
@@ -25,4 +24,4 @@ class CardViewModel : ObservableObject {
     
   }
 }
-  
+

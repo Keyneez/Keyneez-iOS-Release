@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		023CF6752A80916100F63642 /* LikeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6742A80916100F63642 /* LikeCellView.swift */; };
+		023CF6752A80916100F63642 /* LikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6742A80916100F63642 /* LikeCell.swift */; };
 		023CF6772A80929700F63642 /* LikeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6762A80929700F63642 /* LikeEditView.swift */; };
 		023CF67A2A8095AE00F63642 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6792A8095AE00F63642 /* LikeViewModel.swift */; };
 		023CF67C2A83D7D800F63642 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF67B2A83D7D800F63642 /* CardItem.swift */; };
@@ -119,7 +119,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		023CF6742A80916100F63642 /* LikeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCellView.swift; sourceTree = "<group>"; };
+		023CF6742A80916100F63642 /* LikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCell.swift; sourceTree = "<group>"; };
 		023CF6762A80929700F63642 /* LikeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeEditView.swift; sourceTree = "<group>"; };
 		023CF6792A8095AE00F63642 /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		023CF67B2A83D7D800F63642 /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
@@ -593,7 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				B15480662A639D9200293289 /* LikeView.swift */,
-				023CF6742A80916100F63642 /* LikeCellView.swift */,
+				023CF6742A80916100F63642 /* LikeCell.swift */,
 				023CF6762A80929700F63642 /* LikeEditView.swift */,
 			);
 			path = Like;
@@ -825,7 +825,7 @@
 				02F20A322A7D1CC6001B884E /* ExploreViewModel.swift in Sources */,
 				B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */,
 				B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */,
-				023CF6752A80916100F63642 /* LikeCellView.swift in Sources */,
+				023CF6752A80916100F63642 /* LikeCell.swift in Sources */,
 				B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */,
 				B145A0632A4D6975003505B6 /* AuthRemoteManager.swift in Sources */,
 				B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LikeCellView: View {
+struct LikeCell: View {
   @StateObject var viewModel: LikeViewModel
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
