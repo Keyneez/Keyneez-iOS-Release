@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		023CF6752A80916100F63642 /* LikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6742A80916100F63642 /* LikeCell.swift */; };
+		023CF6772A80929700F63642 /* LikeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6762A80929700F63642 /* LikeEditView.swift */; };
+		023CF67A2A8095AE00F63642 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6792A8095AE00F63642 /* LikeViewModel.swift */; };
+		023CF67C2A83D7D800F63642 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF67B2A83D7D800F63642 /* CardItem.swift */; };
 		029A34C22A1F49E700088963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C12A1F49E700088963 /* Assets.xcassets */; };
 		029A34C52A1F49E700088963 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C42A1F49E700088963 /* Preview Assets.xcassets */; };
 		02F20A272A7D1A5A001B884E /* ExploreCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A262A7D1A5A001B884E /* ExploreCellView.swift */; };
-		02F20A2B2A7D1AC3001B884E /* ExploreFilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2A2A7D1AC3001B884E /* ExploreFilterTagView.swift */; };
+		02F20A2B2A7D1AC3001B884E /* FilterTagComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2A2A7D1AC3001B884E /* FilterTagComponent.swift */; };
 		02F20A2D2A7D1AE0001B884E /* ExploreTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2C2A7D1AE0001B884E /* ExploreTabBarView.swift */; };
 		02F20A2F2A7D1B03001B884E /* ExploreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A2E2A7D1B03001B884E /* ExploreSearchView.swift */; };
 		02F20A322A7D1CC6001B884E /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A312A7D1CC6001B884E /* ExploreViewModel.swift */; };
@@ -115,11 +119,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		023CF6742A80916100F63642 /* LikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCell.swift; sourceTree = "<group>"; };
+		023CF6762A80929700F63642 /* LikeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeEditView.swift; sourceTree = "<group>"; };
+		023CF6792A8095AE00F63642 /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
+		023CF67B2A83D7D800F63642 /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
 		029A34BA2A1F49E600088963 /* Keyneez-iOS-Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Keyneez-iOS-Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A34C12A1F49E700088963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029A34C42A1F49E700088963 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		02F20A262A7D1A5A001B884E /* ExploreCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCellView.swift; sourceTree = "<group>"; };
-		02F20A2A2A7D1AC3001B884E /* ExploreFilterTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreFilterTagView.swift; sourceTree = "<group>"; };
+		02F20A2A2A7D1AC3001B884E /* FilterTagComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTagComponent.swift; sourceTree = "<group>"; };
 		02F20A2C2A7D1AE0001B884E /* ExploreTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabBarView.swift; sourceTree = "<group>"; };
 		02F20A2E2A7D1B03001B884E /* ExploreSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchView.swift; sourceTree = "<group>"; };
 		02F20A312A7D1CC6001B884E /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
@@ -237,6 +245,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		023CF6782A8095A600F63642 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				023CF6792A8095AE00F63642 /* LikeViewModel.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
 		029A34B12A1F49E600088963 = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +327,7 @@
 		029A34D92A1F553E00088963 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				023CF6782A8095A600F63642 /* Like */,
 				02F20A302A7D1CBC001B884E /* Explore */,
 				B15480CD2A639E8B00293289 /* Setting */,
 				B15480C52A639E7D00293289 /* Card */,
@@ -530,6 +547,7 @@
 				B15480502A639D6600293289 /* HomeCardViewCell.swift */,
 				B15480512A639D6600293289 /* ExploreCardViewCell.swift */,
 				B15480522A639D6600293289 /* TagViewModifier.swift */,
+				023CF67B2A83D7D800F63642 /* CardItem.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -537,6 +555,7 @@
 		B15480572A639D6E00293289 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				02F20A2A2A7D1AC3001B884E /* FilterTagComponent.swift */,
 				B15480582A639D6E00293289 /* ButtonComponent.swift */,
 			);
 			path = Component;
@@ -564,7 +583,6 @@
 			children = (
 				B15480632A639D8B00293289 /* ExploreView.swift */,
 				02F20A262A7D1A5A001B884E /* ExploreCellView.swift */,
-				02F20A2A2A7D1AC3001B884E /* ExploreFilterTagView.swift */,
 				02F20A2C2A7D1AE0001B884E /* ExploreTabBarView.swift */,
 				02F20A2E2A7D1B03001B884E /* ExploreSearchView.swift */,
 			);
@@ -575,6 +593,8 @@
 			isa = PBXGroup;
 			children = (
 				B15480662A639D9200293289 /* LikeView.swift */,
+				023CF6742A80916100F63642 /* LikeCell.swift */,
+				023CF6762A80929700F63642 /* LikeEditView.swift */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -787,7 +807,7 @@
 				B15480672A639D9200293289 /* LikeView.swift in Sources */,
 				B154807E2A639DB300293289 /* MainRecommendView.swift in Sources */,
 				B154806F2A639DA300293289 /* TermsView.swift in Sources */,
-				02F20A2B2A7D1AC3001B884E /* ExploreFilterTagView.swift in Sources */,
+				02F20A2B2A7D1AC3001B884E /* FilterTagComponent.swift in Sources */,
 				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				B1200CF52A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				B15480BB2A639E6B00293289 /* View+Extension.swift in Sources */,
@@ -806,6 +826,7 @@
 				02F20A322A7D1CC6001B884E /* ExploreViewModel.swift in Sources */,
 				B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */,
 				B125FBF22A29F3B50015E04B /* RegisterConsentViewModel.swift in Sources */,
+				023CF6752A80916100F63642 /* LikeCell.swift in Sources */,
 				B125FBF02A29EE8E0015E04B /* ConsentRow.swift in Sources */,
 				B145A0632A4D6975003505B6 /* AuthRemoteManager.swift in Sources */,
 				B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */,
@@ -821,6 +842,7 @@
 				B125FBE32A2837FA0015E04B /* RegisterIDView.swift in Sources */,
 				B15480802A639DB300293289 /* WeekRecommendCollectionView.swift in Sources */,
 				B15480B72A639E6B00293289 /* Number+Extension.swift in Sources */,
+				023CF6772A80929700F63642 /* LikeEditView.swift in Sources */,
 				B15480C92A639E7D00293289 /* DetailViewModel.swift in Sources */,
 				B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */,
 				B145A0752A4D77FC003505B6 /* Token.swift in Sources */,
@@ -864,6 +886,8 @@
 				B145A0732A4D77E1003505B6 /* UserDTO.swift in Sources */,
 				B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */,
 				B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */,
+				023CF67A2A8095AE00F63642 /* LikeViewModel.swift in Sources */,
+				023CF67C2A83D7D800F63642 /* CardItem.swift in Sources */,
 				02F20A272A7D1A5A001B884E /* ExploreCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1004,6 +1028,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1037,6 +1062,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

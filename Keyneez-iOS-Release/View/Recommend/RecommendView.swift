@@ -106,7 +106,7 @@ extension RecommendView {
   }
   
   private func updateConfirmButton() -> Color {
-    return isConfirmed() ? .black : .gray
+    return isConfirmed() ? .gray900 : .gray400
   }
   
   private func isConfirmed() -> Bool {

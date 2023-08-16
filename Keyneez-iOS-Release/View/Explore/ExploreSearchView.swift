@@ -19,7 +19,7 @@ struct ExploreSearchView: View {
                     VStack {
                         Text("검색결과 \(viewModel.exploreSearchNumber)개")
                             .font(.pretendard(.semiBold, size: 15))
-                        ExploreSearchGridView()
+                      ExploreSearchGridView(viewModel: CardViewModel())
                     }
                 }
                     ExploreSearchTopView(viewModel: viewModel)
@@ -65,6 +65,8 @@ struct ExploreSearchView: View {
     }
     
     struct ExploreSearchGridView: View {
+      @StateObject var viewModel: CardViewModel
+      
       var columns: [GridItem] = [
         GridItem(.flexible(), spacing: 14), // 가로 간격 설정
         GridItem(.flexible())
@@ -72,8 +74,8 @@ struct ExploreSearchView: View {
       
       var body: some View {
         LazyVGrid(columns: columns, spacing: 17) {
-          ForEach((0...5), id: \.self ) {_ in
-            ExploreCardViewCell()
+          ForEach(viewModel.items.indices, id: \.self ) {index in
+            ExploreCardViewCell(item: viewModel.items[index])
           }
         }
         .padding([.leading, .trailing], 22)

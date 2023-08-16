@@ -9,8 +9,17 @@ import SwiftUI
 
 struct RecommendCardViewCell: View {
   @StateObject private var viewModel = CardViewModel()
+  var item: CardItem
   let screenSize: CGSize
   let width: CGFloat
+  @State private var heart: Bool
+
+  init(item: CardItem, screenSize: CGSize, width: CGFloat) {
+      self._heart = State(initialValue: item.heart)
+    self.screenSize = screenSize
+    self.width = width
+      self.item = item
+  }
   
   var body: some View {
     GeometryReader { geo in
@@ -24,13 +33,14 @@ struct RecommendCardViewCell: View {
         VStack(alignment: .leading) {
           Spacer().frame(height: 20)
           HStack {
-            Text("취미")
+            Text(item.tag.description)
               .tagViewStyle(widthSize: 20, heightSize: 9, textCGFloat: 16)
+              .foregroundColor(item.tag.color)
             Spacer()
             Button {
-              viewModel.toggleLike()
+              heart.toggle()
             } label: {
-              if viewModel.isClickedLike {
+              if heart {
                 Image("ic_heart_on")
                   .resizable()
                   .frame(width: 38, height: 32)
@@ -42,15 +52,15 @@ struct RecommendCardViewCell: View {
             }
           }
           Spacer().frame(height: 16)
-          Text("Text\nTextText")
+          Text(item.title)
             .font(.pretendard(.bold, size: 26))
             .foregroundColor(.gray900)
           Spacer().frame(height: 10)
-          Text("2000.00.00 - 00.00")
+          Text("\(item.startAt) - \(item.endAt)")
             .font(.pretendard(.medium, size: 18))
             .foregroundColor(.gray400)
           Spacer().frame(height: 15)
-          Image("hobby")
+          Image(item.img)
             .resizable()
             .frame(width: 209, height: 209)
             .scaledToFill()

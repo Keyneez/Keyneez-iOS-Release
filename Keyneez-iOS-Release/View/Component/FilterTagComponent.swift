@@ -15,7 +15,7 @@ enum FilterTagType: String, CaseIterable {
 
 }
 
-struct ExploreFilterTagView: View {
+struct FilterTagView: View {
   @State private var selectedButton: FilterTagType? = .all
     
     var body: some View {
@@ -36,11 +36,3 @@ struct ExploreFilterTagView: View {
         }
     }
 }
-
-
-struct ExploreFilterTagView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExploreFilterTagView()
-    }
-}
-
