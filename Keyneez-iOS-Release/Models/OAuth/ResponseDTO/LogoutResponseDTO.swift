@@ -8,5 +8,7 @@
 import Foundation
 
 struct LogoutResponseDTO: Codable {
-  
+    let status: Int
+    let message: String
+    let data: [String]?
 }
