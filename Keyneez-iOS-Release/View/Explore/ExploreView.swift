@@ -12,6 +12,7 @@ struct ExploreView: View {
     @State private var ScrollViewOffset: CGFloat = 0
     @State private var StartOffset: CGFloat = 0
     @State private var isNavigationBarHidden = false
+  @StateObject var viewModel: CardViewModel
     
     var body: some View {
         NavigationStack {
@@ -41,17 +42,15 @@ struct ExploreView: View {
                         }
                         Spacer().frame(height: 25)
                         
-                        ExploreFilterTagView()
+                        FilterTagView()
                             .padding(.leading, 22)
-                        Spacer().frame(height: 21)
-                        
                         TabView(selection: self.$currentTab) {
-                            ExplorePopularView().tag(0)
-                            ExploreRecentView().tag(1)
+                          ExplorePopularView(viewModel: CardViewModel()).tag(0)
+                          ExploreRecentView(viewModel: CardViewModel()).tag(1)
                         }
-                        //MARK: - 셀 개수 받아서 높이 계산해주는 함수 필요
-                        .frame(height: 800)
+                        .frame(height: viewModel.calculateTotalHeight(itemHeight: 250, spacing: 18))
                         .tabViewStyle(.page(indexDisplayMode: .never))
+                        
                     }
                     .overlay(
                         GeometryReader { proxy -> Color in
@@ -69,8 +68,6 @@ struct ExploreView: View {
                     
                     )
                 }
-              
-                
                 .overlay(
                 CustomNavigationBarView()
                     .ignoresSafeArea(.all)
@@ -78,12 +75,14 @@ struct ExploreView: View {
                     .animation(.easeIn)
                 ,alignment: .top
                 )
+
                 
             }
             .scrollIndicators(.hidden)
             .background(Color.gray100)
            
         }
+
     }
 }
 
@@ -101,6 +100,7 @@ extension ExploreView {
                         Text("탐색하기")
                             .font(.pretendard(.semiBold, size: 18))
                             .foregroundColor(.gray900)
+                            .padding(.leading, 24.adjusted)
                         Spacer()
                         NavigationLink(destination: ExploreSearchView(viewModel: ExploreViewModel())) {
                             Image("ic_search")
@@ -125,7 +125,7 @@ extension ExploreView {
 
 struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView()
+      ExploreView(viewModel: CardViewModel())
     }
 }
 

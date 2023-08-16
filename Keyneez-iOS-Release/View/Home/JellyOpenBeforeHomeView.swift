@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct JellyOpenBeforeHomeView: View {
+  @StateObject var viewModel: CardViewModel
+  
   var rows : [GridItem] = Array(repeating: .init(.fixed(220)), count: 1)
   var body: some View {
     NavigationStack {
@@ -31,10 +33,10 @@ struct JellyOpenBeforeHomeView: View {
             Text("님을 위한")
               .font(.pretendard(.semiBold, size: 24))
 //            JellyView()
-            WeekRecommendCollectionView()
+            WeekRecommendCollectionView(viewModel: CardViewModel())
 
             Spacer().frame(height: 30)
-            NavigationLink(destination: RecentUpdateDetailView()) {
+            NavigationLink(destination: RecentUpdateDetailView(viewModel: CardViewModel())) {
               HStack {
                 Text("최근 업데이트")
                   .font(.pretendard(.semiBold, size: 24))
@@ -48,8 +50,8 @@ struct JellyOpenBeforeHomeView: View {
             Spacer().frame(height: 19)
             ScrollView(.horizontal) {
               LazyHGrid(rows: rows, spacing: 15) {
-                ForEach((0...5), id: \.self ) {_ in
-                  HomeCardViewCell()
+                ForEach(viewModel.items.indices, id: \.self ) {index in
+                  HomeCardViewCell(item: viewModel.items[index])
                 }
               }
             }
@@ -63,8 +65,3 @@ struct JellyOpenBeforeHomeView: View {
   }
 }
 
-struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    JellyOpenBeforeHomeView()
-  }
-}
