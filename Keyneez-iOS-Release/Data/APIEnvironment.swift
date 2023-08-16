@@ -8,5 +8,5 @@
 import Foundation
 
 struct APIEnvironment {
-  static let apiURL = "https://dev.keyneez.xyz/api"
+  static let apiURL = "https://dev.keyneez.xyz/api/v1"
 }
