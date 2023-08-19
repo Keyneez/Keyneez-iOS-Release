@@ -11,6 +11,10 @@
 		023CF6772A80929700F63642 /* LikeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6762A80929700F63642 /* LikeEditView.swift */; };
 		023CF67A2A8095AE00F63642 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6792A8095AE00F63642 /* LikeViewModel.swift */; };
 		023CF67C2A83D7D800F63642 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF67B2A83D7D800F63642 /* CardItem.swift */; };
+		0245D09E2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D09D2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift */; };
+		0245D0A02A8CDAB300A2715C /* UnlikeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */; };
+		0245D0A32A8CEA4400A2715C /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A22A8CEA4400A2715C /* ContentAPI.swift */; };
+		0245D0A82A8E8DF100A2715C /* ContentRemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A72A8E8DF100A2715C /* ContentRemoteManager.swift */; };
 		029A34C22A1F49E700088963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C12A1F49E700088963 /* Assets.xcassets */; };
 		029A34C52A1F49E700088963 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C42A1F49E700088963 /* Preview Assets.xcassets */; };
 		02F20A272A7D1A5A001B884E /* ExploreCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A262A7D1A5A001B884E /* ExploreCellView.swift */; };
@@ -123,6 +127,10 @@
 		023CF6762A80929700F63642 /* LikeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeEditView.swift; sourceTree = "<group>"; };
 		023CF6792A8095AE00F63642 /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		023CF67B2A83D7D800F63642 /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
+		0245D09D2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsLikedResponseDTO.swift; sourceTree = "<group>"; };
+		0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikeResponseDTO.swift; sourceTree = "<group>"; };
+		0245D0A22A8CEA4400A2715C /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
+		0245D0A72A8E8DF100A2715C /* ContentRemoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRemoteManager.swift; sourceTree = "<group>"; };
 		029A34BA2A1F49E600088963 /* Keyneez-iOS-Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Keyneez-iOS-Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A34C12A1F49E700088963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029A34C42A1F49E700088963 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -253,6 +261,24 @@
 			path = Like;
 			sourceTree = "<group>";
 		};
+		0245D09C2A8CD9A000A2715C /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				0245D09D2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift */,
+				0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		0245D0A12A8CEA0D00A2715C /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				0245D0A22A8CEA4400A2715C /* ContentAPI.swift */,
+				0245D0A72A8E8DF100A2715C /* ContentRemoteManager.swift */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
 		029A34B12A1F49E600088963 = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +385,7 @@
 		029A34DD2A1F557500088963 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0245D09C2A8CD9A000A2715C /* Like */,
 				B154808D2A639E0B00293289 /* Setting */,
 				B15480882A639E0600293289 /* Detail */,
 				B145A0592A4BC95A003505B6 /* OAuth */,
@@ -459,6 +486,7 @@
 		B145A04E2A4BC1C9003505B6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0245D0A12A8CEA0D00A2715C /* Contents */,
 				B145A06B2A4D741E003505B6 /* Protocol */,
 				B145A04F2A4BC1DE003505B6 /* Auth */,
 				B145A0542A4BC375003505B6 /* APIEnvironment.swift */,
@@ -798,18 +826,21 @@
 				B15480902A639E0B00293289 /* TermsViewState.swift in Sources */,
 				B15480702A639DA300293289 /* SettingView.swift in Sources */,
 				B154808B2A639E0700293289 /* DetailTagState.swift in Sources */,
+				0245D0A02A8CDAB300A2715C /* UnlikeResponseDTO.swift in Sources */,
 				B15480532A639D6600293289 /* RecommendCardViewCell.swift in Sources */,
 				B15480912A639E0B00293289 /* SettingPopUpState.swift in Sources */,
 				B145A06F2A4D747F003505B6 /* OAuthRemoteManager.swift in Sources */,
 				B15480822A639DB300293289 /* TabBarView.swift in Sources */,
 				B145A06D2A4D7434003505B6 /* RequestSendable.swift in Sources */,
 				B15480672A639D9200293289 /* LikeView.swift in Sources */,
+				0245D0A32A8CEA4400A2715C /* ContentAPI.swift in Sources */,
 				B154807E2A639DB300293289 /* MainRecommendView.swift in Sources */,
 				B154806F2A639DA300293289 /* TermsView.swift in Sources */,
 				02F20A2B2A7D1AC3001B884E /* FilterTagComponent.swift in Sources */,
 				B125FBEC2A29D3A10015E04B /* RegisterIDViewModel.swift in Sources */,
 				B1200CF52A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				B15480BB2A639E6B00293289 /* View+Extension.swift in Sources */,
+				0245D09E2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift in Sources */,
 				B15480BC2A639E6B00293289 /* View+Extensions.swift in Sources */,
 				B15480562A639D6600293289 /* TagViewModifier.swift in Sources */,
 				B15480CC2A639E7D00293289 /* CardViewModel.swift in Sources */,
@@ -862,6 +893,7 @@
 				02F20A2D2A7D1AE0001B884E /* ExploreTabBarView.swift in Sources */,
 				B15480BD2A639E6B00293289 /* OSLog+Extension.swift in Sources */,
 				B154807F2A639DB300293289 /* GifImage.swift in Sources */,
+				0245D0A82A8E8DF100A2715C /* ContentRemoteManager.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
 				B145A0792A4D7C79003505B6 /* KeychainManager.swift in Sources */,
 				B145A06A2A4D72C6003505B6 /* KeyneezNetworkError.swift in Sources */,
