@@ -6,20 +6,15 @@
 //
 
 import SwiftUI
+import Moya
+import Combine
 
 struct RecommendCardViewCell: View {
-  @StateObject private var viewModel = CardViewModel()
-  var item: CardItem
+  let provider = MoyaProvider<ContentAPI>()
+  @State private var content: DetailContentResponseDTO
   let screenSize: CGSize
   let width: CGFloat
   @State private var heart: Bool
-
-  init(item: CardItem, screenSize: CGSize, width: CGFloat) {
-      self._heart = State(initialValue: item.heart)
-    self.screenSize = screenSize
-    self.width = width
-      self.item = item
-  }
   
   var body: some View {
     GeometryReader { geo in
@@ -33,9 +28,8 @@ struct RecommendCardViewCell: View {
         VStack(alignment: .leading) {
           Spacer().frame(height: 20)
           HStack {
-            Text(item.tag.description)
+            Text(content.category)
               .tagViewStyle(widthSize: 20, heightSize: 9, textCGFloat: 16)
-              .foregroundColor(item.tag.color)
             Spacer()
             Button {
               heart.toggle()
@@ -52,15 +46,15 @@ struct RecommendCardViewCell: View {
             }
           }
           Spacer().frame(height: 16)
-          Text(item.title)
+          Text(content.title)
             .font(.pretendard(.bold, size: 26))
             .foregroundColor(.gray900)
           Spacer().frame(height: 10)
-          Text("\(item.startAt) - \(item.endAt)")
+          Text("\(content.startAt ?? "") - \(content.endAt ?? "")")
             .font(.pretendard(.medium, size: 18))
             .foregroundColor(.gray400)
           Spacer().frame(height: 15)
-          Image(item.img)
+          Image("hobby")
             .resizable()
             .frame(width: 209, height: 209)
             .scaledToFill()

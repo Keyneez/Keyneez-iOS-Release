@@ -11,7 +11,7 @@ import Moya
 enum ContentAPI {
   case getAllContents(token: String, filter: String?)
   case getSearchContent(token: String, keyword: String)
-  case getRecommendContent(token: String, keyword: String)
+  case getRecommendContent(token: String)
   case getPopularityContent(token: String, filter: String?)
   case getDetailContent(token: String, pk: Int)
   case getLikeContent(token: String, filter: String?)
@@ -67,8 +67,9 @@ extension ContentAPI: TargetType {
         .getPopularityContent(_, let filter),
         .getLikeContent(_, let filter):
       return .requestParameters(parameters: ["filter": filter ?? ""], encoding: URLEncoding.queryString)
-    case .getSearchContent(_, let keyword),
-        .getRecommendContent(_, let keyword) :
+    case .getRecommendContent :
+      return .requestPlain
+    case .getSearchContent(_, let keyword):
       return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.queryString)
     case .getDetailContent(_, let pk),
         .postLikeContent(_, let pk) :
@@ -84,7 +85,7 @@ extension ContentAPI: TargetType {
     switch self {
     case .getAllContents(let token, _),
         .getSearchContent(let token, _),
-        .getRecommendContent(let token, _),
+        .getRecommendContent(let token),
         .getPopularityContent(let token, _),
         .getDetailContent(let token, _),
         .getLikeContent(let token, _),

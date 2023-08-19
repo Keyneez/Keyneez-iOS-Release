@@ -14,7 +14,8 @@
 		0245D09E2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D09D2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift */; };
 		0245D0A02A8CDAB300A2715C /* UnlikeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */; };
 		0245D0A32A8CEA4400A2715C /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A22A8CEA4400A2715C /* ContentAPI.swift */; };
-		0245D0A82A8E8DF100A2715C /* ContentRemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A72A8E8DF100A2715C /* ContentRemoteManager.swift */; };
+		0245D0A82A8E8DF100A2715C /* ContentAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A72A8E8DF100A2715C /* ContentAPIProvider.swift */; };
+		0249A2C32A914984006236D9 /* ContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2C22A914984006236D9 /* ContentRepository.swift */; };
 		029A34C22A1F49E700088963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C12A1F49E700088963 /* Assets.xcassets */; };
 		029A34C52A1F49E700088963 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C42A1F49E700088963 /* Preview Assets.xcassets */; };
 		02F20A272A7D1A5A001B884E /* ExploreCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A262A7D1A5A001B884E /* ExploreCellView.swift */; };
@@ -130,7 +131,8 @@
 		0245D09D2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsLikedResponseDTO.swift; sourceTree = "<group>"; };
 		0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikeResponseDTO.swift; sourceTree = "<group>"; };
 		0245D0A22A8CEA4400A2715C /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
-		0245D0A72A8E8DF100A2715C /* ContentRemoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRemoteManager.swift; sourceTree = "<group>"; };
+		0245D0A72A8E8DF100A2715C /* ContentAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPIProvider.swift; sourceTree = "<group>"; };
+		0249A2C22A914984006236D9 /* ContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRepository.swift; sourceTree = "<group>"; };
 		029A34BA2A1F49E600088963 /* Keyneez-iOS-Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Keyneez-iOS-Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A34C12A1F49E700088963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029A34C42A1F49E700088963 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -274,7 +276,8 @@
 			isa = PBXGroup;
 			children = (
 				0245D0A22A8CEA4400A2715C /* ContentAPI.swift */,
-				0245D0A72A8E8DF100A2715C /* ContentRemoteManager.swift */,
+				0245D0A72A8E8DF100A2715C /* ContentAPIProvider.swift */,
+				0249A2C22A914984006236D9 /* ContentRepository.swift */,
 			);
 			path = Contents;
 			sourceTree = "<group>";
@@ -892,8 +895,9 @@
 				B15480812A639DB300293289 /* JellyOpenBeforeHomeView.swift in Sources */,
 				02F20A2D2A7D1AE0001B884E /* ExploreTabBarView.swift in Sources */,
 				B15480BD2A639E6B00293289 /* OSLog+Extension.swift in Sources */,
+				0249A2C32A914984006236D9 /* ContentRepository.swift in Sources */,
 				B154807F2A639DB300293289 /* GifImage.swift in Sources */,
-				0245D0A82A8E8DF100A2715C /* ContentRemoteManager.swift in Sources */,
+				0245D0A82A8E8DF100A2715C /* ContentAPIProvider.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
 				B145A0792A4D7C79003505B6 /* KeychainManager.swift in Sources */,
 				B145A06A2A4D72C6003505B6 /* KeyneezNetworkError.swift in Sources */,
