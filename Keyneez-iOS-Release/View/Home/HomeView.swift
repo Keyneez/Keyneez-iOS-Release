@@ -37,7 +37,7 @@ struct HomeView: View {
             WeekRecommendCollectionView()
 
             Spacer().frame(height: 30)
-            NavigationLink(destination: RecentUpdateDetailView(viewModel: CardViewModel())) {
+            NavigationLink(destination: RecentUpdateDetailView()) {
               HStack {
                 Text("최근 업데이트")
                   .font(.pretendard(.semiBold, size: 24))

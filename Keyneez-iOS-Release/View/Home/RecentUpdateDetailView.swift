@@ -14,8 +14,7 @@ struct RecentUpdateDetailView: View {
          GridItem(.flexible(), spacing: 19), // 가로 간격 설정
          GridItem(.flexible())
      ]
-  @StateObject var viewModel: CardViewModel
-  var items: [CardItem] = makeCardItems()
+  @StateObject private var viewModel = AllCardViewModel()
 
   var body: some View {
     ZStack {
@@ -38,8 +37,8 @@ struct RecentUpdateDetailView: View {
             .padding(.leading, 11)
           Spacer().frame(height: 30)
           LazyVGrid(columns: columns, spacing: 27) {
-            ForEach(viewModel.items.indices, id: \.self ) {index in
-              ExploreCardViewCell(item: viewModel.items[index])
+            ForEach(viewModel.allCardList, id: \.contentPk ) {content in
+              ExploreCardViewCell(model: content)
             }
           }
         }
@@ -48,5 +47,8 @@ struct RecentUpdateDetailView: View {
     }
     .navigationBarBackButtonHidden(true)
     .toolbar(.hidden, for: .tabBar)
+    .onAppear {
+      viewModel.fetchAllCard()
+    }
   }
 }

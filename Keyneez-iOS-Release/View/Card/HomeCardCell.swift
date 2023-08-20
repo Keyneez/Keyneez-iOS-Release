@@ -18,8 +18,13 @@ struct HomeCardCell: View {
         Spacer().frame(height: 16)
         HStack {
           Text(model.category)
-            .tagViewStyle(widthSize: 7, heightSize: 3.5, textCGFloat: 10)
-            .foregroundColor(Color.categoryColor(for: model.category))
+            .font(.pretendard(.medium, size: 10))
+            .foregroundColor(.gray050)
+            .padding(.horizontal, 7)
+            .padding(.vertical, 3.5)
+            .background(Color.categoryColor(for: model.category))
+            .cornerRadius(53)
+
           Spacer()
           Button {
             heart.toggle()
@@ -36,7 +41,7 @@ struct HomeCardCell: View {
           .font(.pretendard(.medium, size: 8))
           .foregroundColor(.gray400)
         Spacer().frame(height: 9)
-        Image("hobby")
+        Image(model.imgName)
           .resizable()
           .frame(width: 110, height: 110)
       }

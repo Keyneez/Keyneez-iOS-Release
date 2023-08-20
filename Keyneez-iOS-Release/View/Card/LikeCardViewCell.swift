@@ -1,15 +1,15 @@
 //
-//  ExploreCardViewCell.swift
+//  LikeCardViewCell.swift
 //  Keyneez-iOS-Release
 //
-//  Created by 최효원 on 2023/07/13.
+//  Created by 최효원 on 2023/08/21.
 //
 
 import SwiftUI
 
-struct ExploreCardViewCell: View {
+struct LikeCardViewCell: View {
   @State private var heart: Bool = false
-  let model: DetailContentResponseDTO
+  let model: ContentsLikedResponseDTO
 
   var body: some View {
     GeometryReader { geo in
@@ -18,12 +18,8 @@ struct ExploreCardViewCell: View {
         Spacer().frame(height: 19)
         HStack {
           Text(model.category)
-            .font(.pretendard(.medium, size: 12))
-            .foregroundColor(.gray050)
-            .padding(.horizontal, 8.5)
-            .padding(.vertical, 4)
-            .background(Color.categoryColor(for: model.category))
-            .cornerRadius(53)
+            .tagViewStyle(widthSize: 12, heightSize: 5, textCGFloat: 11)
+            .foregroundColor(Color.categoryColor(for: model.category))
           Spacer()
           Button {
             heart.toggle()
@@ -44,7 +40,7 @@ struct ExploreCardViewCell: View {
           .font(.pretendard(.medium, size: 10))
           .foregroundColor(.gray400)
         Spacer().frame(height: 8)
-        Image(model.imgName)
+        Image("hobby")
           .resizable()
           .frame(width: 133, height: 133)
       }

@@ -26,8 +26,12 @@ struct RecommendCardCell: View {
           Spacer().frame(height: 20)
           HStack {
             Text(model.category)
-              .tagViewStyle(widthSize: 20, heightSize: 9, textCGFloat: 16)
-              .foregroundColor(Color.categoryColor(for: model.category))
+              .font(.pretendard(.medium, size: 16))
+              .foregroundColor(.gray050)
+              .padding(.horizontal, 11)
+              .padding(.vertical, 5)
+              .background(Color.categoryColor(for: model.category))
+              .cornerRadius(53)
             Spacer()
             Button {
               heart.toggle()
@@ -52,7 +56,7 @@ struct RecommendCardCell: View {
             .font(.pretendard(.medium, size: 18))
             .foregroundColor(.gray400)
           Spacer().frame(height: 15)
-          Image("hobby")
+          Image(model.imgName)
             .resizable()
             .frame(width: 209, height: 209)
             .scaledToFill()

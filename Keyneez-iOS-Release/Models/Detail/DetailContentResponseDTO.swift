@@ -31,3 +31,17 @@ struct DetailContentResponseDTO: Codable {
     let content: Int
   }
 }
+
+extension DetailContentResponseDTO {
+  var imgName: String {
+    if let tag = tag, !tag.isEmpty {
+      return category == "취미" ? category : "\(category)_\(tag)"
+    } else {
+      return [
+        "진로": "진로_멘토링",
+        "활동": "활동_서포터즈"
+      ][category, default: category]
+    }
+  }
+}
+

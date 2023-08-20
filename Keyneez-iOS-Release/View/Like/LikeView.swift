@@ -42,7 +42,7 @@ struct LikeView: View {
               .font(.pretendard(.semiBold, size: 15))
               .padding(.leading, 24.adjusted)
             Spacer().frame(height: 14.adjusted)
-            LikeCell(viewModel: LikeViewModel())
+//            LikeCell(viewModel: LikeViewModel())
           }
           .overlay(
             GeometryReader { proxy -> Color in

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExploreRecentView: View {
-  @StateObject var viewModel: CardViewModel
+  @StateObject var viewModel = AllCardViewModel()
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -16,16 +16,19 @@ struct ExploreRecentView: View {
   
   var body: some View {
       LazyVGrid(columns: columns, spacing: 17) {
-        ForEach(viewModel.items.indices, id: \.self ) { index in
-          ExploreCardViewCell(item: viewModel.items[index])
+        ForEach(viewModel.allCardList, id: \.contentPk ) { content in
+          ExploreCardViewCell(model: content)
         }
       }
       .padding(.horizontal, 22)
+      .onAppear {
+        viewModel.fetchAllCard()
+      }
   }
 }
 
 struct ExplorePopularView: View {
-  @StateObject var viewModel: CardViewModel
+  @StateObject var viewModel = PopularityCardViewModel()
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -33,11 +36,14 @@ struct ExplorePopularView: View {
   
   var body: some View {
     LazyVGrid(columns: columns, spacing: 17) {
-      ForEach(viewModel.items.indices, id: \.self ) {index in
-        ExploreCardViewCell(item: viewModel.items[index])
+      ForEach(viewModel.popularityCardList, id: \.contentPk ) {content in
+        ExploreCardViewCell(model: content)
       }
     }
     .padding(.horizontal, 22)
+    .onAppear {
+      viewModel.fetchPopularityCard()
+    }
   }
 }
 

@@ -83,7 +83,7 @@ struct LikeEditView: View {
               viewModel.action(.onTapCardCellButton(id: index))
             } label: {
               ZStack(alignment: .topTrailing) {
-                ExploreCardViewCell(item: viewModel.items[index])
+//                ExploreCardViewCell(item: viewModel.items[index])
                 if viewModel.items[index].checked == true {
                   Color.gray900.opacity(0.3)
                     .cornerRadius(16)

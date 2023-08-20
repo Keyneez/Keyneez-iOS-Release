@@ -15,9 +15,11 @@
 		0245D0A02A8CDAB300A2715C /* UnlikeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */; };
 		0245D0A32A8CEA4400A2715C /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A22A8CEA4400A2715C /* ContentAPI.swift */; };
 		0245D0A82A8E8DF100A2715C /* ContentAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A72A8E8DF100A2715C /* ContentAPIProvider.swift */; };
-		0249A2C32A914984006236D9 /* ContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2C22A914984006236D9 /* ContentRepository.swift */; };
 		0249A2C82A9255D5006236D9 /* RecommendCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2C72A9255D5006236D9 /* RecommendCardViewModel.swift */; };
 		0249A2CA2A929D3C006236D9 /* AllCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2C92A929D3C006236D9 /* AllCardViewModel.swift */; };
+		0249A2CE2A92AC45006236D9 /* PopularityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2CD2A92AC45006236D9 /* PopularityCardViewModel.swift */; };
+		0249A2D02A92AC70006236D9 /* LikedCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2CF2A92AC70006236D9 /* LikedCardViewModel.swift */; };
+		0249A2D22A92ADD9006236D9 /* LikeCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2D12A92ADD9006236D9 /* LikeCardViewCell.swift */; };
 		029A34C22A1F49E700088963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C12A1F49E700088963 /* Assets.xcassets */; };
 		029A34C52A1F49E700088963 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A34C42A1F49E700088963 /* Preview Assets.xcassets */; };
 		02F20A272A7D1A5A001B884E /* ExploreCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F20A262A7D1A5A001B884E /* ExploreCellView.swift */; };
@@ -134,9 +136,11 @@
 		0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikeResponseDTO.swift; sourceTree = "<group>"; };
 		0245D0A22A8CEA4400A2715C /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 		0245D0A72A8E8DF100A2715C /* ContentAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPIProvider.swift; sourceTree = "<group>"; };
-		0249A2C22A914984006236D9 /* ContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRepository.swift; sourceTree = "<group>"; };
 		0249A2C72A9255D5006236D9 /* RecommendCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCardViewModel.swift; sourceTree = "<group>"; };
 		0249A2C92A929D3C006236D9 /* AllCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardViewModel.swift; sourceTree = "<group>"; };
+		0249A2CD2A92AC45006236D9 /* PopularityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularityCardViewModel.swift; sourceTree = "<group>"; };
+		0249A2CF2A92AC70006236D9 /* LikedCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCardViewModel.swift; sourceTree = "<group>"; };
+		0249A2D12A92ADD9006236D9 /* LikeCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCardViewCell.swift; sourceTree = "<group>"; };
 		029A34BA2A1F49E600088963 /* Keyneez-iOS-Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Keyneez-iOS-Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A34C12A1F49E700088963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029A34C42A1F49E700088963 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -281,7 +285,6 @@
 			children = (
 				0245D0A22A8CEA4400A2715C /* ContentAPI.swift */,
 				0245D0A72A8E8DF100A2715C /* ContentAPIProvider.swift */,
-				0249A2C22A914984006236D9 /* ContentRepository.swift */,
 			);
 			path = Contents;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				B15480512A639D6600293289 /* ExploreCardViewCell.swift */,
 				B15480522A639D6600293289 /* TagViewModifier.swift */,
 				023CF67B2A83D7D800F63642 /* CardItem.swift */,
+				0249A2D12A92ADD9006236D9 /* LikeCardViewCell.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -722,6 +726,8 @@
 				B15480C62A639E7D00293289 /* CardViewModel.swift */,
 				0249A2C72A9255D5006236D9 /* RecommendCardViewModel.swift */,
 				0249A2C92A929D3C006236D9 /* AllCardViewModel.swift */,
+				0249A2CD2A92AC45006236D9 /* PopularityCardViewModel.swift */,
+				0249A2CF2A92AC70006236D9 /* LikedCardViewModel.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -874,6 +880,7 @@
 				B17227BA2A6BCF95009A1FF9 /* ContentView.swift in Sources */,
 				B15480862A639DB300293289 /* RecentUpdateDetailView.swift in Sources */,
 				B15480592A639D6E00293289 /* ButtonComponent.swift in Sources */,
+				0249A2D22A92ADD9006236D9 /* LikeCardViewCell.swift in Sources */,
 				B125FBE92A28EEE70015E04B /* KeyneezButton.swift in Sources */,
 				B15480642A639D8B00293289 /* ExploreView.swift in Sources */,
 				B145A0482A4BBCCD003505B6 /* WelcomeViewModel.swift in Sources */,
@@ -883,6 +890,7 @@
 				B15480B72A639E6B00293289 /* Number+Extension.swift in Sources */,
 				023CF6772A80929700F63642 /* LikeEditView.swift in Sources */,
 				B15480C92A639E7D00293289 /* DetailViewModel.swift in Sources */,
+				0249A2D02A92AC70006236D9 /* LikedCardViewModel.swift in Sources */,
 				B125FBFB2A2DC11B0015E04B /* RecommendCell.swift in Sources */,
 				B145A0752A4D77FC003505B6 /* Token.swift in Sources */,
 				B145A0882A4E006E003505B6 /* NetworkPluggin.swift in Sources */,
@@ -901,7 +909,6 @@
 				B15480812A639DB300293289 /* HomeView.swift in Sources */,
 				02F20A2D2A7D1AE0001B884E /* ExploreTabBarView.swift in Sources */,
 				B15480BD2A639E6B00293289 /* OSLog+Extension.swift in Sources */,
-				0249A2C32A914984006236D9 /* ContentRepository.swift in Sources */,
 				B154807F2A639DB300293289 /* GifImage.swift in Sources */,
 				0245D0A82A8E8DF100A2715C /* ContentAPIProvider.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
@@ -916,6 +923,7 @@
 				B125FBE72A283E8D0015E04B /* RegisterConsentView.swift in Sources */,
 				0249A2CA2A929D3C006236D9 /* AllCardViewModel.swift in Sources */,
 				0249A2C82A9255D5006236D9 /* RecommendCardViewModel.swift in Sources */,
+				0249A2CE2A92AC45006236D9 /* PopularityCardViewModel.swift in Sources */,
 				B125FBF42A29F4A40015E04B /* ViewModelable.swift in Sources */,
 				B15480B62A639E6B00293289 /* Color+Extension.swift in Sources */,
 				B145A0772A4D7823003505B6 /* SignUpRequestDTO.swift in Sources */,

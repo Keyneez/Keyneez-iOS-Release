@@ -45,8 +45,8 @@ struct ExploreView: View {
                         FilterTagView()
                             .padding(.leading, 22)
                         TabView(selection: self.$currentTab) {
-                          ExplorePopularView(viewModel: CardViewModel()).tag(0)
-                          ExploreRecentView(viewModel: CardViewModel()).tag(1)
+                          ExplorePopularView().tag(0)
+                          ExploreRecentView().tag(1)
                         }
                         .frame(height: viewModel.calculateTotalHeight(itemHeight: 250, spacing: 18))
                         .tabViewStyle(.page(indexDisplayMode: .never))
