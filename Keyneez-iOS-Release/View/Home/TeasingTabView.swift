@@ -23,7 +23,7 @@ struct TeasingTabView: View {
           Color.clear
             .frame(width: max(geo.size.width * 0.15 - spacing, 0))
           ForEach(viewModel.recommendContentList, id: \.contentPk) { content in
-            RecommendCardViewCell(screenSize: screenSize, width: width, model: content)
+            RecommendCardCell(screenSize: screenSize, width: width, model: content)
               .frame(width: width)
               .onTapGesture {
                 selectedTab = content.contentPk

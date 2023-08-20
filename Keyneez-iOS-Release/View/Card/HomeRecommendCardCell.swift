@@ -7,18 +7,10 @@
 
 import SwiftUI
 
-struct HomeCardViewCell: View {
-//  @StateObject private var viewModel = CardViewModel()
-  @State private var heart: Bool = false 
+struct HomeRecommendCardCell: View {
+  @State private var heart: Bool = false
   let model: DetailContentResponseDTO
 
-//  var item: CardItem
-//
-//  init(item: CardItem) {
-//      self._heart = State(initialValue: item.heart)
-//      self.item = item
-//  }
-  
   var body: some View {
     GeometryReader { geo in
       Color.white

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecommendCardViewCell: View {
+struct RecommendCardCell: View {
   let screenSize: CGSize
   let width: CGFloat
   @State private var heart: Bool = false

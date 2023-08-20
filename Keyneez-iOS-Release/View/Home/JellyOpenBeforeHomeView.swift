@@ -51,7 +51,7 @@ struct JellyOpenBeforeHomeView: View {
             ScrollView(.horizontal) {
               LazyHGrid(rows: rows, spacing: 15) {
                 ForEach(viewModel.recommendContentList, id: \.contentPk) {content in
-                  HomeCardViewCell(model: content)
+                  HomeRecommendCardCell(model: content)
                 }
               }
             }

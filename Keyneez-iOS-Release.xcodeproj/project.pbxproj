@@ -73,8 +73,8 @@
 		B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0852A4D9CD0003505B6 /* KakaoUserApi.swift */; };
 		B145A0882A4E006E003505B6 /* NetworkPluggin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0872A4E006E003505B6 /* NetworkPluggin.swift */; };
 		B154804D2A6397EC00293289 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B154804C2A6397EC00293289 /* AppleLoginManager.swift */; };
-		B15480532A639D6600293289 /* RecommendCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B154804F2A639D6600293289 /* RecommendCardViewCell.swift */; };
-		B15480542A639D6600293289 /* HomeCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480502A639D6600293289 /* HomeCardViewCell.swift */; };
+		B15480532A639D6600293289 /* RecommendCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B154804F2A639D6600293289 /* RecommendCardCell.swift */; };
+		B15480542A639D6600293289 /* HomeRecommendCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480502A639D6600293289 /* HomeRecommendCardCell.swift */; };
 		B15480552A639D6600293289 /* ExploreCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480512A639D6600293289 /* ExploreCardViewCell.swift */; };
 		B15480562A639D6600293289 /* TagViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480522A639D6600293289 /* TagViewModifier.swift */; };
 		B15480592A639D6E00293289 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480582A639D6E00293289 /* ButtonComponent.swift */; };
@@ -191,8 +191,8 @@
 		B145A0872A4E006E003505B6 /* NetworkPluggin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPluggin.swift; sourceTree = "<group>"; };
 		B154804B2A63851800293289 /* Keyneez-iOS-Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Keyneez-iOS-Release.entitlements"; sourceTree = "<group>"; };
 		B154804C2A6397EC00293289 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
-		B154804F2A639D6600293289 /* RecommendCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCardViewCell.swift; sourceTree = "<group>"; };
-		B15480502A639D6600293289 /* HomeCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCardViewCell.swift; sourceTree = "<group>"; };
+		B154804F2A639D6600293289 /* RecommendCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCardCell.swift; sourceTree = "<group>"; };
+		B15480502A639D6600293289 /* HomeRecommendCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRecommendCardCell.swift; sourceTree = "<group>"; };
 		B15480512A639D6600293289 /* ExploreCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreCardViewCell.swift; sourceTree = "<group>"; };
 		B15480522A639D6600293289 /* TagViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		B15480582A639D6E00293289 /* ButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -576,8 +576,8 @@
 		B154804E2A639D6600293289 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				B154804F2A639D6600293289 /* RecommendCardViewCell.swift */,
-				B15480502A639D6600293289 /* HomeCardViewCell.swift */,
+				B154804F2A639D6600293289 /* RecommendCardCell.swift */,
+				B15480502A639D6600293289 /* HomeRecommendCardCell.swift */,
 				B15480512A639D6600293289 /* ExploreCardViewCell.swift */,
 				B15480522A639D6600293289 /* TagViewModifier.swift */,
 				023CF67B2A83D7D800F63642 /* CardItem.swift */,
@@ -833,7 +833,7 @@
 				B15480702A639DA300293289 /* SettingView.swift in Sources */,
 				B154808B2A639E0700293289 /* DetailTagState.swift in Sources */,
 				0245D0A02A8CDAB300A2715C /* UnlikeResponseDTO.swift in Sources */,
-				B15480532A639D6600293289 /* RecommendCardViewCell.swift in Sources */,
+				B15480532A639D6600293289 /* RecommendCardCell.swift in Sources */,
 				B15480912A639E0B00293289 /* SettingPopUpState.swift in Sources */,
 				B145A06F2A4D747F003505B6 /* OAuthRemoteManager.swift in Sources */,
 				B15480822A639DB300293289 /* TabBarView.swift in Sources */,
@@ -915,7 +915,7 @@
 				B125FBF42A29F4A40015E04B /* ViewModelable.swift in Sources */,
 				B15480B62A639E6B00293289 /* Color+Extension.swift in Sources */,
 				B145A0772A4D7823003505B6 /* SignUpRequestDTO.swift in Sources */,
-				B15480542A639D6600293289 /* HomeCardViewCell.swift in Sources */,
+				B15480542A639D6600293289 /* HomeRecommendCardCell.swift in Sources */,
 				B145A0682A4D7214003505B6 /* Decoder.swift in Sources */,
 				B145A0392A4A9A9E003505B6 /* BirthRegexMaker.swift in Sources */,
 				B15480852A639DB300293289 /* TeasingTabView.swift in Sources */,
