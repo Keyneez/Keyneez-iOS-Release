@@ -9,7 +9,8 @@ import Foundation
 import Moya
 
 enum DecodeError: Error {
-  case decodeError
+    case decodeError
+    case decodingFailed(error: Error)
 }
 
 final class ContentAPIProvider {
@@ -39,8 +40,8 @@ final class ContentAPIProvider {
   }
   
   func getDetailContent(token: String, pk: Int, completion: @escaping (Result<DetailContentResponseDTO?, Error>) -> Void) {
-      let target = ContentAPI.getDetailContent(token: token, pk: pk)
-      requestFrom(target, modelType: DetailContentResponseDTO.self, completion: completion)
+    let target = ContentAPI.getDetailContent(token: token, pk: pk)
+    requestFrom(target, modelType: DetailContentResponseDTO.self, completion: completion)
   }
   
   func getLikeContent(token: String, filter: String?, completion: @escaping (Result<[ContentsLikedResponseDTO]?, Error>) -> Void) {
@@ -77,11 +78,20 @@ extension ContentAPIProvider {
     case .success(let response):
       let decoder = JSONDecoder()
       decoder.keyDecodingStrategy = .convertFromSnakeCase
-      if let data = try? decoder.decode(GenericResponse<T>.self, from: response.data) {
-        guard let body = data.data else { print("ContentAPI nobddy"); return }
-        completion(.success(body))
-      } else {
-        completion(.failure(DecodeError.decodeError))
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "yyyy.MM.dd"
+      decoder.dateDecodingStrategy = .formatted(dateFormatter)
+      do {
+          let data = try decoder.decode(GenericResponse<T>.self, from: response.data)
+          guard let body = data.data else {
+              print("ContentAPI: No data in response")
+              completion(.failure(DecodeError.decodeError))
+              return
+          }
+          completion(.success(body))
+      } catch let decodingError {
+          print("ContentAPI: Decoding error: \(decodingError)")
+          completion(.failure(DecodeError.decodingFailed(error: decodingError)))
       }
     case .failure(let error):
       completion(.failure(error))

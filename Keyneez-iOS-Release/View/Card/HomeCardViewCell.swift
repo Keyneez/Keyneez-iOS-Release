@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct HomeCardViewCell: View {
-  @StateObject private var viewModel = CardViewModel()
-  @State private var heart: Bool
-  var item: CardItem
-  
-  init(item: CardItem) {
-      self._heart = State(initialValue: item.heart)
-      self.item = item
-  }
+//  @StateObject private var viewModel = CardViewModel()
+  @State private var heart: Bool = false 
+  let model: DetailContentResponseDTO
+
+//  var item: CardItem
+//
+//  init(item: CardItem) {
+//      self._heart = State(initialValue: item.heart)
+//      self.item = item
+//  }
   
   var body: some View {
     GeometryReader { geo in
@@ -23,9 +25,9 @@ struct HomeCardViewCell: View {
       VStack(alignment: .leading) {
         Spacer().frame(height: 16)
         HStack {
-          Text(item.tag.description)
+          Text(model.category)
             .tagViewStyle(widthSize: 7, heightSize: 3.5, textCGFloat: 10)
-            .foregroundColor(item.tag.color)
+            .foregroundColor(Color.categoryColor(for: model.category))
           Spacer()
           Button {
             heart.toggle()
@@ -34,15 +36,15 @@ struct HomeCardViewCell: View {
           }
         }
         Spacer().frame(height: 9)
-        Text(item.title)
+        Text(model.title)
           .font(.pretendard(.bold, size: 14))
           .foregroundColor(.gray900)
         Spacer().frame(height: 6)
-        Text("\(item.startAt) - \(item.endAt)")
+        Text("\(model.startAt ?? "") - \(model.endAt ?? "")")
           .font(.pretendard(.medium, size: 8))
           .foregroundColor(.gray400)
         Spacer().frame(height: 9)
-        Image(item.img)
+        Image("hobby")
           .resizable()
           .frame(width: 110, height: 110)
       }

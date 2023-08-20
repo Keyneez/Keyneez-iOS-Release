@@ -6,15 +6,12 @@
 //
 
 import SwiftUI
-import Moya
-import Combine
 
 struct RecommendCardViewCell: View {
-  let provider = MoyaProvider<ContentAPI>()
-  @State private var content: DetailContentResponseDTO
   let screenSize: CGSize
   let width: CGFloat
-  @State private var heart: Bool
+  @State private var heart: Bool = false
+  let model: DetailContentResponseDTO
   
   var body: some View {
     GeometryReader { geo in
@@ -28,8 +25,9 @@ struct RecommendCardViewCell: View {
         VStack(alignment: .leading) {
           Spacer().frame(height: 20)
           HStack {
-            Text(content.category)
+            Text(model.category)
               .tagViewStyle(widthSize: 20, heightSize: 9, textCGFloat: 16)
+              .foregroundColor(Color.categoryColor(for: model.category))
             Spacer()
             Button {
               heart.toggle()
@@ -46,11 +44,11 @@ struct RecommendCardViewCell: View {
             }
           }
           Spacer().frame(height: 16)
-          Text(content.title)
+          Text(model.title)
             .font(.pretendard(.bold, size: 26))
             .foregroundColor(.gray900)
           Spacer().frame(height: 10)
-          Text("\(content.startAt ?? "") - \(content.endAt ?? "")")
+          Text("\(model.startAt ?? "") - \(model.endAt ?? "")")
             .font(.pretendard(.medium, size: 18))
             .foregroundColor(.gray400)
           Spacer().frame(height: 15)
@@ -81,7 +79,3 @@ struct RecommendCardViewCell: View {
     .cornerRadius(28)
   }
 }
-
-
-
-

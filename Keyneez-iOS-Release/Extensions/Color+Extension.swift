@@ -51,5 +51,16 @@ extension Color {
     
   static let navigationColor = Color("navigationColor")
 
-  
+  static func categoryColor(for category: String) -> Color {
+       switch category {
+       case "활동":
+         return .purple500
+       case "진로":
+         return .red500
+       case "취미":
+         return .mint500
+       default:
+           return Color.black
+       }
+   }
 }

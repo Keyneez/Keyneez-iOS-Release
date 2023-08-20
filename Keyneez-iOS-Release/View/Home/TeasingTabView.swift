@@ -10,7 +10,7 @@ import SwiftUI
 struct TeasingTabView: View {
   @Binding var selectedTab: Int
   let spacing: CGFloat
-  @StateObject var viewModel: CardViewModel
+  @StateObject private var viewModel = RecommendContentViewModel()
   @State private var offset = CGFloat.zero
   
   var body: some View {
@@ -22,14 +22,13 @@ struct TeasingTabView: View {
         HStack(spacing: spacing) {
           Color.clear
             .frame(width: max(geo.size.width * 0.15 - spacing, 0))
-          ForEach(viewModel.items.indices, id: \.self) { idx in
-            RecommendCardViewCell(item: viewModel.items[idx] , screenSize: screenSize, width: width)
-            
+          ForEach(viewModel.recommendContentList, id: \.contentPk) { content in
+            RecommendCardViewCell(screenSize: screenSize, width: width, model: content)
               .frame(width: width)
               .onTapGesture {
-                selectedTab = idx
+                selectedTab = content.contentPk
               }
-              .foregroundColor(idx == selectedTab ? .primary : .secondary.opacity(0.5))
+              .foregroundColor(content.contentPk == selectedTab ? .primary : .secondary.opacity(0.5))
           }
         }
         .offset(x: CGFloat(-selectedTab) * (width + spacing) + offset)
@@ -43,7 +42,7 @@ struct TeasingTabView: View {
               withAnimation(.easeIn) {
                 offset = value.predictedEndTranslation.width
                 selectedTab -= Int((offset / width).rounded())
-                selectedTab = max(0, min(selectedTab, 5-1))
+                selectedTab = max(0, min(selectedTab, viewModel.recommendContentList.count - 1))
                 offset = 0
               }
             }
@@ -51,15 +50,18 @@ struct TeasingTabView: View {
       }
       
       HStack {
-        ForEach(0..<5, id: \.self) { idx in
+        ForEach(viewModel.recommendContentList, id: \.contentPk) { content in
           Circle()
             .frame(width: 8)
-            .foregroundColor(idx == selectedTab ? .primary : .secondary.opacity(0.5))
+            .foregroundColor( content.contentPk == selectedTab ? .primary : .secondary.opacity(0.5))
             .onTapGesture {
-              selectedTab = idx
+              selectedTab = content.contentPk
             }
         }
       }
+    }
+    .onAppear {
+      viewModel.fetchRecommendContent()
     }
   }
 }

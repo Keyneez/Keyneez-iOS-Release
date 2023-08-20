@@ -21,7 +21,7 @@ enum ContentAPI {
 
 extension ContentAPI: TargetType {
   var baseURL: URL {
-    return URL(string: APIEnvironment.apiURL + "contents")!
+    return URL(string: APIEnvironment.apiURL + "/contents")!
   }
 
   var path: String {

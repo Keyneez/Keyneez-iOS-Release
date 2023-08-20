@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct JellyOpenBeforeHomeView: View {
-  @StateObject var viewModel: CardViewModel
-  
+  @StateObject private var viewModel = RecommendContentViewModel()
+
   var rows : [GridItem] = Array(repeating: .init(.fixed(220)), count: 1)
   var body: some View {
     NavigationStack {
@@ -25,15 +25,15 @@ struct JellyOpenBeforeHomeView: View {
             Spacer().frame(height:33)
             //viewModel 빼기
             
-            let userName = "민지너는최고"
-            Text("\(userName)")
+            let userName = UserManager.shared.user?.nickName
+            Text(userName ?? "11")
               .font(.pretendard(.bold, size: 24))
               .foregroundColor(.gray900)
             +
             Text("님을 위한")
               .font(.pretendard(.semiBold, size: 24))
 //            JellyView()
-            WeekRecommendCollectionView(viewModel: CardViewModel())
+            WeekRecommendCollectionView()
 
             Spacer().frame(height: 30)
             NavigationLink(destination: RecentUpdateDetailView(viewModel: CardViewModel())) {
@@ -50,8 +50,8 @@ struct JellyOpenBeforeHomeView: View {
             Spacer().frame(height: 19)
             ScrollView(.horizontal) {
               LazyHGrid(rows: rows, spacing: 15) {
-                ForEach(viewModel.items.indices, id: \.self ) {index in
-                  HomeCardViewCell(item: viewModel.items[index])
+                ForEach(viewModel.recommendContentList, id: \.contentPk) {content in
+                  HomeCardViewCell(model: content)
                 }
               }
             }

@@ -18,14 +18,16 @@ struct DetailContentResponseDTO: Codable {
   var introduction: String
   var startAt: String?
   var endAt: String?
-  var inquiry: String
-  var price: String
-  var benefit: String
+  var inquiry: [String]
+  var price: [String]
+  var benefit: [String]
   var createdAt: String
   var updatedAt: String
-  var likes: [Like]?
-}
-
-struct Like: Codable {
-  var likedPk, user, content: Int
+  var likes: [Likes]?
+  
+  struct Likes: Codable {
+    let likedPk: Int
+    let user: Int
+    let content: Int
+  }
 }
