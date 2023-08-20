@@ -7,17 +7,17 @@
 
 import Foundation
 
-final class RecommendContentViewModel: ObservableObject {
-  @Published var recommendContentList: [DetailContentResponseDTO] = []
+final class RecommendCardViewModel: ObservableObject {
+  @Published var recommendCardList: [DetailContentResponseDTO] = []
   
-  func fetchRecommendContent() {
+  func fetchRecommendCard() {
     if let token = UserManager.shared.accessToken {
       ContentAPIProvider.shared.getRecommendContent(token: token) { [weak self] result in
         switch result {
         case .success(let data):
           if let recommendList = data {
             DispatchQueue.main.async {
-              self?.recommendContentList = recommendList
+              self?.recommendCardList = recommendList
             }
           }
         case .failure(let error):

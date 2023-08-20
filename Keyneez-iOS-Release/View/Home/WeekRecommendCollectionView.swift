@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeekRecommendCollectionView: View {
-  @StateObject private var viewModel = RecommendContentViewModel()
+  @StateObject private var viewModel = RecommendCardViewModel()
   var rows : [GridItem] = Array(repeating: .init(.fixed(220)), count: 1)
   var body: some View {
     VStack(alignment: .leading) {
@@ -28,8 +28,8 @@ struct WeekRecommendCollectionView: View {
       ScrollView(.horizontal) {
         ZStack(alignment: .topLeading) {
           LazyHGrid(rows: rows, spacing: 15) {
-            ForEach(viewModel.recommendContentList, id: \.contentPk) {content in
-              HomeCardViewCell(model: content)
+            ForEach(viewModel.recommendCardList, id: \.contentPk) {content in
+              HomeCardCell(model: content)
             }
           }
           TipKitView()
@@ -42,7 +42,7 @@ struct WeekRecommendCollectionView: View {
       .scrollIndicators(.hidden)
     }
     .onAppear {
-      viewModel.fetchRecommendContent()
+      viewModel.fetchRecommendCard()
     }
   }
 }

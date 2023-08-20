@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct JellyOpenBeforeHomeView: View {
-  @StateObject private var viewModel = RecommendContentViewModel()
+struct HomeView: View {
+  @StateObject private var recommendViewModel = RecommendCardViewModel()
+  @StateObject private var allViewModel = AllCardViewModel()
 
   var rows : [GridItem] = Array(repeating: .init(.fixed(220)), count: 1)
   var body: some View {
@@ -50,8 +51,8 @@ struct JellyOpenBeforeHomeView: View {
             Spacer().frame(height: 19)
             ScrollView(.horizontal) {
               LazyHGrid(rows: rows, spacing: 15) {
-                ForEach(viewModel.recommendContentList, id: \.contentPk) {content in
-                  HomeRecommendCardCell(model: content)
+                ForEach(allViewModel.allCardList, id: \.contentPk) {content in
+                  HomeCardCell(model: content)
                 }
               }
             }
@@ -60,6 +61,10 @@ struct JellyOpenBeforeHomeView: View {
           .padding([.leading, .trailing], 28)
         }
         .scrollIndicators(.hidden)
+        .onAppear {
+          allViewModel.fetchAllCard()
+
+        }
       }
     }
   }

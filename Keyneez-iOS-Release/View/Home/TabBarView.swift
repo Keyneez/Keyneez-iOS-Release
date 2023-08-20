@@ -19,7 +19,7 @@ struct TabBarView: View {
   
   var body: some View {
     TabView(selection: $selectedTab) {
-      JellyOpenBeforeHomeView()
+      HomeView()
           .tabItem {
             Image(selectedTab == .home ? "ic_home_fill" : "ic_home")
             Text("홈")

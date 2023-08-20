@@ -23,7 +23,7 @@ extension ContentAPI: TargetType {
   var baseURL: URL {
     return URL(string: APIEnvironment.apiURL + "/contents")!
   }
-
+  
   var path: String {
     switch self {
     case .getAllContents:
@@ -41,11 +41,11 @@ extension ContentAPI: TargetType {
     case .postLikeContent(_, let pk):
       return "/\(pk)/like"
     case .postUnlikeContent(_, let pk):
-        let pkString = pk.map { String($0) }.joined(separator: ",")
-        return "/\(pkString)/unlike"
+      let pkString = pk.map { String($0) }.joined(separator: ",")
+      return "/\(pkString)/unlike"
     }
   }
-
+  
   var method: Moya.Method {
     switch self {
     case .getAllContents,
@@ -60,14 +60,18 @@ extension ContentAPI: TargetType {
       return .post
     }
   }
-
+  
   var task: Moya.Task {
     switch self {
     case .getAllContents(_, let filter),
         .getPopularityContent(_, let filter),
         .getLikeContent(_, let filter):
-      return .requestParameters(parameters: ["filter": filter ?? ""], encoding: URLEncoding.queryString)
-    case .getRecommendContent :
+      // 만약 filter가 nil이면 빈 쿼리 스트링을 생성, 그렇지 않으면 카테고리를 기준으로 필터 적용
+      var parameters: [String: Any] = [:]
+      if let filter = filter {
+        parameters["filter"] = filter
+      }
+      return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)    case .getRecommendContent :
       return .requestPlain
     case .getSearchContent(_, let keyword):
       return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.queryString)
@@ -75,12 +79,12 @@ extension ContentAPI: TargetType {
         .postLikeContent(_, let pk) :
       return .requestParameters(parameters: ["pk": pk], encoding: JSONEncoding.default)
     case .postUnlikeContent(_, let pk):
-        let pkString = pk.map { String($0) }.joined(separator: ",")
-        return .requestParameters(parameters: ["pk": pkString], encoding: URLEncoding.queryString)
-
+      let pkString = pk.map { String($0) }.joined(separator: ",")
+      return .requestParameters(parameters: ["pk": pkString], encoding: URLEncoding.queryString)
+      
     }
   }
-
+  
   var headers: [String : String]? {
     switch self {
     case .getAllContents(let token, _),

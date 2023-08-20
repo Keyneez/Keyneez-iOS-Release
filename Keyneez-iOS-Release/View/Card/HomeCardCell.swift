@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeRecommendCardCell: View {
+struct HomeCardCell: View {
   @State private var heart: Bool = false
   let model: DetailContentResponseDTO
 
