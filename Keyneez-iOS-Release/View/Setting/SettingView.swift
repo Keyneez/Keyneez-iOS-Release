@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingView: View {
-    private var settingViewModel = SettingViewModel()
+    @State private var settingViewModel = SettingViewModel()
     
     @State private var isOnAutoLogIn = false
     @State private var isOnPushAlert = false
@@ -158,7 +158,6 @@ struct SettingView: View {
                             HStack {
                                 Button(action: {
                                     isOnPopUp.toggle()
-                                    // logout action
                                     popUpState = .logOut
                                 }, label: {
                                     Text("로그아웃")
@@ -204,7 +203,7 @@ struct SettingView: View {
                         .ignoresSafeArea()
                     VStack {
                         Spacer()
-                        SettingPopUpView(isVisible: $isOnPopUp, popUpState: $popUpState, userLogout: $isLogOut)
+                      SettingPopUpView(viewModel: $settingViewModel, isVisible: $isOnPopUp, popUpState: $popUpState, userLogout: $isLogOut)
                         Spacer()
                     }
                     .edgesIgnoringSafeArea(.all)

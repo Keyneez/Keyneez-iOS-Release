@@ -37,12 +37,14 @@ protocol OAuthRepositoryProtocol {
   func signInWithKakao() async throws -> LoginResponseDTO
   func signUpWithKakao(with dto: KakaoSignUpRequestDTO) async throws -> LoginResponseDTO
   func signInWithApple() async throws -> LoginResponseDTO
+  func logoutAuth() async throws -> LogoutResponseDTO
 }
 
 final class OAuthRepository: OAuthRepositoryProtocol {
   
   private var OauthRemoteManager = OAuthRemoteManager.shared
   private var appleLoginManager = AppleLoginManager.shared
+  private var authRemoteManager = AuthRemoteManager.shared
   
   func signInWithApple() async throws -> LoginResponseDTO {
     
@@ -98,4 +100,19 @@ final class OAuthRepository: OAuthRepositoryProtocol {
     return try await OauthRemoteManager.kakaoLogin(idToken: idToken)
   }
   
+  func logoutAuth() async throws -> LogoutResponseDTO {
+    do {
+      return try await authRemoteManager.logout()
+    } catch(let e) {
+      if let error = e as? KeyneezNetworkError {
+        switch error {
+        case .DecodeError:
+          throw OAuthRepositoryError.unknownError
+        case .failure(let statusCode, _):
+          throw OAuthRepositoryError.getErrorDesc(by: statusCode)
+        }
+      }
+      throw OAuthRepositoryError.unknownError
+    }
+  }
 }

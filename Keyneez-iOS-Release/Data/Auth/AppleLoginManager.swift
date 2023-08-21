@@ -35,11 +35,29 @@ final class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate {
     })
   }
   
+  func performAppleLogout() async {
+    await withCheckedContinuation({ continuation in
+      self.performAppleLogout { token in
+        continuation.resume(returning: token)
+      }
+    })
+  }
+  
 }
 
 extension AppleLoginManager {
   
   private func performAppleSignIn(with completion: @escaping (_ token: String?) -> ()) {
+    self.completion = completion
+    let provider = ASAuthorizationAppleIDProvider()
+    let request = provider.createRequest()
+    request.requestedScopes = [.fullName, .email]
+    let controller = ASAuthorizationController(authorizationRequests: [request])
+    controller.delegate = self
+    controller.performRequests()
+  }
+  
+  private func performAppleLogout(with completion: @escaping (_ token: String?) -> ()) {
     self.completion = completion
     let provider = ASAuthorizationAppleIDProvider()
     let request = provider.createRequest()
