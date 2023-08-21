@@ -15,17 +15,18 @@ struct ExploreRecentView: View {
   ]
   
   var body: some View {
-      LazyVGrid(columns: columns, spacing: 17) {
-        ForEach(viewModel.allCardList, id: \.contentPk ) { content in
-          ExploreCardViewCell(model: content)
-        }
+    LazyVGrid(columns: columns, spacing: 17) {
+      ForEach(viewModel.allCardList, id: \.contentPk ) { content in
+        ExploreCardViewCell(model: content)
       }
-      .padding(.horizontal, 22)
-      .onAppear {
-        viewModel.fetchAllCard()
-      }
+    }
+    .padding(.horizontal, 22)
+    .onAppear {
+      viewModel.fetchAllCard()
+    }
   }
 }
+
 
 struct ExplorePopularView: View {
   @StateObject var viewModel = PopularityCardViewModel()

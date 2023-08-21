@@ -42,7 +42,7 @@ struct RecentUpdateDetailView: View {
             }
           }
         }
-        .padding([.leading, .trailing], 17)
+        .padding(.horizontal, 17)
       }
     }
     .navigationBarBackButtonHidden(true)
