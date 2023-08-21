@@ -167,9 +167,10 @@ struct DetailView: View {
                 
                 VStack {
                     Spacer()
-                    Button {
+//                    Button {
+                  Link(destination: URL(string: "https://www.naver.com" )!) {
                         // action
-                    } label: {
+//                    } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 14)
                                 .frame(height: 56)
