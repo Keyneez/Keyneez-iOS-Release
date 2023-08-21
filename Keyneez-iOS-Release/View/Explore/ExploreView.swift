@@ -12,13 +12,14 @@ struct ExploreView: View {
   @State private var ScrollViewOffset: CGFloat = 0
   @State private var StartOffset: CGFloat = 0
   @State private var isNavigationBarHidden = false
+  @State var viewPagerSize: CGSize = .zero
   
   var body: some View {
     NavigationStack {
       ZStack(alignment: .top) {
         Color.gray100
           .edgesIgnoringSafeArea(.all)
-        ScrollView {
+        ScrollView(.vertical) {
           VStack(alignment: .leading) {
             HStack {
               Spacer()
@@ -45,9 +46,27 @@ struct ExploreView: View {
             Spacer().frame(height: 21)
             TabView(selection: self.$currentTab) {
               ExplorePopularView().tag(0)
+              //크기 동적 변경
+                .overlay(GeometryReader { proxy in
+                  Color.clear.preference(key: ViewRectKey.self, value: proxy.size)
+                })
+                .onPreferenceChange(ViewRectKey.self) { size in
+                  if self.currentTab == 0 && self.viewPagerSize.height == .zero {
+                    self.viewPagerSize = size
+                  }
+                }
               ExploreRecentView().tag(1)
+                .overlay(GeometryReader { proxy in
+                  Color.clear.preference(key: ViewRectKey.self, value: proxy.size)
+                })
+                .onPreferenceChange(ViewRectKey.self) { size in
+                  if self.currentTab == 1 && self.viewPagerSize.height == .zero {
+                    self.viewPagerSize = size
+                  }
+                }
+              
             }
-            .frame(height: 6050)
+            .frame(height: self.viewPagerSize.height + 40)
             .tabViewStyle(.page(indexDisplayMode: .never))
           }
           .overlay(
@@ -80,7 +99,16 @@ struct ExploreView: View {
   }
 }
 
+
 extension ExploreView {
+  
+  struct ViewRectKey: PreferenceKey {
+    static let defaultValue: CGSize = .zero
+    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
+      value = nextValue()
+    }
+  }
+  
   struct CustomNavigationBarView: View {
     var body: some View {
       VStack(spacing:0) {
