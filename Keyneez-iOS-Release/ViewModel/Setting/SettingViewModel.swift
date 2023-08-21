@@ -9,6 +9,7 @@ import SwiftUI
 
 final class SettingViewModel: ObservableObject {
   
+  @Published var nextPage: Page? = nil
   @Published var readyToNavigation = false
   @Published var isLoading = false
   @Published var error: Error?
@@ -19,15 +20,21 @@ final class SettingViewModel: ObservableObject {
     repository = OAuthRepository()
   }
   
-  func logout() { // 분기처리가 필요해서 do - catch 문을 쓴 거고..
+  func didTapLogoutWithApple() { // 분기처리가 필요해서 do - catch 문을 쓴 거고..
+    
     Task {
+//      await MainActor.run {
+//        isLoading = true
+//      }
+      
       do {
-        let logoutInfo = try await repository.logoutAuth()
-        try logout(with: logoutInfo)
-        await gotoWelcome() // 로그아웃하고 되면 첫화면으로 돌아가기
-      } catch (let e) { // 로그아웃하고 안 되면
+        let logoutInfo = try await repository.signOutWithApple()
+        print(logoutInfo) // print 안됨
+        try logoutWithApple(with: logoutInfo)
+        await gotoHome() // 로그아웃 성공
+      } catch(let e) { // 로그아웃 실패 ->
         self.error = e
-        return
+        print("로그아웃 실패")
       }
     }
   }
@@ -40,6 +47,14 @@ final class SettingViewModel: ObservableObject {
 
 extension SettingViewModel {
   
+  private func gotoHome() async {
+    await MainActor.run {
+      nextPage = .home
+      readyToNavigation = true
+      isLoading = false
+    }
+  }
+  
   private func gotoWelcome() async {
     await MainActor.run {
       // welcomeView로 돌아가기
@@ -48,14 +63,12 @@ extension SettingViewModel {
     }
   }
   
-  private func logout(with logoutInfo: LogoutResponseDTO) throws {
+  private func logoutWithApple(with logoutInfo: LogoutResponseDTO) throws { // with : input 을 가공해 output으로 넣어주는 키워드
     guard let data = logoutInfo.data else {
       return
     }
     
     UserManager.shared.updateAccessToken("")
-    
     UserManager.shared.updateRefreshToken("")
-
   }
 }

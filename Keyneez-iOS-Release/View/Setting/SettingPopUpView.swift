@@ -70,7 +70,7 @@ struct SettingPopUpView: View {
               .foregroundColor(.gray500)
           }.buttonStyle(CancelButtonStyle())
           Button {
-            viewModel.logout()
+            viewModel.didTapLogoutWithApple()
             isVisible.toggle()
             userLogout.toggle()
           } label: {

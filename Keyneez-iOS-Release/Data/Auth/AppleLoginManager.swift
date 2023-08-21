@@ -35,12 +35,17 @@ final class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate {
     })
   }
   
-  func performAppleLogout() async {
+  func performAppleLogout() async -> Bool? {
     await withCheckedContinuation({ continuation in
-      self.performAppleLogout { token in
-        continuation.resume(returning: token)
+      self.performAppleLogout { success in
+        continuation.resume(returning: success)
       }
     })
+  }
+
+  func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+    // 로그아웃 중 오류가 발생했을 때의 처리
+    print("Apple 로그아웃 중 오류 발생: \(error.localizedDescription)")
   }
   
 }
@@ -57,11 +62,11 @@ extension AppleLoginManager {
     controller.performRequests()
   }
   
-  private func performAppleLogout(with completion: @escaping (_ token: String?) -> ()) {
-    self.completion = completion
-    let provider = ASAuthorizationAppleIDProvider()
-    let request = provider.createRequest()
-    request.requestedScopes = [.fullName, .email]
+  private func performAppleLogout(with completion: @escaping (_ success: Bool?) -> ()) {
+    let authorization = ASAuthorizationAppleIDProvider()
+    let request = authorization.createRequest()
+    request.requestedOperation = .operationLogout
+    
     let controller = ASAuthorizationController(authorizationRequests: [request])
     controller.delegate = self
     controller.performRequests()
