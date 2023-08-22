@@ -62,7 +62,7 @@ struct HomeView: View {
         }
         .scrollIndicators(.hidden)
         .onAppear {
-          allViewModel.fetchAllCard()
+          allViewModel.fetchAllCard(filter: nil)
 
         }
       }

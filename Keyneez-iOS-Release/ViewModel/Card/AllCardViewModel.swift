@@ -9,9 +9,8 @@ import Foundation
 
 final class AllCardViewModel: ObservableObject {
   @Published var allCardList: [DetailContentResponseDTO] = []
-  @Published var filter: String?
   
-  func fetchAllCard() {
+  func fetchAllCard(filter: String?) {
     if let token = UserManager.shared.accessToken {
       ContentAPIProvider.shared.getAllContent(token: token, filter: filter) { [weak self] result in
         switch result {

@@ -48,7 +48,7 @@ struct RecentUpdateDetailView: View {
     .navigationBarBackButtonHidden(true)
     .toolbar(.hidden, for: .tabBar)
     .onAppear {
-      viewModel.fetchAllCard()
+      viewModel.fetchAllCard(filter: nil)
     }
   }
 }

@@ -15,9 +15,9 @@ enum FilterTagType: String, CaseIterable {
   
 }
 
-struct FilterTagView : View {
-  @State var selectedButton: FilterTagType? = .all
+struct popularFilterTagView : View {
   @ObservedObject var viewModel: PopularityCardViewModel
+  @Binding var selectedButton: FilterTagType
   
   var body: some View {
     HStack(spacing: 9) {
@@ -37,16 +37,45 @@ struct FilterTagView : View {
         .frame(width: 64, height: 35)
       }
     }
-    .onAppear {
-      selectedButton = .all
+  }
+}
+
+struct recentFilterTagView : View {
+  @ObservedObject var viewModel: AllCardViewModel
+  @Binding var selectedButton: FilterTagType
+  
+  var body: some View {
+    HStack(spacing: 9) {
+      ForEach(FilterTagType.allCases, id: \.self) { buttonType in
+        Button(action: {
+          selectedButton = buttonType
+          updateFilterAndFetchData(filterType: buttonType)
+        }) {
+          Text(buttonType.rawValue)
+            .foregroundColor(selectedButton == buttonType ? .gray050 : .gray400)
+            .font(.pretendard(.regular, size: 16))
+            .padding(.horizontal, 18)
+            .padding(.vertical, 8)
+            .background(selectedButton == buttonType ? Color.gray900 : Color.gray200)
+            .cornerRadius(10)
+        }
+        .frame(width: 64, height: 35)
+      }
     }
   }
 }
 
 
-extension FilterTagView {
+extension popularFilterTagView {
   private func updateFilterAndFetchData(filterType: FilterTagType) {
     let filter = filterType == .all ? nil : filterType.rawValue
     viewModel.fetchPopularityCard(filter: filter)
+  }
+}
+
+extension recentFilterTagView {
+  private func updateFilterAndFetchData(filterType: FilterTagType) {
+    let filter = filterType == .all ? nil : filterType.rawValue
+    viewModel.fetchAllCard(filter: filter)
   }
 }

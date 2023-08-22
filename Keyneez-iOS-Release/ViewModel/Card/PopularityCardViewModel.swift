@@ -8,7 +8,7 @@
 import Foundation
 
 final class PopularityCardViewModel: ObservableObject {
-  @Published var popularityCardList: [DetailContentResponseDTO] = []
+  @Published var popularityCardList: [DetailContentResponseDTO] = [] 
   
   func fetchPopularityCard(filter: String?) {
     if let token = UserManager.shared.accessToken {
@@ -17,6 +17,7 @@ final class PopularityCardViewModel: ObservableObject {
         case .success(let data):
           if let popularityList = data {
             DispatchQueue.main.async {
+              print("@LOG \(popularityList)")
               self?.popularityCardList = popularityList
             }
           }

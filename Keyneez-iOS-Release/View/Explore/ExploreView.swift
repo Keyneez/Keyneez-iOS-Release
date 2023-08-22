@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct ExploreView: View {
-  @State var currentTab: Int = 0
-  @State private var ScrollViewOffset: CGFloat = 0
-  @State private var StartOffset: CGFloat = 0
-  @State private var isNavigationBarHidden = false
-  @State var viewPagerSize: CGSize = .zero
-  @ObservedObject private var viewModel = PopularityCardViewModel()
+  @ObservedObject private var viewModel = ExploreViewModel()
+  @ObservedObject private var popularViewModel = PopularityCardViewModel()
+  @ObservedObject private var recentViewModel = AllCardViewModel()
   
   var body: some View {
     NavigationStack {
@@ -39,44 +36,37 @@ struct ExploreView: View {
             ZStack(alignment: .bottom) {
               Color.gray300
                 .frame(height: 0.4)
-              ExploreTabBarView(currentTab: self.$currentTab)
+              ExploreTabBarView(currentTab: self.$viewModel.currentTab)
             }
             Spacer().frame(height: 25)
-            FilterTagView(viewModel: viewModel)
-              .padding(.leading, 22)
-            Spacer().frame(height: 21)
-            TabView(selection: self.$currentTab) {
-              ExplorePopularView(viewModel: viewModel).tag(0)
-              //크기 동적 변경
-                .overlay(GeometryReader { proxy in
-                  Color.clear.preference(key: ViewRectKey.self, value: proxy.size)
-                })
-                .onPreferenceChange(ViewRectKey.self) { size in
-                  if self.currentTab == 0 && self.viewPagerSize.height == .zero {
-                    self.viewPagerSize = size
-                  }
-                }
-              ExploreRecentView().tag(1)
-                .overlay(GeometryReader { proxy in
-                  Color.clear.preference(key: ViewRectKey.self, value: proxy.size)
-                })
-                .onPreferenceChange(ViewRectKey.self) { size in
-                  if self.currentTab == 1 && self.viewPagerSize.height == .zero {
-                    self.viewPagerSize = size
-                  }
-                }
+            Group {
+              if viewModel.currentTab == 0 {
+                popularFilterTagView(viewModel: popularViewModel,
+                                     selectedButton: $viewModel.popularSelectedButton)
+              } else {
+                recentFilterTagView(viewModel: recentViewModel,
+                                    selectedButton: $viewModel.recentSelectedButton)
+              }
             }
-            .frame(height: self.viewPagerSize.height + 40)
+            .padding(.leading, 22)
+            Spacer().frame(height: 21)
+            TabView(selection: self.$viewModel.currentTab) {
+              ExplorePopularView(cardList: popularViewModel.popularityCardList).tag(0)
+              ExploreRecentView(cardList: recentViewModel.allCardList).tag(1)
+            }
+            .frame(height: calculateTotalHeight(itemCount: selectedCardList.count,
+                                                itemHeight: 258,
+                                                spacing: 17))
             .tabViewStyle(.page(indexDisplayMode: .never))
           }
           .overlay(
             GeometryReader { proxy -> Color in
               DispatchQueue.main.async {
-                if StartOffset == 0 {
-                  self.StartOffset = proxy.frame(in: .global).minY
+                if viewModel.StartOffset == 0 {
+                  self.viewModel.StartOffset = proxy.frame(in: .global).minY
                 }
                 let offset = proxy.frame(in: .global).minY
-                self.ScrollViewOffset = offset - StartOffset
+                self.viewModel.ScrollViewOffset = offset - viewModel.StartOffset
               }
               return Color.clear
             }
@@ -88,13 +78,17 @@ struct ExploreView: View {
         .overlay(
           CustomNavigationBarView()
             .ignoresSafeArea(.all)
-            .opacity(-ScrollViewOffset > 10 ? 1 : 0)
+            .opacity(-viewModel.ScrollViewOffset > 10 ? 1 : 0)
             .animation(.easeIn)
           ,alignment: .top
         )
       }
       .scrollIndicators(.hidden)
       .background(Color.gray100)
+      .onAppear {
+        popularViewModel.fetchPopularityCard(filter: nil)
+        recentViewModel.fetchAllCard(filter: nil)
+      }
     }
   }
 }
@@ -102,11 +96,22 @@ struct ExploreView: View {
 
 extension ExploreView {
   
-  struct ViewRectKey: PreferenceKey {
-    static let defaultValue: CGSize = .zero
-    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
-      value = nextValue()
+  private var selectedCardList: [DetailContentResponseDTO] {
+    if viewModel.currentTab == 0 {
+      return popularViewModel.popularityCardList
+    } else {
+      return recentViewModel.allCardList
     }
+  }
+  
+  func calculateTotalHeight(itemCount: Int, itemHeight: CGFloat, spacing: CGFloat) -> CGFloat {
+    if itemCount != 0 {
+      let dividedItemCount = CGFloat(itemCount) / 2
+      let roundedDividedItemCount = ceil(dividedItemCount)
+      let totalHeight = roundedDividedItemCount * (itemHeight + spacing)
+      return totalHeight
+    }
+    return 0
   }
   
   struct CustomNavigationBarView: View {
