@@ -17,7 +17,6 @@ final class PopularityCardViewModel: ObservableObject {
         case .success(let data):
           if let popularityList = data {
             DispatchQueue.main.async {
-              print("@LOG \(popularityList)")
               self?.popularityCardList = popularityList
             }
           }

@@ -21,7 +21,7 @@ struct ExploreView: View {
           VStack(alignment: .leading) {
             HStack {
               Spacer()
-              NavigationLink(destination: ExploreSearchView(viewModel: ExploreViewModel())) {
+              NavigationLink(destination: ExploreSearchView()) {
                 Image("ic_search")
                   .resizable()
                   .frame(width: 18, height: 18)
@@ -51,8 +51,8 @@ struct ExploreView: View {
             .padding(.leading, 22)
             Spacer().frame(height: 21)
             TabView(selection: self.$viewModel.currentTab) {
-              ExplorePopularView(cardList: popularViewModel.popularityCardList).tag(0)
-              ExploreRecentView(cardList: recentViewModel.allCardList).tag(1)
+              ExploreCardView(cardList: popularViewModel.popularityCardList).tag(0)
+              ExploreCardView(cardList: recentViewModel.allCardList).tag(1)
             }
             .frame(height: calculateTotalHeight(itemCount: selectedCardList.count,
                                                 itemHeight: 258,
@@ -104,16 +104,6 @@ extension ExploreView {
     }
   }
   
-  func calculateTotalHeight(itemCount: Int, itemHeight: CGFloat, spacing: CGFloat) -> CGFloat {
-    if itemCount != 0 {
-      let dividedItemCount = CGFloat(itemCount) / 2
-      let roundedDividedItemCount = ceil(dividedItemCount)
-      let totalHeight = roundedDividedItemCount * (itemHeight + spacing)
-      return totalHeight
-    }
-    return 0
-  }
-  
   struct CustomNavigationBarView: View {
     var body: some View {
       VStack(spacing:0) {
@@ -127,7 +117,7 @@ extension ExploreView {
               .foregroundColor(.gray900)
               .padding(.leading, 24.adjusted)
             Spacer()
-            NavigationLink(destination: ExploreSearchView(viewModel: ExploreViewModel())) {
+            NavigationLink(destination: ExploreSearchView()) {
               Image("ic_search")
                 .resizable()
                 .resizable()

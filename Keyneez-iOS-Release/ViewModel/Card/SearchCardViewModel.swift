@@ -10,7 +10,7 @@ import Foundation
 final class SearchCardViewModel: ObservableObject {
   @Published var searchCardList: [DetailContentResponseDTO] = []
   
-  func fetchLikedCard(keyword: String) {
+  func fetchSearchCard(keyword: String) {
     if let token = UserManager.shared.accessToken {
       ContentAPIProvider.shared.getSearchContent(token: token, keyword: keyword) { [weak self] result in
         switch result {
@@ -22,6 +22,9 @@ final class SearchCardViewModel: ObservableObject {
           }
         case .failure(let error):
           print("Fail to fetch search content: \(error)")
+          DispatchQueue.main.async {
+            self?.searchCardList = []
+          }
         }
       }
     }
