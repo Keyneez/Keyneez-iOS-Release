@@ -43,5 +43,16 @@ extension DetailContentResponseDTO {
       ][category, default: category]
     }
   }
+  
+  var periodString: String {
+    guard let start = startAt, !start.isEmpty else {
+      return ""
+    }
+    
+    if start.contains("9999") || (endAt?.contains("9999") ?? false) {
+      return "상시"
+    }
+    
+    return "\(start) - \(endAt ?? "")"
+  }
 }
-
