@@ -29,7 +29,8 @@ struct ExploreRecentView: View {
 
 
 struct ExplorePopularView: View {
-  @StateObject var viewModel = PopularityCardViewModel()
+  @ObservedObject var viewModel: PopularityCardViewModel
+  @State private var contentHeight: CGFloat = .zero
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -43,7 +44,7 @@ struct ExplorePopularView: View {
     }
     .padding(.horizontal, 22)
     .onAppear {
-      viewModel.fetchPopularityCard()
+      viewModel.fetchPopularityCard(filter: nil)
     }
   }
 }

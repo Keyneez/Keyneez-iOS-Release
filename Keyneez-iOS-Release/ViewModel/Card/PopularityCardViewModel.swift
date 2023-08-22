@@ -9,9 +9,8 @@ import Foundation
 
 final class PopularityCardViewModel: ObservableObject {
   @Published var popularityCardList: [DetailContentResponseDTO] = []
-  @Published var filter: String?
   
-  func fetchPopularityCard() {
+  func fetchPopularityCard(filter: String?) {
     if let token = UserManager.shared.accessToken {
       ContentAPIProvider.shared.getPopularityContent(token: token, filter: filter) { [weak self] result in
         switch result {

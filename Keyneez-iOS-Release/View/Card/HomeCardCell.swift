@@ -37,7 +37,7 @@ struct HomeCardCell: View {
           .font(.pretendard(.bold, size: 14))
           .foregroundColor(.gray900)
         Spacer().frame(height: 6)
-        Text("\(model.startAt ?? "") - \(model.endAt ?? "")")
+        Text(model.periodString)
           .font(.pretendard(.medium, size: 8))
           .foregroundColor(.gray400)
         Spacer().frame(height: 9)

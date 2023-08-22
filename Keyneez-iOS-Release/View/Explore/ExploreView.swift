@@ -13,6 +13,7 @@ struct ExploreView: View {
   @State private var StartOffset: CGFloat = 0
   @State private var isNavigationBarHidden = false
   @State var viewPagerSize: CGSize = .zero
+  @ObservedObject private var viewModel = PopularityCardViewModel()
   
   var body: some View {
     NavigationStack {
@@ -41,11 +42,11 @@ struct ExploreView: View {
               ExploreTabBarView(currentTab: self.$currentTab)
             }
             Spacer().frame(height: 25)
-            FilterTagView()
+            FilterTagView(viewModel: viewModel)
               .padding(.leading, 22)
             Spacer().frame(height: 21)
             TabView(selection: self.$currentTab) {
-              ExplorePopularView().tag(0)
+              ExplorePopularView(viewModel: viewModel).tag(0)
               //크기 동적 변경
                 .overlay(GeometryReader { proxy in
                   Color.clear.preference(key: ViewRectKey.self, value: proxy.size)
@@ -64,7 +65,6 @@ struct ExploreView: View {
                     self.viewPagerSize = size
                   }
                 }
-              
             }
             .frame(height: self.viewPagerSize.height + 40)
             .tabViewStyle(.page(indexDisplayMode: .never))

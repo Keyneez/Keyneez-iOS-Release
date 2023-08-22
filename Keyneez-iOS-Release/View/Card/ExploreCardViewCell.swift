@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExploreCardViewCell: View {
   @State private var heart: Bool = false
-  let model: DetailContentResponseDTO
+  @State var model: DetailContentResponseDTO
 
   var body: some View {
     GeometryReader { geo in
@@ -40,7 +40,7 @@ struct ExploreCardViewCell: View {
           .font(.pretendard(.bold, size: 16))
           .foregroundColor(.gray900)
         Spacer().frame(height: 8)
-        Text("\(model.startAt ?? "") - \(model.endAt ?? "")")
+        Text(model.periodString)
           .font(.pretendard(.medium, size: 10))
           .foregroundColor(.gray400)
         Spacer().frame(height: 8)

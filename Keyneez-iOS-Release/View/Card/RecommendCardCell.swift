@@ -52,7 +52,7 @@ struct RecommendCardCell: View {
             .font(.pretendard(.bold, size: 26))
             .foregroundColor(.gray900)
           Spacer().frame(height: 10)
-          Text("\(model.startAt ?? "") - \(model.endAt ?? "")")
+          Text(model.periodString)
             .font(.pretendard(.medium, size: 18))
             .foregroundColor(.gray400)
           Spacer().frame(height: 15)

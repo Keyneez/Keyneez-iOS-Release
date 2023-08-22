@@ -37,8 +37,8 @@ struct LikeEditView: View {
         Spacer().frame(height: 28.adjusted)
         ScrollView {
           VStack(alignment: .leading) {
-            FilterTagView()
-              .padding(.leading, 24.adjusted)
+//            FilterTagView(viewModel: )
+//              .padding(.leading, 24.adjusted)
             Spacer().frame(height: 19.adjusted)
             Text("\(viewModel.likeEditSelectedCellNumber)개 선택")
               .font(.pretendard(.semiBold, size: 15))
