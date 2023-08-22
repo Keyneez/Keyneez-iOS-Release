@@ -179,7 +179,6 @@ struct DetailView: View {
                             Text("신청하러 가기")
                                 .foregroundColor(.white)
                                 .font(.pretendard(.medium, size: 18))
-                            // TODO: URL 연결
                         }
                     }
                 }

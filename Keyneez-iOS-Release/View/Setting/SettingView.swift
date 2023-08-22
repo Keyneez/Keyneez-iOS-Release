@@ -94,7 +94,7 @@ struct SettingView: View {
                                     .foregroundColor(.gray500)
                                     .font(.pretendard(.medium, size: 16))
                                 Spacer()
-                                Text("1.0.1") // TODO: - 버전 정보 변수로 변경
+                              Text("\(settingViewModel.appVersion)")
                             }
                             .padding([.top, .bottom], 20)
                             .padding([.leading, .trailing], 28)

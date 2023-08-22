@@ -28,6 +28,8 @@ enum OAuthRepositoryError: LocalizedError {
     if statusCode == 409 {
       return self.alreadyUser
     } else {
+      print("\(statusCode)")
+      print("getErrorDesc")
       return self.tokenError
     }
   }
@@ -38,6 +40,7 @@ protocol OAuthRepositoryProtocol {
   func signUpWithKakao(with dto: KakaoSignUpRequestDTO) async throws -> LoginResponseDTO
   func signInWithApple() async throws -> LoginResponseDTO
   func signOutWithApple() async throws -> LogoutResponseDTO
+  func signOutWithKakao() async throws -> LogoutResponseDTO
 }
 
 final class OAuthRepository: OAuthRepositoryProtocol {
@@ -104,6 +107,25 @@ final class OAuthRepository: OAuthRepositoryProtocol {
     do {
       guard let accessToken = UserManager.shared.accessToken else {
         // 여기서 오류..
+        throw OAuthRepositoryError.tokenError
+      }
+      return try await authRemoteManager.logout(accessToken: accessToken)
+    } catch(let e) {
+      if let error = e as? KeyneezNetworkError {
+        switch error {
+        case .DecodeError:
+          throw OAuthRepositoryError.unknownError
+        case .failure(let statusCode, _):
+          throw OAuthRepositoryError.getErrorDesc(by: statusCode)
+        }
+      }
+      throw OAuthRepositoryError.unknownError
+    }
+  }
+  
+  func signOutWithKakao() async throws -> LogoutResponseDTO {
+    do {
+      guard let accessToken = UserManager.shared.accessToken else {
         throw OAuthRepositoryError.tokenError
       }
       return try await authRemoteManager.logout(accessToken: accessToken)

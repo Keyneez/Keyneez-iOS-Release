@@ -13,6 +13,7 @@ final class SettingViewModel: ObservableObject {
   @Published var readyToNavigation = false
   @Published var isLoading = false
   @Published var error: Error?
+  @Published var appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
   
   private var repository: OAuthRepositoryProtocol
   
@@ -20,8 +21,7 @@ final class SettingViewModel: ObservableObject {
     repository = OAuthRepository()
   }
   
-  func didTapLogoutWithApple() { // 분기처리가 필요해서 do - catch 문을 쓴 거고..
-    
+  func didTapLogoutWithApple() {
     Task {
 //      await MainActor.run {
 //        isLoading = true
@@ -31,6 +31,20 @@ final class SettingViewModel: ObservableObject {
         let logoutInfo = try await repository.signOutWithApple()
         print(logoutInfo) // print 안됨
         try logoutWithApple(with: logoutInfo)
+        await gotoHome() // 로그아웃 성공
+      } catch(let e) { // 로그아웃 실패 ->
+        self.error = e
+        print("로그아웃 실패")
+      }
+    }
+  }
+  
+  func didTapLogoutWithKakao() {
+    Task {
+      do {
+        let logoutInfo = try await repository.signOutWithKakao()
+        print(logoutInfo) // print 안됨
+        try logoutWithKakao(with: logoutInfo)
         await gotoHome() // 로그아웃 성공
       } catch(let e) { // 로그아웃 실패 ->
         self.error = e
@@ -64,6 +78,15 @@ extension SettingViewModel {
   }
   
   private func logoutWithApple(with logoutInfo: LogoutResponseDTO) throws { // with : input 을 가공해 output으로 넣어주는 키워드
+    guard let data = logoutInfo.data else {
+      return
+    }
+    
+    UserManager.shared.updateAccessToken("")
+    UserManager.shared.updateRefreshToken("")
+  }
+  
+  private func logoutWithKakao(with logoutInfo: LogoutResponseDTO) throws {
     guard let data = logoutInfo.data else {
       return
     }
