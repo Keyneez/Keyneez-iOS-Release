@@ -21,7 +21,7 @@ final class AllCardViewModel: ObservableObject {
             }
           }
         case .failure(let error):
-          print("Fail to fetch recommend content: \(error)")
+          print("Fail to fetch all content: \(error)")
         }
       }
     }

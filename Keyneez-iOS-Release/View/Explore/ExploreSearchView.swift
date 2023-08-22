@@ -64,23 +64,6 @@ struct ExploreSearchView: View {
         }
     }
     
-//    struct ExploreSearchGridView: View {
-//      @StateObject var viewModel: CardViewModel
-//      
-//      var columns: [GridItem] = [
-//        GridItem(.flexible(), spacing: 14), // 가로 간격 설정
-//        GridItem(.flexible())
-//      ]
-//      
-//      var body: some View {
-//        LazyVGrid(columns: columns, spacing: 17) {
-//          ForEach(viewModel.items.indices, id: \.self ) {index in
-//            ExploreCardViewCell(item: viewModel.items[index])
-//          }
-//        }
-//        .padding([.leading, .trailing], 22)
-//      }
-//    }
 }
 
 struct ExploreSearchView_Previews: PreviewProvider {

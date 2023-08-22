@@ -22,7 +22,7 @@ final class PopularityCardViewModel: ObservableObject {
             }
           }
         case .failure(let error):
-          print("Fail to fetch recommend content: \(error)")
+          print("Fail to fetch popularity content: \(error)")
         }
       }
     }

@@ -15,6 +15,7 @@
 		0245D0A02A8CDAB300A2715C /* UnlikeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */; };
 		0245D0A32A8CEA4400A2715C /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A22A8CEA4400A2715C /* ContentAPI.swift */; };
 		0245D0A82A8E8DF100A2715C /* ContentAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D0A72A8E8DF100A2715C /* ContentAPIProvider.swift */; };
+		02470FE12A951A1000D797F9 /* SearchCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02470FE02A951A1000D797F9 /* SearchCardViewModel.swift */; };
 		0249A2C82A9255D5006236D9 /* RecommendCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2C72A9255D5006236D9 /* RecommendCardViewModel.swift */; };
 		0249A2CA2A929D3C006236D9 /* AllCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2C92A929D3C006236D9 /* AllCardViewModel.swift */; };
 		0249A2CE2A92AC45006236D9 /* PopularityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249A2CD2A92AC45006236D9 /* PopularityCardViewModel.swift */; };
@@ -136,6 +137,7 @@
 		0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikeResponseDTO.swift; sourceTree = "<group>"; };
 		0245D0A22A8CEA4400A2715C /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 		0245D0A72A8E8DF100A2715C /* ContentAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPIProvider.swift; sourceTree = "<group>"; };
+		02470FE02A951A1000D797F9 /* SearchCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardViewModel.swift; sourceTree = "<group>"; };
 		0249A2C72A9255D5006236D9 /* RecommendCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCardViewModel.swift; sourceTree = "<group>"; };
 		0249A2C92A929D3C006236D9 /* AllCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardViewModel.swift; sourceTree = "<group>"; };
 		0249A2CD2A92AC45006236D9 /* PopularityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularityCardViewModel.swift; sourceTree = "<group>"; };
@@ -728,6 +730,7 @@
 				0249A2C92A929D3C006236D9 /* AllCardViewModel.swift */,
 				0249A2CD2A92AC45006236D9 /* PopularityCardViewModel.swift */,
 				0249A2CF2A92AC70006236D9 /* LikedCardViewModel.swift */,
+				02470FE02A951A1000D797F9 /* SearchCardViewModel.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				02F20A2F2A7D1B03001B884E /* ExploreSearchView.swift in Sources */,
 				B145A0512A4BC1F3003505B6 /* AuthAPI.swift in Sources */,
 				B154808C2A639E0700293289 /* DetailContentResponseDTO.swift in Sources */,
+				02470FE12A951A1000D797F9 /* SearchCardViewModel.swift in Sources */,
 				B145A0572A4BC55B003505B6 /* KakaoSignUpRequestDTO.swift in Sources */,
 				B145A0802A4D8384003505B6 /* RefreshResponseDTO.swift in Sources */,
 				B154806D2A639DA300293289 /* SettingPopUpView.swift in Sources */,

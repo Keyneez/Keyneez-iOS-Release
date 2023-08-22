@@ -9,9 +9,8 @@ import Foundation
 
 final class LikedCardViewModel: ObservableObject {
   @Published var likedCardList: [ContentsLikedResponseDTO] = []
-  @Published var filter: String?
   
-  func fetchLikedCard() {
+  func fetchLikedCard(filter: String?) {
     if let token = UserManager.shared.accessToken {
       ContentAPIProvider.shared.getLikeContent(token: token, filter: filter) { [weak self] result in
         switch result {
@@ -22,7 +21,7 @@ final class LikedCardViewModel: ObservableObject {
             }
           }
         case .failure(let error):
-          print("Fail to fetch recommend content: \(error)")
+          print("Fail to fetch like content: \(error)")
         }
       }
     }
