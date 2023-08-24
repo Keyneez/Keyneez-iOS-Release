@@ -70,14 +70,14 @@ struct SettingPopUpView: View {
               .foregroundColor(.gray500)
           }.buttonStyle(CancelButtonStyle())
           Button {
-//            switch (UserManager.shared.user?.snsType) {
-//            case .APPLE:
-//              viewModel.didTapLogoutWithApple()
-//            case .KAKAO:
-//              viewModel.didTapLogoutWithKakao()
-//            default:
-//              print("none")
-//            }
+            switch (UserManager.shared.user?.snsType) {
+            case .APPLE:
+              viewModel.didTapLogoutWithApple()
+            case .KAKAO:
+              viewModel.didTapLogoutWithKakao()
+            default:
+              print("none")
+            }
             isVisible.toggle()
             userLogout.toggle()
           } label: {

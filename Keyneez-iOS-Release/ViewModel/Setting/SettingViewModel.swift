@@ -43,7 +43,7 @@ final class SettingViewModel: ObservableObject {
     Task {
       do {
         let logoutInfo = try await repository.signOutWithKakao()
-        print(logoutInfo) // print 안됨
+        print(logoutInfo) // print 안됨 - 여기서 문제
         try logoutWithKakao(with: logoutInfo)
         await gotoHome() // 로그아웃 성공
       } catch(let e) { // 로그아웃 실패 ->
