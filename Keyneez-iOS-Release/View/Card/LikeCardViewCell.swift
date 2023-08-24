@@ -36,11 +36,11 @@ struct LikeCardViewCell: View {
           .font(.pretendard(.bold, size: 16))
           .foregroundColor(.gray900)
         Spacer().frame(height: 8)
-        Text("\(model.startAt ?? "") - \(model.endAt ?? "")")
+        Text(model.periodString)
           .font(.pretendard(.medium, size: 10))
           .foregroundColor(.gray400)
         Spacer().frame(height: 8)
-        Image("hobby")
+        Image(model.imgName)
           .resizable()
           .frame(width: 133, height: 133)
       }

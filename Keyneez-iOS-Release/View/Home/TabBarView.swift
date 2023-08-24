@@ -33,7 +33,7 @@ struct TabBarView: View {
         }
         .tag(Tab.explore)
       
-      LikeView(viewModel: LikeViewModel())
+      LikeView()
         .tabItem {
           Image(selectedTab == .like ? "ic_like_fill" : "ic_like")
           Text("좋아요")

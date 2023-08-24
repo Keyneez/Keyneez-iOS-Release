@@ -22,6 +22,9 @@ final class LikedCardViewModel: ObservableObject {
           }
         case .failure(let error):
           print("Fail to fetch like content: \(error)")
+          DispatchQueue.main.async {
+            self?.likedCardList = []
+          }
         }
       }
     }

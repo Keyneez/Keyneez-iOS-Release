@@ -71,7 +71,8 @@ extension ContentAPI: TargetType {
       if let filter = filter {
         parameters["filter"] = filter
       }
-      return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)    case .getRecommendContent :
+      return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+    case .getRecommendContent :
       return .requestPlain
     case .getSearchContent(_, let keyword):
       return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.queryString)

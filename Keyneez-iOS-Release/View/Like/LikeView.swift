@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LikeView: View {
-  @ObservedObject var viewModel: LikeViewModel
+  @ObservedObject private var viewModel = LikeViewModel()
+  @ObservedObject private var likeCardViewModel = LikedCardViewModel()
   @State private var ScrollViewOffset: CGFloat = 0
   @State private var StartOffset: CGFloat = 0
   @State private var isNavigationBarHidden = false
@@ -23,11 +24,12 @@ struct LikeView: View {
           VStack(alignment: .leading) {
             HStack {
               Spacer()
-              NavigationLink(destination: LikeEditView(viewModel: LikeViewModel(), isAlertVisible: $isAlertVisible)) {
-                Text("편집")
-                  .font(.pretendard(.medium, size: 18))
-                  .foregroundColor(.gray500)
-              }
+              NavigationLink(destination: LikeEditView(
+                isAlertVisible: $isAlertVisible)) {
+                  Text("편집")
+                    .font(.pretendard(.medium, size: 18))
+                    .foregroundColor(.gray500)
+                }
             }
             .padding(.horizontal, 24.adjusted)
             Spacer().frame(height: 14.adjusted)
@@ -35,14 +37,15 @@ struct LikeView: View {
               .font(.pretendard(.semiBold, size: 24))
               .padding(.leading, 28)
             Spacer().frame(height: 30.adjusted)
-//            FilterTagView(view)
-//              .padding(.leading, 24.adjusted)
+            likedFilterTagView(viewModel: likeCardViewModel,
+                               selectedButton: $viewModel.likeSelectedButton)
+            .padding(.leading, 24.adjusted)
             Spacer().frame(height: 19.adjusted)
-            Text("총 \(viewModel.likeSelectedCellNumber)개")
+            Text("총 \(likeCardViewModel.likedCardList.count)개")
               .font(.pretendard(.semiBold, size: 15))
               .padding(.leading, 24.adjusted)
             Spacer().frame(height: 14.adjusted)
-//            LikeCell(viewModel: LikeViewModel())
+            LikeCell(cardList: likeCardViewModel.likedCardList)
           }
           .overlay(
             GeometryReader { proxy -> Color in
@@ -86,6 +89,9 @@ struct LikeView: View {
       .background(Color.gray100)
       
     }
+    .onAppear {
+      likeCardViewModel.fetchLikedCard(filter: nil)
+    }
   }
 }
 
@@ -107,7 +113,7 @@ extension LikeView {
               .foregroundColor(.gray900)
               .padding(.leading, 24.adjusted)
             Spacer()
-            NavigationLink(destination: LikeEditView(viewModel: LikeViewModel(), isAlertVisible: $isAlertVisible)) {
+            NavigationLink(destination: LikeEditView(isAlertVisible: $isAlertVisible)) {
               Text("편집")
                 .font(.pretendard(.medium, size: 18))
                 .foregroundColor(.gray500)
@@ -122,10 +128,5 @@ extension LikeView {
       }
       .frame(height: 100.adjusted)
     }
-  }
-}
-struct LikeView_Previews: PreviewProvider {
-  static var previews: some View {
-    LikeView(viewModel: LikeViewModel())
   }
 }

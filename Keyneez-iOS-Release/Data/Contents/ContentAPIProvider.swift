@@ -19,7 +19,9 @@ final class ContentAPIProvider {
   let contentProvider = MoyaProvider<ContentAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
   var decoder: ResponseDecodable = Decoder()
   
-  func getAllContent(token: String, filter: String?, completion: @escaping (Result<[DetailContentResponseDTO]?, Error>) -> Void) {
+  func getAllContent(token: String,
+                     filter: String?,
+                     completion: @escaping (Result<[DetailContentResponseDTO]?, Error>) -> Void) {
     let target = ContentAPI.getAllContents(token: token, filter: filter)
     requestFrom(target, modelType: [DetailContentResponseDTO].self, completion: completion)
   }
@@ -63,7 +65,9 @@ final class ContentAPIProvider {
 
 
 extension ContentAPIProvider {
-  func requestFrom<T: Codable>(_ target: ContentAPI, modelType: T.Type, completion: @escaping (Result<T?, Error>) -> Void) {
+  func requestFrom<T: Codable>(_ target: ContentAPI,
+                               modelType: T.Type,
+                               completion: @escaping (Result<T?, Error>) -> Void) {
     contentProvider.request(target) { result in
       self.process(type: modelType, result: result, completion: completion)
     }
