@@ -108,5 +108,5 @@ extension recentFilterTagView {
 extension likedFilterTagView {
   private func updateFilterAndFetchData(filterType: FilterTagType) {
     let filter = filterType == .all ? nil : filterType.rawValue
-    viewModel.fetchLikedCard(filter: filter)
+    viewModel.fetchGetLikedCard(filter: filter)
   }}

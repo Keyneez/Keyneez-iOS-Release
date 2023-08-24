@@ -90,7 +90,7 @@ struct LikeView: View {
       
     }
     .onAppear {
-      likeCardViewModel.fetchLikedCard(filter: nil)
+      likeCardViewModel.fetchGetLikedCard(filter: nil)
     }
   }
 }

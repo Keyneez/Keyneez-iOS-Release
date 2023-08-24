@@ -583,9 +583,9 @@
 				B154804F2A639D6600293289 /* RecommendCardCell.swift */,
 				B15480502A639D6600293289 /* HomeCardCell.swift */,
 				B15480512A639D6600293289 /* ExploreCardViewCell.swift */,
+				0249A2D12A92ADD9006236D9 /* LikeCardViewCell.swift */,
 				B15480522A639D6600293289 /* TagViewModifier.swift */,
 				023CF67B2A83D7D800F63642 /* CardItem.swift */,
-				0249A2D12A92ADD9006236D9 /* LikeCardViewCell.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";

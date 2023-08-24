@@ -10,7 +10,7 @@ import Foundation
 final class LikedCardViewModel: ObservableObject {
   @Published var likedCardList: [ContentsLikedResponseDTO] = []
   
-  func fetchLikedCard(filter: String?) {
+  func fetchGetLikedCard(filter: String?) {
     if let token = UserManager.shared.accessToken {
       ContentAPIProvider.shared.getLikeContent(token: token, filter: filter) { [weak self] result in
         switch result {
@@ -29,4 +29,20 @@ final class LikedCardViewModel: ObservableObject {
       }
     }
   }
+  
+//  func postLikeContent(pk: Int) {
+//    if let token = UserManager.shared.accessToken {
+//      ContentAPIProvider.shared.postLikeContent(token: token, pk: pk) { [weak self] result in
+//        switch result {
+//        case .success(let data) :
+//          if let likedList = data {
+//            DispatchQueue.main.async {
+//              self?.likedCardList = likedList
+//            }
+//          }        case .failure(let error):
+//          print("Fail to post like content: \(error)")
+//        }
+//      }
+//    }
+//  }
 }

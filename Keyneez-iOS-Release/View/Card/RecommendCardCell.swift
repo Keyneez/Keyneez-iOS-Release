@@ -83,3 +83,4 @@ struct RecommendCardCell: View {
     .cornerRadius(28)
   }
 }
+

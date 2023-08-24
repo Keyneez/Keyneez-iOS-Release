@@ -67,7 +67,7 @@ struct LikeEditView: View {
     .toolbar(.hidden, for: .tabBar)
     .navigationBarBackButtonHidden(true)
     .onAppear {
-      likeCardViewModel.fetchLikedCard(filter: nil)
+      likeCardViewModel.fetchGetLikedCard(filter: nil)
     }
   }
 }
