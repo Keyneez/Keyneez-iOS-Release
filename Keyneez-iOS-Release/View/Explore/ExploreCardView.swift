@@ -17,7 +17,9 @@ struct ExploreCardView: View {
   var body: some View {
     LazyVGrid(columns: columns, spacing: 17) {
       ForEach(cardList, id: \.contentPk ) { content in
-        ExploreCardViewCell(model: content)
+        NavigationLink(destination: DetailView(pk: content.contentPk)) {
+          ExploreCardViewCell(model: content)
+        }
       }
     }
     .padding(.horizontal, 22)

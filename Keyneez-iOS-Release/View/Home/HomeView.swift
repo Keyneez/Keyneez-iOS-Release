@@ -52,7 +52,9 @@ struct HomeView: View {
             ScrollView(.horizontal) {
               LazyHGrid(rows: rows, spacing: 15) {
                 ForEach(allViewModel.allCardList, id: \.contentPk) {content in
-                  HomeCardCell(model: content)
+                  NavigationLink(destination: DetailView(pk: content.contentPk)) {
+                    HomeCardCell(model: content)
+                  }
                 }
               }
             }
