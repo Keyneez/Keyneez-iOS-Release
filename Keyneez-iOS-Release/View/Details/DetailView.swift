@@ -11,6 +11,7 @@ struct DetailView: View {
     @StateObject private var detailViewModel = DetailViewModel()
   private var pk: Int
   @State private var title = "타이틀"
+  @State var shareText: ShareText?
   
   init(pk: Int) {
       self.pk = pk
@@ -193,7 +194,7 @@ struct DetailView: View {
         .toolbar {
             ToolbarItem {
                 Button {
-                    // share button action
+                  shareText = ShareText(text: "청소년에게 필요한 활동과 혜택 정보를 한눈에! Keyneez 💙\n\n\(detailViewModel.detailContent.title)\n\n\(detailViewModel.detailContent.link)")
                 } label: {
                     Image("Detail_Share")
                 }
@@ -204,6 +205,9 @@ struct DetailView: View {
           detailViewModel.getDetailView(pk: pk)
           title = detailViewModel.detailContent.title
         }
+        .sheet(item: $shareText) { shareText in
+          ShareActivityView(text: shareText.text)
+                }
     } // 제일 밖 ZStack End
 }
 
