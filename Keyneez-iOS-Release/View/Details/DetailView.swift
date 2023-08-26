@@ -6,20 +6,24 @@
 //
 
 import SwiftUI
-// TODO: - 이 뷰 불러오는 NavigationView에서 네비게이션 바 .accentColor(.black)
 
 struct DetailView: View {
     @StateObject private var detailViewModel = DetailViewModel()
+  private var pk: Int
+  @State private var title = "타이틀"
+  
+  init(pk: Int) {
+      self.pk = pk
+  }
     
     var body: some View {
         ZStack {
             ScrollView {
                 ZStack {
                     VStack {
-                        Image(detailViewModel.setDetailImage())
+                      Image(detailViewModel.detailContent.imgName)
                             .resizable()
                             .scaledToFit()
-                        
                         Spacer()
                     }
                     .ignoresSafeArea()
@@ -31,16 +35,19 @@ struct DetailView: View {
                         VStack() {
                             VStack(alignment: .leading) {
                                 HStack {
-                                    makeTagView(detailViewModel.tagList)
+                                  makeTagView(detailViewModel.detailContent.category)
+                                  makeTagView(detailViewModel.detailContent.tag ?? "")
                                     Spacer()
                                     Image("emptyHeart")
                                 }
                                 Spacer()
                                     .frame(height: 29)
-                                Text("현대카드 라이브러리")
+                              Text(detailViewModel.detailContent.title)
+                                .lineLimit(2)
                                     .font(.pretendard(.bold, size: 24))
                                     .frame(alignment: .leading)
                                     .foregroundColor(.gray800)
+                                    .fixedSize(horizontal: false, vertical: true)
                                 Spacer()
                                     .frame(height: 17)
                                 HStack {
@@ -49,7 +56,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray400)
                                     Spacer()
                                         .frame(width: 20)
-                                    Text("2020.04.05")
+                                  Text(detailViewModel.detailContent.periodString)
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -61,7 +68,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray400)
                                     Spacer()
                                         .frame(width: 20)
-                                    Text("서울 용산구 이태원로 46")
+                                  Text(detailViewModel.detailContent.place)
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -80,7 +87,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray700)
                                     Spacer()
                                         .frame(height: 17)
-                                    Text("・"+"설명설명설 명설명설명설명설명 설명설명설명 설명설명 설명설 명설명 설명")
+                                  Text(detailViewModel.detailContent.introduction)
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -99,7 +106,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray700)
                                     Spacer()
                                         .frame(height: 17)
-                                    Text("・ 성인 1인 15,000원\n・ 청소년 1인 10,000원\n・ 3살 이하 영유아 무료")
+                                  Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailContent.price))
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -116,9 +123,10 @@ struct DetailView: View {
                                     Text("청소년 혜택")
                                         .font(.pretendard(.semiBold, size: 20))
                                         .foregroundColor(.gray700)
+                                        
                                     Spacer()
                                         .frame(height: 17)
-                                    Text("・ 5% 티켓 가격 할인\n・ 5% 음식 가격 할인")
+                                  Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailContent.benefit))
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -137,11 +145,13 @@ struct DetailView: View {
                                         .foregroundColor(.gray700)
                                     Spacer()
                                         .frame(height: 17)
-                                    Text("・ "+"현대카드 고객센터 0101-0101")
+                                    Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailContent.inquiry))
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                  
                                     Spacer()
-                                        .frame(height: 30)
+                                        .frame(height: 90)
                                 }
                                 Spacer()
                             }
@@ -195,26 +205,25 @@ struct DetailView: View {
         }
         .background(.white)
         .onAppear {
-            // TODO: - 구현...
-            Task {
-                await detailViewModel.getDetailContent()
-            }
+          detailViewModel.getDetailView(pk: pk)
+          title = detailViewModel.detailContent.title
         }
     } // 제일 밖 ZStack End
 }
 
 extension DetailView {
-    func makeTagView(_ tagList: [DetailTagState]) -> some View {
-        ForEach(0..<tagList.count) { index in
-            DetailTagView(tag: tagList[index])
-            Spacer()
-                .frame(width: 10)
+    func makeTagView(_ tagValue: String) -> some View {
+//        ForEach(0..<tagList.count) { index in
+      return Group {
+      DetailTagView(tag: tagValue)
+      Spacer()
+        .frame(width: 10)
         }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+      DetailView(pk: 2)
     }
 }

@@ -76,9 +76,10 @@ extension ContentAPI: TargetType {
       return .requestPlain
     case .getSearchContent(_, let keyword):
       return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.queryString)
-    case .getDetailContent(_, let pk),
-        .postLikeContent(_, let pk) :
+    case .postLikeContent(_, let pk) :
       return .requestParameters(parameters: ["pk": pk], encoding: JSONEncoding.default)
+    case .getDetailContent:
+        return .requestPlain
     case .postUnlikeContent(_, let pk):
       let pkString = pk.map { String($0) }.joined(separator: ",")
       return .requestParameters(parameters: ["pk": pkString], encoding: URLEncoding.queryString)
