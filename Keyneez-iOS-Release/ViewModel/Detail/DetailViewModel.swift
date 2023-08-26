@@ -11,7 +11,7 @@ import Moya
 
 class DetailViewModel: ObservableObject {
   @Published var detailViewImage: String = "Detail_Activity_01"
-  @Published var detailContent = DetailContentResponseDTO(contentPk: 0, title: "", category: "", link: "https://www.naver.com", place: "", introduction: "", inquiry: [], price: [], benefit: [], createdAt: "", updatedAt: "")
+  @Published var detailModel = DetailContentResponseDTO(contentPk: 0, title: "", category: "", link: "https://www.naver.com", place: "", introduction: "", inquiry: [], price: [], benefit: [], createdAt: "", updatedAt: "")
   
   func getDetailView(pk: Int) {
     if let token = UserManager.shared.accessToken {
@@ -20,7 +20,7 @@ class DetailViewModel: ObservableObject {
         case .success(let data):
           if let detailContent = data {
             DispatchQueue.main.async {
-              self?.detailContent = detailContent
+              self?.detailModel = detailContent
             }
           }
         case .failure(let error):

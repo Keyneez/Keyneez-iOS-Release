@@ -22,7 +22,7 @@ struct DetailView: View {
             ScrollView {
                 ZStack {
                     VStack {
-                      Image(detailViewModel.detailContent.imgName)
+                      Image(detailViewModel.detailModel.imgName)
                             .resizable()
                             .scaledToFit()
                         Spacer()
@@ -36,14 +36,14 @@ struct DetailView: View {
                         VStack() {
                             VStack(alignment: .leading) {
                                 HStack {
-                                  makeTagView(detailViewModel.detailContent.category)
-                                  makeTagView(detailViewModel.detailContent.tag ?? "")
+                                  makeTagView(detailViewModel.detailModel.category)
+                                  makeTagView(detailViewModel.detailModel.tag ?? "")
                                     Spacer()
                                     Image("emptyHeart")
                                 }
                                 Spacer()
                                     .frame(height: 29)
-                              Text(detailViewModel.detailContent.title)
+                              Text(detailViewModel.detailModel.title)
                                 .lineLimit(2)
                                     .font(.pretendard(.bold, size: 24))
                                     .frame(alignment: .leading)
@@ -57,7 +57,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray400)
                                     Spacer()
                                         .frame(width: 20)
-                                  Text(detailViewModel.detailContent.periodString)
+                                  Text(detailViewModel.detailModel.periodString)
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -69,7 +69,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray400)
                                     Spacer()
                                         .frame(width: 20)
-                                  Text(detailViewModel.detailContent.place)
+                                  Text(detailViewModel.detailModel.place)
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -88,7 +88,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray700)
                                     Spacer()
                                         .frame(height: 17)
-                                  Text(detailViewModel.detailContent.introduction)
+                                  Text(detailViewModel.detailModel.introduction)
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -107,7 +107,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray700)
                                     Spacer()
                                         .frame(height: 17)
-                                  Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailContent.price))
+                                  Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailModel.price))
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -127,7 +127,7 @@ struct DetailView: View {
                                         
                                     Spacer()
                                         .frame(height: 17)
-                                  Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailContent.benefit))
+                                  Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailModel.benefit))
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                 }
@@ -146,7 +146,7 @@ struct DetailView: View {
                                         .foregroundColor(.gray700)
                                     Spacer()
                                         .frame(height: 17)
-                                    Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailContent.inquiry))
+                                    Text(detailViewModel.makeMultipleLines(strings: detailViewModel.detailModel.inquiry))
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                         .fixedSize(horizontal: false, vertical: true)
@@ -177,7 +177,7 @@ struct DetailView: View {
                 
                 VStack {
                     Spacer()
-                  Link(destination: URL(string: detailViewModel.detailContent.link) ?? URL(string: "https://www.naver.com")!) {
+                  Link(destination: URL(string: detailViewModel.detailModel.link) ?? URL(string: "https://www.naver.com")!) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 14)
                                 .frame(height: 56)
@@ -194,7 +194,7 @@ struct DetailView: View {
         .toolbar {
             ToolbarItem {
                 Button {
-                  shareText = ShareText(text: "청소년에게 필요한 활동과 혜택 정보를 한눈에! Keyneez 💙\n\n\(detailViewModel.detailContent.title)\n\n\(detailViewModel.detailContent.link)")
+                  shareText = ShareText(text: "청소년에게 필요한 활동과 혜택 정보를 한눈에! Keyneez 💙\n\n\(detailViewModel.detailModel.title)\n\n\(detailViewModel.detailModel.link)")
                 } label: {
                     Image("Detail_Share")
                 }
@@ -203,7 +203,7 @@ struct DetailView: View {
         .background(.white)
         .onAppear {
           detailViewModel.getDetailView(pk: pk)
-          title = detailViewModel.detailContent.title
+          title = detailViewModel.detailModel.title
         }
         .sheet(item: $shareText) { shareText in
           ShareActivityView(text: shareText.text)
