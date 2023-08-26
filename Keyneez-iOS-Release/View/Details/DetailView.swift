@@ -149,7 +149,6 @@ struct DetailView: View {
                                         .font(.pretendard(.medium, size: 14))
                                         .foregroundColor(.gray500)
                                         .fixedSize(horizontal: false, vertical: true)
-                                  
                                     Spacer()
                                         .frame(height: 90)
                                 }
@@ -177,9 +176,7 @@ struct DetailView: View {
                 
                 VStack {
                     Spacer()
-                    Button {
-                        // action
-                    } label: {
+                  Link(destination: URL(string: detailViewModel.detailContent.link) ?? URL(string: "https://www.naver.com")!) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 14)
                                 .frame(height: 56)
@@ -188,7 +185,6 @@ struct DetailView: View {
                             Text("신청하러 가기")
                                 .foregroundColor(.white)
                                 .font(.pretendard(.medium, size: 18))
-                            // TODO: URL 연결
                         }
                     }
                 }
