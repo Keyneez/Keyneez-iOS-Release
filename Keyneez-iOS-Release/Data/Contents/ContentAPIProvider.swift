@@ -51,9 +51,9 @@ final class ContentAPIProvider {
     requestFrom(target, modelType: [ContentsLikedResponseDTO].self, completion: completion)
   }
   
-  func postLikeContent(token: String, pk: Int, completion: @escaping (Result<ContentsLikedResponseDTO?, Error>) -> Void) {
-    let target = ContentAPI.postLikeContent(token: token, pk: pk)
-    requestFrom(target, modelType: ContentsLikedResponseDTO.self, completion: completion)
+  func postLikeContent(token: String, pk: Int, completion: @escaping (Result<Likes?, Error>) -> Void) {
+      let target = ContentAPI.postLikeContent(token: token, pk: pk)
+    requestFrom(target, modelType: Likes.self, completion: completion)
   }
   
   func postUnlikeContent(token: String, pk: [Int], completion: @escaping (Result<UnlikeResponseDTO?, Error>) -> Void) {

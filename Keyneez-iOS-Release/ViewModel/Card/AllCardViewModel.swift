@@ -18,6 +18,7 @@ final class AllCardViewModel: ObservableObject {
           if let allList = data {
             DispatchQueue.main.async {
               self?.allCardList = allList
+              print("allList: \(allList)")
             }
           }
         case .failure(let error):

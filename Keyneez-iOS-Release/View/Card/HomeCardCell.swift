@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeCardCell: View {
   @State private var heart: Bool = false
   let model: DetailContentResponseDTO
+  @ObservedObject private var likeViewModel = LikedCardViewModel()
 
   var body: some View {
     GeometryReader { geo in
@@ -27,9 +28,9 @@ struct HomeCardCell: View {
 
           Spacer()
           Button {
-            heart.toggle()
+            likeViewModel.fetchPostLikedCard(pk: model.contentPk)
           } label: {
-            heart ? Image("ic_heart_on") : Image("ic_heart_off")
+            Image(model.heartImageName)
           }
         }
         Spacer().frame(height: 9)

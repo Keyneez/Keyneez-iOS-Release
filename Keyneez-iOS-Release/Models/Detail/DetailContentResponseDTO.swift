@@ -23,14 +23,15 @@ struct DetailContentResponseDTO: Codable {
   var benefit: [String]
   var createdAt: String
   var updatedAt: String
-  var likes: [Likes]?
+  var Likes: [Likes]?
+}
   
   struct Likes: Codable {
     let likedPk: Int
     let user: Int
     let content: Int
   }
-}
+
 
 extension DetailContentResponseDTO {
   var imgName: String {
@@ -55,4 +56,8 @@ extension DetailContentResponseDTO {
     
     return "\(start) - \(endAt ?? "")"
   }
+  
+  var heartImageName: String {
+    return Likes?.isEmpty == false ? "ic_heart_on" : "ic_heart_off"
+   }
 }

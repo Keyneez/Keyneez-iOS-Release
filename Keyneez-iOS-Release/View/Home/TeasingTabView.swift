@@ -11,6 +11,7 @@ struct TeasingTabView: View {
   @Binding var selectedTab: Int
   let spacing: CGFloat
   @StateObject private var viewModel = RecommendCardViewModel()
+  @ObservedObject private var likeViewModel = LikedCardViewModel()
   @State private var offset = CGFloat.zero
   
   var body: some View {

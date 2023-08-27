@@ -10,8 +10,9 @@ import SwiftUI
 struct RecommendCardCell: View {
   let screenSize: CGSize
   let width: CGFloat
-  @State private var heart: Bool = false
   let model: DetailContentResponseDTO
+  @ObservedObject private var likeViewModel = LikedCardViewModel()
+  @ObservedObject private var allViewModel = AllCardViewModel()
   
   var body: some View {
     GeometryReader { geo in
@@ -34,17 +35,11 @@ struct RecommendCardCell: View {
               .cornerRadius(53)
             Spacer()
             Button {
-              heart.toggle()
+              likeViewModel.fetchPostLikedCard(pk: model.contentPk)
             } label: {
-              if heart {
-                Image("ic_heart_on")
-                  .resizable()
-                  .frame(width: 38, height: 32)
-              }else {
-                Image("ic_heart_off")
-                  .resizable()
-                  .frame(width: 38, height: 32)
-              }
+              Image(model.heartImageName)
+                .resizable()
+                .frame(width: 38, height: 32)
             }
           }
           Spacer().frame(height: 16)
@@ -83,4 +78,5 @@ struct RecommendCardCell: View {
     .cornerRadius(28)
   }
 }
+
 

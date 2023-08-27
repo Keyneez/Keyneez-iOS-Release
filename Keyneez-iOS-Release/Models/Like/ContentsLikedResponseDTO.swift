@@ -1,5 +1,5 @@
 //
-//  ContentsLikedResponseDTO.swift
+//  ContentsLikedResponseDTO.swiftr
 //  Keyneez-iOS-Release
 //
 //  Created by 최효원 on 2023/08/16.

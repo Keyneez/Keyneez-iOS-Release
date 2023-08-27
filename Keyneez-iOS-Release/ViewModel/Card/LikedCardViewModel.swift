@@ -9,6 +9,8 @@ import Foundation
 
 final class LikedCardViewModel: ObservableObject {
   @Published var likedCardList: [ContentsLikedResponseDTO] = []
+  @Published var postLikedCardList: Likes?
+  @Published var postUnlikedCardList: UnlikeResponseDTO?
   
   func fetchGetLikedCard(filter: String?) {
     if let token = UserManager.shared.accessToken {
@@ -30,19 +32,38 @@ final class LikedCardViewModel: ObservableObject {
     }
   }
   
-//  func postLikeContent(pk: Int) {
-//    if let token = UserManager.shared.accessToken {
-//      ContentAPIProvider.shared.postLikeContent(token: token, pk: pk) { [weak self] result in
-//        switch result {
-//        case .success(let data) :
-//          if let likedList = data {
-//            DispatchQueue.main.async {
-//              self?.likedCardList = likedList
-//            }
-//          }        case .failure(let error):
-//          print("Fail to post like content: \(error)")
-//        }
-//      }
-//    }
-//  }
+  func fetchPostLikedCard(pk: Int) {
+    if let token = UserManager.shared.accessToken {
+      ContentAPIProvider.shared.postLikeContent(token: token, pk: pk) { [weak self] result in
+        switch result {
+        case .success(let data) :
+          if let postLikedCardList = data {
+            DispatchQueue.main.async {
+              self?.postLikedCardList = postLikedCardList
+              print("fetchList : \(postLikedCardList)")
+            }
+          }
+        case .failure(let error):
+          print("Fail to fetch post like content: \(error)")
+        }
+      }
+    }
+  }
+  
+  func fetchPostUnlikedCard(pk: [Int]) {
+    if let token = UserManager.shared.accessToken {
+      ContentAPIProvider.shared.postUnlikeContent(token: token, pk: pk) { [weak self] result in
+        switch result {
+        case .success(let data) :
+          if let postLikedCardList = data {
+            DispatchQueue.main.async {
+              self?.postUnlikedCardList = postLikedCardList
+            }
+          }
+        case .failure(let error):
+          print("Fail to fetch post like content: \(error)")
+        }
+      }
+    }
+  }
 }
