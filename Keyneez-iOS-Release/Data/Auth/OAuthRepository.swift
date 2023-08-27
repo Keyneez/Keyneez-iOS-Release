@@ -124,21 +124,32 @@ final class OAuthRepository: OAuthRepositoryProtocol {
   }
   
   func signOutWithKakao() async throws -> LogoutResponseDTO {
-    do {
-      guard let accessToken = UserManager.shared.accessToken else {
-        throw OAuthRepositoryError.tokenError
-      }
-      return try await authRemoteManager.logout(accessToken: accessToken)
-    } catch(let e) {
-      if let error = e as? KeyneezNetworkError {
-        switch error {
-        case .DecodeError:
-          throw OAuthRepositoryError.unknownError
-        case .failure(let statusCode, _):
-          throw OAuthRepositoryError.getErrorDesc(by: statusCode)
-        }
-      }
+    let logoutError = await KakaoUserApi.shared.logoutWithKakaoAcount()
+    let unlinkError = await KakaoUserApi.shared.unlinkWithKakaoAccount()
+    if let logoutError = logoutError, let unlinkError = unlinkError {
+        print("카카오 계정 로그아웃 중 에러 발생: \(logoutError.localizedDescription)")
+      print("카카오 계정 언링크 중 에러 발생: \(unlinkError.localizedDescription)")
       throw OAuthRepositoryError.unknownError
+    } else {
+        print("카카오 계정 로그아웃 성공")
+      do {
+        guard let accessToken = UserManager.shared.accessToken else {
+          throw OAuthRepositoryError.tokenError
+        }
+        return try await authRemoteManager.logout(accessToken: accessToken)
+      } catch(let e) {
+        print("authRemoteManager logout에서 오류")
+        if let error = e as? KeyneezNetworkError {
+          switch error {
+          case .DecodeError:
+            throw OAuthRepositoryError.unknownError
+          case .failure(let statusCode, _):
+            throw OAuthRepositoryError.getErrorDesc(by: statusCode)
+          }
+        }
+        throw OAuthRepositoryError.unknownError
+      }
     }
+
   }
 }

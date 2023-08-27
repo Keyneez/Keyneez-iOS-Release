@@ -40,7 +40,7 @@ final class SettingViewModel: ObservableObject {
   }
   
   func didTapLogoutWithKakao() {
-    Task {
+    Task { // 카카오 로그아웃은 되는데 서버 로그아웃 전달이 안 됨
       do {
         let logoutInfo = try await repository.signOutWithKakao()
         print(logoutInfo) // print 안됨 - 여기서 문제

@@ -14,6 +14,7 @@ protocol KakaoUserApiProtocol {
   static func isKakaoTalkLoginAvailable() -> Bool
   func loginWithKakaoAccount() async -> (OAuthToken?, Error?)
   func loginWithKakaoTalk() async -> (OAuthToken?, Error?)
+  func logoutWithKakaoAcount() async -> (Error?)
 }
 
 final class KakaoUserApi: KakaoUserApiProtocol {
@@ -49,7 +50,20 @@ final class KakaoUserApi: KakaoUserApiProtocol {
       })
   }
   
-
+  func logoutWithKakaoAcount() async -> (Error?) {
+    await withCheckedContinuation({ continuation in
+      UserApi.shared.logout { error in
+        continuation.resume(returning: error)
+      }
+    })
+  }
   
+  func unlinkWithKakaoAccount() async -> (Error?) {
+    await withCheckedContinuation({ continuation in
+      UserApi.shared.unlink { error in
+        continuation.resume(returning: error)
+      }
+    })
+  }
   
 }
