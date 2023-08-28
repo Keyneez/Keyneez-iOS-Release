@@ -11,6 +11,7 @@ import Moya
 enum AuthAPI {
   case refresh(accessToken: String, refreshToken: String)
   case logout(accessToken: String)
+  case withdrawWithKakao(accessToken: String)
 }
 
 extension AuthAPI: TargetType {
@@ -25,6 +26,8 @@ extension AuthAPI: TargetType {
       return "/refresh"
     case .logout:
       return "/logout"
+    case .withdrawWithKakao:
+      return "/withdraw/kakao"
     }
   }
   
@@ -34,6 +37,8 @@ extension AuthAPI: TargetType {
       return .post
     case .logout:
       return .get
+    case .withdrawWithKakao:
+      return .delete
     }
   }
   
@@ -43,15 +48,15 @@ extension AuthAPI: TargetType {
       return .requestParameters(parameters: ["refresh_token": refreshToken], encoding: JSONEncoding.default)
     case .logout:
       return .requestPlain
+    case .withdrawWithKakao:
+      return .requestPlain
     }
   }
   
   var headers: [String : String]? {
     switch self {
-    case .refresh(let accessToken, _), .logout(let accessToken):
+    case .refresh(let accessToken, _), .logout(let accessToken), .withdrawWithKakao(let accessToken):
       return ["Content-Type": "application/json", "Authorization": "Bearer \(accessToken)"]
     }
   }
-  
-  
 }
