@@ -1,14 +1,14 @@
 //
-//  LikeCellView.swift
+//  ExploreRecentView.swift
 //  Keyneez-iOS-Release
 //
-//  Created by 최효원 on 2023/08/07.
+//  Created by 최효원 on 2023/08/04.
 //
 
 import SwiftUI
 
-struct LikeCell: View {
-  var cardList: [ContentsLikedResponseDTO] = []
+struct ExploreCardView: View {
+  var cardList: [DetailContentResponseDTO] = []
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -17,7 +17,9 @@ struct LikeCell: View {
   var body: some View {
     LazyVGrid(columns: columns, spacing: 17) {
       ForEach(cardList, id: \.contentPk ) { content in
-        LikeCardViewCell(model: content)
+        NavigationLink(destination: DetailView(pk: content.contentPk)) {
+          ExploreCardViewCell(model: content)
+        }
       }
     }
     .padding(.horizontal, 22)

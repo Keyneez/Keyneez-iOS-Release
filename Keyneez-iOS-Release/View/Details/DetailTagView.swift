@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct DetailTagView: View {
-    private var tag: DetailTagState
+    private var tag: String
     
     var body: some View {
         switch self.tag {
-        case .hobby:
-            Text("취미")
+        case "취미":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
                 .foregroundColor(.gray050)
                 .background(Color.mint500)
                 .cornerRadius(53)
-        case .culture:
-            Text("문화생활")
+        case "문화생활":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
@@ -30,16 +30,16 @@ struct DetailTagView: View {
                     RoundedRectangle(cornerRadius: 53)
                         .stroke(Color.mint500, lineWidth: 1)
                 )
-        case .course:
-            Text("진로")
+        case "진로":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
                 .foregroundColor(.gray050)
                 .background(Color.red500)
                 .cornerRadius(53)
-        case .speech:
-            Text("강연")
+        case "강연":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
@@ -48,8 +48,8 @@ struct DetailTagView: View {
                     RoundedRectangle(cornerRadius: 53)
                         .stroke(Color.red500, lineWidth: 1)
                 )
-        case .lecture:
-            Text("강의")
+        case "강의":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
@@ -58,8 +58,8 @@ struct DetailTagView: View {
                     RoundedRectangle(cornerRadius: 53)
                         .stroke(Color.red500, lineWidth: 1)
                 )
-        case .mentoring:
-            Text("멘토링")
+        case "멘토링":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
@@ -68,16 +68,16 @@ struct DetailTagView: View {
                     RoundedRectangle(cornerRadius: 53)
                         .stroke(Color.red500, lineWidth: 1)
                 )
-        case .activity:
-            Text("활동")
+        case "활동":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
                 .foregroundColor(.gray050)
                 .background(Color.purple500)
                 .cornerRadius(53)
-        case .supporters:
-            Text("서포터즈")
+        case "서포터즈":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
@@ -86,8 +86,8 @@ struct DetailTagView: View {
                     RoundedRectangle(cornerRadius: 53)
                         .stroke(Color.purple500, lineWidth: 1)
                 )
-        case .club:
-            Text("동아리")
+        case "동아리":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
@@ -96,8 +96,8 @@ struct DetailTagView: View {
                     RoundedRectangle(cornerRadius: 53)
                         .stroke(Color.purple500, lineWidth: 1)
                 )
-        case .campaign:
-            Text("캠페인")
+        case "캠페인":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
@@ -106,8 +106,8 @@ struct DetailTagView: View {
                     RoundedRectangle(cornerRadius: 53)
                         .stroke(Color.purple500, lineWidth: 1)
                 )
-        case .competition:
-            Text("공모전")
+        case "공모전":
+            Text(tag)
                 .font(.pretendard(.medium, size: 16))
                 .padding([.leading, .trailing], 11)
                 .padding([.top, .bottom], 5)
@@ -116,16 +116,18 @@ struct DetailTagView: View {
                     RoundedRectangle(cornerRadius: 53)
                         .stroke(Color.purple500, lineWidth: 1)
                 )
+        default:
+          Text("")
         }
     }
     
-    init(tag: DetailTagState) {
+    init(tag: String) {
         self.tag = tag
     }
 }
 
 struct DetailTagView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailTagView(tag: .competition)
+        DetailTagView(tag: "진로")
     }
 }
