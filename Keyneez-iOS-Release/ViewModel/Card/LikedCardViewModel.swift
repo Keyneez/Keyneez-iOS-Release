@@ -55,13 +55,13 @@ final class LikedCardViewModel: ObservableObject {
       ContentAPIProvider.shared.postUnlikeContent(token: token, pk: pk) { [weak self] result in
         switch result {
         case .success(let data) :
-          if let postLikedCardList = data {
+          if let postUnlikedCardList = data {
             DispatchQueue.main.async {
-              self?.postUnlikedCardList = postLikedCardList
+              self?.postUnlikedCardList = postUnlikedCardList
             }
           }
         case .failure(let error):
-          print("Fail to fetch post like content: \(error)")
+          print("Fail to fetch post unlike content: \(error)")
         }
       }
     }

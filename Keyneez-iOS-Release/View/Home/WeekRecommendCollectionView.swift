@@ -9,7 +9,6 @@ import SwiftUI
 
 struct WeekRecommendCollectionView: View {
   @StateObject private var viewModel = RecommendCardViewModel()
-  
   var rows : [GridItem] = Array(repeating: .init(.fixed(220)), count: 1)
   var body: some View {
     VStack(alignment: .leading) {

@@ -25,7 +25,6 @@ struct HomeCardCell: View {
             .padding(.vertical, 3.5)
             .background(Color.categoryColor(for: model.category))
             .cornerRadius(53)
-
           Spacer()
           Button {
             likeViewModel.fetchPostLikedCard(pk: model.contentPk)
