@@ -124,9 +124,9 @@
 		B17227BA2A6BCF95009A1FF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227B92A6BCF95009A1FF9 /* ContentView.swift */; };
 		B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */; };
 		B17227BE2A6BE161009A1FF9 /* roof1.gif in Resources */ = {isa = PBXBuildFile; fileRef = B17227BD2A6BE161009A1FF9 /* roof1.gif */; };
-		B8A0EAE32A9C94710011479A /* WithdrawResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */; };
 		B8A0EADF2A9A3E330011479A /* ShareActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */; };
 		B8A0EAE12A9A3E690011479A /* ShareText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE02A9A3E690011479A /* ShareText.swift */; };
+		B8A0EAE32A9C94710011479A /* WithdrawResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,9 +247,9 @@
 		B17227B92A6BCF95009A1FF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B17227BD2A6BE161009A1FF9 /* roof1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = roof1.gif; sourceTree = "<group>"; };
-		B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawResponseDTO.swift; sourceTree = "<group>"; };
 		B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivityView.swift; sourceTree = "<group>"; };
 		B8A0EAE02A9A3E690011479A /* ShareText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareText.swift; sourceTree = "<group>"; };
+		B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1069,7 +1069,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
-				DEVELOPMENT_TEAM = 82Q43H4UQQ;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
@@ -1103,7 +1103,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
-				DEVELOPMENT_TEAM = 82Q43H4UQQ;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";

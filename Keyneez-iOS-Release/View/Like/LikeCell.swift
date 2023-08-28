@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LikeCell: View {
-  var cardList: [ContentsLikedResponseDTO] = []
+  @Binding var cardList: [ContentsLikedResponseDTO] 
   var columns: [GridItem] = [
     GridItem(.flexible(), spacing: 14), // 가로 간격 설정
     GridItem(.flexible())
@@ -17,7 +17,7 @@ struct LikeCell: View {
   var body: some View {
     LazyVGrid(columns: columns, spacing: 17) {
       ForEach(cardList, id: \.contentPk ) { content in
-        LikeCardViewCell(model: content)
+        LikeCardViewCell(model: content, cardList: $cardList)
       }
     }
     .padding(.horizontal, 22)

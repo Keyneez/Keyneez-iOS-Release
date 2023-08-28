@@ -45,7 +45,7 @@ struct LikeView: View {
               .font(.pretendard(.semiBold, size: 15))
               .padding(.leading, 24.adjusted)
             Spacer().frame(height: 14.adjusted)
-            LikeCell(cardList: likeCardViewModel.likedCardList)
+            LikeCell(cardList: $likeCardViewModel.likedCardList)
           }
           .overlay(
             GeometryReader { proxy -> Color in

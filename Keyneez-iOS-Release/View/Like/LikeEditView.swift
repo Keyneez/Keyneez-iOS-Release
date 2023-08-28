@@ -46,7 +46,7 @@ struct LikeEditView: View {
               .foregroundColor(.gray900)
               .padding(.leading, 28.adjusted)
             Spacer().frame(height: 14.adjusted)
-            LikeCell(cardList: likeCardViewModel.likedCardList)
+            LikeCell(cardList: $likeCardViewModel.likedCardList)
             Spacer()
           }
         }

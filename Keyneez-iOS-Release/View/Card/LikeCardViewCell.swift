@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct LikeCardViewCell: View {
-  @State private var heart: Bool = false
+  @State private var isLiked: Bool = true
   let model: ContentsLikedResponseDTO
+  @ObservedObject private var likeViewModel = LikedCardViewModel()
+  @Binding var cardList: [ContentsLikedResponseDTO]
 
   var body: some View {
     GeometryReader { geo in
@@ -22,13 +24,13 @@ struct LikeCardViewCell: View {
             .foregroundColor(Color.categoryColor(for: model.category))
           Spacer()
           Button {
-            heart.toggle()
+            likeViewModel.fetchPostUnlikedCard(pk: [model.contentPk])
+            isLiked = false
+            withAnimation {
+                cardList.removeAll { $0.contentPk == model.contentPk }
+            }
           } label: {
-              if heart {
-                  Image("ic_heart_on")
-              } else {
-                  Image("ic_heart_off")
-              }
+            Image(isLiked ? "ic_heart_on" : "ic_heart_off")
           }
         }
         Spacer().frame(height: 11)
