@@ -11,7 +11,7 @@ struct SettingPopUpView: View {
   @Binding var viewModel: SettingViewModel
   @Binding var isVisible: Bool
   @Binding var popUpState: SettingPopUpState
-  @Binding var isShowingToastMessage: Bool // 임시 변수: user로 대체
+  @Binding var isShowingToastMessage: Bool
   
   private var popUpTitle: String {
     switch popUpState {
@@ -70,26 +70,7 @@ struct SettingPopUpView: View {
               .foregroundColor(.gray500)
           }.buttonStyle(CancelButtonStyle())
           Button {
-            switch(popUpState) {
-            case .logOut:
-              switch (UserManager.shared.user?.snsType) {
-              case .APPLE:
-                viewModel.didTapLogoutWithApple()
-              case .KAKAO:
-                viewModel.didTapLogoutWithKakao()
-              default:
-                print("none")
-              }
-            case .withDraw:
-              switch (UserManager.shared.user?.snsType) {
-              case .APPLE:
-                viewModel.didTapLogoutWithApple()
-              case .KAKAO:
-                viewModel.didTapWithdrawWithKakao()
-              default:
-                print("none")
-              }
-            }
+            enablePopupAction()
             isVisible.toggle()
             isShowingToastMessage.toggle()
           } label: {
@@ -104,6 +85,31 @@ struct SettingPopUpView: View {
     } // ZStack End
     .background(Color.black.opacity(0))
   } // body End
+}
+
+extension SettingPopUpView {
+  private func enablePopupAction() {
+    switch(popUpState) {
+    case .logOut:
+      switch (UserManager.shared.user?.snsType) {
+      case .APPLE:
+        viewModel.didTapLogoutWithApple()
+      case .KAKAO:
+        viewModel.didTapLogoutWithKakao()
+      default:
+        print("none")
+      }
+    case .withDraw:
+      switch (UserManager.shared.user?.snsType) {
+      case .APPLE:
+        viewModel.didTapLogoutWithApple()
+      case .KAKAO:
+        viewModel.didTapWithdrawWithKakao()
+      default:
+        print("none")
+      }
+    }
+  }
 }
 
 struct SettingPopUpView_Previews: PreviewProvider {
