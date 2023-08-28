@@ -54,6 +54,19 @@ final class SettingViewModel: ObservableObject {
     }
   }
   
+  func didTapWithdrawWithKakao() {
+    Task {
+      do {
+        let logoutInfo = try await repository.withdrawWithKakao()
+        print(logoutInfo) // print 안됨 - 여기서 문제
+        await gotoHome() // 로그아웃 성공
+      } catch(let e) { // 로그아웃 실패 ->
+        self.error = e
+        print("로그아웃 실패")
+      }
+    }
+  }
+  
   
   func checkSnsType() -> SNSType {
     return UserManager.shared.user?.snsType ?? .NONE
