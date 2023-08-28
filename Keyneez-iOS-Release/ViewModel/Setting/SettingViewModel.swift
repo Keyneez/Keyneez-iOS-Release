@@ -14,6 +14,7 @@ final class SettingViewModel: ObservableObject {
   @Published var isLoading = false
   @Published var error: Error?
   @Published var appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+  @Published var userName = UserManager.shared.user?.nickName
   
   private var repository: OAuthRepositoryProtocol
   
