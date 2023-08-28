@@ -203,7 +203,7 @@ struct SettingView: View {
                         .ignoresSafeArea()
                     VStack {
                         Spacer()
-                      SettingPopUpView(viewModel: $settingViewModel, isVisible: $isOnPopUp, popUpState: $popUpState, userLogout: $isShowingToastMessage)
+                      SettingPopUpView(viewModel: $settingViewModel, isVisible: $isOnPopUp, popUpState: $popUpState, isShowingToastMessage: $isShowingToastMessage)
                         Spacer()
                     }
                     .edgesIgnoringSafeArea(.all)

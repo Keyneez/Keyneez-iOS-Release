@@ -11,7 +11,7 @@ struct SettingPopUpView: View {
   @Binding var viewModel: SettingViewModel
   @Binding var isVisible: Bool
   @Binding var popUpState: SettingPopUpState
-  @Binding var userLogout: Bool // 임시 변수: user로 대체
+  @Binding var isShowingToastMessage: Bool // 임시 변수: user로 대체
   
   private var popUpTitle: String {
     switch popUpState {
@@ -91,7 +91,7 @@ struct SettingPopUpView: View {
               }
             }
             isVisible.toggle()
-            userLogout.toggle()
+            isShowingToastMessage.toggle()
           } label: {
             Text(rightButtonText)
               .font(.pretendard(.medium, size: 18))
@@ -108,6 +108,6 @@ struct SettingPopUpView: View {
 
 struct SettingPopUpView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingPopUpView(viewModel: .constant(SettingViewModel()), isVisible: .constant(false), popUpState: .constant(.logOut), userLogout: .constant(false))
+    SettingPopUpView(viewModel: .constant(SettingViewModel()), isVisible: .constant(false), popUpState: .constant(.logOut), isShowingToastMessage: .constant(false))
   }
 }
