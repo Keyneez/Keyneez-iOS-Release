@@ -125,6 +125,8 @@
 		B17227BA2A6BCF95009A1FF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227B92A6BCF95009A1FF9 /* ContentView.swift */; };
 		B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */; };
 		B17227BE2A6BE161009A1FF9 /* roof1.gif in Resources */ = {isa = PBXBuildFile; fileRef = B17227BD2A6BE161009A1FF9 /* roof1.gif */; };
+		B8A0EADF2A9A3E330011479A /* ShareActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */; };
+		B8A0EAE12A9A3E690011479A /* ShareText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE02A9A3E690011479A /* ShareText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,7 +206,6 @@
 		B15480522A639D6600293289 /* TagViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewModifier.swift; sourceTree = "<group>"; };
 		B15480582A639D6E00293289 /* ButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		B154805B2A639D8200293289 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		B154805D2A639D8200293289 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B154805E2A639D8200293289 /* DetailTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTagView.swift; sourceTree = "<group>"; };
 		B15480632A639D8B00293289 /* ExploreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		B15480662A639D9200293289 /* LikeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
@@ -247,6 +248,8 @@
 		B17227B92A6BCF95009A1FF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B17227BD2A6BE161009A1FF9 /* roof1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = roof1.gif; sourceTree = "<group>"; };
+		B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivityView.swift; sourceTree = "<group>"; };
+		B8A0EAE02A9A3E690011479A /* ShareText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,7 +340,6 @@
 				B15480682A639DA300293289 /* Setting */,
 				B15480652A639D9200293289 /* Like */,
 				B15480622A639D8B00293289 /* Explore */,
-				B154805C2A639D8200293289 /* Detail */,
 				B154805A2A639D8200293289 /* Details */,
 				B15480572A639D6E00293289 /* Component */,
 				B154804E2A639D6600293289 /* Card */,
@@ -602,18 +604,11 @@
 		B154805A2A639D8200293289 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				B154805E2A639D8200293289 /* DetailTagView.swift */,
 				B154805B2A639D8200293289 /* DetailView.swift */,
+				B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */,
 			);
 			path = Details;
-			sourceTree = "<group>";
-		};
-		B154805C2A639D8200293289 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				B154805D2A639D8200293289 /* DetailView.swift */,
-				B154805E2A639D8200293289 /* DetailTagView.swift */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		B15480622A639D8B00293289 /* Explore */ = {
@@ -670,6 +665,7 @@
 			children = (
 				B15480892A639E0600293289 /* DetailTagState.swift */,
 				B154808A2A639E0600293289 /* DetailContentResponseDTO.swift */,
+				B8A0EAE02A9A3E690011479A /* ShareText.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -837,6 +833,7 @@
 				B145A0842A4D9C39003505B6 /* OAuthRepository.swift in Sources */,
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
 				B154807D2A639DB300293289 /* HomeBackgroundView.swift in Sources */,
+				B8A0EAE12A9A3E690011479A /* ShareText.swift in Sources */,
 				B15480612A639D8200293289 /* DetailTagView.swift in Sources */,
 				B15480902A639E0B00293289 /* TermsViewState.swift in Sources */,
 				B15480702A639DA300293289 /* SettingView.swift in Sources */,
@@ -910,6 +907,7 @@
 				02F20A2D2A7D1AE0001B884E /* ExploreTabBarView.swift in Sources */,
 				B15480BD2A639E6B00293289 /* OSLog+Extension.swift in Sources */,
 				B154807F2A639DB300293289 /* GifImage.swift in Sources */,
+				B8A0EADF2A9A3E330011479A /* ShareActivityView.swift in Sources */,
 				0245D0A82A8E8DF100A2715C /* ContentAPIProvider.swift in Sources */,
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
 				B145A0792A4D7C79003505B6 /* KeychainManager.swift in Sources */,

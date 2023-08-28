@@ -29,7 +29,9 @@ struct WeekRecommendCollectionView: View {
         ZStack(alignment: .topLeading) {
           LazyHGrid(rows: rows, spacing: 15) {
             ForEach(viewModel.recommendCardList, id: \.contentPk) {content in
-              HomeCardCell(model: content)
+              NavigationLink(destination: DetailView(pk: content.contentPk)) {
+                HomeCardCell(model: content)
+              }
             }
           }
           TipKitView()

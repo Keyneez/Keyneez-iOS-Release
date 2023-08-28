@@ -38,7 +38,9 @@ struct RecentUpdateDetailView: View {
           Spacer().frame(height: 30)
           LazyVGrid(columns: columns, spacing: 27) {
             ForEach(viewModel.allCardList, id: \.contentPk ) {content in
-              ExploreCardViewCell(model: content)
+              NavigationLink(destination: DetailView(pk: content.contentPk)) {
+                ExploreCardViewCell(model: content)
+              }
             }
           }
         }
