@@ -31,7 +31,7 @@ struct HomeCardCell: View {
             if !isLiked {
               likeViewModel.fetchPostLikedCard(pk: model.contentPk)
             } else {
-//              likeViewModel.fetchPostUnlikedCard(pk: model.contentPk)
+              likeViewModel.fetchPostUnlikedCard(pk: [model.contentPk])
             }
             isLiked.toggle()
           } label: {
