@@ -15,7 +15,7 @@ struct SettingView: View {
     @State private var isOnPopUp = false
     @State private var popUpState = SettingPopUpState.logOut
     @State private var termsViewState = TermsViewState.serviceUse
-    @State private var isLogOut = false // 임시변수 -> User로 대체
+    @State private var isShowingToastMessage = false
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Pretendard-SemiBold", size: 26)!]
@@ -29,7 +29,7 @@ struct SettingView: View {
                         Section() {
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack() {
-                                    Text("민지너는최고")
+                                  Text(settingViewModel.userName ?? "유저 이름")
                                         .foregroundColor(.gray900)
                                         .font(.pretendard(.semiBold, size: 20))
                                 }
@@ -203,12 +203,12 @@ struct SettingView: View {
                         .ignoresSafeArea()
                     VStack {
                         Spacer()
-                      SettingPopUpView(viewModel: $settingViewModel, isVisible: $isOnPopUp, popUpState: $popUpState, userLogout: $isLogOut)
+                      SettingPopUpView(viewModel: $settingViewModel, isVisible: $isOnPopUp, popUpState: $popUpState, userLogout: $isShowingToastMessage)
                         Spacer()
                     }
                     .edgesIgnoringSafeArea(.all)
                 }
-                if isLogOut {
+                if isShowingToastMessage {
                     Text("탈퇴 완료")
                         .foregroundColor(Color.white)
                         .font(.pretendard(.medium, size: 22))
@@ -217,7 +217,7 @@ struct SettingView: View {
                         .cornerRadius(15)
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                isLogOut.toggle()
+                                isShowingToastMessage.toggle()
                             }
                         }
                 }
