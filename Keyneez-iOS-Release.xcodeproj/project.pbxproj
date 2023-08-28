@@ -118,13 +118,13 @@
 		B15480BD2A639E6B00293289 /* OSLog+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480B52A639E6B00293289 /* OSLog+Extension.swift */; };
 		B15480C72A639E7D00293289 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480BF2A639E7D00293289 /* HomeViewModel.swift */; };
 		B15480C92A639E7D00293289 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480C22A639E7D00293289 /* DetailViewModel.swift */; };
-		B15480CA2A639E7D00293289 /* DetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480C32A639E7D00293289 /* DetailAPI.swift */; };
 		B15480CC2A639E7D00293289 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480C62A639E7D00293289 /* CardViewModel.swift */; };
 		B15480D12A639E8B00293289 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480CF2A639E8B00293289 /* SettingViewModel.swift */; };
 		B16332EB2A3E9DAE00026A46 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */; };
 		B17227BA2A6BCF95009A1FF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227B92A6BCF95009A1FF9 /* ContentView.swift */; };
 		B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */; };
 		B17227BE2A6BE161009A1FF9 /* roof1.gif in Resources */ = {isa = PBXBuildFile; fileRef = B17227BD2A6BE161009A1FF9 /* roof1.gif */; };
+		B8A0EAE32A9C94710011479A /* WithdrawResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */; };
 		B8A0EADF2A9A3E330011479A /* ShareActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */; };
 		B8A0EAE12A9A3E690011479A /* ShareText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE02A9A3E690011479A /* ShareText.swift */; };
 /* End PBXBuildFile section */
@@ -241,13 +241,13 @@
 		B15480B52A639E6B00293289 /* OSLog+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OSLog+Extension.swift"; sourceTree = "<group>"; };
 		B15480BF2A639E7D00293289 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B15480C22A639E7D00293289 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		B15480C32A639E7D00293289 /* DetailAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAPI.swift; sourceTree = "<group>"; };
 		B15480C62A639E7D00293289 /* CardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		B15480CF2A639E8B00293289 /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		B16332EA2A3E9DAE00026A46 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 		B17227B92A6BCF95009A1FF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B17227BD2A6BE161009A1FF9 /* roof1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = roof1.gif; sourceTree = "<group>"; };
+		B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawResponseDTO.swift; sourceTree = "<group>"; };
 		B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivityView.swift; sourceTree = "<group>"; };
 		B8A0EAE02A9A3E690011479A /* ShareText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -575,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				B145A07F2A4D8384003505B6 /* RefreshResponseDTO.swift */,
+				B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -710,7 +711,6 @@
 			isa = PBXGroup;
 			children = (
 				B15480C22A639E7D00293289 /* DetailViewModel.swift */,
-				B15480C32A639E7D00293289 /* DetailAPI.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -778,6 +778,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					029A34B92A1F49E600088963 = {
 						CreatedOnToolsVersion = 14.3;
@@ -833,6 +834,7 @@
 				B145A0842A4D9C39003505B6 /* OAuthRepository.swift in Sources */,
 				B125FBE12A2836170015E04B /* RegisterContainerView.swift in Sources */,
 				B154807D2A639DB300293289 /* HomeBackgroundView.swift in Sources */,
+				B8A0EAE32A9C94710011479A /* WithdrawResponseDTO.swift in Sources */,
 				B8A0EAE12A9A3E690011479A /* ShareText.swift in Sources */,
 				B15480612A639D8200293289 /* DetailTagView.swift in Sources */,
 				B15480902A639E0B00293289 /* TermsViewState.swift in Sources */,
@@ -912,7 +914,6 @@
 				B125FBDF2A2832890015E04B /* WelcomeView.swift in Sources */,
 				B145A0792A4D7C79003505B6 /* KeychainManager.swift in Sources */,
 				B145A06A2A4D72C6003505B6 /* KeyneezNetworkError.swift in Sources */,
-				B15480CA2A639E7D00293289 /* DetailAPI.swift in Sources */,
 				B145A0662A4D71E3003505B6 /* LogoutResponseDTO.swift in Sources */,
 				B145A05B2A4BCF6A003505B6 /* Encodable+Extension.swift in Sources */,
 				B15480552A639D6600293289 /* ExploreCardViewCell.swift in Sources */,
@@ -1068,7 +1069,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";
@@ -1102,7 +1103,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Keyneez-iOS-Release/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Keyneez-iOS-Release/Info.plist";

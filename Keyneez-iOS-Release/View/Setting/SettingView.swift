@@ -7,24 +7,20 @@
 
 import SwiftUI
 
-// TODO: - PopUp 뷰 부드럽게 애니메이션
-
-// TODO: - 이용약관 동의하기 버튼 누르면 닫히도록
-// TODO: - 이용약관 네비게이션 화살표 색상 변경
-
-// TODO: - 버튼 touch 영역 수정
 struct SettingView: View {
+  @Environment(\.dismiss) private var dismiss
+    @State private var settingViewModel = SettingViewModel()
     
     @State private var isOnAutoLogIn = false
     @State private var isOnPushAlert = false
     @State private var isOnPopUp = false
     @State private var popUpState = SettingPopUpState.logOut
     @State private var termsViewState = TermsViewState.serviceUse
-    @State private var isLogOut = false // 임시변수 -> User로 대체
+    @State private var isShowingToastMessage = false
+  @State private var toastMessage = "로그아웃 완료"
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Pretendard-SemiBold", size: 26)!]
-        // TODO: padding leading 값 28로 변경
     }
     
     var body: some View {
@@ -35,31 +31,27 @@ struct SettingView: View {
                         Section() {
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack() {
-                                    Text("민지너는최고")
+                                  Text(settingViewModel.userName ?? "유저 이름")
                                         .foregroundColor(.gray900)
                                         .font(.pretendard(.semiBold, size: 20))
-                                        .fontWeight(.semibold)
                                 }
                                 .padding(.bottom, 20)
                                 .padding(.top, 48)
-                                .padding([.leading], 28)
-                                Rectangle()
-                                    .foregroundColor(.gray100)
-                                    .frame(height: 15)
+                                .padding(.leading, 28)
+                                makeGraySpacing()
                             }
                         }
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .listRowInsets(EdgeInsets(0))
                         .listRowSeparator(.hidden)
                         
-                        Section() {
+                        Section {
                             VStack(spacing: 0) {
                                 HStack {
                                     Text("로그인 정보")
                                         .foregroundColor(.gray500)
                                         .font(.pretendard(.medium, size: 16))
                                     Spacer()
-                                    // TODO: - 로그인 정보에 따라 카카오 / 애플 변경
-                                    Image("LogInInfo_Kakao")
+                                    setSnsType()
                                 }
                                 .padding([.top, .bottom], 20)
                                 .padding([.leading, .trailing], 28)
@@ -74,14 +66,12 @@ struct SettingView: View {
                                 }
                                 .padding([.top, .bottom], 20)
                                 .padding([.leading, .trailing], 28)
-                                Rectangle()
-                                    .foregroundColor(.gray100)
-                                    .frame(height: 15)
+                                makeGraySpacing()
                             }
                         }
                         .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                        
+                        .listRowInsets(EdgeInsets(0))
+
                         Section {
                             VStack(spacing: 0) {
                                 HStack {
@@ -94,14 +84,11 @@ struct SettingView: View {
                                 }
                                 .padding([.top, .bottom], 20)
                                 .padding([.leading, .trailing], 28)
-                                
-                                Rectangle()
-                                    .foregroundColor(.gray100)
-                                    .frame(height: 15)
+                                makeGraySpacing()
                             }
                         }
                         .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .listRowInsets(EdgeInsets(0))
                         
                         Section {
                             HStack {
@@ -109,7 +96,7 @@ struct SettingView: View {
                                     .foregroundColor(.gray500)
                                     .font(.pretendard(.medium, size: 16))
                                 Spacer()
-                                Text("1.0.1") // TODO: - 버전 정보 변수로 변경
+                              Text("\(settingViewModel.appVersion)")
                             }
                             .padding([.top, .bottom], 20)
                             .padding([.leading, .trailing], 28)
@@ -118,7 +105,6 @@ struct SettingView: View {
                                             TermsView(termsState: $termsViewState)
                                 .navigationTitle("서비스 이용 약관")
                                 .navigationBarTitleDisplayMode(.inline)
-                                           
                             ) {
                                 HStack {
                                     Text("서비스 이용 약관")
@@ -165,20 +151,17 @@ struct SettingView: View {
                                 }
                                 .padding([.top, .bottom], 20)
                                 .padding([.leading, .trailing], 28)
-                                
-                                Rectangle()
-                                    .foregroundColor(.gray100)
-                                    .frame(height: 15)
+                                makeGraySpacing()
                             }
                         }
                         .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .listRowInsets(EdgeInsets(0))
                         Section {
                             HStack {
                                 Button(action: {
                                     isOnPopUp.toggle()
-                                    // logout action
                                     popUpState = .logOut
+                                  toastMessage = "로그아웃 완료"
                                 }, label: {
                                     Text("로그아웃")
                                         .foregroundColor(.red500)
@@ -194,6 +177,7 @@ struct SettingView: View {
                                     Button(action: {
                                         isOnPopUp.toggle()
                                         popUpState = .withDraw
+                                      toastMessage = "탈퇴 완료"
                                     }, label: {
                                         Text("탈퇴하기")
                                             .foregroundColor(.gray400)
@@ -211,7 +195,7 @@ struct SettingView: View {
                             }
                         }
                         .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .listRowInsets(EdgeInsets(0))
                     } // list End
                     .environment(\.defaultMinListRowHeight, 60)
                     .background(Color.gray100.edgesIgnoringSafeArea(.bottom))
@@ -223,13 +207,13 @@ struct SettingView: View {
                         .ignoresSafeArea()
                     VStack {
                         Spacer()
-                        SettingPopUpView(isVisible: $isOnPopUp, popUpState: $popUpState, userLogout: $isLogOut)
+                      SettingPopUpView(viewModel: $settingViewModel, isVisible: $isOnPopUp, popUpState: $popUpState, isShowingToastMessage: $isShowingToastMessage)
                         Spacer()
                     }
                     .edgesIgnoringSafeArea(.all)
                 }
-                if isLogOut {
-                    Text("탈퇴 완료")
+                if isShowingToastMessage {
+                    Text(toastMessage)
                         .foregroundColor(Color.white)
                         .font(.pretendard(.medium, size: 22))
                         .padding()
@@ -237,8 +221,11 @@ struct SettingView: View {
                         .cornerRadius(15)
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                isLogOut.toggle()
+                                isShowingToastMessage.toggle()
                             }
+                        }
+                        .onDisappear {
+                          dismiss()
                         }
                 }
             }
@@ -246,7 +233,27 @@ struct SettingView: View {
         } // NavigationView End
         .accentColor(.black)
     } // body end
+    
+    @ViewBuilder
+    private func setSnsType() -> some View {
+        switch(settingViewModel.checkSnsType()) {
+        case .KAKAO:
+            Image("LogInInfo_Kakao")
+        case .APPLE:
+            Image("LogInInfo_Apple")
+        case .NONE:
+            Image("")
+        }
+    }
+    
+    @ViewBuilder
+    private func makeGraySpacing() -> some View {
+        Rectangle()
+            .foregroundColor(.gray100)
+            .frame(height: 15)
+    }
 }
+
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {

@@ -52,7 +52,7 @@ final class WelcomeViewModel: ObservableObject {
       }
     }
   }
-
+  
   func didTapLoginWithKakao() {
     
     Task {
@@ -74,15 +74,15 @@ final class WelcomeViewModel: ObservableObject {
     }
     
   }
-
+  
 }
 
 extension WelcomeViewModel {
   
   private func gotoSignup(with idToken: String) async {
     await MainActor.run {
-          nextPage = .signup(viewModel: RegisterIDViewModel(idToken: idToken))
-          readyToNavigation = true
+      nextPage = .signup(viewModel: RegisterIDViewModel(idToken: idToken))
+      readyToNavigation = true
       isLoading = false
     }
   }
@@ -103,7 +103,7 @@ extension WelcomeViewModel {
     UserManager.shared.updateAccessToken(accessToken)
     
     UserManager.shared.updateRefreshToken(refreshToken)
-
+    
     do {
       guard let userInfo = loginInfo.user else { return }
       let user = try userInfo.toDomain()
