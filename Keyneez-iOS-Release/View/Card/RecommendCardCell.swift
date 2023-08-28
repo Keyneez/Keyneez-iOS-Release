@@ -13,6 +13,7 @@ struct RecommendCardCell: View {
   let model: DetailContentResponseDTO
   @ObservedObject private var likeViewModel = LikedCardViewModel()
   @ObservedObject private var allViewModel = AllCardViewModel()
+  @State private var isLiked: Bool = false
   
   var body: some View {
     GeometryReader { geo in
@@ -35,11 +36,15 @@ struct RecommendCardCell: View {
               .cornerRadius(53)
             Spacer()
             Button {
-              likeViewModel.fetchPostLikedCard(pk: model.contentPk)
+              if !isLiked {
+                likeViewModel.fetchPostLikedCard(pk: model.contentPk)
+              } else {
+  //              likeViewModel.fetchPostUnlikedCard(pk: model.contentPk)
+              }
+              isLiked.toggle()
             } label: {
-              Image(model.heartImageName)
-                .resizable()
-                .frame(width: 38, height: 32)
+              Image(isLiked ? "ic_heart_on" : "ic_heart_off")
+       
             }
           }
           Spacer().frame(height: 16)
@@ -76,6 +81,9 @@ struct RecommendCardCell: View {
     }
     .frame(width: width, height: 440)
     .cornerRadius(28)
+    .onAppear {
+      isLiked = model.isHeartOn
+    }
   }
 }
 

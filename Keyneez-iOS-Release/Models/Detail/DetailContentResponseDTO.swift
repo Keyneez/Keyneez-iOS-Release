@@ -57,7 +57,7 @@ extension DetailContentResponseDTO {
     return "\(start) - \(endAt ?? "")"
   }
   
-  var heartImageName: String {
-    return Likes?.isEmpty == false ? "ic_heart_on" : "ic_heart_off"
+  var isHeartOn : Bool {
+    return Likes?.isEmpty == false ? true : false
    }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct ExploreCardViewCell: View {
   @State var model: DetailContentResponseDTO
   @ObservedObject private var likeViewModel = LikedCardViewModel()
+  @State private var isLiked: Bool = false
 
   var body: some View {
     GeometryReader { geo in
@@ -26,9 +27,14 @@ struct ExploreCardViewCell: View {
             .cornerRadius(53)
           Spacer()
           Button {
-            likeViewModel.fetchPostLikedCard(pk: model.contentPk)
+            if !isLiked {
+              likeViewModel.fetchPostLikedCard(pk: model.contentPk)
+            } else {
+//              likeViewModel.fetchPostUnlikedCard(pk: model.contentPk)
+            }
+            isLiked.toggle()
           } label: {
-            Image(model.heartImageName)
+            Image(isLiked ? "ic_heart_on" : "ic_heart_off")
      
           }
         }
@@ -50,6 +56,8 @@ struct ExploreCardViewCell: View {
     }
     .frame(width: 165, height: 258)
     .cornerRadius(16)
-    
+    .onAppear {
+      isLiked = model.isHeartOn
+    }
   }
 }
