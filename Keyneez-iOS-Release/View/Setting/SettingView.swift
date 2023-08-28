@@ -16,6 +16,7 @@ struct SettingView: View {
     @State private var popUpState = SettingPopUpState.logOut
     @State private var termsViewState = TermsViewState.serviceUse
     @State private var isShowingToastMessage = false
+  @State private var toastMessage = "로그아웃 완료"
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Pretendard-SemiBold", size: 26)!]
@@ -159,6 +160,7 @@ struct SettingView: View {
                                 Button(action: {
                                     isOnPopUp.toggle()
                                     popUpState = .logOut
+                                  toastMessage = "로그아웃 완료"
                                 }, label: {
                                     Text("로그아웃")
                                         .foregroundColor(.red500)
@@ -174,6 +176,7 @@ struct SettingView: View {
                                     Button(action: {
                                         isOnPopUp.toggle()
                                         popUpState = .withDraw
+                                      toastMessage = "탈퇴 완료"
                                     }, label: {
                                         Text("탈퇴하기")
                                             .foregroundColor(.gray400)
@@ -209,7 +212,7 @@ struct SettingView: View {
                     .edgesIgnoringSafeArea(.all)
                 }
                 if isShowingToastMessage {
-                    Text("탈퇴 완료")
+                    Text(toastMessage)
                         .foregroundColor(Color.white)
                         .font(.pretendard(.medium, size: 22))
                         .padding()
