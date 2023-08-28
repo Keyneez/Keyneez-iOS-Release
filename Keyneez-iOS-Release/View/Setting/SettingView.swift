@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingView: View {
+  @Environment(\.dismiss) private var dismiss
     @State private var settingViewModel = SettingViewModel()
     
     @State private var isOnAutoLogIn = false
@@ -222,6 +223,9 @@ struct SettingView: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                 isShowingToastMessage.toggle()
                             }
+                        }
+                        .onDisappear {
+                          dismiss()
                         }
                 }
             }
