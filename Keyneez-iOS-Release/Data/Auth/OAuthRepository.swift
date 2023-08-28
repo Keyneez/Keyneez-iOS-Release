@@ -139,8 +139,7 @@ final class OAuthRepository: OAuthRepositoryProtocol {
         UserManager.shared.updateRefreshToken("")
         return try await authRemoteManager.logout(accessToken: accessToken) // 여기가 문제닷!
       } catch(let e) {
-        print(e)
-        print("authRemoteManager logout에서 오류")
+        print("authRemoteManager logout에서 오류: \(e)")
         if let error = e as? KeyneezNetworkError {
           switch error {
           case .DecodeError:

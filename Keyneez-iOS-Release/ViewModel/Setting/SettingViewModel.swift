@@ -24,14 +24,8 @@ final class SettingViewModel: ObservableObject {
   
   func didTapLogoutWithApple() {
     Task {
-//      await MainActor.run {
-//        isLoading = true
-//      }
-      
       do {
-        let logoutInfo = try await repository.signOutWithApple()
-        print(logoutInfo) // print 안됨
-        try logoutWithApple(with: logoutInfo)
+        try await repository.signOutWithApple()
         await gotoHome() // 로그아웃 성공
       } catch(let e) { // 로그아웃 실패 ->
         self.error = e
@@ -43,9 +37,7 @@ final class SettingViewModel: ObservableObject {
   func didTapLogoutWithKakao() {
     Task { // 카카오 로그아웃은 되는데 서버 로그아웃 전달이 안 됨
       do {
-        let logoutInfo = try await repository.signOutWithKakao()
-        print(logoutInfo) // print 안됨 - 여기서 문제
-        try logoutWithKakao(with: logoutInfo)
+        try await repository.signOutWithKakao()
         await gotoHome() // 로그아웃 성공
       } catch(let e) { // 로그아웃 실패 ->
         self.error = e
@@ -89,23 +81,5 @@ extension SettingViewModel {
       readyToNavigation = true
       isLoading = false
     }
-  }
-  
-  private func logoutWithApple(with logoutInfo: LogoutResponseDTO) throws { // with : input 을 가공해 output으로 넣어주는 키워드
-    guard let data = logoutInfo.data else {
-      return
-    }
-    
-    UserManager.shared.updateAccessToken("")
-    UserManager.shared.updateRefreshToken("")
-  }
-  
-  private func logoutWithKakao(with logoutInfo: LogoutResponseDTO) throws {
-    guard let data = logoutInfo.data else {
-      return
-    }
-    
-    UserManager.shared.updateAccessToken("")
-    UserManager.shared.updateRefreshToken("")
   }
 }
