@@ -32,7 +32,7 @@ struct MainRecommendView: View {
         Text("이번 주의 추천 활동들이에요!")
           .font(.pretendard(.semiBold, size: 24))
         Spacer().frame(height: 49)
-        TeasingTabView(selectedTab: $selected, spacing: 8, viewModel: CardViewModel()).frame(height: 480)
+        TeasingTabView(selectedTab: $selected, spacing: 8).frame(height: 480)
       }
     }
     .navigationBarBackButtonHidden(true)

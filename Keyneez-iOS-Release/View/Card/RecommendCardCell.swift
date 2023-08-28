@@ -7,19 +7,13 @@
 
 import SwiftUI
 
-struct RecommendCardViewCell: View {
-  @StateObject private var viewModel = CardViewModel()
-  var item: CardItem
+struct RecommendCardCell: View {
   let screenSize: CGSize
   let width: CGFloat
-  @State private var heart: Bool
-
-  init(item: CardItem, screenSize: CGSize, width: CGFloat) {
-      self._heart = State(initialValue: item.heart)
-    self.screenSize = screenSize
-    self.width = width
-      self.item = item
-  }
+  let model: DetailContentResponseDTO
+  @ObservedObject private var likeViewModel = LikedCardViewModel()
+  @ObservedObject private var allViewModel = AllCardViewModel()
+  @State private var isLiked: Bool = false
   
   var body: some View {
     GeometryReader { geo in
@@ -33,34 +27,36 @@ struct RecommendCardViewCell: View {
         VStack(alignment: .leading) {
           Spacer().frame(height: 20)
           HStack {
-            Text(item.tag.description)
-              .tagViewStyle(widthSize: 20, heightSize: 9, textCGFloat: 16)
-              .foregroundColor(item.tag.color)
+            Text(model.category)
+              .font(.pretendard(.medium, size: 16))
+              .foregroundColor(.gray050)
+              .padding(.horizontal, 11)
+              .padding(.vertical, 5)
+              .background(Color.categoryColor(for: model.category))
+              .cornerRadius(53)
             Spacer()
             Button {
-              heart.toggle()
-            } label: {
-              if heart {
-                Image("ic_heart_on")
-                  .resizable()
-                  .frame(width: 38, height: 32)
-              }else {
-                Image("ic_heart_off")
-                  .resizable()
-                  .frame(width: 38, height: 32)
+              if !isLiked {
+                likeViewModel.fetchPostLikedCard(pk: model.contentPk)
+              } else {
+  //              likeViewModel.fetchPostUnlikedCard(pk: model.contentPk)
               }
+              isLiked.toggle()
+            } label: {
+              Image(isLiked ? "ic_heart_on" : "ic_heart_off")
+       
             }
           }
           Spacer().frame(height: 16)
-          Text(item.title)
+          Text(model.title)
             .font(.pretendard(.bold, size: 26))
             .foregroundColor(.gray900)
           Spacer().frame(height: 10)
-          Text("\(item.startAt) - \(item.endAt)")
+          Text(model.periodString)
             .font(.pretendard(.medium, size: 18))
             .foregroundColor(.gray400)
           Spacer().frame(height: 15)
-          Image(item.img)
+          Image(model.imgName)
             .resizable()
             .frame(width: 209, height: 209)
             .scaledToFill()
@@ -85,9 +81,10 @@ struct RecommendCardViewCell: View {
     }
     .frame(width: width, height: 440)
     .cornerRadius(28)
+    .onAppear {
+      isLiked = model.isHeartOn
+    }
   }
 }
-
-
 
 

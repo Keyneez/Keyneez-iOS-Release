@@ -12,6 +12,7 @@ final class LikeViewModel: ViewModelable {
   @Published var state: State
   @Published var likeSelectedCellNumber: Int = 0
   @Published var likeEditSelectedCellNumber: Int = 0
+  @Published var likeSelectedButton: FilterTagType = .all
   
   init() {
     state = .isCompleted(false)

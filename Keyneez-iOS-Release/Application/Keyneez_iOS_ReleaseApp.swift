@@ -20,15 +20,13 @@ struct Keyneez_iOS_ReleaseApp: App {
   
     var body: some Scene {
       WindowGroup {
-//        ContentView(viewModel: mainViewModel)
-//          .onAppear{
-//            Task {
-//              await mainViewModel.refreshToken()
-//            }
-//          }
-          
-          TabBarView()
-      }
+        ContentView(viewModel: mainViewModel)
+          .onAppear{
+            Task {
+              await mainViewModel.refreshToken()
+            }
+          }
+        }
     }
     
 

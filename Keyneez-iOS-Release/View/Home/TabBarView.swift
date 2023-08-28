@@ -19,21 +19,21 @@ struct TabBarView: View {
   
   var body: some View {
     TabView(selection: $selectedTab) {
-      JellyOpenBeforeHomeView(viewModel: CardViewModel())
+      HomeView()
           .tabItem {
             Image(selectedTab == .home ? "ic_home_fill" : "ic_home")
             Text("홈")
           }
           .tag(Tab.home)
 
-      ExploreView(viewModel: CardViewModel())
+      ExploreView()
         .tabItem {
           Image(selectedTab == .explore ? "ic_explore_fill" : "ic_explore")
           Text("탐색")
         }
         .tag(Tab.explore)
       
-      LikeView(viewModel: LikeViewModel())
+      LikeView()
         .tabItem {
           Image(selectedTab == .like ? "ic_like_fill" : "ic_like")
           Text("좋아요")
