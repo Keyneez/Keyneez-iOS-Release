@@ -12,7 +12,6 @@ final class LikeViewModel: ViewModelable {
   @Published var likeSelectedButton: FilterTagType = .all
   @Published var state: State
   @Published var selectedContentPks: Set<Int> = []
-  { didSet { objectWillChange.send() } }
   
   init() {
     state = .isCompleted(false)

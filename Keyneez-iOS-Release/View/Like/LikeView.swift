@@ -25,7 +25,7 @@ struct LikeView: View {
             HStack {
               Spacer()
               NavigationLink(destination: LikeEditView(
-                isAlertVisible: $isAlertVisible)) {
+                cardList: $likeCardViewModel.likedCardList, isAlertVisible: $isAlertVisible)) {
                   Text("편집")
                     .font(.pretendard(.medium, size: 18))
                     .foregroundColor(.gray500)
@@ -80,7 +80,7 @@ struct LikeView: View {
             .background(Color.gray900)
             .cornerRadius(15)
             .onAppear {
-              DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+              DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 isAlertVisible.toggle()
               }
             }
@@ -115,7 +115,7 @@ extension LikeView {
               .foregroundColor(.gray900)
               .padding(.leading, 24.adjusted)
             Spacer()
-            NavigationLink(destination: LikeEditView(isAlertVisible: $isAlertVisible)) {
+            NavigationLink(destination: LikeEditView(cardList: $likedCardList, isAlertVisible: $isAlertVisible)) {
               Text("편집")
                 .font(.pretendard(.medium, size: 18))
                 .foregroundColor(.gray500)

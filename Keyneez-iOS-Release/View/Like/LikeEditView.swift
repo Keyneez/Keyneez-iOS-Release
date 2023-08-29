@@ -11,6 +11,7 @@ struct LikeEditView: View {
   @Environment(\.dismiss) private var dismiss
   @ObservedObject private var likeCardViewModel = LikedCardViewModel()
   @ObservedObject private var viewModel = LikeViewModel()
+  @Binding var cardList : [ContentsLikedResponseDTO]
   @Binding var isAlertVisible: Bool
   
   var body: some View {
@@ -38,21 +39,25 @@ struct LikeEditView: View {
         Spacer().frame(height: 28.adjusted)
         ScrollView {
           VStack(alignment: .leading) {
-            likedFilterTagView(viewModel: likeCardViewModel,
-                               selectedButton: $viewModel.likeSelectedButton)
-              .padding(.leading, 24.adjusted)
+//            likedFilterTagView(viewModel: likeCardViewModel,
+//                               selectedButton: $viewModel.likeSelectedButton)
+//              .padding(.leading, 24.adjusted)
             Spacer().frame(height: 19.adjusted)
             Text("\(viewModel.selectedContentPks.count)개 선택")
               .font(.pretendard(.semiBold, size: 15))
               .foregroundColor(.gray900)
               .padding(.leading, 28.adjusted)
             Spacer().frame(height: 14.adjusted)
-            LikeEditCell(cardList: $likeCardViewModel.likedCardList, viewModel: viewModel)
+            LikeEditCell(cardList: $cardList,
+                         viewModel: viewModel)
             Spacer()
           }
         }
         Button(action: {
           likeCardViewModel.fetchPostUnlikedCard(pk: Array(viewModel.selectedContentPks))
+          cardList.removeAll { content in
+            viewModel.selectedContentPks.contains(content.contentPk)
+             }
           isAlertVisible = true
           dismiss()
         }) {
