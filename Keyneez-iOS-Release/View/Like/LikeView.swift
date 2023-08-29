@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LikeView: View {
-  @ObservedObject private var viewModel = LikeViewModel()
   @ObservedObject private var likeCardViewModel = LikedCardViewModel()
+  @ObservedObject private var viewModel = LikeViewModel()
   @State private var ScrollViewOffset: CGFloat = 0
   @State private var StartOffset: CGFloat = 0
   @State private var isNavigationBarHidden = false
@@ -64,7 +64,8 @@ struct LikeView: View {
           )
         }
         .overlay(
-          CustomNavigationBarView(isAlertVisible: $isAlertVisible)
+          CustomNavigationBarView(isAlertVisible: $isAlertVisible,
+                                  likedCardList: $likeCardViewModel.likedCardList)
             .ignoresSafeArea(.all)
             .opacity(-ScrollViewOffset > 10 ? 1 : 0)
             .animation(.easeIn)
@@ -100,6 +101,7 @@ struct LikeView: View {
 extension LikeView {
   struct CustomNavigationBarView: View {
     @Binding var isAlertVisible: Bool
+    @Binding var likedCardList: [ContentsLikedResponseDTO]
     
     var body: some View {
       VStack(spacing:0) {

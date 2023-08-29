@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LikeEditView: View {
   @Environment(\.dismiss) private var dismiss
-  @ObservedObject var viewModel = LikeViewModel()
   @ObservedObject private var likeCardViewModel = LikedCardViewModel()
+  @ObservedObject private var viewModel = LikeViewModel()
   @Binding var isAlertVisible: Bool
   
   var body: some View {
@@ -38,19 +38,21 @@ struct LikeEditView: View {
         Spacer().frame(height: 28.adjusted)
         ScrollView {
           VStack(alignment: .leading) {
-            likedFilterTagView(viewModel: likeCardViewModel , selectedButton: $viewModel.likeSelectedButton)
+            likedFilterTagView(viewModel: likeCardViewModel,
+                               selectedButton: $viewModel.likeSelectedButton)
               .padding(.leading, 24.adjusted)
             Spacer().frame(height: 19.adjusted)
-            Text("\(likeCardViewModel.likedCardList.count)개 선택")
+            Text("\(viewModel.selectedContentPks.count)개 선택")
               .font(.pretendard(.semiBold, size: 15))
               .foregroundColor(.gray900)
               .padding(.leading, 28.adjusted)
             Spacer().frame(height: 14.adjusted)
-            LikeCell(cardList: $likeCardViewModel.likedCardList)
+            LikeEditCell(cardList: $likeCardViewModel.likedCardList, viewModel: viewModel)
             Spacer()
           }
         }
         Button(action: {
+          likeCardViewModel.fetchPostUnlikedCard(pk: Array(viewModel.selectedContentPks))
           isAlertVisible = true
           dismiss()
         }) {
@@ -69,15 +71,18 @@ struct LikeEditView: View {
     .onAppear {
       likeCardViewModel.fetchGetLikedCard(filter: nil)
     }
+    .onDisappear {
+      viewModel.selectedContentPks.removeAll()
+      viewModel.state = .isCompleted(false)
+    }
   }
 }
 
 extension LikeEditView {
-  
   private func updateDeleteButton() -> Color {
     return isConfirmed() ? .gray900 : .gray400
   }
-  
+
   private func isConfirmed() -> Bool {
     switch viewModel.state {
     case  .isCompleted(true):

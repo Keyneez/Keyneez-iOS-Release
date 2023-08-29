@@ -2,24 +2,24 @@
 //  LikeViewModel.swift
 //  Keyneez-iOS-Release
 //
-//  Created by 최효원 on 2023/08/07.
+//  Created by 최효원 on 2023/08/29.
 //
 
+import Foundation
 import SwiftUI
 
 final class LikeViewModel: ViewModelable {
-  @Published var items = makeCardItems()
-  @Published var state: State
-  @Published var likeSelectedCellNumber: Int = 0
-  @Published var likeEditSelectedCellNumber: Int = 0
   @Published var likeSelectedButton: FilterTagType = .all
+  @Published var state: State
+  @Published var selectedContentPks: Set<Int> = []
+  { didSet { objectWillChange.send() } }
   
   init() {
     state = .isCompleted(false)
   }
   
   enum Action {
-    case onTapCardCellButton(id: Int)
+    case onTapCardCellButton(pk: Int)
     case onTapDeleteButton
   }
   
@@ -30,8 +30,8 @@ final class LikeViewModel: ViewModelable {
   
   func action(_ action: Action) {
     switch action {
-    case .onTapCardCellButton(let id):
-      didTapCardCellButton(id: id)
+    case .onTapCardCellButton(let pk):
+      didTapCardCellButton(pk)
     case .onTapDeleteButton:
       didTapDeleteButton()
     }
@@ -40,13 +40,18 @@ final class LikeViewModel: ViewModelable {
 
 extension LikeViewModel {
   
-  private func didTapCardCellButton(id: Int) {
-    items[id].checked.toggle()
+  private func didTapCardCellButton(_ contentPk: Int) {
+    if selectedContentPks.contains(contentPk) {
+      selectedContentPks.remove(contentPk)
+    } else {
+      selectedContentPks.insert(contentPk)
+    }
+    print("@newLog \(selectedContentPks), \(selectedContentPks.count)")
     satisfiedToConfirm()
   }
   
   private func satisfiedToConfirm() {
-    if items.filter({ $0.checked == true }).count >= 1 {
+    if selectedContentPks.count > 0 {
       state = .isCompleted(true)
     } else {
       state = .isCompleted(false)
@@ -57,3 +62,4 @@ extension LikeViewModel {
   }
   
 }
+

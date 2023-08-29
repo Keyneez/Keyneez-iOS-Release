@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0233F3FD2A9E027200299EF1 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233F3FC2A9E027200299EF1 /* LikeViewModel.swift */; };
 		023CF6752A80916100F63642 /* LikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6742A80916100F63642 /* LikeCell.swift */; };
 		023CF6772A80929700F63642 /* LikeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6762A80929700F63642 /* LikeEditView.swift */; };
-		023CF67A2A8095AE00F63642 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6792A8095AE00F63642 /* LikeViewModel.swift */; };
 		023CF67C2A83D7D800F63642 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF67B2A83D7D800F63642 /* CardItem.swift */; };
 		0245D09E2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D09D2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift */; };
 		0245D0A02A8CDAB300A2715C /* UnlikeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */; };
@@ -130,9 +130,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0233F3FC2A9E027200299EF1 /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		023CF6742A80916100F63642 /* LikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCell.swift; sourceTree = "<group>"; };
 		023CF6762A80929700F63642 /* LikeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeEditView.swift; sourceTree = "<group>"; };
-		023CF6792A8095AE00F63642 /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		023CF67B2A83D7D800F63642 /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
 		0245D09D2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsLikedResponseDTO.swift; sourceTree = "<group>"; };
 		0245D09F2A8CDAB300A2715C /* UnlikeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikeResponseDTO.swift; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 		023CF6782A8095A600F63642 /* Like */ = {
 			isa = PBXGroup;
 			children = (
-				023CF6792A8095AE00F63642 /* LikeViewModel.swift */,
+				0233F3FC2A9E027200299EF1 /* LikeViewModel.swift */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -920,6 +920,7 @@
 				B15480C72A639E7D00293289 /* HomeViewModel.swift in Sources */,
 				B15480B82A639E6B00293289 /* Navigation+Extensions.swift in Sources */,
 				B125FBE72A283E8D0015E04B /* RegisterConsentView.swift in Sources */,
+				0233F3FD2A9E027200299EF1 /* LikeViewModel.swift in Sources */,
 				0249A2CA2A929D3C006236D9 /* AllCardViewModel.swift in Sources */,
 				0249A2C82A9255D5006236D9 /* RecommendCardViewModel.swift in Sources */,
 				0249A2CE2A92AC45006236D9 /* PopularityCardViewModel.swift in Sources */,
@@ -936,7 +937,6 @@
 				B145A0732A4D77E1003505B6 /* UserDTO.swift in Sources */,
 				B125FBFF2A2DC5770015E04B /* TagView.swift in Sources */,
 				B145A0862A4D9CD0003505B6 /* KakaoUserApi.swift in Sources */,
-				023CF67A2A8095AE00F63642 /* LikeViewModel.swift in Sources */,
 				023CF67C2A83D7D800F63642 /* CardItem.swift in Sources */,
 				02F20A272A7D1A5A001B884E /* ExploreCardView.swift in Sources */,
 			);
