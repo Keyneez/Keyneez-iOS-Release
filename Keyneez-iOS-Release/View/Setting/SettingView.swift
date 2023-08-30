@@ -71,25 +71,6 @@ struct SettingView: View {
                         }
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(0))
-
-                        Section {
-                            VStack(spacing: 0) {
-                                HStack {
-                                    Text("푸쉬 알림 설정")
-                                        .foregroundColor(.gray500)
-                                        .font(.pretendard(.medium, size: 16))
-                                    Spacer()
-                                    Toggle(isOn: self.$isOnPushAlert) {
-                                    }.tint(Color.black)
-                                }
-                                .padding([.top, .bottom], 20)
-                                .padding([.leading, .trailing], 28)
-                                makeGraySpacing()
-                            }
-                        }
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(0))
-                        
                         Section {
                             HStack {
                                 Text("버전 정보")
