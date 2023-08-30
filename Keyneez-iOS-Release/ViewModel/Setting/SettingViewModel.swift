@@ -54,7 +54,7 @@ final class SettingViewModel: ObservableObject {
         await gotoHome() // 로그아웃 성공
       } catch(let e) { // 로그아웃 실패 ->
         self.error = e
-        print("로그아웃 실패")
+        print("카카오 회원탈퇴 실패")
       }
     }
   }

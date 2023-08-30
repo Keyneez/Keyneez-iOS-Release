@@ -24,7 +24,7 @@ final class AuthRemoteManager: RequestSendable {
     
   }
   
-  func logout(accessToken: String) async throws -> LogoutResponseDTO { // DecodeError
+  func logout(with accessToken: String) async throws -> LogoutResponseDTO { // DecodeError
     let target = AuthAPI.logout(accessToken: accessToken)
     return try await requestFrom(target, modelType: LogoutResponseDTO.self)
   }

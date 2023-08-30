@@ -28,11 +28,13 @@ final class MainViewModel: ObservableObject {
     }
     
     do {
-      let result = try await AuthRemoteManager.shared.refresh(accessToken: accessToken, refreshToken: refreshToken)
+      let result = try await AuthRemoteManager.shared.refresh(accessToken: accessToken, refreshToken: refreshToken) // 여기서 끝남
+      print("액세스토큰 다시 받아온 값: \(result)")
       guard let newAccessToken = result.accessToken else { return }
       UserManager.shared.updateAccessToken(newAccessToken)
       self.appFlow = .Home
     } catch(let e) {
+      print("에러났다! \(e)")
       self.appFlow = .Auth
     }
   }

@@ -106,11 +106,13 @@ final class OAuthRepository: OAuthRepositoryProtocol {
   
   func signOutWithApple() async throws -> LogoutResponseDTO {
     do {
-      guard let accessToken = UserManager.shared.accessToken else {
-        // 여기서 오류..
+      guard let token = UserManager.shared.accessToken else {
         throw OAuthRepositoryError.tokenError
       }
-      return try await authRemoteManager.logout(accessToken: accessToken)
+      guard let result = await appleLoginManager.performAppleLogout() else {
+        throw OAuthRepositoryError.unknownError
+      }
+      return try await authRemoteManager.logout(with: token)
     } catch(let e) {
       if let error = e as? KeyneezNetworkError {
         switch error {
@@ -135,9 +137,11 @@ final class OAuthRepository: OAuthRepositoryProtocol {
         guard let accessToken = UserManager.shared.accessToken else {
           throw OAuthRepositoryError.tokenError
         }
+        print(accessToken)
         UserManager.shared.updateAccessToken("")
         UserManager.shared.updateRefreshToken("")
-        return try await authRemoteManager.logout(accessToken: accessToken) // 여기가 문제닷!
+        print("액세스토큰: \(accessToken)")
+        return try await authRemoteManager.logout(with: accessToken) // 여기가 문제닷!
       } catch(let e) {
         print("authRemoteManager logout에서 오류: \(e)")
         if let error = e as? KeyneezNetworkError {
