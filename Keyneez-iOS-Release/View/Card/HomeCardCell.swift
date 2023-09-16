@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeCardCell: View {
-  @State private var heart: Bool = false
   let model: DetailContentResponseDTO
   @ObservedObject private var likeViewModel = LikedCardViewModel()
   @State private var isLiked: Bool = false
@@ -59,7 +58,6 @@ struct HomeCardCell: View {
     .onAppear {
       isLiked = model.isHeartOn
     }
-    
   }
 }
 

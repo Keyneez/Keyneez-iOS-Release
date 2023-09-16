@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExploreCardViewCell: View {
-  @State var model: DetailContentResponseDTO
+  let model: DetailContentResponseDTO
   @ObservedObject private var likeViewModel = LikedCardViewModel()
   @State private var isLiked: Bool = false
 
@@ -56,8 +56,5 @@ struct ExploreCardViewCell: View {
     }
     .frame(width: 165, height: 258)
     .cornerRadius(16)
-    .onAppear {
-      isLiked = model.isHeartOn
-    }
   }
 }

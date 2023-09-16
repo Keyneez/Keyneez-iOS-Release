@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
   @StateObject private var recommendViewModel = RecommendCardViewModel()
   @StateObject private var allViewModel = AllCardViewModel()
+  @StateObject private var likeViewModel = LikedCardViewModel() // 뷰모델 추가
 
   var rows : [GridItem] = Array(repeating: .init(.fixed(220)), count: 1)
   var body: some View {

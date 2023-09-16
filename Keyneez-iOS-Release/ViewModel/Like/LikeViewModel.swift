@@ -45,7 +45,6 @@ extension LikeViewModel {
     } else {
       selectedContentPks.insert(contentPk)
     }
-    print("@newLog \(selectedContentPks), \(selectedContentPks.count)")
     satisfiedToConfirm()
   }
   

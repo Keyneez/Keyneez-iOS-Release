@@ -116,7 +116,10 @@ struct RegisterIDView: View {
         }) {
           RegisterConsentView(isPresent: $presentSheet, confirmed: $consentFinished)
             .presentationDetents([.height(350)])
-            .presentationCornerRadius(21)
+            .background(
+                 RoundedRectangle(cornerRadius: 21)
+                  .foregroundColor(.clear) 
+             )
         }
         
     }
