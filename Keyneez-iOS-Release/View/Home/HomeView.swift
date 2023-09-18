@@ -34,9 +34,9 @@ struct HomeView: View {
             +
             Text("님을 위한")
               .font(.pretendard(.semiBold, size: 24))
-//            JellyView()
+            //            JellyView()
             WeekRecommendCollectionView()
-
+            
             Spacer().frame(height: 30)
             NavigationLink(destination: RecentUpdateDetailView()) {
               HStack {
@@ -48,7 +48,7 @@ struct HomeView: View {
                   .frame(width: 5, height: 10)
               }
             }
-
+            
             Spacer().frame(height: 19)
             ScrollView(.horizontal) {
               LazyHGrid(rows: rows, spacing: 15) {

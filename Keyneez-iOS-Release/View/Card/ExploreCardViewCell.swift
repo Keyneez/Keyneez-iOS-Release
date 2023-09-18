@@ -56,5 +56,8 @@ struct ExploreCardViewCell: View {
     }
     .frame(width: 165, height: 258)
     .cornerRadius(16)
+    .onAppear {
+      isLiked = model.isHeartOn
+    }
   }
 }

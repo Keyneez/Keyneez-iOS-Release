@@ -30,7 +30,7 @@ struct WeekRecommendCollectionView: View {
           LazyHGrid(rows: rows, spacing: 15) {
             ForEach(viewModel.recommendCardList, id: \.contentPk) {content in
               NavigationLink(destination: DetailView(pk: content.contentPk)) {
-                HomeCardCell(model: content)
+                HomeRecommendCardCell(model: content)
               }
             }
           }

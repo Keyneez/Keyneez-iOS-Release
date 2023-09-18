@@ -11,7 +11,6 @@ final class LikedCardViewModel: ObservableObject {
   @Published var likedCardList: [ContentsLikedResponseDTO] = []
   @Published var postLikedCardList: Likes?
   @Published var postUnlikedCardList: UnlikeResponseDTO?
-  @Published var likedContentIds: Set<Int> = []
   
   func fetchGetLikedCard(filter: String?) {
     if let token = UserManager.shared.accessToken {
@@ -66,20 +65,5 @@ final class LikedCardViewModel: ObservableObject {
         }
       }
     }
-  }
-  
-  // 좋아요 상태 업데이트 메서드
-  func toggleLiked(pk: Int) {
-      if likedContentIds.contains(pk) {
-          // 이미 좋아요한 경우 좋아요 취소
-          likedContentIds.remove(pk)
-        fetchPostUnlikedCard(pk: [pk])
-      } else {
-          // 좋아요하지 않은 경우 좋아요
-          likedContentIds.insert(pk)
-        fetchPostLikedCard(pk: pk)
-      }
-    print("@newLog \(likedContentIds)")
-
   }
 }

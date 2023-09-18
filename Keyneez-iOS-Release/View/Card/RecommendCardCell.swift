@@ -35,17 +35,17 @@ struct RecommendCardCell: View {
               .background(Color.categoryColor(for: model.category))
               .cornerRadius(53)
             Spacer()
-            Button {
-              if !isLiked {
-                likeViewModel.fetchPostLikedCard(pk: model.contentPk)
-              } else {
-  //              likeViewModel.fetchPostUnlikedCard(pk: model.contentPk)
-              }
-              isLiked.toggle()
-            } label: {
-              Image(isLiked ? "ic_heart_on" : "ic_heart_off")
-       
-            }
+//            Button {
+//              if !isLiked {
+//                likeViewModel.fetchPostLikedCard(pk: model.contentPk)
+//              } else {
+//                likeViewModel.fetchPostUnlikedCard(pk: [model.contentPk])
+//              }
+//              isLiked.toggle()
+//            } label: {
+//              Image(isLiked ? "ic_heart_on" : "ic_heart_off")
+//       
+//            }
           }
           Spacer().frame(height: 16)
           Text(model.title)
