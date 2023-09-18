@@ -89,6 +89,7 @@ final class OAuthRepository: OAuthRepositoryProtocol {
   
   func signInWithKakao() async throws -> LoginResponseDTO {
     if KakaoUserApi.isKakaoTalkLoginAvailable() {
+      
       guard let info = await KakaoUserApi.shared.loginWithKakaoTalk().0, let idToken = info.idToken else {
         throw WelcomeViewModelError.kakaoLoginNotAvailable
       }
@@ -127,34 +128,52 @@ final class OAuthRepository: OAuthRepositoryProtocol {
   }
   
   func signOutWithKakao() async throws -> LogoutResponseDTO {
-    let logoutError = await KakaoUserApi.shared.logoutWithKakaoAcount()
-    if let logoutError = logoutError {
-        print("카카오 계정 로그아웃 중 에러 발생: \(logoutError.localizedDescription)")
-      throw OAuthRepositoryError.unknownError
-    } else {
-        print("카카오 계정 로그아웃 성공")
+    
+    if let refreshToken = UserManager.shared.refreshToken {
+      UserManager.shared.updateRefreshToken("")
+    }
+    
+    if let accessToken = UserManager.shared.accessToken {
+      print("??", accessToken)
+      UserManager.shared.updateAccessToken("")
       do {
-        guard let accessToken = UserManager.shared.accessToken else {
-          throw OAuthRepositoryError.tokenError
-        }
-        print(accessToken)
-        UserManager.shared.updateAccessToken("")
-        UserManager.shared.updateRefreshToken("")
-        print("액세스토큰: \(accessToken)")
         return try await authRemoteManager.logout(with: accessToken) // 여기가 문제닷!
-      } catch(let e) {
-        print("authRemoteManager logout에서 오류: \(e)")
-        if let error = e as? KeyneezNetworkError {
-          switch error {
-          case .DecodeError:
-            throw OAuthRepositoryError.unknownError
-          case .failure(let statusCode, _):
-            throw OAuthRepositoryError.getErrorDesc(by: statusCode)
-          }
-        }
-        throw OAuthRepositoryError.unknownError
+      } catch {
+        throw error
       }
     }
+
+    throw OAuthRepositoryError.unknownError
+    
+    
+//    let logoutError = await KakaoUserApi.shared.logoutWithKakaoAcount()
+//    if let logoutError = logoutError {
+//        print("카카오 계정 로그아웃 중 에러 발생: \(logoutError.localizedDescription)")
+//      throw OAuthRepositoryError.unknownError
+//    } else {
+//        print("카카오 계정 로그아웃 성공")
+//      do {
+//        guard let accessToken = UserManager.shared.accessToken else {
+//          throw OAuthRepositoryError.tokenError
+//        }
+//        print(accessToken)
+//        UserManager.shared.updateAccessToken("")
+//        UserManager.shared.updateRefreshToken("")
+//        print("액세스토큰: \(accessToken)")
+//        return try await authRemoteManager.logout(with: accessToken) // 여기가 문제닷!
+//      } catch(let e) {
+//        print("authRemoteManager logout에서 오류: \(e)")
+//        if let error = e as? KeyneezNetworkError {
+//          switch error {
+//          case .DecodeError:
+//            throw OAuthRepositoryError.unknownError
+//          case .failure(let statusCode, _):
+//            throw OAuthRepositoryError.getErrorDesc(by: statusCode)
+//          }
+//        }
+//        throw OAuthRepositoryError.unknownError
+//      }
+//    }
 
   }
   

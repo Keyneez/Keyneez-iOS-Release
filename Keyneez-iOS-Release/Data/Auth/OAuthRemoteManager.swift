@@ -21,7 +21,13 @@ final class OAuthRemoteManager: RequestSendable {
   func kakaoLogin(idToken: String) async throws -> LoginResponseDTO {
     
     let target = OAuthAPI.signIn(idToken: idToken, type: .KAKAO)
+    
     return try await requestFrom(target, modelType: LoginResponseDTO.self)
+  }
+  
+  func user(accessToken: String) async throws -> UserDTO {
+    let target = OAuthAPI.user(accessToken: accessToken)
+    return try await requestFrom(target, modelType: UserDTO.self)
   }
   
   func kakaoSignUp(with dto: KakaoSignUpRequestDTO) async throws -> LoginResponseDTO {
