@@ -40,7 +40,7 @@ final class UserManager {
   }
   
   func updateRefreshToken(_ refreshToken: String) {
-    self.accessToken = refreshToken
+    self.refreshToken = refreshToken
     KeyChainManager.shared.saveInKeychain(account: TokenType.refreshToken.rawValue, value: refreshToken)
   }
   

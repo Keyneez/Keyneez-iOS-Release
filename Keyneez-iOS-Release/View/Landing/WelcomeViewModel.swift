@@ -63,6 +63,7 @@ final class WelcomeViewModel: ObservableObject {
       do {
         let loginInfo = try await repository.signInWithKakao()
         if loginInfo.isNewUser == true {
+          
           guard let idToken = await KakaoUserApi.shared.kakaoIdToken() else { return }
           await gotoSignup(with: idToken, oauthType: "KAKAO")
         } else {
@@ -70,6 +71,7 @@ final class WelcomeViewModel: ObservableObject {
           await gotoHome()
         }
       } catch(let e) {
+        
         guard let idToken = await KakaoUserApi.shared.kakaoIdToken() else {
           self.error = e
           return
@@ -107,7 +109,6 @@ extension WelcomeViewModel {
     }
     
     UserManager.shared.updateAccessToken(accessToken)
-    
     UserManager.shared.updateRefreshToken(refreshToken)
     
     do {
