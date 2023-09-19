@@ -11,7 +11,7 @@ struct HomeCardCell: View {
   let model: DetailContentResponseDTO
   @ObservedObject private var likeViewModel = LikedCardViewModel()
   @State private var isLiked: Bool = false
-
+  
   var body: some View {
     GeometryReader { geo in
       Color.white
@@ -41,6 +41,7 @@ struct HomeCardCell: View {
         Text(model.title)
           .font(.pretendard(.bold, size: 14))
           .foregroundColor(.gray900)
+          .multilineTextAlignment(.leading)
         Spacer().frame(height: 6)
         Text(model.periodString)
           .font(.pretendard(.medium, size: 8))

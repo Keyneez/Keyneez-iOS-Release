@@ -11,7 +11,7 @@ struct ExploreCardViewCell: View {
   let model: DetailContentResponseDTO
   @ObservedObject private var likeViewModel = LikedCardViewModel()
   @State private var isLiked: Bool = false
-
+  
   var body: some View {
     GeometryReader { geo in
       Color.white
@@ -35,13 +35,14 @@ struct ExploreCardViewCell: View {
             isLiked.toggle()
           } label: {
             Image(isLiked ? "ic_heart_on" : "ic_heart_off")
-     
+            
           }
         }
         Spacer().frame(height: 11)
-          Text(model.title)
+        Text(model.title)
           .font(.pretendard(.bold, size: 16))
           .foregroundColor(.gray900)
+          .multilineTextAlignment(.leading)
         Spacer().frame(height: 8)
         Text(model.periodString)
           .font(.pretendard(.medium, size: 10))

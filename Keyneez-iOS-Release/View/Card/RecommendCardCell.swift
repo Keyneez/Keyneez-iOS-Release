@@ -35,22 +35,23 @@ struct RecommendCardCell: View {
               .background(Color.categoryColor(for: model.category))
               .cornerRadius(53)
             Spacer()
-//            Button {
-//              if !isLiked {
-//                likeViewModel.fetchPostLikedCard(pk: model.contentPk)
-//              } else {
-//                likeViewModel.fetchPostUnlikedCard(pk: [model.contentPk])
-//              }
-//              isLiked.toggle()
-//            } label: {
-//              Image(isLiked ? "ic_heart_on" : "ic_heart_off")
-//       
-//            }
+            //            Button {
+            //              if !isLiked {
+            //                likeViewModel.fetchPostLikedCard(pk: model.contentPk)
+            //              } else {
+            //                likeViewModel.fetchPostUnlikedCard(pk: [model.contentPk])
+            //              }
+            //              isLiked.toggle()
+            //            } label: {
+            //              Image(isLiked ? "ic_heart_on" : "ic_heart_off")
+            //
+            //            }
           }
           Spacer().frame(height: 16)
           Text(model.title)
             .font(.pretendard(.bold, size: 26))
             .foregroundColor(.gray900)
+            .multilineTextAlignment(.leading)
           Spacer().frame(height: 10)
           Text(model.periodString)
             .font(.pretendard(.medium, size: 18))
@@ -77,7 +78,7 @@ struct RecommendCardCell: View {
       .background(Color.white)
       .cornerRadius(28)
       .scaleEffect(percentage)
-
+      
     }
     .frame(width: width, height: 440)
     .cornerRadius(28)

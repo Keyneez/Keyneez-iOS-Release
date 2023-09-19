@@ -28,6 +28,7 @@ struct HomeRecommendCardCell: View {
         Text(model.title)
           .font(.pretendard(.bold, size: 14))
           .foregroundColor(.gray900)
+          .multilineTextAlignment(.leading)
         Spacer().frame(height: 6)
         Text(model.periodString)
           .font(.pretendard(.medium, size: 8))

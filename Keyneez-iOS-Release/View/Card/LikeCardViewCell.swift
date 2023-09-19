@@ -12,7 +12,7 @@ struct LikeCardViewCell: View {
   let model: ContentsLikedResponseDTO
   @ObservedObject private var likeViewModel = LikedCardViewModel()
   @Binding var cardList: [ContentsLikedResponseDTO]
-
+  
   var body: some View {
     GeometryReader { geo in
       Color.white
@@ -27,16 +27,17 @@ struct LikeCardViewCell: View {
             likeViewModel.fetchPostUnlikedCard(pk: [model.contentPk])
             isLiked = false
             withAnimation {
-                cardList.removeAll { $0.contentPk == model.contentPk }
+              cardList.removeAll { $0.contentPk == model.contentPk }
             }
           } label: {
             Image(isLiked ? "ic_heart_on" : "ic_heart_off")
           }
         }
         Spacer().frame(height: 11)
-          Text(model.title)
+        Text(model.title)
           .font(.pretendard(.bold, size: 16))
           .foregroundColor(.gray900)
+          .multilineTextAlignment(.leading)
         Spacer().frame(height: 8)
         Text(model.periodString)
           .font(.pretendard(.medium, size: 10))
