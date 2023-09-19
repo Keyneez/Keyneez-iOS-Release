@@ -108,6 +108,25 @@ final class OAuthRepository: OAuthRepositoryProtocol {
   }
   
   func signOutWithApple() async throws -> LogoutResponseDTO {
+    
+    if let refreshToken = UserManager.shared.refreshToken {
+      UserManager.shared.updateRefreshToken("")
+    }
+    
+    if let accessToken = UserManager.shared.accessToken {
+      UserManager.shared.updateAccessToken("")
+      do {
+        return try await authRemoteManager.logout(with: accessToken)
+      } catch {
+        throw error
+      }
+    }
+
+    throw OAuthRepositoryError.unknownError
+  
+  }
+  
+  private func signOutFromAppleServer() async throws {
     do {
       guard let token = UserManager.shared.accessToken else {
         throw OAuthRepositoryError.tokenError
@@ -115,7 +134,7 @@ final class OAuthRepository: OAuthRepositoryProtocol {
       guard let result = await appleLoginManager.performAppleLogout() else {
         throw OAuthRepositoryError.unknownError
       }
-      return try await authRemoteManager.logout(with: token)
+      
     } catch(let e) {
       if let error = e as? KeyneezNetworkError {
         switch error {
