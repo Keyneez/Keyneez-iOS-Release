@@ -56,7 +56,9 @@ final class OAuthRepository: OAuthRepositoryProtocol {
       guard let idToken = await appleLoginManager.performAppleSignIn() else {
         throw OAuthRepositoryError.tokenError
       }
-      return try await OauthRemoteManager.appleLogin(with: idToken)
+      var dto = try await OauthRemoteManager.appleLogin(with: idToken)
+      dto.appleIdToken = idToken
+      return dto
     } catch(let e) {
       if let error = e as? KeyneezNetworkError {
         switch error {

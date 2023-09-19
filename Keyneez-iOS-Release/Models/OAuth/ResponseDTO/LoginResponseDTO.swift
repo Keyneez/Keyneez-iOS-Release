@@ -11,6 +11,7 @@ struct LoginResponseDTO: Codable {
   var isNewUser: Bool?
   var token: Token?
   var user: UserDTO?
+  var appleIdToken: String?
 }
 
 
