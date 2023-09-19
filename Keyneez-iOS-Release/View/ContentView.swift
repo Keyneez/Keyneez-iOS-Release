@@ -18,7 +18,6 @@ struct ContentView: View {
         goToLoginFlow()
       case .Home:
         TabBarView()
-          .navigationBarBackButtonHidden(true)
       case .Launching:
         Text("런칭중")
       }
