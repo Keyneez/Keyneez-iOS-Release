@@ -41,8 +41,13 @@ final class WelcomeViewModel: ObservableObject {
       }
       do {
         let loginInfo = try await repository.signInWithApple()
-        try login(with: loginInfo)
-        await gotoHome()
+        if loginInfo.isNewUser == true  {
+          guard let idToken = loginInfo.appleIdToken else { return }
+          await gotoSignup(with: idToken, oauthType: "APPLE")
+        } else {
+          try login(with: loginInfo)
+          await gotoHome()
+        }
       } catch(let e) {
         guard let idToken = await AppleLoginManager.shared.performAppleSignIn() else {
           self.error = e
