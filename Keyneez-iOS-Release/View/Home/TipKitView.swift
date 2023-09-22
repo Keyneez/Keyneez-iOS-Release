@@ -9,6 +9,14 @@ import SwiftUI
 
 struct TipKitView: View {
   @State private var isHidden = false
+  
+  init() {
+        // UserDefaults에서 isTipKitFirstLaunch 값을 불러옴
+        if UserDefaults.standard.bool(forKey: "isTipKitFirstLaunch") {
+          _isHidden = State(initialValue: true) // 이미 실행되었던 경우, true로 설정
+        }
+    }
+  
   var body: some View {
     if !isHidden {
       ZStack(alignment: .leading) {
@@ -21,6 +29,7 @@ struct TipKitView: View {
             .padding([.top, .leading], 8)
           Button {
             isHidden = true
+            UserDefaults.standard.set(true, forKey: "isTipKitFirstLaunch")
           } label : {
             Image(systemName: "xmark")
               .resizable()
