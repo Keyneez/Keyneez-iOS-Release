@@ -48,13 +48,10 @@ struct TeasingTabView: View {
       }
       
       HStack {
-        ForEach(viewModel.recommendCardList, id: \.contentPk) { content in
+        ForEach(0..<viewModel.recommendCardList.count, id: \.self) { idx in
           Circle()
             .frame(width: 8)
-            .foregroundColor( content.contentPk == selectedTab ? .primary : .secondary.opacity(0.5))
-            .onTapGesture {
-              selectedTab = content.contentPk
-            }
+            .foregroundColor( idx == selectedTab ? .primary : .secondary.opacity(0.5))
         }
       }
     }
