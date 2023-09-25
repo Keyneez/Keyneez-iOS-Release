@@ -29,7 +29,7 @@ struct MainRecommendView: View {
         .padding(.top, 12)
         .padding(.leading, 25)
         Spacer().frame(height: 77)
-        Text("이번 주의 추천 활동들이에요!")
+        Text("이번 달의 추천 활동들이에요!")
           .font(.pretendard(.semiBold, size: 24))
         Spacer().frame(height: 49)
         TeasingTabView(selectedTab: $selected, spacing: 8).frame(height: 480)

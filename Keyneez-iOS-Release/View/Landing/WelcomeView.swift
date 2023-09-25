@@ -16,6 +16,7 @@ struct WelcomeView: View {
  @State var page = 0
   
   var body: some View {
+    ScrollView {
       ZStack {
         Image("background")
           .resizable()
@@ -42,6 +43,7 @@ struct WelcomeView: View {
         .padding(.horizontal)
         .errorAlert(error: $viewModel.error)
       }
+    }
   }
   
   
