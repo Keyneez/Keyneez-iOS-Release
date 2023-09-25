@@ -13,14 +13,7 @@ struct TermsView: View {
     var body: some View {
         ZStack {
             VStack {
-                switch termsState {
-                case .serviceUse:
-                    Text("이용약관 내용")
-                case .privacy:
-                    Text("개인정보 내용")
-                case .openSourceLisence:
-                    Text("오픈소스 내용")
-                }
+              Text("준비 중...")
                 Spacer()
             }
             ZStack {
@@ -41,12 +34,12 @@ struct TermsView: View {
                             .frame(height: 56)
                             .foregroundColor(.white)
                             .font(.pretendard(.medium, size: 18))
-                            .background(Color.gray900)
+                            .background(Color.gray400)
                             .cornerRadius(14)
                             .padding([.leading,.trailing], 21)
-                            .padding([.bottom], 34)
-                        // TODO: URL 연결
+                            .padding([.bottom], 120)
                     }
+                    .disabled(true)
                 }
             }.ignoresSafeArea()
         }

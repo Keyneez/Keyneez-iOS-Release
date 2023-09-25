@@ -17,15 +17,17 @@ final class RecommendViewModel: ViewModelable {
   @Published var error: Error?
   
   private var idToken: String?
+  private var oauthType: String
   private var gender: Gender = .none
   private var birth: String
   private var repository: OAuthRepositoryProtocol = OAuthRepository()
   
-  init(idToken: String?, nickname: String, gender: Gender, birth: String) {
+  init(idToken: String?, nickname: String, gender: Gender, birth: String, oauthType: String) {
     self.idToken = idToken
     self.gender = gender
     self.birth = birth
     self.nickname = nickname
+    self.oauthType = oauthType
     state = .isCompleted(false)
   }
   
@@ -44,7 +46,7 @@ final class RecommendViewModel: ViewModelable {
       didTapFliterButton(id: id)
     case .onTapConfirmButton:
       Task {
-        let isSignUpSuccessed = await signUp()
+        let isSignUpSuccessed = await signUp(oauthType: oauthType)
         await MainActor.run {
           confirmed = isSignUpSuccessed
         }
@@ -55,15 +57,16 @@ final class RecommendViewModel: ViewModelable {
   
   
   
-  private func signUp() async -> Bool {
+  private func signUp(oauthType: String) async -> Bool {
     
     guard let idToken = idToken else { return false }
     do {
-      let signUpResponse = try await repository.signUpWithKakao(with: KakaoSignUpRequestDTO(idToken:idToken, nickname: nickname, gender: gender.keyword, birth: birth, age: 0, tagPks: items.filter { $0.checked == true }.map { $0.id }))
+      let signUpResponse = try await repository.signUpWithKakao(with: KakaoSignUpRequestDTO(idToken:idToken, oauthType: oauthType, nickname: nickname, gender: gender.keyword, birth: birth, age: 0, tagPks: items.filter { $0.checked == true }.map { $0.id }))
       
       guard let accessToken = signUpResponse.token?.accessToken, let refreshToken = signUpResponse.token?.refreshToken else {
         return false
       }
+      
       UserManager.shared.updateAccessToken(accessToken)
       UserManager.shared.updateRefreshToken(refreshToken)
       

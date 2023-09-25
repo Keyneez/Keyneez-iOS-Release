@@ -22,7 +22,7 @@ struct DetailView: View {
             ScrollView {
                 ZStack {
                     VStack {
-                      Image(detailViewModel.detailModel.imgName)
+                      Image(detailViewModel.detailModel.detailImg)
                             .resizable()
                             .scaledToFit()
                         Spacer()

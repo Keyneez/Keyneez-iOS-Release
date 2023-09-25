@@ -20,11 +20,8 @@ final class AuthRemoteManager: RequestSendable {
     return try await requestFrom(target, modelType: RefreshResponseDTO.self)
   }
   
-  func refresh(completion: @escaping (RefreshResponseDTO) -> Void) {
+  func logout(with accessToken: String) async throws -> LogoutResponseDTO { // DecodeError
     
-  }
-  
-  func logout(accessToken: String) async throws -> LogoutResponseDTO { // DecodeError
     let target = AuthAPI.logout(accessToken: accessToken)
     return try await requestFrom(target, modelType: LogoutResponseDTO.self)
   }

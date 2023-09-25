@@ -56,7 +56,9 @@ final class OAuthRepository: OAuthRepositoryProtocol {
       guard let idToken = await appleLoginManager.performAppleSignIn() else {
         throw OAuthRepositoryError.tokenError
       }
-      return try await OauthRemoteManager.appleLogin(with: idToken)
+      var dto = try await OauthRemoteManager.appleLogin(with: idToken)
+      dto.appleIdToken = idToken
+      return dto
     } catch(let e) {
       if let error = e as? KeyneezNetworkError {
         switch error {
@@ -89,6 +91,7 @@ final class OAuthRepository: OAuthRepositoryProtocol {
   
   func signInWithKakao() async throws -> LoginResponseDTO {
     if KakaoUserApi.isKakaoTalkLoginAvailable() {
+      
       guard let info = await KakaoUserApi.shared.loginWithKakaoTalk().0, let idToken = info.idToken else {
         throw WelcomeViewModelError.kakaoLoginNotAvailable
       }
@@ -105,12 +108,33 @@ final class OAuthRepository: OAuthRepositoryProtocol {
   }
   
   func signOutWithApple() async throws -> LogoutResponseDTO {
+    
+    if let refreshToken = UserManager.shared.refreshToken {
+      UserManager.shared.updateRefreshToken("")
+    }
+    
+    if let accessToken = UserManager.shared.accessToken {
+      UserManager.shared.updateAccessToken("")
+      do {
+        return try await authRemoteManager.logout(with: accessToken)
+      } catch {
+        throw error
+      }
+    }
+
+    throw OAuthRepositoryError.unknownError
+  
+  }
+  
+  private func signOutFromAppleServer() async throws {
     do {
-      guard let accessToken = UserManager.shared.accessToken else {
-        // 여기서 오류..
+      guard let token = UserManager.shared.accessToken else {
         throw OAuthRepositoryError.tokenError
       }
-      return try await authRemoteManager.logout(accessToken: accessToken)
+      guard let result = await appleLoginManager.performAppleLogout() else {
+        throw OAuthRepositoryError.unknownError
+      }
+      
     } catch(let e) {
       if let error = e as? KeyneezNetworkError {
         switch error {
@@ -125,32 +149,52 @@ final class OAuthRepository: OAuthRepositoryProtocol {
   }
   
   func signOutWithKakao() async throws -> LogoutResponseDTO {
-    let logoutError = await KakaoUserApi.shared.logoutWithKakaoAcount()
-    if let logoutError = logoutError {
-        print("카카오 계정 로그아웃 중 에러 발생: \(logoutError.localizedDescription)")
-      throw OAuthRepositoryError.unknownError
-    } else {
-        print("카카오 계정 로그아웃 성공")
+    
+    if let refreshToken = UserManager.shared.refreshToken {
+      UserManager.shared.updateRefreshToken("")
+    }
+    
+    if let accessToken = UserManager.shared.accessToken {
+      print("??", accessToken)
+      UserManager.shared.updateAccessToken("")
       do {
-        guard let accessToken = UserManager.shared.accessToken else {
-          throw OAuthRepositoryError.tokenError
-        }
-        UserManager.shared.updateAccessToken("")
-        UserManager.shared.updateRefreshToken("")
-        return try await authRemoteManager.logout(accessToken: accessToken) // 여기가 문제닷!
-      } catch(let e) {
-        print("authRemoteManager logout에서 오류: \(e)")
-        if let error = e as? KeyneezNetworkError {
-          switch error {
-          case .DecodeError:
-            throw OAuthRepositoryError.unknownError
-          case .failure(let statusCode, _):
-            throw OAuthRepositoryError.getErrorDesc(by: statusCode)
-          }
-        }
-        throw OAuthRepositoryError.unknownError
+        return try await authRemoteManager.logout(with: accessToken) // 여기가 문제닷!
+      } catch {
+        throw error
       }
     }
+
+    throw OAuthRepositoryError.unknownError
+    
+    
+//    let logoutError = await KakaoUserApi.shared.logoutWithKakaoAcount()
+//    if let logoutError = logoutError {
+//        print("카카오 계정 로그아웃 중 에러 발생: \(logoutError.localizedDescription)")
+//      throw OAuthRepositoryError.unknownError
+//    } else {
+//        print("카카오 계정 로그아웃 성공")
+//      do {
+//        guard let accessToken = UserManager.shared.accessToken else {
+//          throw OAuthRepositoryError.tokenError
+//        }
+//        print(accessToken)
+//        UserManager.shared.updateAccessToken("")
+//        UserManager.shared.updateRefreshToken("")
+//        print("액세스토큰: \(accessToken)")
+//        return try await authRemoteManager.logout(with: accessToken) // 여기가 문제닷!
+//      } catch(let e) {
+//        print("authRemoteManager logout에서 오류: \(e)")
+//        if let error = e as? KeyneezNetworkError {
+//          switch error {
+//          case .DecodeError:
+//            throw OAuthRepositoryError.unknownError
+//          case .failure(let statusCode, _):
+//            throw OAuthRepositoryError.getErrorDesc(by: statusCode)
+//          }
+//        }
+//        throw OAuthRepositoryError.unknownError
+//      }
+//    }
 
   }
   
