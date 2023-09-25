@@ -71,25 +71,6 @@ struct SettingView: View {
                         }
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(0))
-
-                        Section {
-                            VStack(spacing: 0) {
-                                HStack {
-                                    Text("푸쉬 알림 설정")
-                                        .foregroundColor(.gray500)
-                                        .font(.pretendard(.medium, size: 16))
-                                    Spacer()
-                                    Toggle(isOn: self.$isOnPushAlert) {
-                                    }.tint(Color.black)
-                                }
-                                .padding([.top, .bottom], 20)
-                                .padding([.leading, .trailing], 28)
-                                makeGraySpacing()
-                            }
-                        }
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(0))
-                        
                         Section {
                             HStack {
                                 Text("버전 정보")
@@ -101,15 +82,13 @@ struct SettingView: View {
                             .padding([.top, .bottom], 20)
                             .padding([.leading, .trailing], 28)
                             
-                            NavigationLink(destination:
-                                            TermsView(termsState: $termsViewState)
-                                .navigationTitle("서비스 이용 약관")
-                                .navigationBarTitleDisplayMode(.inline)
-                            ) {
+                          Link(destination: URL(string: "https://hwajeonglee.notion.site/f238a5c434fc413b960978cc98101336")!) {
                                 HStack {
                                     Text("서비스 이용 약관")
                                         .foregroundColor(.gray500)
                                         .font(.pretendard(.medium, size: 16))
+                                  Spacer()
+                                  Image("Setting_arrow")
                                 }
                                 .onTapGesture {
                                     termsViewState = .serviceUse
@@ -118,15 +97,13 @@ struct SettingView: View {
                             .padding([.top, .bottom], 20)
                             .padding([.leading, .trailing], 28)
                             
-                            NavigationLink(destination: TermsView(termsState: $termsViewState)
-                                .navigationTitle("개인정보 처리방침")
-                                .navigationBarTitleDisplayMode(.inline)
-                            ) {
+                          Link(destination: URL(string: "https://hwajeonglee.notion.site/f4f80af305f545c4ab00b680363a9b76")!) {
                                 HStack {
                                     Text("개인정보 처리방침")
                                         .foregroundColor(.gray500)
                                         .font(.pretendard(.medium, size: 16))
-                                    Spacer()
+                                  Spacer()
+                                  Image("Setting_arrow")
                                 }
                                 .onTapGesture {
                                     termsViewState = .privacy

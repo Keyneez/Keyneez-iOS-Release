@@ -41,14 +41,19 @@ final class WelcomeViewModel: ObservableObject {
       }
       do {
         let loginInfo = try await repository.signInWithApple()
-        try login(with: loginInfo)
-        await gotoHome()
+        if loginInfo.isNewUser == true  {
+          guard let idToken = loginInfo.appleIdToken else { return }
+          await gotoSignup(with: idToken, oauthType: "APPLE")
+        } else {
+          try login(with: loginInfo)
+          await gotoHome()
+        }
       } catch(let e) {
         guard let idToken = await AppleLoginManager.shared.performAppleSignIn() else {
           self.error = e
           return
         }
-        await gotoSignup(with: idToken)
+        await gotoSignup(with: idToken, oauthType: "APPLE")
       }
     }
   }
@@ -62,14 +67,21 @@ final class WelcomeViewModel: ObservableObject {
       
       do {
         let loginInfo = try await repository.signInWithKakao()
-        try login(with: loginInfo)
-        await gotoHome()
+        if loginInfo.isNewUser == true {
+          
+          guard let idToken = await KakaoUserApi.shared.kakaoIdToken() else { return }
+          await gotoSignup(with: idToken, oauthType: "KAKAO")
+        } else {
+          try login(with: loginInfo)
+          await gotoHome()
+        }
       } catch(let e) {
+        
         guard let idToken = await KakaoUserApi.shared.kakaoIdToken() else {
           self.error = e
           return
         }
-        await gotoSignup(with: idToken)
+        await gotoSignup(with: idToken, oauthType: "KAKAO")
       }
     }
     
@@ -79,9 +91,9 @@ final class WelcomeViewModel: ObservableObject {
 
 extension WelcomeViewModel {
   
-  private func gotoSignup(with idToken: String) async {
+  private func gotoSignup(with idToken: String, oauthType: String) async {
     await MainActor.run {
-      nextPage = .signup(viewModel: RegisterIDViewModel(idToken: idToken))
+      nextPage = .signup(viewModel: RegisterIDViewModel(idToken: idToken, oauthType: oauthType))
       readyToNavigation = true
       isLoading = false
     }
@@ -96,12 +108,12 @@ extension WelcomeViewModel {
   }
   
   private func login(with loginInfo: LoginResponseDTO) throws {
+    
     guard let accessToken = loginInfo.token?.accessToken, let refreshToken = loginInfo.token?.refreshToken else {
       return
     }
     
     UserManager.shared.updateAccessToken(accessToken)
-    
     UserManager.shared.updateRefreshToken(refreshToken)
     
     do {

@@ -60,4 +60,38 @@ extension DetailContentResponseDTO {
   var isHeartOn : Bool {
     return Likes?.isEmpty == false ? true : false
    }
+  
+  var detailImg: String {
+    switch(tag) {
+    case "서포터즈":
+      return ("Detail_Activity_01")
+    case "동아리":
+      return ("Detail_Activity_02")
+    case "캠페인":
+      return ("Detail_Activity_03")
+    case "공모전":
+      return ("Detail_Activity_04")
+    case "강연":
+      return ("Detail_Vision_01")
+    case "강의":
+      return ("Detail_Vision_02")
+    case "멘토링":
+      return ("Detail_Vision_03")
+    case "장학":
+      return ("Detail_Vision_04")
+    case "문화생활", "청소년 혜택":
+      return ("Detail_Hobby")
+    default:
+      switch(category) {
+      case "활동":
+        return "Detail_Activity_01"
+      case "진로":
+        return "Detail_Vision_03"
+      case "취미":
+        return "Detail_Hobby"
+      default:
+        return "Detail_Hobby"
+      }
+    }
+  }
 }

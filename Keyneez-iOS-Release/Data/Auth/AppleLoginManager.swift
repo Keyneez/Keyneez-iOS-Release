@@ -36,7 +36,7 @@ final class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate {
   }
   
   func performAppleLogout() async -> Bool? {
-    await withCheckedContinuation({ continuation in
+    await withUnsafeContinuation({ continuation in
       self.performAppleLogout { success in
         continuation.resume(returning: success)
       }
@@ -62,7 +62,7 @@ extension AppleLoginManager {
     controller.performRequests()
   }
   
-  private func performAppleLogout(with completion: @escaping (_ success: Bool?) -> ()) {
+  func performAppleLogout(with completion: @escaping (_ success: Bool?) -> ()) {
     let authorization = ASAuthorizationAppleIDProvider()
     let request = authorization.createRequest()
     request.requestedOperation = .operationLogout

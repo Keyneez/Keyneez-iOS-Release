@@ -28,8 +28,5 @@ struct Keyneez_iOS_ReleaseApp: App {
           }
         }
     }
-    
-
-  
   
 }

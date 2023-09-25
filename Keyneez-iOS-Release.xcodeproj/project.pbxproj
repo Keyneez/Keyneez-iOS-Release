@@ -69,7 +69,6 @@
 		B145A0752A4D77FC003505B6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0742A4D77FC003505B6 /* Token.swift */; };
 		B145A0772A4D7823003505B6 /* SignUpRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0762A4D7823003505B6 /* SignUpRequestDTO.swift */; };
 		B145A0792A4D7C79003505B6 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0782A4D7C79003505B6 /* KeychainManager.swift */; };
-		B145A07B2A4D7FD6003505B6 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A07A2A4D7FD6003505B6 /* AuthInterceptor.swift */; };
 		B145A07D2A4D80F0003505B6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A07C2A4D80F0003505B6 /* UserManager.swift */; };
 		B145A0802A4D8384003505B6 /* RefreshResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A07F2A4D8384003505B6 /* RefreshResponseDTO.swift */; };
 		B145A0822A4D999F003505B6 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145A0812A4D999F003505B6 /* GenericResponse.swift */; };
@@ -124,9 +123,9 @@
 		B17227BA2A6BCF95009A1FF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227B92A6BCF95009A1FF9 /* ContentView.swift */; };
 		B17227BC2A6BD078009A1FF9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */; };
 		B17227BE2A6BE161009A1FF9 /* roof1.gif in Resources */ = {isa = PBXBuildFile; fileRef = B17227BD2A6BE161009A1FF9 /* roof1.gif */; };
-		B8A0EAE32A9C94710011479A /* WithdrawResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */; };
 		B8A0EADF2A9A3E330011479A /* ShareActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */; };
 		B8A0EAE12A9A3E690011479A /* ShareText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE02A9A3E690011479A /* ShareText.swift */; };
+		B8A0EAE32A9C94710011479A /* WithdrawResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,7 +190,6 @@
 		B145A0742A4D77FC003505B6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		B145A0762A4D7823003505B6 /* SignUpRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestDTO.swift; sourceTree = "<group>"; };
 		B145A0782A4D7C79003505B6 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
-		B145A07A2A4D7FD6003505B6 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		B145A07C2A4D80F0003505B6 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		B145A07F2A4D8384003505B6 /* RefreshResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshResponseDTO.swift; sourceTree = "<group>"; };
 		B145A0812A4D999F003505B6 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
@@ -247,9 +245,9 @@
 		B17227B92A6BCF95009A1FF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B17227BB2A6BD078009A1FF9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B17227BD2A6BE161009A1FF9 /* roof1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = roof1.gif; sourceTree = "<group>"; };
-		B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawResponseDTO.swift; sourceTree = "<group>"; };
 		B8A0EADE2A9A3E330011479A /* ShareActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivityView.swift; sourceTree = "<group>"; };
 		B8A0EAE02A9A3E690011479A /* ShareText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareText.swift; sourceTree = "<group>"; };
+		B8A0EAE22A9C94710011479A /* WithdrawResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -520,7 +518,6 @@
 				B145A0832A4D9C39003505B6 /* OAuthRepository.swift */,
 				B145A0852A4D9CD0003505B6 /* KakaoUserApi.swift */,
 				B145A0782A4D7C79003505B6 /* KeychainManager.swift */,
-				B145A07A2A4D7FD6003505B6 /* AuthInterceptor.swift */,
 				B145A07C2A4D80F0003505B6 /* UserManager.swift */,
 				B154804C2A6397EC00293289 /* AppleLoginManager.swift */,
 			);
@@ -862,7 +859,6 @@
 				B154804D2A6397EC00293289 /* AppleLoginManager.swift in Sources */,
 				B145A0712A4D75AB003505B6 /* LoginResponseDTO.swift in Sources */,
 				B154805F2A639D8200293289 /* DetailView.swift in Sources */,
-				B145A07B2A4D7FD6003505B6 /* AuthInterceptor.swift in Sources */,
 				B145A0532A4BC2C5003505B6 /* OAuthAPI.swift in Sources */,
 				B125FBEE2A29D5570015E04B /* IDRegexMaker.swift in Sources */,
 				B145A03F2A4ACD76003505B6 /* PageIndicator.swift in Sources */,
