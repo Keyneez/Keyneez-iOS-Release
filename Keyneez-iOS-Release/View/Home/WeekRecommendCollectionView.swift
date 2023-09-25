@@ -34,11 +34,6 @@ struct WeekRecommendCollectionView: View {
               }
             }
           }
-          TipKitView()
-            .frame(width: 181, height: 34)
-            .padding(.leading, 88)
-            .padding(.top, 36)
-            
         }
       }
       .scrollIndicators(.hidden)

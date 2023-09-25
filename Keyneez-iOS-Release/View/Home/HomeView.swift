@@ -50,12 +50,18 @@ struct HomeView: View {
           
           Spacer().frame(height: 19)
           ScrollView(.horizontal) {
-            LazyHGrid(rows: rows, spacing: 15) {
-              ForEach(allViewModel.allCardList, id: \.contentPk) {content in
-                NavigationLink(destination: DetailView(pk: content.contentPk)) {
-                  HomeCardCell(model: content)
+            ZStack(alignment: .topLeading) {
+              LazyHGrid(rows: rows, spacing: 15) {
+                ForEach(allViewModel.allCardList, id: \.contentPk) {content in
+                  NavigationLink(destination: DetailView(pk: content.contentPk)) {
+                    HomeCardCell(model: content)
+                  }
                 }
               }
+              TipKitView()
+                .frame(width: 181, height: 34)
+                .padding(.leading, 88)
+                .padding(.top, 36)
             }
           }
           .scrollIndicators(.hidden)
