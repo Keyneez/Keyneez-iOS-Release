@@ -26,9 +26,6 @@ struct TeasingTabView: View {
           ForEach(viewModel.recommendCardList, id: \.contentPk) { content in
             RecommendCardCell(screenSize: screenSize, width: width, model: content)
               .frame(width: width)
-              .onTapGesture {
-                selectedTab = content.contentPk
-              }
               .foregroundColor(content.contentPk == selectedTab ? .primary : .secondary.opacity(0.5))
           }
         }

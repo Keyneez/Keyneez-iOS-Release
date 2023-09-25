@@ -14,7 +14,7 @@ struct WeekRecommendCollectionView: View {
     VStack(alignment: .leading) {
       NavigationLink(destination: MainRecommendView()) {
         HStack(alignment: .bottom) {
-          Text("이번 주의 추천 활동 보기")
+          Text("이번 달의 추천 활동 보기")
             .font(.pretendard(.semiBold, size: 24))
             .foregroundColor(.gray900)
           Image("ic_detail")

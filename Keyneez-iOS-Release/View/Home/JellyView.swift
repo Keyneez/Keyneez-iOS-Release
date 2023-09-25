@@ -10,7 +10,7 @@ import SwiftUI
 struct JellyView: View {
     var body: some View {
       VStack {
-      Text("이번 주의 젤리봉투를 열어보세요!")
+      Text("이번 달의 젤리봉투를 열어보세요!")
         .font(.pretendard(.semiBold, size: 24))
         .foregroundColor(.gray900)
       Spacer().frame(height: 20)
