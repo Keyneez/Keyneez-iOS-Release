@@ -48,6 +48,7 @@ struct TabBarView: View {
         .tag(Tab.setting)
     }
     .accentColor(.gray900)
+    .navigationBarBackButtonHidden(true)
   }
 }
 
