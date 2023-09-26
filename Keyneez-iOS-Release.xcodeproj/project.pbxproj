@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020AF3B22AC3143000E70581 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AF3B12AC3143000E70581 /* HomeModel.swift */; };
 		0233F3FD2A9E027200299EF1 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233F3FC2A9E027200299EF1 /* LikeViewModel.swift */; };
 		023CF6752A80916100F63642 /* LikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6742A80916100F63642 /* LikeCell.swift */; };
 		023CF6772A80929700F63642 /* LikeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF6762A80929700F63642 /* LikeEditView.swift */; };
@@ -94,7 +95,6 @@
 		B15480802A639DB300293289 /* WeekRecommendCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480752A639DB300293289 /* WeekRecommendCollectionView.swift */; };
 		B15480812A639DB300293289 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480762A639DB300293289 /* HomeView.swift */; };
 		B15480822A639DB300293289 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480772A639DB300293289 /* TabBarView.swift */; };
-		B15480832A639DB300293289 /* JellyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480782A639DB300293289 /* JellyView.swift */; };
 		B15480842A639DB300293289 /* TipKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15480792A639DB300293289 /* TipKitView.swift */; };
 		B15480852A639DB300293289 /* TeasingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B154807A2A639DB300293289 /* TeasingTabView.swift */; };
 		B15480862A639DB300293289 /* RecentUpdateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B154807B2A639DB300293289 /* RecentUpdateDetailView.swift */; };
@@ -128,6 +128,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		020AF3B12AC3143000E70581 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		0233F3FC2A9E027200299EF1 /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		023CF6742A80916100F63642 /* LikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCell.swift; sourceTree = "<group>"; };
 		023CF6762A80929700F63642 /* LikeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeEditView.swift; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 		B15480752A639DB300293289 /* WeekRecommendCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekRecommendCollectionView.swift; sourceTree = "<group>"; };
 		B15480762A639DB300293289 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B15480772A639DB300293289 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		B15480782A639DB300293289 /* JellyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyView.swift; sourceTree = "<group>"; };
 		B15480792A639DB300293289 /* TipKitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipKitView.swift; sourceTree = "<group>"; };
 		B154807A2A639DB300293289 /* TeasingTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeasingTabView.swift; sourceTree = "<group>"; };
 		B154807B2A639DB300293289 /* RecentUpdateDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentUpdateDetailView.swift; sourceTree = "<group>"; };
@@ -262,6 +262,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020AF3B02AC3142500E70581 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				020AF3B12AC3143000E70581 /* HomeModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		023CF6782A8095A600F63642 /* Like */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +401,7 @@
 		029A34DD2A1F557500088963 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				020AF3B02AC3142500E70581 /* Home */,
 				0245D09C2A8CD9A000A2715C /* Like */,
 				B154808D2A639E0B00293289 /* Setting */,
 				B15480882A639E0600293289 /* Detail */,
@@ -647,7 +656,6 @@
 				B15480752A639DB300293289 /* WeekRecommendCollectionView.swift */,
 				B15480762A639DB300293289 /* HomeView.swift */,
 				B15480772A639DB300293289 /* TabBarView.swift */,
-				B15480782A639DB300293289 /* JellyView.swift */,
 				B15480792A639DB300293289 /* TipKitView.swift */,
 				B154807A2A639DB300293289 /* TeasingTabView.swift */,
 				B154807B2A639DB300293289 /* RecentUpdateDetailView.swift */,
@@ -850,8 +858,8 @@
 				B1200CF52A63A12B00A1310F /* Keyneez_iOS_ReleaseApp.swift in Sources */,
 				B15480BB2A639E6B00293289 /* View+Extension.swift in Sources */,
 				0245D09E2A8CD9BF00A2715C /* ContentsLikedResponseDTO.swift in Sources */,
+				020AF3B22AC3143000E70581 /* HomeModel.swift in Sources */,
 				B15480562A639D6600293289 /* TagViewModifier.swift in Sources */,
-				B15480832A639DB300293289 /* JellyView.swift in Sources */,
 				B15480D12A639E8B00293289 /* SettingViewModel.swift in Sources */,
 				B154804D2A6397EC00293289 /* AppleLoginManager.swift in Sources */,
 				B145A0712A4D75AB003505B6 /* LoginResponseDTO.swift in Sources */,

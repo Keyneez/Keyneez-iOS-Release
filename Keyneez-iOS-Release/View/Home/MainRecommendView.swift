@@ -9,14 +9,15 @@ import SwiftUI
 
 struct MainRecommendView: View {
   @State private var selected = 0
-  @Environment(\.dismiss) private var dismiss
+  @EnvironmentObject var router: Router
+
   var body: some View {
     ZStack(alignment: .top) {
       HomeBackgroundView()
       VStack {
         HStack {
           Button {
-            dismiss()
+            router.clear()
           } label: {
             Image(systemName: "xmark")
               .resizable()
@@ -34,6 +35,9 @@ struct MainRecommendView: View {
         Spacer().frame(height: 49)
         TeasingTabView(selectedTab: $selected, spacing: 8).frame(height: 480)
       }
+    }
+    .navigationDestination(for: Views.self){ destination in
+      ViewFactory.viewForDestination(destination)
     }
     .navigationBarBackButtonHidden(true)
   }

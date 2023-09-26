@@ -9,12 +9,14 @@ import SwiftUI
 
 struct JellyGifImageView: View {
   @State private var isShowRecommendView = false
+  @EnvironmentObject var router: Router
+
 // navigation animation disable
 //  init() {
 //    UINavigationBar.setAnimationsEnabled(false)
 //  }
   var body: some View {
-    NavigationStack {
+    NavigationStack(path: $router.path) {
       Color.gray100
         .ignoresSafeArea(.all)
         .overlay(
@@ -24,22 +26,13 @@ struct JellyGifImageView: View {
         )
         .onAppear {
           DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
-            isShowRecommendView = true
+            router.gotoMainRecommendView()
           }
         }
-        .background(
-          NavigationLink(destination: MainRecommendView(), isActive: $isShowRecommendView) {
-            EmptyView()
-          }
-            .navigationBarBackButtonHidden(true)
-        )
+        .navigationDestination(for: Views.self) { destination in
+          ViewFactory.viewForDestination(destination)
+        }
+        .navigationBarBackButtonHidden(true)
     }
-  }
-}
-
-
-struct JellyGifImageView_Previews: PreviewProvider {
-  static var previews: some View {
-    JellyGifImageView()
   }
 }

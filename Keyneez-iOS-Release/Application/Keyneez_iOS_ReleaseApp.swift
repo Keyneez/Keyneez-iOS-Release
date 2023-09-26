@@ -11,22 +11,29 @@ import KakaoSDKCommon
 
 @main
 struct Keyneez_iOS_ReleaseApp: App {
-  
+  @ObservedObject var router = Router()
   private var mainViewModel = MainViewModel()
   
   init() {
     KakaoSDK.initSDK(appKey: "0501023316109643f5aaf664f5af0eef")
   }
   
-    var body: some Scene {
-      WindowGroup {
+  var body: some Scene {
+    WindowGroup {
+      NavigationStack(path: $router.path){
         ContentView(viewModel: mainViewModel)
           .onAppear{
             Task {
               await mainViewModel.refreshToken()
             }
           }
+          .navigationDestination(for: Views.self){ destination in
+            ViewFactory.viewForDestination(destination)
         }
+      }
+      .environmentObject(router)
     }
-  
+  }
 }
+
+

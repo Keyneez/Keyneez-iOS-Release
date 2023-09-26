@@ -10,11 +10,12 @@ import SwiftUI
 struct HomeView: View {
   @StateObject private var recommendViewModel = RecommendCardViewModel()
   @StateObject private var allViewModel = AllCardViewModel()
-  @StateObject private var likeViewModel = LikedCardViewModel() // 뷰모델 추가
-  
+  @StateObject private var likeViewModel = LikedCardViewModel()
+  @EnvironmentObject var router: Router
+
   var rows : [GridItem] = Array(repeating: .init(.fixed(220)), count: 1)
   var body: some View {
-    NavigationStack {
+    NavigationStack(path:$router.path) {
       ZStack(alignment: .top) {
         HomeBackgroundView()
         VStack(alignment: .leading, spacing: 0) {
@@ -33,8 +34,22 @@ struct HomeView: View {
           +
           Text("님을 위한")
             .font(.pretendard(.semiBold, size: 24))
-          //            JellyView()
-          WeekRecommendCollectionView()
+          VStack {
+            Text("이번 달의 젤리봉투를 열어보세요!")
+              .font(.pretendard(.semiBold, size: 24))
+              .foregroundColor(.gray900)
+            Spacer().frame(height: 20)
+              Image("jelly")
+                .resizable()
+                .frame(width: 310, height: 310)
+                .onTapGesture {
+                  router.gotoJellyView()
+                }
+          }
+          .navigationDestination(for: Views.self) { destination in
+            ViewFactory.viewForDestination(destination)
+          }
+          //          WeekRecommendCollectionView()
           
           Spacer().frame(height: 30)
           NavigationLink(destination: RecentUpdateDetailView()) {
@@ -75,6 +90,10 @@ struct HomeView: View {
       }
     }
   }
+}
+
+class AppState: ObservableObject {
+  @Published var moveToRoot: Bool = false
 }
 
 
